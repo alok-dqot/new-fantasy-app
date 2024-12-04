@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 import Image from "next/image";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
@@ -103,8 +103,8 @@ function index() {
 									matchStore.match.list?.status === 2
 										? "scorecard"
 										: matchStore.match.list.status === 1
-										? "info"
-										: "live"
+											? "info"
+											: "live"
 								}
 								id='uncontrolled-tab-example'
 								className='mb-3'>
@@ -599,181 +599,181 @@ function index() {
 								</Tab.Pane>
 								{(matchStore.match.list.status === 2 ||
 									matchStore.match.list.status === 3) && (
-									<Tab.Pane eventKey='scorecard' title='Scorecard'>
-										<div className='scorecars_tabs_main'>
-											<Accordion defaultActiveKey='0'>
-												{scorecard?.innings?.length ? (
-													scorecard?.innings?.map((inning: any, index) => {
-														return (
-															<Accordion.Item eventKey={`${index}`}>
-																<Accordion.Header>
-																	<div className='team_main'>
-																		<div className='team_img'>
-																			<img
-																				src={
-																					inning?.batting_team_id ===
-																					detail?.teama?.team_id
-																						? detail?.teama?.logo_url
-																						: detail?.teamb?.logo_url
-																				}
-																				alt='#'
-																				className='img-fluid'
-																			/>
-																			<h5>{inning?.name}</h5>
+										<Tab.Pane eventKey='scorecard' title='Scorecard'>
+											<div className='scorecars_tabs_main'>
+												<Accordion defaultActiveKey='0'>
+													{scorecard?.innings?.length ? (
+														scorecard?.innings?.map((inning: any, index) => {
+															return (
+																<Accordion.Item eventKey={`${index}`}>
+																	<Accordion.Header>
+																		<div className='team_main'>
+																			<div className='team_img'>
+																				<img
+																					src={
+																						inning?.batting_team_id ===
+																							detail?.teama?.team_id
+																							? detail?.teama?.logo_url
+																							: detail?.teamb?.logo_url
+																					}
+																					alt='#'
+																					className='img-fluid'
+																				/>
+																				<h5>{inning?.name}</h5>
+																			</div>
+																			<h6>{inning?.scores_full}</h6>
 																		</div>
-																		<h6>{inning?.scores_full}</h6>
-																	</div>
-																</Accordion.Header>
-																<Accordion.Body>
-																	<div className='scorecard_cards_count'>
-																		<Table>
-																			<thead>
-																				<tr>
-																					<th style={{ width: "72%" }}>
-																						Batter
-																					</th>
-																					<th>R</th>
-																					<th>B</th>
-																					<th>4s</th>
-																					<th>6s</th>
-																					<th>SR</th>
-																				</tr>
-																			</thead>
-																			<tbody>
-																				{inning?.batsmen?.length ? (
-																					inning?.batsmen?.map(
-																						(batsmen: any) => {
+																	</Accordion.Header>
+																	<Accordion.Body>
+																		<div className='scorecard_cards_count'>
+																			<Table>
+																				<thead>
+																					<tr>
+																						<th style={{ width: "72%" }}>
+																							Batter
+																						</th>
+																						<th>R</th>
+																						<th>B</th>
+																						<th>4s</th>
+																						<th>6s</th>
+																						<th>SR</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					{inning?.batsmen?.length ? (
+																						inning?.batsmen?.map(
+																							(batsmen: any) => {
+																								return (
+																									<tr>
+																										<td>
+																											{batsmen?.name}
+																											<br />
+																											<p>{batsmen?.how_out}</p>
+																										</td>
+																										<td>{batsmen?.runs}</td>
+																										<td>
+																											{batsmen?.balls_faced}
+																										</td>
+																										<td>{batsmen?.fours}</td>
+																										<td>{batsmen?.sixes}</td>
+																										<td>
+																											{batsmen?.strike_rate}
+																										</td>
+																									</tr>
+																								);
+																							},
+																						)
+																					) : (
+																						<></>
+																					)}
+
+																					<tr>
+																						<td className='border-0'>Extras:</td>
+																						<td className='border-0'>
+																							{inning?.extra_runs?.total}
+																							<p>
+																								({inning?.extra_runs?.byes}b,
+																								{inning?.extra_runs?.legbyes} lb,
+																								{inning?.extra_runs?.wides}wd
+																								{inning?.extra_runs?.noballs}nb
+																								{inning?.extra_runs?.penalty}p)
+																							</p>
+																						</td>
+																					</tr>
+																				</tbody>
+																			</Table>
+																			<Table>
+																				<thead>
+																					<tr>
+																						<th style={{ width: "72%" }}>
+																							Bowler
+																						</th>
+																						<th>O</th>
+																						<th>M</th>
+																						<th>R</th>
+																						<th>W</th>
+																						<th>ER</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					{inning?.bowlers?.length ? (
+																						inning?.bowlers?.map(
+																							(bowler: any) => {
+																								return (
+																									<tr>
+																										<td>{bowler?.name}</td>
+																										<td>{bowler?.overs}</td>
+																										<td>{bowler?.maidens}</td>
+																										<td>
+																											{bowler?.runs_conceded}
+																										</td>
+																										<td>{bowler?.wickets}</td>
+																										<td>{bowler?.econ}</td>
+																									</tr>
+																								);
+																							},
+																						)
+																					) : (
+																						<></>
+																					)}
+
+																					<tr>
+																						<td className='border-0'>Extras:</td>
+																						<td className='border-0'>
+																							{inning?.extra_runs?.total}
+																							<p>
+																								({inning?.extra_runs?.byes}b,
+																								{inning?.extra_runs?.legbyes} lb,
+																								{inning?.extra_runs?.wides}wd
+																								{inning?.extra_runs?.noballs}nb
+																								{inning?.extra_runs?.penalty}p)
+																							</p>
+																						</td>
+																					</tr>
+																				</tbody>
+																			</Table>
+																			<Table>
+																				<thead>
+																					<tr>
+																						<th style={{ width: "72%" }}>
+																							Fall of Wickets
+																						</th>
+																						<th>Score</th>
+																						<th>Over</th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					{inning?.fows?.length ? (
+																						inning?.fows?.map((fow: any) => {
 																							return (
 																								<tr>
+																									<td>{fow?.name}</td>
 																									<td>
-																										{batsmen?.name}
-																										<br />
-																										<p>{batsmen?.how_out}</p>
+																										{fow?.score_at_dismissal}
 																									</td>
-																									<td>{batsmen?.runs}</td>
 																									<td>
-																										{batsmen?.balls_faced}
-																									</td>
-																									<td>{batsmen?.fours}</td>
-																									<td>{batsmen?.sixes}</td>
-																									<td>
-																										{batsmen?.strike_rate}
+																										{fow?.overs_at_dismissal}
 																									</td>
 																								</tr>
 																							);
-																						},
-																					)
-																				) : (
-																					<></>
-																				)}
-
-																				<tr>
-																					<td className='border-0'>Extras:</td>
-																					<td className='border-0'>
-																						{inning?.extra_runs?.total}
-																						<p>
-																							({inning?.extra_runs?.byes}b,
-																							{inning?.extra_runs?.legbyes} lb,
-																							{inning?.extra_runs?.wides}wd
-																							{inning?.extra_runs?.noballs}nb
-																							{inning?.extra_runs?.penalty}p)
-																						</p>
-																					</td>
-																				</tr>
-																			</tbody>
-																		</Table>
-																		<Table>
-																			<thead>
-																				<tr>
-																					<th style={{ width: "72%" }}>
-																						Bowler
-																					</th>
-																					<th>O</th>
-																					<th>M</th>
-																					<th>R</th>
-																					<th>W</th>
-																					<th>ER</th>
-																				</tr>
-																			</thead>
-																			<tbody>
-																				{inning?.bowlers?.length ? (
-																					inning?.bowlers?.map(
-																						(bowler: any) => {
-																							return (
-																								<tr>
-																									<td>{bowler?.name}</td>
-																									<td>{bowler?.overs}</td>
-																									<td>{bowler?.maidens}</td>
-																									<td>
-																										{bowler?.runs_conceded}
-																									</td>
-																									<td>{bowler?.wickets}</td>
-																									<td>{bowler?.econ}</td>
-																								</tr>
-																							);
-																						},
-																					)
-																				) : (
-																					<></>
-																				)}
-
-																				<tr>
-																					<td className='border-0'>Extras:</td>
-																					<td className='border-0'>
-																						{inning?.extra_runs?.total}
-																						<p>
-																							({inning?.extra_runs?.byes}b,
-																							{inning?.extra_runs?.legbyes} lb,
-																							{inning?.extra_runs?.wides}wd
-																							{inning?.extra_runs?.noballs}nb
-																							{inning?.extra_runs?.penalty}p)
-																						</p>
-																					</td>
-																				</tr>
-																			</tbody>
-																		</Table>
-																		<Table>
-																			<thead>
-																				<tr>
-																					<th style={{ width: "72%" }}>
-																						Fall of Wickets
-																					</th>
-																					<th>Score</th>
-																					<th>Over</th>
-																				</tr>
-																			</thead>
-																			<tbody>
-																				{inning?.fows?.length ? (
-																					inning?.fows?.map((fow: any) => {
-																						return (
-																							<tr>
-																								<td>{fow?.name}</td>
-																								<td>
-																									{fow?.score_at_dismissal}
-																								</td>
-																								<td>
-																									{fow?.overs_at_dismissal}
-																								</td>
-																							</tr>
-																						);
-																					})
-																				) : (
-																					<></>
-																				)}
-																			</tbody>
-																		</Table>
-																	</div>
-																</Accordion.Body>
-															</Accordion.Item>
-														);
-													})
-												) : (
-													<></>
-												)}
-											</Accordion>
-										</div>
-									</Tab.Pane>
-								)}
+																						})
+																					) : (
+																						<></>
+																					)}
+																				</tbody>
+																			</Table>
+																		</div>
+																	</Accordion.Body>
+																</Accordion.Item>
+															);
+														})
+													) : (
+														<></>
+													)}
+												</Accordion>
+											</div>
+										</Tab.Pane>
+									)}
 							</Tabs>
 						</div>
 					)}

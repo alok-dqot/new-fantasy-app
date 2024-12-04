@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import ScoreCardSlider from "../components/ScoreCardSlider";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import ScoreCardSlider from "../../components/ScoreCardSlider";
 import Image from "next/image";
 import useSeriesStore from "@/services/series/series.service";
 import moment from "moment";

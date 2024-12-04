@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
+import Header from "../../../../components/Header";
+import Footer from "../../../../components/Footer";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import { useRouter } from "next/router";

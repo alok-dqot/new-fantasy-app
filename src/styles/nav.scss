@@ -1,42 +1,6 @@
-.nav-line {
+.appbar-outer {
+
   display: flex;
   align-items: center;
-  padding: 15px 25px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e5e5;
-  ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0;
-
-    background-color: white;
-
-    margin: 0;
-    li {
-      list-style: none;
-
-      span {
-        color: #f44336;
-        font-size: 15px;
-        font-weight: 600;
-      }
-
-      .MATCH {
-        h5 {
-          font-weight: 700;
-        }
-      }
-
-      a {
-        text-decoration: none;
-        color: black;
-        h5 {
-          font-weight: 450;
-          font-size: 18px;
-        }
-      }
-    }
-  }
+  justify-content: space-around;
 }
