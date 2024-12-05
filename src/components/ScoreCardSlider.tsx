@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 // import required modules
-import Image from "next/image";
 import Link from "next/link";
 import useMatchStore from "@/services/match/match.service";
 import moment from "moment";
@@ -59,10 +58,10 @@ function ScoreCardSlider() {
 							return (
 								<SwiperSlide>
 									<Link href={`/match/${item.match_id}`}>
-									
-										
 
-										<Card/>
+
+
+										<Card />
 
 									</Link>
 								</SwiperSlide>

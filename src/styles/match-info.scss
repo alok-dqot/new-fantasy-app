@@ -1,0 +1,65 @@
+.match-info {
+    .mtch-info-txt-outer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .link-outer {
+            padding: 10px;
+
+        }
+
+        h3 {
+            font-size: 18px;
+
+        }
+
+        .hr-txt {
+            height: 3px;
+            width: 40%;
+
+            margin-top: 10px;
+
+            background-color: rgb(12, 12, 27);
+            border-radius: 5px;
+        }
+    }
+
+    .row {
+        margin: 0px;
+    }
+
+}
+
+
+.bgp {
+    background-color: #0000ff29;
+    padding: 5px;
+
+    border-radius: 5px;
+}
+
+
+.section-2,
+.section-1 {
+    margin-top: 40px;
+    padding: 10px 15px;
+
+    background-color: #1464b30d;
+    border: solid 1px #1464b30d;
+    border-radius: 5px;
+}
+
+
+
+.txt-cont_ {
+
+
+    .in-line {
+        margin-top: 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

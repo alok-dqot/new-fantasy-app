@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import ScoreCardSlider from "../../components/ScoreCardSlider";
+
 import Image from "next/image";
 import useMatchStore from "@/services/match/match.service";
 import useSeriesStore from "@/services/series/series.service";
@@ -9,6 +7,7 @@ import moment from "moment";
 import { useRouter } from "next/router";
 import EmblaCarousel from "../../components/ScoreCardSlider";
 import DetailTabs from "@/components/MatchDetailTabs";
+import HomeWrapper from "@/components/wrapper/HomeWrapper";
 
 function Index() {
 	const matchStore = useMatchStore();
@@ -22,19 +21,20 @@ function Index() {
 		seriesStore.get.paginate({ size: 9 })
 	}, []);
 	return (
-		<main>
-			<Header />
+		<HomeWrapper>
+
+
 			{/* <ScoreCardSlider /> */}
 			< EmblaCarousel />
 			<section className='cricket_match_blog_sec'>
-				<div className='row'>
+				<div className='row container'>
 					<div className='col-md-12'>
 						<div className='heading'>
 							<h2>Series</h2>
 						</div>
 					</div>
 				</div>
-				<div className='row'>
+				<div className='row container'>
 					{
 						seriesStore.competition.list.length > 0 && seriesStore.competition.list?.map((comp: any) => {
 							return (
@@ -79,7 +79,7 @@ function Index() {
 					}
 				</div>
 
-				<div>
+				<div className="container">
 					<MatchDetail />
 				</div>
 
@@ -105,8 +105,8 @@ function Index() {
 
 			</section>
 
-			<Footer />
-		</main>
+		</HomeWrapper>
+
 	);
 }
 

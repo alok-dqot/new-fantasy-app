@@ -3,37 +3,39 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 
 const pages = ['Schedule', 'Latest Matches', 'Fantasy', 'Series', 'News', 'Stats Hub'];
 
-function ResponsiveAppBar() {
-	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-	const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+function Navbar() {
+	const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
-	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorElNav(event.currentTarget);
-	};
-	const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorElUser(event.currentTarget);
-	};
+	const [isNav, setIsNav] = useState(false)
 
 	const handleCloseNavMenu = () => {
 		setAnchorElNav(null);
+
+		setIsNav(false)
+		document.body.style.position = 'relative';
 	};
 
-	const handleCloseUserMenu = () => {
-		setAnchorElUser(null);
-	};
+
+	useEffect(() => {
+		if (isNav) {
+			document.body.style.position = 'fixed';
+		} else {
+			document.body.style.position = 'relative';
+		}
+		return () => {
+			document.body.style.position = 'relative';
+		};
+	}, [isNav]);
+
 
 	return (
 		<AppBar position="sticky">
@@ -43,7 +45,23 @@ function ResponsiveAppBar() {
 						<img src="/icons/logo.png" alt="" />
 					</Link>
 
+					<Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+						<IconButton
+							size="large"
+							aria-label="account of current user"
+							aria-controls="menu-appbar"
+							aria-haspopup="true"
+							onClick={() => setIsNav(!isNav)}
+							color="inherit"
+						>
+							<MenuIcon />
+						</IconButton>
 
+
+						{isNav && <MobileNav onClose={handleCloseNavMenu} />}
+
+
+					</Box>
 
 
 					<Box sx={{ display: { xs: 'none', md: 'flex' }, }}>
@@ -63,4 +81,49 @@ function ResponsiveAppBar() {
 		</AppBar>
 	);
 }
-export default ResponsiveAppBar;
+export default Navbar;
+
+
+
+
+
+
+
+
+
+
+const MobileNav = ({ onClose }: { onClose: () => void }) => {
+	const navRef = useRef<HTMLDivElement>(null);
+
+	// Close menu when clicking outside
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (navRef.current && !navRef.current.contains(event.target as Node)) {
+				onClose();
+			}
+		};
+
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
+	}, [onClose]);
+
+	return (
+		<Box
+			ref={navRef}
+			className="mb-nav-outer"
+
+		>
+			{pages.map((page) => (
+				<Button
+					key={page}
+					sx={{ justifyContent: 'left', my: 1 }}
+					onClick={onClose}
+				>
+					{page}
+				</Button>
+			))}
+		</Box>
+	);
+};

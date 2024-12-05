@@ -2,6 +2,8 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import LaunchIcon from '@mui/icons-material/Launch';
+import Link from 'next/link';
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -20,7 +22,7 @@ function MatchDetailPageTab(props: TabPanelProps) {
             aria-labelledby={`simple-tab-${index}`}
             {...other}
         >
-            {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+            {value === index && <Box sx={{ p: 0 }}>{children}</Box>}
         </div>
     );
 }
@@ -49,8 +51,8 @@ export default function DetailTabs() {
                     <Tab label="Fantasy" {...a11yProps(2)} />
                 </Tabs>
             </Box>
-            <MatchDetailPageTab value={value} index={0}>
-                This is for the Match Info
+            <MatchDetailPageTab value={value} index={0} >
+                <MatchInfo />
             </MatchDetailPageTab>
             <MatchDetailPageTab value={value} index={1}>
                 This is For the Scorecard
@@ -61,3 +63,112 @@ export default function DetailTabs() {
         </Box>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const MatchInfo = () => {
+    return (
+        <>
+            <div className="match-info">
+                <div className="section-1">
+                    <div className="mtch-info-txt-outer ">
+                        <h3>Tournament
+                            <div className="hr-txt"></div>
+                        </h3>
+
+                        <Link href={'#'}>
+                            <div className="link-outer bgp">
+                                <LaunchIcon />
+                            </div>
+                        </Link>
+
+                    </div>
+                    <p>India tour of Australia, 2024/25</p>
+                </div>
+
+
+
+
+
+
+
+
+                <div className="section-2 row mt-4">
+                    <div className="mtch-info-txt-outer ">
+                        <h3>Match Details
+                            <div className="hr-txt"></div>
+                        </h3>
+
+                    </div>
+
+                    <div className="txt-cont_ col-md-6">
+                        <div className="in-line">
+                            <span>Date & Time :</span>
+                            <span>
+                                6th Dec 2024, 9:30 AM</span>
+                        </div>
+                        <div className="in-line">
+                            <span>Match Number</span>
+                            <span>2nd Test</span>
+                        </div>
+                        <div className="in-line">
+                            <span>Toss result :</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div className="section-2">
+                    <div className="mtch-info-txt-outer ">
+                        <h3>Venue Details
+                            <div className="hr-txt"></div>
+                        </h3>
+
+                        <Link href={'#'}>
+                            <div className="link-outer bgp">
+                                <LaunchIcon />
+                            </div>
+                        </Link>
+
+                    </div>
+                    <p>India tour of Australia, 2024/25</p>
+                </div>
+
+
+            </div>
+
+        </>
+    )
+}
+
+
+
+
+
+
+
+
+
+const Scorecard = () => {
+    return (
+        <>
+
+        </>
+    )
+}
+
+

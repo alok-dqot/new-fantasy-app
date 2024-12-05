@@ -4,3 +4,30 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.mb-nav-outer {
+  position: absolute;
+  background: white;
+  color: black;
+  width: 90%;
+  height: 120vh;
+  right: -40px;
+  z-index: 100;
+  top: -2px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-left: 20px;
+
+  animation: slide 0.58s ease;
+}
+
+@keyframes slide {
+  0% {
+    right: -300px;
+  }
+
+  100% {
+    right: -40px
+  }
+}

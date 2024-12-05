@@ -5,6 +5,7 @@ import '../styles/style.scss';
 import '../styles/team-preview.scss';
 import '../styles/card.scss';
 import '../styles/nav.scss';
+import '../styles/match-info.scss';
 import '../styles/ScoreCardSlider2.scss';
 
 

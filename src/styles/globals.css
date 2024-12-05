@@ -1,0 +1,13 @@
+:root{
+    --primary-color:#1976d2
+}
+
+
+
+.main-wrapper{
+    max-width: 1200px;
+    width: 100%;
+    overflow-x: hidden;
+
+    margin: auto;
+}

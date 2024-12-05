@@ -35,8 +35,8 @@ function index() {
 		<>
 			<main>
 				<Header
-					series_id={matchStore?.match?.detail?.competition?.cid || "10"}
-					match_id={id}
+				// series_id={matchStore?.match?.detail?.competition?.cid || "10"}
+				// match_id={id}
 				/>
 
 				<section className='score_main_sec'>
@@ -142,11 +142,7 @@ function index() {
 												</div>
 											</div>
 											<div className='ads_banner mb-4'>
-												<img
-													src='/ads_banner.png'
-													alt='#'
-													className='img-fluid rounded-3'
-												/>
+
 											</div>
 											<div className='comman_card'>
 												<div className='content pt-0 align-items-center'>
@@ -273,11 +269,7 @@ function index() {
 												})}
 											</div>
 											<div className='ads_banner mb-4'>
-												<img
-													src='/ads_banner.png'
-													alt='#'
-													className='img-fluid rounded-3'
-												/>
+
 											</div>
 											<div className='comman_card'>
 												<div className='batter_heading'>
@@ -513,19 +505,11 @@ function index() {
 											</div>
 										</div>
 										<div className='ads_banner mb-4'>
-											<img
-												src='/ads_banner.png'
-												alt='#'
-												className='img-fluid rounded-3'
-											/>
+
 										</div>
 										<div className='common_card'></div>
 										<div className='ads_banner mb-4'>
-											<img
-												src='/ads_banner.png'
-												alt='#'
-												className='img-fluid rounded-3'
-											/>
+
 										</div>
 										<div className='did_not_bat_main'>
 											<div className='comman_card'>
