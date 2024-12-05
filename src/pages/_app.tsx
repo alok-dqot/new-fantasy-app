@@ -7,6 +7,8 @@ import '../styles/card.scss';
 import '../styles/nav.scss';
 import '../styles/match-info.scss';
 import '../styles/ScoreCardSlider2.scss';
+import '../styles/popular-series.scss';
+
 
 
 export default function App({ Component, pageProps }: AppProps) {
