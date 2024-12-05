@@ -1,41 +1,45 @@
+import moment from "moment";
 
 
-const Card = () => {
+const HomePageCard = ({ m }: { m: any }) => {
+    // console.log(m)
 
     return (
-        <>
-            <div className="match-card">
-                <div className="match-header">
-                    <span className="live-indicator">Live</span>
-                    <span className="match-time">10:30 AM, 29-Nov • Dubai, United Arab...</span>
-                </div>
-                <div className="teams">
-                    <div className="team">
-                        <div className="team-flag">
-                            <img src="https://cdn.mycricketapi.com/teams/brhw.png" alt="Bangladesh flag" />
-                        </div>
-                        <span className="team-name">AFG19</span>
 
+        <div className="match-card">
+            <div className="match-header">
+                <span className="live-indicator">Live</span>
+                <span className="match-time limit-1">{moment(m?.date_start).format('LT, DD MMM')}, {m?.competition?.title}</span>
+            </div>
+            <div className="teams">
+                <div className="team">
+                    <div className="team-flag">
+                        <img src={m?.teama?.logo_url} alt="Bangladesh flag" />
                     </div>
-                    <div className="team">
-                        <div className="team-flag">
-                            <img src="https://cdn.mycricketapi.com/teams/brhw.png" alt="Afghanistan flag" />
-                        </div>
-                        <span className="team-name">AFG19</span>
-                        <span className="team-score">102/1 (26.4)</span>
-                    </div>
+                    <span className="team-name">{m?.teama?.short_name}</span>
+                    <span className="team-score">{m?.teama?.scores_full}</span>
+
+
                 </div>
-                <div className="navigation">
-                    <a href="#" className="nav-item active">Series</a>
-                    <a href="#" className="nav-item">Table</a>
-                    <a href="#" className="nav-item">Schedule</a>
-                    <a href="#" className="nav-item">News</a>
+                <div className="team">
+                    <div className="team-flag">
+                        <img src={m?.teamb?.logo_url} alt="Afghanistan flag" />
+                    </div>
+                    <span className="team-name">{m?.teama?.short_name}</span>
+                    <span className="team-score">{m?.teamb?.scores_full}</span>
                 </div>
             </div>
-        </>
+            <div className="navigation">
+                <a href="#" className="nav-item active">Series</a>
+                <a href="#" className="nav-item">Table</a>
+                <a href="#" className="nav-item">Schedule</a>
+                <a href="#" className="nav-item">News</a>
+            </div>
+        </div>
+
     );
 
 
 }
 
-export default Card;
+export default HomePageCard;

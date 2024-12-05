@@ -11,3 +11,39 @@
 
     margin: auto;
 }
+
+
+
+
+
+
+
+.limit-2,
+.limit-1,
+.limit-3,
+.limit-5 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.limit-1 {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+}
+
+.limit-2 {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+}
+
+.limit-3 {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+}
+
+.limit-5 {
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+}

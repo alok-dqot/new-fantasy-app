@@ -504,13 +504,9 @@ function index() {
 												</div>
 											</div>
 										</div>
-										<div className='ads_banner mb-4'>
 
-										</div>
 										<div className='common_card'></div>
-										<div className='ads_banner mb-4'>
-
-										</div>
+										<h5 className='comman_run six_wicket'>w</h5>
 										<div className='did_not_bat_main'>
 											<div className='comman_card'>
 												<div className='content'>
