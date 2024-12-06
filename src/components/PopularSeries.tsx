@@ -52,25 +52,25 @@ const PopularSeries = () => {
                     <div className="TopStories-card popularS-card ">
                         <h4>Top Stories</h4>
 
-                        <p className="big-card">
+                        <div className="big-card">
                             <img src="/home/ss.png" alt="" />
                             <div className="bigcard-content">
                                 <a href="#"><h5>SA-W vs vs ENG-W 1st ODI PREDICTION | Dream 11 Team Prediction | SA-W vs ENG-W Who Will Win?</h5></a>
                                 <small>19 hrs ago</small>
                             </div>
 
-                        </p>
+                        </div>
 
-                        <p className="big-card">
+                        <div className="big-card">
                             <img src="/home/ss.png" alt="" />
                             <div className="bigcard-content">
                                 <a href="#"><h5>SA-W vs vs ENG-W 1st ODI PREDICTION | Dream 11 Team Prediction | SA-W vs ENG-W Who Will Win?</h5></a>
                                 <small>19 hrs ago</small>
                             </div>
 
-                        </p>
+                        </div>
 
-                        <p className="mini-card">
+                        <div className="mini-card">
                             <div className="row">
                                 <div className="col-md-3">
                                     <img src="/home/sss.png" alt="" />
@@ -83,18 +83,18 @@ const PopularSeries = () => {
                                     </div>
                                 </div>
                             </div>
-                        </p>
+                        </div>
 
-                        <p className="big-card">
+                        <div className="big-card">
                             <img src="/home/ss.png" alt="" />
                             <div className="bigcard-content">
                                 <a href="#"><h5>SA-W vs vs ENG-W 1st ODI PREDICTION | Dream 11 Team Prediction | SA-W vs ENG-W Who Will Win?</h5></a>
                                 <small>19 hrs ago</small>
                             </div>
 
-                        </p>
+                        </div>
 
-                        <p className="mini-card">
+                        <div className="mini-card">
                             <div className="row">
                                 <div className="col-md-3">
                                     <img src="/home/sss.png" alt="" />
@@ -107,18 +107,18 @@ const PopularSeries = () => {
                                     </div>
                                 </div>
                             </div>
-                        </p>
+                        </div>
 
-                        <p className="big-card">
+                        <div className="big-card">
                             <img src="/home/ss.png" alt="" />
                             <div className="bigcard-content">
                                 <a href="#"><h5>SA-W vs vs ENG-W 1st ODI PREDICTION | Dream 11 Team Prediction | SA-W vs ENG-W Who Will Win?</h5></a>
                                 <small>19 hrs ago</small>
                             </div>
 
-                        </p>
+                        </div>
 
-                        <p className="mini-card">
+                        <div className="mini-card">
                             <div className="row">
                                 <div className="col-md-3">
                                     <img src="/home/ss.png" alt="" />
@@ -131,9 +131,9 @@ const PopularSeries = () => {
                                     </div>
                                 </div>
                             </div>
-                        </p>
+                        </div>
 
-                        <p className="mini-card">
+                        <div className="mini-card">
                             <div className="row">
                                 <div className="col-md-3">
                                     <img src="/home/ss.png" alt="" />
@@ -146,7 +146,7 @@ const PopularSeries = () => {
                                     </div>
                                 </div>
                             </div>
-                        </p>
+                        </div>
 
 
 
@@ -159,8 +159,8 @@ const PopularSeries = () => {
                 <div className="col-md-3">
                     <div className="followus-card popularS-card " >
                         <h4>Follow Us</h4>
-                        <p> <a href="#"><img src="./public/youtube.png" alt="" /> You Tube </a></p>
-                        <p> <a href="#"><img src="./public/facebook.png" alt="" />Facebook </a></p>
+                        <p> <a href="#"><img src="/home/youtube.png" alt="" /> You Tube </a></p>
+                        <p> <a href="#"><img src="/home/facebook.png" alt="" />Facebook </a></p>
                         <p className="last-p"> <a href="#"><img src="/home/instagram.png" alt="" />instagram </a></p>
 
                     </div>
