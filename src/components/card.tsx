@@ -25,7 +25,7 @@ const HomePageCard = ({ m }: { m: any }) => {
                     <div className="team-flag">
                         <img src={m?.teamb?.logo_url} alt="Afghanistan flag" />
                     </div>
-                    <span className="team-name">{m?.teama?.short_name}</span>
+                    <span className="team-name">{m?.teamb?.short_name}</span>
                     <span className="team-score">{m?.teamb?.scores_full}</span>
                 </div>
             </div>

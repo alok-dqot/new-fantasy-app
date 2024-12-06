@@ -1,15 +1,21 @@
-:root{
-    --primary-color:#1976d2
+:root {
+    --primary-color: #1976d2;
+    --bg-color: rgba(0, 0, 0, 0.06);
+    --bg-card: #ffffff;
 }
 
+body {
+    background-color: var(--bg-color) !important;
+}
 
-
-.main-wrapper{
+.main-wrapper {
     max-width: 1200px;
     width: 100%;
     overflow-x: hidden;
 
     margin: auto;
+
+
 }
 
 

@@ -10,7 +10,6 @@ import HomeWrapper from "@/components/wrapper/HomeWrapper";
 import PopularSeries from "@/components/PopularSeries";
 import { CustomCarousel } from "@/components/HomeMatches";
 import HomePageCard from "@/components/card";
-import EmblaCarousel from "@/components/carousel/EmblaCarousel";
 import Link from "next/link";
 
 function Index() {
