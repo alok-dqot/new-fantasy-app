@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 import Link from "next/link";
 import useMatchStore from "@/services/match/match.service";
 import moment from "moment";
-import Card from "./card";
+import HomePageCard from "./card";
 
 function ScoreCardSlider() {
 	const matchStore = useMatchStore();
@@ -61,7 +61,7 @@ function ScoreCardSlider() {
 
 
 
-										<Card />
+										<HomePageCard m={item} />
 
 									</Link>
 								</SwiperSlide>

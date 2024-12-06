@@ -5,10 +5,12 @@ import useMatchStore from "@/services/match/match.service";
 import useSeriesStore from "@/services/series/series.service";
 import moment from "moment";
 import { useRouter } from "next/router";
-import EmblaCarousel from "../../components/ScoreCardSlider";
 import DetailTabs from "@/components/MatchDetailTabs";
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
 import PopularSeries from "@/components/PopularSeries";
+import { CustomCarousel } from "@/components/HomeMatches";
+import HomePageCard from "@/components/card";
+import Link from "next/link";
 
 function Index() {
 	const matchStore = useMatchStore();
@@ -23,10 +25,28 @@ function Index() {
 	}, []);
 	return (
 		<HomeWrapper>
+			<h2 className="mt-3">Featured Matches</h2>
+
+			<CustomCarousel>
+
+				{matchStore.match?.featured_list?.length ? (
+					matchStore.match?.featured_list?.map((m) => {
+						return (
+							<Link href={`/match/${m.match_id}`}>
+								<HomePageCard m={m} />
+							</Link>
+
+						);
+					})
+				) : (
+					<></>
+				)}
+
+			</CustomCarousel>
 
 
 			{/* <ScoreCardSlider /> */}
-			< EmblaCarousel />
+			{/* < EmblaCarousel /> */}
 			<PopularSeries />
 
 		</HomeWrapper>

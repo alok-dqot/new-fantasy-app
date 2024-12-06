@@ -1,0 +1,479 @@
+.score-body {
+  background-color: white;
+
+  .scorecard {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .cricket-scorboard {
+      box-shadow: 0px 0px 24px 0px #0000000f;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #eaebef;
+      border-radius: 10px;
+      border: 2px solid #e1ebff;
+
+      .team {
+        display: flex;
+        background-color: #eaebef;
+        align-items: center;
+
+        img {
+          width: 100px;
+          border-radius: 10px;
+        }
+
+        p {
+          background-color: #eaebef;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 30.78px;
+          margin: 0;
+        }
+      }
+
+      .score {
+        p {
+          background-color: #eaebef;
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 30.78px;
+          margin: 0;
+        }
+      }
+    }
+
+    .score-table {
+      box-shadow: 0px 0px 24px 0px #0000000f;
+      background-color: #ffffff;
+      border-radius: 5px;
+      margin: 0px 20px 20px 20px;
+      padding: 10px;
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+
+        thead {
+          background-color: #e1ebff;
+
+          .header-row {
+            th {
+              text-align: left;
+              padding: 10px;
+              font-weight: 600;
+              font-size: 17px;
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            border-bottom: 2px solid #e2e8f0;
+
+            td {
+              padding: 10px;
+              font-size: 16px;
+              font-weight: 450;
+            }
+
+            .name {
+              color: #007bbd;
+            }
+          }
+        }
+      }
+
+      .extra {
+        margin: 20px 0px;
+
+        .row-first {
+          display: flex;
+          align-items: center;
+          gap: 400px;
+          padding: 10px;
+          border-bottom: 1px solid #dbdce0;
+          background-color: #eaebef;
+          border-radius: 10px;
+
+          .extras {
+            font-weight: bold;
+            text-align: left;
+            font-size: 17px;
+
+            p {
+              background-color: #eaebef;
+              margin: 0;
+            }
+          }
+
+          .extra-details {
+            color: #666;
+            font-size: 17px;
+
+            p {
+              background-color: #eaebef;
+              margin: 0;
+            }
+          }
+        }
+
+        .row-second {
+          display: flex;
+          justify-content: space-between;
+          font-size: 17px;
+          padding: 10px;
+          border-bottom: 1px solid #dbdce0;
+          background-color: #eaebef;
+          border-radius: 10px;
+          margin-top: 5px;
+
+          p {
+            background-color: #eaebef;
+            margin: 0;
+          }
+
+          .over,
+          .rr {
+            color: black;
+          }
+        }
+      }
+
+      .score-table-bowlers {
+        padding-bottom: 30px;
+
+        .header-row {
+          th {
+            text-align: left;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 17px;
+          }
+        }
+      }
+
+      .FALL-OF-WICKETS {
+        .header-row {
+          th {
+            text-align: left;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 17px;
+            background-color: #eaebef;
+          }
+        }
+      }
+
+      .Partnerships-Stats {
+        padding: 20px 0;
+
+        h5 {
+          text-align: center;
+        }
+
+        .all-state {
+          padding: 10px 0px;
+
+          .stats1 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: 450;
+
+            .name {
+              color: #007bbd;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .extra-info {
+    display: block;
+    font-size: 14px;
+    color: #8ca5cc;
+    margin-top: 4px;
+  }
+}
+
+/* For screens smaller than 576px */
+@media (max-width: 576px) {
+  .score-body {
+    .scorecard {
+      max-width: 100%;
+      padding: 5px;
+
+      .cricket-scorboard {
+        padding: 10px;
+        flex-direction: column;
+        text-align: center;
+        margin: 10px 0;
+
+        .team img {
+          width: 70px;
+        }
+
+        .team p,
+        .score p {
+          font-size: 12px;
+        }
+      }
+
+      .score-table {
+        table {
+          thead th {
+            font-size: 13px;
+          }
+
+          tbody td {
+            font-size: 12px;
+            padding: 4px;
+
+            .extra-info {
+              font-size: 9px;
+            }
+          }
+        }
+
+        .extra,
+        .score-table-bowlers,
+        .FALL-OF-WICKETS,
+        .Partnerships-Stats {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+/* For screens ≥ 576px */
+@media (min-width: 576px) and (max-width: 768px) {
+  .score-body {
+    .scorecard {
+      max-width: 100%;
+      padding: 10px;
+
+      .cricket-scorboard {
+        padding: 15px;
+        flex-direction: column;
+        margin: 10px 0;
+
+        .team img {
+          width: 80px;
+        }
+
+        .team p,
+        .score p {
+          font-size: 14px;
+        }
+      }
+
+      .score-table {
+        table {
+          thead th {
+            font-size: 15px;
+          }
+
+          tbody td {
+            font-size: 14px;
+            padding: 5px;
+          }
+        }
+
+        .extra,
+        .score-table-bowlers,
+        .FALL-OF-WICKETS,
+        .Partnerships-Stats {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+/* For screens ≥ 768px */
+@media (min-width: 768px) and (max-width: 992px) {
+  .score-body {
+    .scorecard {
+      max-width: 100%;
+      padding: 15px;
+
+      .cricket-scorboard {
+        padding: 20px;
+        flex-direction: column;
+        margin: 15px 0;
+
+        .team img {
+          width: 90px;
+        }
+
+        .team p,
+        .score p {
+          font-size: 16px;
+        }
+      }
+
+      .score-table {
+        table {
+          thead th {
+            font-size: 16px;
+          }
+
+          tbody td {
+            font-size: 15px;
+            padding: 6px;
+          }
+        }
+
+        .extra,
+        .score-table-bowlers,
+        .FALL-OF-WICKETS,
+        .Partnerships-Stats {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+/* For screens ≥ 992px */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .score-body {
+    .scorecard {
+      max-width: 100%;
+      padding: 20px;
+
+      .cricket-scorboard {
+        padding: 25px;
+        flex-direction: row;
+        margin: 20px 0;
+
+        .team img {
+          width: 100px;
+        }
+
+        .team p,
+        .score p {
+          font-size: 18px;
+        }
+      }
+
+      .score-table {
+        table {
+          thead th {
+            font-size: 17px;
+          }
+
+          tbody td {
+            font-size: 16px;
+            padding: 8px;
+          }
+        }
+
+        .extra,
+        .score-table-bowlers,
+        .FALL-OF-WICKETS,
+        .Partnerships-Stats {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+/* For screens ≥ 1200px */
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .score-body {
+    .scorecard {
+      max-width: 1200px;
+      padding: 20px;
+
+      .cricket-scorboard {
+        padding: 20px;
+        flex-direction: row;
+        margin: 25px 0;
+
+        .team img {
+          width: 110px;
+        }
+
+        .team p,
+        .score p {
+          font-size: 19px;
+        }
+      }
+
+      .score-table {
+        table {
+          thead th {
+            font-size: 18px;
+          }
+
+          tbody td {
+            font-size: 17px;
+            padding: 10px;
+          }
+        }
+
+        .extra,
+        .score-table-bowlers,
+        .FALL-OF-WICKETS,
+        .Partnerships-Stats {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+/* For screens ≥ 1400px */
+@media (min-width: 1400px) {
+  .score-body {
+    .scorecard {
+      max-width: 1400px;
+      padding: 30px;
+
+      .cricket-scorboard {
+        padding: 35px;
+        flex-direction: row;
+        margin: 30px 0;
+
+        .team img {
+          width: 120px;
+        }
+
+        .team p,
+        .score p {
+          font-size: 20px;
+        }
+      }
+
+      .score-table {
+        table {
+          thead th {
+            font-size: 19px;
+          }
+
+          tbody td {
+            font-size: 18px;
+            padding: 12px;
+          }
+        }
+
+        .extra,
+        .score-table-bowlers,
+        .FALL-OF-WICKETS,
+        .Partnerships-Stats {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ import Accordion from "react-bootstrap/Accordion";
 import { Table } from "react-bootstrap";
 import { useRouter } from "next/router";
 import useMatchStore from "@/services/match/match.service";
+import ScoreCard from "@/components/scorecard"
 
 function index() {
 	const router = useRouter();
@@ -504,13 +505,9 @@ function index() {
 												</div>
 											</div>
 										</div>
-										<div className='ads_banner mb-4'>
 
-										</div>
 										<div className='common_card'></div>
-										<div className='ads_banner mb-4'>
-
-										</div>
+										<h5 className='comman_run six_wicket'>w</h5>
 										<div className='did_not_bat_main'>
 											<div className='comman_card'>
 												<div className='content'>
@@ -762,6 +759,8 @@ function index() {
 						</div>
 					)}
 				</section>
+
+				< ScoreCard />
 
 				<Footer />
 			</main>

@@ -1,24 +1,33 @@
+import useNewsStore from '@/features/news.service';
+import useCurrentSeries from '@/features/series/series.service';
+import { titleToSlug } from '@/helpers/slugConverter';
+import moment from 'moment';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const PopularSeries = () => {
+
+    const store = useCurrentSeries()
+
+    useEffect(() => {
+        store.get.list()
+    }, [])
+
     return (
         <>
 
-            <div className="row ">
+            <div className="row mt-5">
 
                 <div className="col-md-3" >
+
                     <div className="popularS-card">
-                        <h4>POPULAR SERIES</h4>
-                        <p>India tour of Australia 2024-25</p>
-                        <p>India tour of Australia 2024-25</p>
-                        <p>New Zealand tour of Sri Lanka 2024</p>
-                        <p>India tour of Australia 2024-25</p>
-                        <p>India tour of Australia 2024-25</p>
-                        <p>New Zealand tour of Sri Lanka 2024</p>
-                        <p>India tour of Australia 2024-25</p>
-                        <p>India tour of Australia 2024-25</p>
-                        <p className="last-p">New Zealand tour of Sri Lanka 2024</p>
+                        <h4>Popular Series</h4>
+                        {store.series.list.length > 0 && store.series?.list?.slice(0, 5).map((series: any) => {
+                            return (
+                                <Link href={`#`} key={series?.id} className="ser-name" >{series?.name}</Link>
+                            )
+                        })}
+
                         <div className="btn">
                             <Link href="#">See More</Link>
                         </div>
@@ -27,7 +36,7 @@ const PopularSeries = () => {
                     <div className="downloadApp-card popularS-card " style={{ marginTop: 20, }}>
                         <h4>Download the app</h4>
                         <p> <a href="#"><img src="/home/android.png" className='img-fluid' alt="" /> Android App </a> </p>
-                        <div className="last-p"> <a href="#"> <img src="/home/ios.png" alt="" /> iOS App </a> </div>
+                        <p className="last-p"> <a href="#"> <img src="/home/ios.png" alt="" /> iOS App </a> </p>
                     </div>
 
                     <div className="topRanking-card popularS-card" style={{ marginTop: 20, }}>
@@ -49,127 +58,97 @@ const PopularSeries = () => {
                 </div>
 
                 <div className="col-md-6">
-                    <div className="TopStories-card popularS-card ">
-                        <h4>Top Stories</h4>
-
-                        <div className="big-card">
-                            <img src="/home/ss.png" alt="" />
-                            <div className="bigcard-content">
-                                <a href="#"><h5>SA-W vs vs ENG-W 1st ODI PREDICTION | Dream 11 Team Prediction | SA-W vs ENG-W Who Will Win?</h5></a>
-                                <small>19 hrs ago</small>
-                            </div>
-
-                        </div>
-
-                        <div className="big-card">
-                            <img src="/home/ss.png" alt="" />
-                            <div className="bigcard-content">
-                                <a href="#"><h5>SA-W vs vs ENG-W 1st ODI PREDICTION | Dream 11 Team Prediction | SA-W vs ENG-W Who Will Win?</h5></a>
-                                <small>19 hrs ago</small>
-                            </div>
-
-                        </div>
-
-                        <div className="mini-card">
-                            <div className="row">
-                                <div className="col-md-3">
-                                    <img src="/home/sss.png" alt="" />
-                                </div>
-                                <div className="col-md-9">
-                                    <div className="minicard-content">
-                                        <a href="#"><big>Shaheen Afridi rested for Tests as Pakistan name squads for South Africa series</big> </a>  <br />
-                                        <small id="time">1 hr ago</small> <br />
-                                        <small>Pakistan have named their squads for the upcoming multi-format series against</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="big-card">
-                            <img src="/home/ss.png" alt="" />
-                            <div className="bigcard-content">
-                                <a href="#"><h5>SA-W vs vs ENG-W 1st ODI PREDICTION | Dream 11 Team Prediction | SA-W vs ENG-W Who Will Win?</h5></a>
-                                <small>19 hrs ago</small>
-                            </div>
-
-                        </div>
-
-                        <div className="mini-card">
-                            <div className="row">
-                                <div className="col-md-3">
-                                    <img src="/home/sss.png" alt="" />
-                                </div>
-                                <div className="col-md-9">
-                                    <div className="minicard-content">
-                                        <big>Shaheen Afridi rested for Tests as Pakistan name squads for South Africa series</big> <br />
-                                        <small>1 hr ago</small> <br />
-                                        <small>Pakistan have named their squads for the upcoming multi-format series against</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="big-card">
-                            <img src="/home/ss.png" alt="" />
-                            <div className="bigcard-content">
-                                <a href="#"><h5>SA-W vs vs ENG-W 1st ODI PREDICTION | Dream 11 Team Prediction | SA-W vs ENG-W Who Will Win?</h5></a>
-                                <small>19 hrs ago</small>
-                            </div>
-
-                        </div>
-
-                        <div className="mini-card">
-                            <div className="row">
-                                <div className="col-md-3">
-                                    <img src="/home/ss.png" alt="" />
-                                </div>
-                                <div className="col-md-9">
-                                    <div className="minicard-content">
-                                        <big>Shaheen Afridi rested for Tests as Pakistan name squads for South Africa series</big> <br />
-                                        <small>1 hr ago</small> <br />
-                                        <small>Pakistan have named their squads for the upcoming multi-format series against</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="mini-card">
-                            <div className="row">
-                                <div className="col-md-3">
-                                    <img src="/home/ss.png" alt="" />
-                                </div>
-                                <div className="col-md-9">
-                                    <div className="minicard-content">
-                                        <big>Shaheen Afridi rested for Tests as Pakistan name squads for South Africa series</big> <br />
-                                        <small>1 hr ago</small> <br />
-                                        <small>Pakistan have named their squads for the upcoming multi-format series against</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div className="btn">
-                            <a href="#">See More</a>
-                        </div>
-                    </div>
+                    <TopStories />
                 </div>
 
-                <div className="col-md-3">
-                    <div className="followus-card popularS-card " >
-                        <h4>Follow Us</h4>
-                        <p> <a href="#"><img src="/home/youtube.png" alt="" /> You Tube </a></p>
-                        <p> <a href="#"><img src="/home/facebook.png" alt="" />Facebook </a></p>
-                        <p className="last-p"> <a href="#"><img src="/home/instagram.png" alt="" />instagram </a></p>
-
-                    </div>
-                </div>
-            </div>
+                <FollowUs />
+            </div >
 
 
         </>
     );
 }
 
-export default PopularSeries
+export default PopularSeries;
+
+
+
+
+
+const FollowUs = () => {
+    return (
+        <div className="col-md-3">
+            <div className="followus-card popularS-card " >
+                <h4>Follow Us</h4>
+                <p> <a href="#"><img src="/home/youtube.png" alt="" /> You Tube </a></p>
+                <p> <a href="#"><img src="/home/facebook.png" alt="" />Facebook </a></p>
+                <p className="last-p"> <a href="#"><img src="/home/instagram.png" alt="" />instagram </a></p>
+
+            </div>
+        </div>
+    )
+}
+
+
+
+
+
+
+const TopStories = () => {
+    const blogStore = useNewsStore();
+
+
+    useEffect(() => {
+        ; (async () => {
+            await blogStore.get.list({ size: 1, type: 'blog' });
+        })();
+    }, [])
+
+
+    return (
+        <>
+            <div className="TopStories-card popularS-card ">
+                <h4>Top Stories</h4>
+
+                <div className="big-card">
+                    <img src={blogStore.blog.list?.latest?.image_url} alt="" />
+                    <div className="bigcard-content">
+                        <Link href="#"><h5>{blogStore.blog.list?.latest?.title}</h5></Link>
+                        <small>{moment(blogStore.blog.list?.latest?.updated_at).endOf('day').fromNow()}</small>
+                    </div>
+
+                </div>
+                <hr />
+                <br />
+                {
+                    blogStore.blog.list?.grid?.length > 0 && blogStore.blog.list?.grid?.map((b: any) => {
+                        return (
+                            <div className="mini-card mt-4" key={b?.id}>
+                                <Link href={'#'}>
+                                    <div className="row">
+                                        <div className="col-md-3">
+                                            <img src={b?.image_url} alt="" />
+                                        </div>
+                                        <div className="col-md-9">
+                                            <div className="minicard-content">
+                                                <big>{b?.title}</big> <br />
+                                                <small className='limit-2 mt-2'>{b?.meta_description}</small>
+                                                <small className='mt-1'>{moment(b?.created_at).startOf('hour').fromNow()}</small> <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        )
+                    })
+                }
+
+
+
+                <div className="btn">
+                    <a href="#">See More</a>
+                </div>
+            </div>
+        </>
+    )
+}
