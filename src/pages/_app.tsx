@@ -9,6 +9,7 @@ import '../styles/match-info.scss';
 import '../styles/ScoreCardSlider2.scss';
 import '../styles/popular-series.scss';
 import '../styles/scorecard.scss';
+import '../styles/schedule.scss';
 
 
 

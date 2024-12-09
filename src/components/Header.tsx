@@ -10,20 +10,25 @@ import Button from '@mui/material/Button';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
-const pages = ['Schedule', 'Latest Matches', 'Fantasy', 'Series', 'News', 'Stats Hub'];
+// Updated pages array with title and URL
+const pages = [
+	{ title: 'Schedule', url: '/schedule/upcoming/all' },
+	{ title: 'Latest Matches', url: '/latest-matches' },
+	{ title: 'Fantasy', url: '/fantasy' },
+	{ title: 'Series', url: '/series' },
+	{ title: 'News', url: '/news' },
+	{ title: 'Stats Hub', url: '/stats-hub' },
+];
 
 function Navbar() {
 	const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-
-	const [isNav, setIsNav] = useState(false)
+	const [isNav, setIsNav] = useState(false);
 
 	const handleCloseNavMenu = () => {
 		setAnchorElNav(null);
-
-		setIsNav(false)
+		setIsNav(false);
 		document.body.style.position = 'relative';
 	};
-
 
 	useEffect(() => {
 		if (isNav) {
@@ -36,19 +41,18 @@ function Navbar() {
 		};
 	}, [isNav]);
 
-
 	return (
 		<AppBar position="sticky">
 			<Container maxWidth="xl">
-				<Toolbar disableGutters className='appbar-outer'>
-					<Link href={'/home'}>
-						<img src="/icons/logo.png" alt="" />
+				<Toolbar disableGutters className="appbar-outer">
+					<Link href="/home">
+						<img src="/icons/logo.png" alt="Logo" />
 					</Link>
 
 					<Box sx={{ display: { xs: 'flex', md: 'none' } }}>
 						<IconButton
 							size="large"
-							aria-label="account of current user"
+							aria-label="menu"
 							aria-controls="menu-appbar"
 							aria-haspopup="true"
 							onClick={() => setIsNav(!isNav)}
@@ -57,40 +61,28 @@ function Navbar() {
 							<MenuIcon />
 						</IconButton>
 
-
 						{isNav && <MobileNav onClose={handleCloseNavMenu} />}
-
-
 					</Box>
 
-
-					<Box sx={{ display: { xs: 'none', md: 'flex' }, }}>
+					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 						{pages.map((page) => (
-							<Button
-								key={page}
-								onClick={handleCloseNavMenu}
-								sx={{ my: 2, color: 'white', display: 'block' }}
-							>
-								{page}
-							</Button>
+							<Link key={page.title} href={page.url} passHref>
+								<Button
+									onClick={handleCloseNavMenu}
+									sx={{ my: 2, color: 'white', display: 'block' }}
+								>
+									{page.title}
+								</Button>
+							</Link>
 						))}
 					</Box>
-
 				</Toolbar>
 			</Container>
 		</AppBar>
 	);
 }
+
 export default Navbar;
-
-
-
-
-
-
-
-
-
 
 const MobileNav = ({ onClose }: { onClose: () => void }) => {
 	const navRef = useRef<HTMLDivElement>(null);
@@ -110,19 +102,16 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
 	}, [onClose]);
 
 	return (
-		<Box
-			ref={navRef}
-			className="mb-nav-outer"
-
-		>
+		<Box ref={navRef} className="mb-nav-outer">
 			{pages.map((page) => (
-				<Button
-					key={page}
-					sx={{ justifyContent: 'left', my: 1 }}
-					onClick={onClose}
-				>
-					{page}
-				</Button>
+				<Link key={page.title} href={page.url} passHref>
+					<Button
+						sx={{ justifyContent: 'left', my: 1 }}
+						onClick={onClose}
+					>
+						{page.title}
+					</Button>
+				</Link>
 			))}
 		</Box>
 	);
