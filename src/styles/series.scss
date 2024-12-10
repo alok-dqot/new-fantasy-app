@@ -1,0 +1,277 @@
+.series-outer-card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    height: 160px;
+
+    margin-top: 20px;
+
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    padding: 10px;
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+        color: var(--primary);
+
+        svg {
+            margin-left: 5px;
+        }
+    }
+
+    img {
+        width: 130px;
+        border-radius: 5px;
+    }
+
+    .ser-match-card {
+        cursor: pointer;
+    }
+
+    .ser-spn {
+        margin-block: 6px;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+.serie-title {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: var(--fnt-family);
+}
+
+
+.schedule-tabs {
+    button {
+        font-size: 0.8rem !important;
+        border: solid 1px transparent !important;
+
+        &:hover {
+            border: solid 1px var(--primary) !important;
+        }
+    }
+}
+
+
+
+.series-card {
+    img {
+        width: 121.92px;
+        height: 121.92px;
+    }
+}
+
+.series-card-btn {
+
+    h3,
+    h4 {
+        color: var(--text-secondary) !important;
+        cursor: pointer;
+    }
+
+    h4 {
+        margin-top: 0px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+
+}
+
+.series-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px;
+    margin-top: 20px;
+
+    a {
+        color: var(--primary);
+
+        font-family: Montserrat;
+        font-weight: 600;
+        font-size: 17px;
+
+        color: #FF3131;
+
+    }
+
+    h2 {
+        color: var(--black, #000);
+        font-family: Montserrat;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+}
+
+.series-title h3 {
+    color: var(--text-secondary);
+}
+
+.series-overview {
+    margin-top: 10px;
+
+    .fixture-list-team-1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+    }
+
+    .m-nt-strt-btn {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+
+        border: solid 1px var(--primary);
+        color: var(--primary);
+
+        font-family: Montserrat;
+        font-weight: 600;
+        font-size: 14px;
+
+
+
+        padding: 10px 13px;
+
+
+        color: #FF3131;
+
+
+    }
+}
+
+.series-overview .fixture-list-teama img,
+.series-overview .fixture-list-teamb img {
+    border-radius: 50%;
+}
+
+.fixture-series-overview {
+    text-align: center;
+    color: grey;
+}
+
+.fixture-series-overview h4 {
+    color: white;
+    margin-top: 4px;
+}
+
+.series-team-container {
+    max-width: 800px;
+    position: relative !important;
+
+    .react-multiple-carousel__arrow--left {
+        left: 0px !important;
+    }
+
+    .react-multiple-carousel__arrow--left,
+    .react-multiple-carousel__arrow--right {
+        background: transparent;
+    }
+
+    .react-multiple-carousel__arrow--right {
+        right: 0px !important;
+    }
+}
+
+.ser-carousel-item {
+    width: 200px !important;
+}
+
+.ser-team {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100px;
+    border: solid 1px #ffffff3d;
+    padding: 20px;
+    border-radius: 10px;
+
+    img {
+        border-radius: 10px;
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.ser-team-part {
+    margin-top: 30px;
+    background-color: var(--bg-card);
+
+    border: solid 1px var(--card-brdr);
+    border-radius: var(--normal-brdr-radius);
+}
+
+.ser-team-outer {
+    border-right: solid 1px var(--card-brdr);
+}
+
+.series-most {
+    padding: 0px;
+    overflow: hidden;
+
+    .new-player-details {
+        padding: 10px;
+        padding-right: 20px;
+
+        margin-top: 0px;
+
+        img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .name h3 {
+            background-color: transparent;
+
+        }
+    }
+
+    h3 {
+        padding: 10px;
+        text-align: left;
+        background-color: var(--main-color);
+    }
+
+}
+
+.se-o {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    margin-top: 20px;
+
+    flex-wrap: wrap;
+}
+
+.series-tag {
+    padding: 7px 25px !important;
+    background-color: var(--primary) !important;
+    // border: solid 1px var(--card-background);
+    color: var(--text-white) !important;
+    border-radius: 75px !important;
+
+    width: fit-content !important;
+
+    font-family: Montserrat !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    line-height: 18px !important;
+
+
+
+}

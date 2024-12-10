@@ -28,29 +28,13 @@ const PopularSeries = () => {
                             )
                         })}
 
-                        <div className="btn">
-                            <Link href="#">See More</Link>
-                        </div>
+                        <Link href="#" className='btn btn-primary'>See More</Link>
+
                     </div>
 
-                    <div className="downloadApp-card popularS-card " style={{ marginTop: 20, }}>
-                        <h4>Download the app</h4>
-                        <p> <a href="#"><img src="/home/android.png" className='img-fluid' alt="" /> Android App </a> </p>
-                        <p className="last-p"> <a href="#"> <img src="/home/ios.png" alt="" /> iOS App </a> </p>
-                    </div>
-
-                    <div className="topRanking-card popularS-card" style={{ marginTop: 20, }}>
-                        <h4>TOP RANKINGS</h4>
-                        <p><span></span> <small className="first">No.1 Batter</small> <br /> <small className="second">Babar Azam</small></p>
-                        <p><span></span> <small>No.1 Batter</small> <br /> <small>Babar Azam</small></p>
-                        <p><span></span> <small>No.1 Batter</small><br /> <small>Babar Azam</small></p>
-                        <p><span></span> <small>No.1 Batter</small> <br /> <small>Babar Azam</small></p>
+                    {/* <DownloadAppComp /> */}
 
 
-                        <div className="btn">
-                            <a href="#">See More</a>
-                        </div>
-                    </div>
 
 
 
@@ -71,6 +55,40 @@ const PopularSeries = () => {
 
 export default PopularSeries;
 
+
+
+
+
+const RankPlayer = () => {
+    return (
+        <div className="topRanking-card popularS-card" style={{ marginTop: 20, }}>
+            <h4>TOP RANKINGS</h4>
+            <p><span></span> <small className="first">No.1 Batter</small> <br /> <small className="second">Babar Azam</small></p>
+            <p><span></span> <small>No.1 Batter</small> <br /> <small>Babar Azam</small></p>
+            <p><span></span> <small>No.1 Batter</small><br /> <small>Babar Azam</small></p>
+            <p><span></span> <small>No.1 Batter</small> <br /> <small>Babar Azam</small></p>
+
+
+
+            <Link href="#" className='btn btn-primary'>See More</Link>
+        </div>
+    )
+}
+
+
+
+
+
+const DownloadAppComp = () => {
+    return (
+
+        <div className="downloadApp-card popularS-card " style={{ marginTop: 20, }}>
+            <h4>Download the app</h4>
+            <p> <a href="#"><img src="/home/android.png" className='img-fluid' alt="" /> Android App </a> </p>
+            <p className="last-p"> <a href="#"> <img src="/home/ios.png" alt="" /> iOS App </a> </p>
+        </div>
+    )
+}
 
 
 
@@ -145,9 +163,8 @@ const TopStories = () => {
 
 
 
-                <div className="btn">
-                    <a href="#">See More</a>
-                </div>
+                <Link href="#" className='btn btn-primary'>See More</Link>
+
             </div>
         </>
     )

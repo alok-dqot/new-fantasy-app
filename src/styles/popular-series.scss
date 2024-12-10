@@ -6,9 +6,14 @@
 
     background-color: var(--bg-card);
 
+    display: grid;
+    align-content: center;
+    gap: 15px;
+
     h4 {
       font-weight: 600;
-      padding-bottom: 20px;
+      padding-bottom: 5px;
+      margin-bottom: 0px;
     }
 
     p {
@@ -17,11 +22,18 @@
       padding: 10px 0px;
       font-size: 16px;
       font-weight: 500;
+    }
 
-      a {
-        text-decoration: none;
-        color: black;
-      }
+    a {
+      color: black;
+      border-bottom: solid 1px black;
+
+      padding-bottom: 8px;
+
+    }
+
+    & :last-of-type {
+      border-bottom: none;
     }
 
     .last-p {
@@ -32,6 +44,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      color: white;
 
       a {
         text-decoration: none;
@@ -52,6 +65,7 @@
     .big-card {
       border-bottom: 1px solid #e3e3e4;
       padding: 20px 0px;
+
       img {
         width: 100%;
       }

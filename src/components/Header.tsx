@@ -13,19 +13,18 @@ import { useEffect, useRef, useState } from 'react';
 // Updated pages array with title and URL
 const pages = [
 	{ title: 'Schedule', url: '/schedule/upcoming/all' },
-	{ title: 'Latest Matches', url: '/latest-matches' },
-	{ title: 'Fantasy', url: '/fantasy' },
+	{ title: 'Latest Matches', url: '/schedule/result' },
+	{ title: 'Fantasy', url: '/fantasy-matches' },
 	{ title: 'Series', url: '/series' },
 	{ title: 'News', url: '/news' },
 	{ title: 'Stats Hub', url: '/stats-hub' },
 ];
 
 function Navbar() {
-	const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+	// const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 	const [isNav, setIsNav] = useState(false);
 
 	const handleCloseNavMenu = () => {
-		setAnchorElNav(null);
 		setIsNav(false);
 		document.body.style.position = 'relative';
 	};
@@ -42,7 +41,7 @@ function Navbar() {
 	}, [isNav]);
 
 	return (
-		<AppBar position="sticky">
+		<AppBar position="sticky" sx={{ boxShadow: '0px 2px 4px -1px rgb(0 0 0 / 0%), 0px 4px 5px 0px rgb(0 0 0 / 0%), 0px 1px 10px 0px rgb(0 0 0 / 0%)' }}>
 			<Container maxWidth="xl">
 				<Toolbar disableGutters className="appbar-outer">
 					<Link href="/home">

@@ -1,55 +1,52 @@
 :root {
-    --primary-color: #1976d2;
-    --bg-color: rgba(0, 0, 0, 0.06);
-    --bg-card: #ffffff;
+  --primary-color: #1976d2;
+  --primary: #1976d2;
+  --bg-color: rgba(0, 0, 0, 0.06);
+  --bg-card: #ffffff;
+}
+
+.row {
+  margin: 0px !important;
 }
 
 body {
-    background-color: var(--bg-color) !important;
+  background-color: var(--bg-color) !important;
 }
 
 .main-wrapper {
-    max-width: 1200px;
-    width: 100%;
-    overflow-x: hidden;
+  max-width: 1200px;
+  width: 100%;
+  overflow-x: hidden;
 
-    margin: auto;
-
-
+  margin: auto;
 }
-
-
-
-
-
-
 
 .limit-2,
 .limit-1,
 .limit-3,
 .limit-5 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 .limit-1 {
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
 .limit-2 {
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
 }
 
 .limit-3 {
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
 }
 
 .limit-5 {
-    -webkit-line-clamp: 5;
-    line-clamp: 5;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
 }
