@@ -12,6 +12,7 @@ import '../styles/scorecard.scss';
 import '../styles/schedule.scss';
 import '../styles/fantasy.scss';
 import '../styles/series.scss';
+import '../styles/news.scss';
 
 
 

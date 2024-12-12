@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import Image from "next/image";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
@@ -9,6 +8,7 @@ import { Table } from "react-bootstrap";
 import { useRouter } from "next/router";
 import useMatchStore from "@/services/match/match.service";
 import ScoreCard from "@/components/scorecard"
+import Footer from "@/components/footer/Footer";
 
 function index() {
 	const router = useRouter();

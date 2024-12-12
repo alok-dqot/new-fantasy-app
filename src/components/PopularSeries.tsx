@@ -1,4 +1,4 @@
-import useNewsStore from '@/features/news.service';
+import useNewsStore from '@/features/news/news.service';
 import useCurrentSeries from '@/features/series/series.service';
 import { titleToSlug } from '@/helpers/slugConverter';
 import moment from 'moment';
@@ -20,7 +20,7 @@ const PopularSeries = () => {
 
                 <div className="col-md-3" >
 
-                    <div className="popularS-card">
+                    <div className="popularS-card sr-outer">
                         <h4>Popular Series</h4>
                         {store.series.list.length > 0 && store.series?.list?.slice(0, 5).map((series: any) => {
                             return (
@@ -131,18 +131,17 @@ const TopStories = () => {
                 <div className="big-card">
                     <img src={blogStore.blog.list?.latest?.image_url} alt="" />
                     <div className="bigcard-content">
-                        <Link href="#"><h5>{blogStore.blog.list?.latest?.title}</h5></Link>
+                        <Link href={`/blogdetail/${blogStore.blog.list.latest?.id}`}><h5>{blogStore.blog.list?.latest?.title}</h5></Link>
                         <small>{moment(blogStore.blog.list?.latest?.updated_at).endOf('day').fromNow()}</small>
                     </div>
 
                 </div>
-                <hr />
-                <br />
+                {/* <hr /> */}
                 {
                     blogStore.blog.list?.grid?.length > 0 && blogStore.blog.list?.grid?.map((b: any) => {
                         return (
                             <div className="mini-card mt-4" key={b?.id}>
-                                <Link href={'#'}>
+                                <Link href={`/blogdetail/${b?.id}`}>
                                     <div className="row">
                                         <div className="col-md-3">
                                             <img src={b?.image_url} alt="" />
@@ -156,6 +155,7 @@ const TopStories = () => {
                                         </div>
                                     </div>
                                 </Link>
+                                <hr />
                             </div>
                         )
                     })

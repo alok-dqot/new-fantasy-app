@@ -16,7 +16,7 @@ const pages = [
 	{ title: 'Latest Matches', url: '/schedule/result' },
 	{ title: 'Fantasy', url: '/fantasy-matches' },
 	{ title: 'Series', url: '/series' },
-	{ title: 'News', url: '/news' },
+	{ title: 'News', url: '/news?type=news' },
 	{ title: 'Stats Hub', url: '/stats-hub' },
 ];
 

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import useSeriesStore from "@/services/series/series.service";
 import moment from "moment";
 import { CustomImg } from "@/helper/image.helper";
 import { titleToSlug } from "@/helpers/slugConverter";
 import { useRouter } from "next/router";
+import Footer from "@/components/footer/Footer";
+import useSeriesStore from "@/features/series/series.service";
 
 function Index() {
 
@@ -29,7 +29,7 @@ function Index() {
                 </div>
                 <div className='row'>
                     {
-                        seriesStore.competition.list.length > 0 && seriesStore.competition.list?.map((ser: any) => {
+                        seriesStore.s.list.length > 0 && seriesStore.s.list?.map((ser: any) => {
 
                             console.log(ser)
                             return (
@@ -135,7 +135,7 @@ const SerierUpCard: React.FC<SeriesListProps> = ({ id, img, title, start_date, e
 
 
 
-export const ArrowLeft = () => {
+const ArrowLeft = () => {
     return (
         <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.769597 0.310051C0.671753 0.407694 0.594128 0.523675 0.541164 0.651356C0.4882 0.779037 0.460937 0.91591 0.460938 1.05414C0.460937 1.19237 0.4882 1.32924 0.541164 1.45692C0.594128 1.58461 0.671753 1.70059 0.769597 1.79823L4.86473 5.89336L0.769597 9.9885C0.671882 10.0862 0.59437 10.2022 0.541487 10.3299C0.488604 10.4576 0.461384 10.5944 0.461384 10.7326C0.461384 10.8708 0.488604 11.0076 0.541487 11.1353C0.59437 11.263 0.671882 11.379 0.769597 11.4767C0.867312 11.5744 0.983317 11.6519 1.11099 11.7048C1.23866 11.7577 1.3755 11.7849 1.51369 11.7849C1.65188 11.7849 1.78871 11.7577 1.91639 11.7048C2.04406 11.6519 2.16006 11.5744 2.25778 11.4767L7.10228 6.63218C7.20012 6.53453 7.27775 6.41855 7.33071 6.29087C7.38368 6.16319 7.41094 6.02632 7.41094 5.88809C7.41094 5.74986 7.38368 5.61298 7.33071 5.4853C7.27775 5.35762 7.20012 5.24164 7.10228 5.144L2.25778 0.299496C1.85671 -0.101574 1.18122 -0.101574 0.769597 0.310051Z" fill="#1976d2" />
