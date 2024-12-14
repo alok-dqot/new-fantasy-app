@@ -11,7 +11,9 @@ import '../styles/popular-series.scss';
 import '../styles/scorecard.scss';
 import '../styles/schedule.scss';
 import '../styles/fantasy.scss';
-import '../styles/series.scss';
+// import '../styles/series.scss';
+import '../styles/series.overview.scss';
+import '../styles/series.matches.scss';
 import '../styles/news.scss';
 
 

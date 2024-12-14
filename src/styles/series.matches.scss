@@ -1,0 +1,300 @@
+.series-match-date,
+.series-match-date-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    margin-bottom: 15px !important;
+
+    border-bottom: solid 1px var(--divider-clr);
+
+
+    span {
+        font-size: 0.8rem;
+
+
+
+        font-weight: 600;
+        font-size: 13px;
+
+        color: #000000;
+
+        padding-bottom: 15px;
+    }
+
+    .result,
+    .live {
+        font-size: 13px;
+        line-height: 16px;
+
+        color: #14B305 !important;
+
+    }
+
+    .live {
+        color: var(--primary) !important;
+    }
+}
+
+.series-match-date-1 {
+    border-bottom: none;
+    margin-bottom: 0px !important;
+}
+
+.clear-filter-btn {
+    max-width: 200px;
+    width: 100%;
+}
+
+
+.sr-title {
+    margin-top: 20px;
+
+    .fltr-o {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+
+        .css-15toh7o-MuiAutocomplete-root .MuiOutlinedInput-root.MuiInputBase-sizeSmall {
+            border: solid 1px var(--divider-clr);
+            border-radius: 25px;
+        }
+    }
+
+    button {
+        &:hover {
+            background-color: var(--primary);
+        }
+    }
+}
+
+.series-status {
+    text-align: center;
+
+    width: 100%;
+
+    span {
+        color: var(--text-primary);
+    }
+
+    p {
+        color: var(--text-primary);
+
+        font-weight: 600;
+        font-size: 15px;
+        text-transform: capitalize;
+
+
+    }
+
+    h4 {
+        margin-top: 10px;
+        color: #8B8B8B;
+
+    }
+
+
+
+}
+
+.css-1wuilmg-MuiAutocomplete-root .MuiOutlinedInput-root.MuiInputBase-sizeSmall {
+    border-radius: 25px;
+    color: var(--primary);
+    border: solid 1px var(--divider-clr);
+}
+
+
+
+
+
+// series squad
+
+.series-squads {
+    margin-top: 20px;
+}
+
+.series-squad-wrapper {
+    img {
+        width: 46px !important;
+        height: 46px !important;
+        margin-right: 10px !important;
+    }
+
+    h5 {
+        font-size: 1.1rem !important;
+        // color: var(--text-primary) !important;
+
+    }
+
+    span {
+        font-size: 0.8rem;
+    }
+}
+
+.squad-name {
+    color: var(--text-secondary);
+    margin-left: 20px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+
+
+// series point-table
+
+.score-card-bowler-table {
+    .divider {
+        height: 1px;
+        margin-block: 10px;
+    }
+
+    .series-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .live-tab-item:hover {
+        background: var(--text-secondary);
+    }
+
+    span {
+        height: 2px !important;
+        color: white !important;
+    }
+
+}
+
+.score-card-bowler-wrapper {
+    padding: 0px;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.series-point-table {
+
+
+    .pts-table-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-inline: 10px;
+    }
+
+    .pts-team-form {
+        display: flex;
+        align-items: center;
+
+        gap: 10px;
+
+        label:first-of-type {
+            margin-right: 0px;
+        }
+    }
+}
+
+.mb-series-squad-list {
+    display: none;
+}
+
+//player info
+
+
+.player-about-body {
+    border: solid 1px var(--card-background);
+    border-radius: 10px;
+
+    background-color: var(--card-background);
+}
+
+.recent-form-header-title-only h2 {
+    border-right: none;
+
+}
+
+.banner-status-note {
+    position: absolute;
+
+    max-width: 440px;
+    width: 100%;
+    bottom: 22%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.name {
+    display: block;
+}
+
+.code {
+    display: none;
+}
+
+
+.sr-main-cd {
+    display: flex;
+    // align-items: center;
+    gap: 15px;
+
+    padding: 15px;
+
+    img {
+        width: 118px;
+        height: 104px;
+        flex-shrink: 0;
+        border-radius: 10px;
+
+    }
+
+    .sr-s {
+
+        h3,
+        span {
+            color: var(--black, #000);
+            font-family: Montserrat;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            padding-block: 8px;
+        }
+
+        span {
+
+            font-size: 14px;
+            font-weight: 500;
+
+            padding-block: 6px;
+
+        }
+    }
+
+
+    span {
+        font-weight: 500;
+        font-size: 15px;
+
+    }
+
+    .sr-c-btn {
+
+
+        h3 {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            color: var(--primary);
+            font-family: Montserrat;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+
+    }
+}

@@ -220,7 +220,7 @@ export const SeriersOverViewCard = (props: any) => {
 
                 }}
             >
-                <Grid item xs={4.5} className='fixture-list-teama'>
+                <Grid item xs={4.5} className='se'>
                     <CustomImg
                         src={getImgUrl(props?.match?.teama?.image_url)}
                         alt={props.match?.teama?.code}

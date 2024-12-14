@@ -38,7 +38,7 @@ function Index() {
                                     <SerierUpCard
                                         img={ser.image_url}
                                         id={ser.id}
-                                        title={ser.title}
+                                        title={ser.name}
                                         start_date={ser.datestart}
                                         end_date={ser.dateend}
                                         totalMatches={ser?.total_matches}

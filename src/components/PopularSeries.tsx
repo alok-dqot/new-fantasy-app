@@ -22,7 +22,7 @@ const PopularSeries = () => {
 
                     <div className="popularS-card sr-outer">
                         <h4>Popular Series</h4>
-                        {store.series.list.length > 0 && store.series?.list?.slice(0, 5).map((series: any) => {
+                        {store.s.list.length > 0 && store.s?.list?.slice(0, 5).map((series: any) => {
                             return (
                                 <Link href={`#`} key={series?.id} className="ser-name" >{series?.name}</Link>
                             )
