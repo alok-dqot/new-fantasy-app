@@ -15,6 +15,8 @@ import '../styles/fantasy.scss';
 import '../styles/series.overview.scss';
 import '../styles/series.matches.scss';
 import '../styles/news.scss';
+import '../styles/ranking.scss';
+import '../styles/footer.scss';
 
 
 

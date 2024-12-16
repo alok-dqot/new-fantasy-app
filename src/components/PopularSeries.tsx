@@ -4,6 +4,7 @@ import { titleToSlug } from '@/helpers/slugConverter';
 import moment from 'moment';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
+import HomeRankTable from './rank/RankTable';
 
 const PopularSeries = () => {
 
@@ -32,7 +33,7 @@ const PopularSeries = () => {
 
                     </div>
 
-                    {/* <DownloadAppComp /> */}
+                    <DownloadAppComp />
 
 
 
@@ -44,8 +45,12 @@ const PopularSeries = () => {
                 <div className="col-md-6">
                     <TopStories />
                 </div>
+                <div className="col-md-3">
 
-                <FollowUs />
+                    <HomeRankTable />
+                    <FollowUs />
+                </div>
+
             </div >
 
 
@@ -95,15 +100,15 @@ const DownloadAppComp = () => {
 
 const FollowUs = () => {
     return (
-        <div className="col-md-3">
-            <div className="followus-card popularS-card " >
-                <h4>Follow Us</h4>
-                <p> <a href="#"><img src="/home/youtube.png" alt="" /> You Tube </a></p>
-                <p> <a href="#"><img src="/home/facebook.png" alt="" />Facebook </a></p>
-                <p className="last-p"> <a href="#"><img src="/home/instagram.png" alt="" />instagram </a></p>
 
-            </div>
+        <div className="followus-card popularS-card mt-5" >
+            <h4>Follow Us</h4>
+            <p> <a href="#"><img src="/home/youtube.png" alt="" /> You Tube </a></p>
+            <p> <a href="#"><img src="/home/facebook.png" alt="" />Facebook </a></p>
+            <p className="last-p"> <a href="#"><img src="/home/instagram.png" alt="" />instagram </a></p>
+
         </div>
+
     )
 }
 
@@ -136,34 +141,9 @@ const TopStories = () => {
                     </div>
 
                 </div>
-                {/* <hr /> */}
-                {
-                    blogStore.blog.list?.grid?.length > 0 && blogStore.blog.list?.grid?.map((b: any) => {
-                        return (
-                            <div className="mini-card mt-4" key={b?.id}>
-                                <Link href={`/blogdetail/${b?.id}`}>
-                                    <div className="row">
-                                        <div className="col-md-3">
-                                            <img src={b?.image_url} alt="" />
-                                        </div>
-                                        <div className="col-md-9">
-                                            <div className="minicard-content">
-                                                <big>{b?.title}</big> <br />
-                                                <small className='limit-2 mt-2'>{b?.meta_description}</small>
-                                                <small className='mt-1'>{moment(b?.created_at).startOf('hour').fromNow()}</small> <br />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                                <hr />
-                            </div>
-                        )
-                    })
-                }
 
 
-
-                <Link href="#" className='btn btn-primary'>See More</Link>
+                {/* <Link href="/news?q=news" className='btn btn-primary'>See More</Link> */}
 
             </div>
         </>

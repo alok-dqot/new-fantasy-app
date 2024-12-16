@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-
-import Image from "next/image";
 import useMatchStore from "@/services/match/match.service";
 import useSeriesStore from "@/services/series/series.service";
 import moment from "moment";
@@ -11,6 +9,7 @@ import PopularSeries from "@/components/PopularSeries";
 import { CustomCarousel } from "@/components/HomeMatches";
 import HomePageCard from "@/components/card";
 import Link from "next/link";
+import useNewsStore from "@/features/news/news.service";
 
 function Index() {
 	const matchStore = useMatchStore();
@@ -23,10 +22,24 @@ function Index() {
 
 		seriesStore.get.paginate({ size: 9 })
 	}, []);
+
+
+	const blogStore = useNewsStore();
+
+
+	useEffect(() => {
+		; (async () => {
+			await blogStore.get.list({ size: 1, type: 'blog' });
+		})();
+	}, [])
+
+
+
 	return (
 		<HomeWrapper>
-			<h2 className="mt-3">Featured Matches</h2>
 
+			<br />
+			<br />
 			<CustomCarousel>
 
 				{matchStore.match?.featured_list?.length ? (
@@ -45,9 +58,39 @@ function Index() {
 			</CustomCarousel>
 
 
-			{/* <ScoreCardSlider /> */}
-			{/* < EmblaCarousel /> */}
+
 			<PopularSeries />
+
+			<div className="row">
+				{
+					blogStore.blog.list?.grid?.length > 0 && blogStore.blog.list?.grid?.map((b: any) => {
+						return (
+							<div className="mini-card mt-4" key={b?.id}>
+								<Link href={`/blogdetail/${b?.id}`}>
+									<div className="row">
+										<div className="col-md-3">
+											<img src={b?.image_url} alt="" />
+										</div>
+										<div className="col-md-9">
+
+											<h3>{b?.title}</h3> <br />
+											<small className='limit-2 mt-2'>{b?.meta_description}</small>
+											<small className='mt-1'>{moment(b?.created_at).startOf('hour').fromNow()}</small> <br />
+
+										</div>
+									</div>
+								</Link>
+							</div>
+						)
+					})
+				}
+				<div className="col-6 col-md-2 m-auto mt-3">
+
+					<Link href="/news?type=news" className='btn btn-primary '>See More</Link>
+				</div>
+
+			</div>
+
 
 		</HomeWrapper>
 

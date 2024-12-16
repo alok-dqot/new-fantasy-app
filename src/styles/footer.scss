@@ -1,0 +1,162 @@
+// .footer-outer {
+//     position: absolute;
+//     bottom: 0px;
+
+//     width: 100%;
+// }
+
+
+.footer-outer {
+    margin-top: 20px;
+    width: 100%;
+    background-color: var(--primary);
+}
+
+.whtsap-up {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column-reverse;
+
+    z-index: 20;
+
+}
+
+.whts,
+.up {
+    cursor: pointer;
+    margin: 0 10px;
+    width: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+.insta-outer {
+    iframe {
+
+        border: none !important;
+
+        #document html body {
+            .SocialProof {
+                display: none;
+                border: none;
+            }
+        }
+    }
+
+}
+
+.footer {
+
+    color: var(--text-white);
+    bottom: 0px;
+    margin-top: 30px;
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    background-color: var(--primary);
+}
+
+.ftr-box {
+    width: 230px;
+
+    p {
+        font-size: 14px;
+        margin-top: 7px;
+        line-height: 21px;
+    }
+}
+
+.ftr-copyright {
+    border-top: 1px solid var(--divider-clr);
+    font-family: Montserrat;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    padding: 12px;
+    text-align: center;
+    text-transform: capitalize;
+
+    margin-bottom: 0px;
+}
+
+.ftr-link {
+    color: var(--text-white);
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    a {
+        align-items: center;
+        display: flex;
+        font-size: 0.87rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px;
+        margin-top: 15px;
+
+        color: var(--text-white);
+
+        &:hover {
+            color: var(--text-dark);
+        }
+
+        svg {
+            margin-right: 8px;
+            margin-top: 2px;
+        }
+    }
+}
+
+.ftr-social-icons {
+    align-items: center;
+    display: flex;
+    gap: 15px;
+
+    svg {
+        color: var(--text-white);
+    }
+}
+
+.ftr-outer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    padding: 50px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:500px) {
+    .ftr-outer {
+        flex-direction: column;
+        margin-left: 15px;
+    }
+}

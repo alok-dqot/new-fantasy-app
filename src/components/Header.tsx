@@ -6,19 +6,25 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import EventIcon from '@mui/icons-material/Event';
+import ArticleIcon from '@mui/icons-material/Article';
+import BarChartIcon from '@mui/icons-material/BarChart';
 
 // Updated pages array with title and URL
 const pages = [
-	{ title: 'Schedule', url: '/schedule/upcoming/all' },
-	{ title: 'Latest Matches', url: '/schedule/result' },
-	{ title: 'Fantasy', url: '/fantasy-matches' },
-	{ title: 'Series', url: '/series' },
-	{ title: 'News', url: '/news?type=news' },
-	{ title: 'Stats Hub', url: '/stats-hub' },
+	{ title: 'Schedule', url: '/schedule/upcoming/all', icon: <LibraryBooksIcon /> },
+	{ title: 'Latest Matches', url: '/schedule/result', icon: <EventIcon /> },
+	{ title: 'Fantasy', url: '/fantasy-matches', icon: <EmojiEventsIcon /> },
+	{ title: 'Series', url: '/series', icon: <EventIcon /> },
+	{ title: 'News', url: '/news?type=news', icon: <ArticleIcon /> },
+	{ title: 'Stats Hub', url: '/stats-hub', icon: <BarChartIcon /> },
 ];
+
 
 function Navbar() {
 	// const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -63,13 +69,16 @@ function Navbar() {
 						{isNav && <MobileNav onClose={handleCloseNavMenu} />}
 					</Box>
 
-					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+
+					<Box sx={{ display: { xs: 'none', md: 'flex', gap: '26px' } }}>
 						{pages.map((page) => (
 							<Link key={page.title} href={page.url} passHref>
 								<Button
 									onClick={handleCloseNavMenu}
 									sx={{ my: 2, color: 'white', display: 'block' }}
+									className='navbar-btn'
 								>
+									{page?.icon}
 									{page.title}
 								</Button>
 							</Link>
@@ -77,6 +86,7 @@ function Navbar() {
 					</Box>
 				</Toolbar>
 			</Container>
+			<SeriesContainer />
 		</AppBar>
 	);
 }
@@ -115,3 +125,20 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
 		</Box>
 	);
 };
+
+
+
+
+
+const SeriesContainer = () => {
+	return (
+		<>
+
+			<div className="short-match-nav-outer">
+				<div className="sht-mtch-cont">
+
+				</div>
+			</div>
+		</>
+	)
+}
