@@ -110,13 +110,13 @@ export const PopularSeries = () => {
 
             <div className="lv-card sr-outer">
                 <h4>Popular Series</h4>
-                {store.s.list.length > 0 && store.s?.list?.slice(0, 5).map((series: any) => {
+                {store.s.list.length > 0 && store.s?.list?.slice(0, 8).map((series: any) => {
                     return (
                         <Link href={`#`} key={series?.id} className="ser-name" >{series?.name}</Link>
                     )
                 })}
 
-                <Link href="#" className='btn btn-primary more'>See More</Link>
+                <Link href="#" className='btn btn-main more'>See More</Link>
 
             </div>
 

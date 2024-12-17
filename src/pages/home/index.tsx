@@ -43,6 +43,7 @@ function Index() {
 
 			<br />
 			<br />
+
 			<CustomCarousel>
 
 				{matchStore.match?.featured_list?.length ? (
@@ -59,11 +60,18 @@ function Index() {
 				)}
 
 			</CustomCarousel>
+			<br />
 
+			<div className="back-color-carousel">
+
+			</div>
 			<div className="row mt-5">
 				<div className="col-md-3">
 					<PopularSeries />
 					<DownloadAppComp />
+					<div className="team_add_image mt-5">
+						<img src="/team_privew_exam.png" alt="#" className='img-fluid' />
+					</div>
 
 				</div>
 
@@ -80,7 +88,7 @@ function Index() {
 											</div>
 											<div className="col-md-9">
 
-												<h3>{b?.title}</h3>
+												<h3 className="limit-2">{b?.title}</h3>
 												<p className='limit-2 mt-2'>{b?.meta_description}</p>
 												<p className="cd-time"><CalendarMonthIcon />{moment(b?.created_at).startOf('hour').fromNow()}</p>
 
@@ -106,7 +114,7 @@ function Index() {
 
 				<div className="col-6 col-md-2 m-auto mt-3">
 
-					<Link href="/news?type=news" className='btn btn-primary '>See More</Link>
+					<Link href="/news?type=news" className='btn btn-main'>See More</Link>
 				</div>
 
 			</div>

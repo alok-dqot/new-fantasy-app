@@ -6,6 +6,7 @@ import { titleToSlug } from "@/helpers/slugConverter";
 import { useRouter } from "next/router";
 import Footer from "@/components/footer/Footer";
 import useSeriesStore from "@/features/series/series.service";
+import HomeWrapper from "@/components/wrapper/HomeWrapper";
 
 function Index() {
 
@@ -19,8 +20,7 @@ function Index() {
 
 
     return (
-        <main>
-            <Header />
+        <HomeWrapper>
             <section className='cricket_match_blog_sec'>
 
                 <div className='heading'>
@@ -72,8 +72,7 @@ function Index() {
 
             </section>
 
-            <Footer />
-        </main>
+        </HomeWrapper>
     );
 }
 

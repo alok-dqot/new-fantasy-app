@@ -9,6 +9,7 @@
   --text-color: #000;
   --divider-clr: #e2e2e2;
   --article-color: #747474;
+  --fnt-family: "Montserrat", sans-serif;
 }
 
 .row {
@@ -56,4 +57,11 @@ body {
 .limit-5 {
   -webkit-line-clamp: 5;
   line-clamp: 5;
+}
+
+
+
+.btn-main {
+  background: var(--primary) !important;
+  color: white !important;
 }

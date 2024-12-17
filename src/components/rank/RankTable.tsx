@@ -72,6 +72,7 @@ const HomeRankTable = React.memo((props: any) => {
 
 
             <div className='score-card-bowler-wrapper series-point-table home-ranking'>
+
                 {/* <div className='pts-table-header'>
                     <div className='rank-role-title'>
                         <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -111,6 +112,8 @@ const HomeRankTable = React.memo((props: any) => {
                             </Button>
                         </div>
                     </div> */}
+                    <h4 className='p-3 pb-0'>Ranking</h4>
+
                     <Tabs
                         value={role}
                         onChange={handleRoleValue}

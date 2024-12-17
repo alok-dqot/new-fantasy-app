@@ -16,12 +16,12 @@ function Index() {
     const router = useRouter();
     const match = useMatchStore();
 
-    useEffect(() => {
-        if (!router.isReady) return;
-        const { match_id, redis_id } = router.query as TeamConfirmationQuery;
+    // useEffect(() => {
+    //     if (!router.isReady) return;
+    //     const { match_id, redis_id } = router.query as TeamConfirmationQuery;
 
-        match.get.generateRedisData(match_id, redis_id);
-    }, [router.isReady]);
+    //     match.get.generateRedisData(match_id, redis_id);
+    // }, [router.isReady]);
 
 
 

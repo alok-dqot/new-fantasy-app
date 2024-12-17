@@ -4,7 +4,7 @@
   padding: 15px;
   width: 285px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
 
 
 
@@ -153,4 +153,18 @@
 
     margin-top: 10px;
   }
+}
+
+
+
+
+.team-name,
+.team-score {
+  color: var(--primary) !important;
+  font-weight: 600;
+}
+
+.team-name {
+  font-size: 14px;
+  margin-right: 10px;
 }

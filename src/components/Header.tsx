@@ -48,7 +48,7 @@ function Navbar() {
 	}, [isNav]);
 
 	return (
-		<AppBar position="sticky" sx={{ boxShadow: '0px 2px 4px -1px rgb(0 0 0 / 0%), 0px 4px 5px 0px rgb(0 0 0 / 0%), 0px 1px 10px 0px rgb(0 0 0 / 0%)' }}>
+		<AppBar position="sticky" sx={{ background: "var(--primary)	", boxShadow: 'none' }}>
 			<Container maxWidth="xl">
 				<Toolbar disableGutters className="appbar-outer">
 					<Link href="/home">
@@ -71,7 +71,7 @@ function Navbar() {
 					</Box>
 
 
-					<Box sx={{ display: { xs: 'none', md: 'flex', gap: '26px' } }}>
+					<Box sx={{ display: { xs: 'none', md: 'flex', gap: '26px', }, py: '10px' }}>
 						{pages.map((page) => (
 							<Link key={page.title} href={page.url} passHref>
 								<Button
