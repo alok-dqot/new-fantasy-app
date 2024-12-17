@@ -2,7 +2,6 @@ import moment from "moment";
 
 
 const HomePageCard = ({ m }: { m: any }) => {
-    // console.log(m)
 
     return (
 
@@ -29,11 +28,15 @@ const HomePageCard = ({ m }: { m: any }) => {
                     <span className="team-score">{m?.teamb?.scores_full}</span>
                 </div>
             </div>
-            <div className="navigation">
-                <a href="#" className="nav-item active">Series</a>
-                <a href="#" className="nav-item">Table</a>
+            {/* <div className="navigation">
+                <a href="#" className="nav-item active">{m?.title}</a>
+                {/* <a href="#" className="nav-item">Table</a>
                 <a href="#" className="nav-item">Schedule</a>
                 <a href="#" className="nav-item">News</a>
+            </div> */}
+
+            <div className="navigation">
+                <p className="limit-1">{m?.title}</p>
             </div>
         </div>
 

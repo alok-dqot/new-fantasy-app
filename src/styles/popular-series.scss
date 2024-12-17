@@ -1,113 +1,4 @@
-.row {
-  .popularS-card {
-    border: 1px solid #e3e3e4;
-    border-radius: 10px;
-    padding: 20px 20px;
-
-    background-color: var(--bg-card);
-
-    display: grid;
-    align-content: center;
-    gap: 15px;
-
-    h4 {
-      font-weight: 600;
-      padding-bottom: 5px;
-      margin-bottom: 0px;
-    }
-
-    p {
-      border-bottom: 1px solid #e3e3e4;
-      margin: 0;
-      padding: 10px 0px;
-      font-size: 16px;
-      font-weight: 500;
-    }
-
-    a {
-      color: black;
-      border-bottom: solid 1px black;
-
-      padding-bottom: 8px;
-
-    }
-
-    & :last-of-type {
-      border-bottom: none;
-    }
-
-    .last-p {
-      border-bottom: none;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-
-      a {
-        text-decoration: none;
-        font-size: 20px;
-      }
-    }
-  }
-
-  .topRanking-card {
-    p {
-      .first {
-        color: black;
-      }
-    }
-  }
-
-  .TopStories-card {
-    .big-card {
-      // border-bottom: 1px solid #e3e3e4;
-      padding: 20px 0px;
-
-      img {
-        width: 100%;
-      }
-
-      .bigcard-content {
-        padding: 10px 0px;
-
-        a {
-          text-decoration: none;
-          color: black;
-
-          h5 {
-            font-size: 23px;
-            margin: 0;
-          }
-        }
-
-        a:hover {
-          border-bottom: 1px solid black;
-        }
-
-        small {
-          color: #686868;
-        }
-      }
-    }
-
-
-  }
-
-  .followus-card {
-    p {
-      a {
-        display: flex;
-        gap: 14px;
-      }
-    }
-  }
-}
-
-
-.mini-card {
+.hm-article-card {
   width: 100%;
 
   background-color: var(--bg-card);
@@ -125,19 +16,152 @@
     text-decoration: none;
     color: black;
 
-
   }
+
+  p {
+    font-size: 0.9rem;
+    color: var(--article-color);
+
+    margin-bottom: 0px;
+  }
+
+  .cd-time {}
 
   h3 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
-  #time {
-    color: #686868;
-    font-size: 12px;
+}
+
+
+.bg-card {
+  background-color: var(--bg-card);
+  color: var(--text-color);
+
+
+}
+
+
+.lv-card {
+  background-color: var(--bg-card);
+  color: var(--text-color);
+
+  border-radius: 5px;
+
+  padding: 20px;
+}
+
+.pp-ser-card {
+  border: 1px solid #e3e3e4;
+  border-radius: 10px;
+
+  background-color: var(--bg-card);
+
+  display: grid;
+  align-content: center;
+  gap: 15px;
+
+
+  .latest-card {
+    // border-bottom: 1px solid #e3e3e4;
+
+
+    img {
+      width: 100%;
+    }
+
+    .bigcard-content {
+      padding: 10px 0px;
+
+      a {
+        text-decoration: none;
+        color: black;
+
+        h5 {
+          font-size: 23px;
+          margin: 0;
+        }
+      }
+
+      a:hover {
+        border-bottom: 1px solid black;
+      }
+
+      small {
+        color: #686868;
+      }
+    }
   }
 
-  small {
-    font-size: 12px;
+
+}
+
+.dwnld-card {
+  // padding: 10px;
+
+  h4 {}
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+
+  a {
+    color: var(--text-color);
+
+    img {
+      margin-right: 10px;
+    }
   }
+
+}
+
+
+.sr-outer {
+  // padding: 10px;
+
+  a {
+    display: block;
+    width: 100%;
+
+    margin-top: 5px;
+    padding-block: 10px;
+
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    border-bottom: solid 1px var(--divider-clr);
+  }
+
+  .more {
+    color: var(--text-white);
+    margin-top: 10px;
+  }
+}
+
+
+.followus-card {
+
+  // padding: 10px;
+
+  display: block;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: var(--text-color);
+
+    margin-top: 20px;
+
+    img {
+      width: 30px;
+      height: 30px;
+
+      object-fit: contain;
+    }
+  }
+
 }

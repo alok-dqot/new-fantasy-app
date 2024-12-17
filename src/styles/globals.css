@@ -6,6 +6,9 @@
   --bg-card: #ffffff;
   --text-white: #fff;
   --text-dark: #000;
+  --text-color: #000;
+  --divider-clr: #e2e2e2;
+  --article-color: #747474;
 }
 
 .row {
@@ -14,6 +17,7 @@
 
 body {
   background-color: var(--bg-color) !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .main-wrapper {

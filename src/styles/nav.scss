@@ -69,5 +69,17 @@
 
   margin: auto;
 
-  border: solid 1px white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  button {
+    color: var(--text-white);
+
+    min-width: 100px;
+    // background-color: var;
+  }
+
+  // border: solid 1px white;
 }
