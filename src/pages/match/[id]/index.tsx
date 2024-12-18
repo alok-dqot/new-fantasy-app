@@ -15,6 +15,7 @@ import { Extra } from "@/components/scorecard";
 import { Bowler } from "@/components/scorecard";
 import { Wickets } from "@/components/scorecard";
 import { Partnerships } from "@/components/scorecard";
+import HomeWrapper from "@/components/wrapper/HomeWrapper";
 
 function index() {
 	const router = useRouter();
@@ -40,11 +41,11 @@ function index() {
 
 	return (
 		<>
-			<main>
-				<Header
+			<HomeWrapper>
+				{/* <Header
 				// series_id={matchStore?.match?.detail?.competition?.cid || "10"}
 				// match_id={id}
-				/>
+				/> */}
 
 				<section className='score_main_sec'>
 					<div className='container'>
@@ -630,7 +631,7 @@ function index() {
 																		<div className="score-body">
 																			<div className="scorecard">
 
-																				<CricketScorbord />
+																				{/* <CricketScorbord /> */}
 
 																				<div className="cricket-better-score">
 
@@ -646,161 +647,13 @@ function index() {
 
 
 																				</div>
-																				<CricketScorbord />
+
 																			</div>
 
 
 																		</div>
 
 
-																		<div className='scorecard_cards_count'>
-
-
-																			<Table>
-																				<thead>
-																					<tr>
-																						<th style={{ width: "72%" }}>
-																							Batter
-
-																						</th>
-																						<th>R</th>
-																						<th>B</th>
-																						<th>4s</th>
-																						<th>6s</th>
-																						<th>SR</th>
-																					</tr>
-																				</thead>
-																				<tbody>
-
-
-
-
-																					{inning?.batsmen?.length ? (
-																						inning?.batsmen?.map(
-																							(batsmen: any) => {
-
-																								return (
-																									<tr>
-																										<td>
-																											{batsmen?.name}
-																											<br />
-																											<p>{batsmen?.how_out}</p>
-																										</td>
-																										<td>{batsmen?.runs}</td>
-																										<td>
-																											{batsmen?.balls_faced}
-																										</td>
-																										<td>{batsmen?.fours}</td>
-																										<td>{batsmen?.sixes}</td>
-																										<td>
-																											{batsmen?.strike_rate}
-																										</td>
-																									</tr>
-																								);
-																							},
-																						)
-																					) : (
-																						<></>
-																					)}
-
-																					<tr>
-																						<td className='border-0'>Extras:</td>
-																						<td className='border-0'>
-																							{inning?.extra_runs?.total}
-																							<p>
-																								({inning?.extra_runs?.byes}b,
-																								{inning?.extra_runs?.legbyes} lb,
-																								{inning?.extra_runs?.wides}wd
-																								{inning?.extra_runs?.noballs}nb
-																								{inning?.extra_runs?.penalty}p)
-																							</p>
-																						</td>
-																					</tr>
-																				</tbody>
-																			</Table>
-
-																			<Table>
-																				<thead>
-																					<tr>
-																						<th style={{ width: "72%" }}>
-																							Bowler
-																						</th>
-																						<th>O</th>
-																						<th>M</th>
-																						<th>R</th>
-																						<th>W</th>
-																						<th>ER</th>
-																					</tr>
-																				</thead>
-																				<tbody>
-																					{inning?.bowlers?.length ? (
-																						inning?.bowlers?.map(
-																							(bowler: any) => {
-																								return (
-																									<tr>
-																										<td>{bowler?.name}</td>
-																										<td>{bowler?.overs}</td>
-																										<td>{bowler?.maidens}</td>
-																										<td>
-																											{bowler?.runs_conceded}
-																										</td>
-																										<td>{bowler?.wickets}</td>
-																										<td>{bowler?.econ}</td>
-																									</tr>
-																								);
-																							},
-																						)
-																					) : (
-																						<></>
-																					)}
-
-																					<tr>
-																						<td className='border-0'>Extras:</td>
-																						<td className='border-0'>
-																							{inning?.extra_runs?.total}
-																							<p>
-																								({inning?.extra_runs?.byes}b,
-																								{inning?.extra_runs?.legbyes} lb,
-																								{inning?.extra_runs?.wides}wd
-																								{inning?.extra_runs?.noballs}nb
-																								{inning?.extra_runs?.penalty}p)
-																							</p>
-																						</td>
-																					</tr>
-																				</tbody>
-																			</Table>
-
-																			<Table>
-																				<thead>
-																					<tr>
-																						<th style={{ width: "72%" }}>
-																							Fall of Wickets
-																						</th>
-																						<th>Score</th>
-																						<th>Over</th>
-																					</tr>
-																				</thead>
-																				<tbody>
-																					{inning?.fows?.length ? (
-																						inning?.fows?.map((fow: any) => {
-																							return (
-																								<tr>
-																									<td>{fow?.name}</td>
-																									<td>
-																										{fow?.score_at_dismissal}
-																									</td>
-																									<td>
-																										{fow?.overs_at_dismissal}
-																									</td>
-																								</tr>
-																							);
-																						})
-																					) : (
-																						<></>
-																					)}
-																				</tbody>
-																			</Table>
-																		</div>
 																	</Accordion.Body>
 																</Accordion.Item>
 															);
@@ -817,10 +670,10 @@ function index() {
 					)}
 				</section>
 
-				< ScoreCard />
+				{/* < ScoreCard /> */}
 
-				<Footer />
-			</main>
+
+			</HomeWrapper>
 		</>
 	);
 }

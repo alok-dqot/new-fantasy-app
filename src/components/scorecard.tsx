@@ -1,8 +1,6 @@
 import Tabs from "react-bootstrap/Tabs";
 
-interface IPROPS {
-    batter: string; // or whatever the expected type is (e.g., string, object)
-}
+
 
 const ScoreCard = () => {
     return (

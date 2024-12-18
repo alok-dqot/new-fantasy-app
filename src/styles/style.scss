@@ -428,8 +428,8 @@ footer {
 
     .nav-item {
       .nav-link.active {
-        background: #3652ad;
-        border: 1px solid #3652ad;
+        background: var(--tab-color);
+        // border: 1px solid #3652ad;
         border-radius: 10px 10px 0 0;
       }
 
@@ -823,7 +823,7 @@ footer {
 
       .accordion-header {
         .accordion-button {
-          background: #3652ad;
+          background: var(--tab-color);
           color: #fff;
 
           &::after {
