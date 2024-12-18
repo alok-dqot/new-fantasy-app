@@ -9,6 +9,12 @@ import { useRouter } from "next/router";
 import useMatchStore from "@/services/match/match.service";
 import ScoreCard from "@/components/scorecard"
 import Footer from "@/components/footer/Footer";
+import { Batter } from "@/components/scorecard";
+import { CricketScorbord } from "@/components/scorecard";
+import { Extra } from "@/components/scorecard";
+import { Bowler } from "@/components/scorecard";
+import { Wickets } from "@/components/scorecard";
+import { Partnerships } from "@/components/scorecard";
 
 function index() {
 	const router = useRouter();
@@ -46,6 +52,7 @@ function index() {
 							<div className='col-md-12'>
 								<div className='match_title'>
 									<h3>{detail?.title}</h3>
+
 								</div>
 							</div>
 						</div>
@@ -96,6 +103,7 @@ function index() {
 						</div>
 					</div>
 				</section>
+
 				<section className='team_score_tabs_sec'>
 					{matchStore.match.list.status && (
 						<div className='container'>
@@ -123,6 +131,7 @@ function index() {
 													<h5>Target: {live?.live_score?.target}</h5>
 												</div>
 											</div>
+
 											<div className='comman_card'>
 												<div className='content p-0 border-0 align-items-center'>
 													<h5>Winning Probability:</h5>
@@ -136,15 +145,18 @@ function index() {
 													</div>
 												</div>
 											</div>
+
 											<div className='comman_card'>
 												<div className='content p-0 border-0 align-items-center'>
 													<h5>Run Rate: {live?.live_score?.runrate} </h5>
 													<h5>Balls Rem: {live?.live_score?.overs}</h5>
 												</div>
 											</div>
+
 											<div className='ads_banner mb-4'>
 
 											</div>
+
 											<div className='comman_card'>
 												<div className='content pt-0 align-items-center'>
 													<div className='d-flex align-items-center'>
@@ -184,17 +196,20 @@ function index() {
 													</div>
 												</div>
 											</div>
+
 											<div className='comman_card'>
 												<div className='batter_heading'>
 													<div className='batter_div'>
 														<h5>Batter</h5>
+
+
 													</div>
 													<div className='batter_div r_boll'>
 														<h5>R</h5>
 														<h5>B</h5>
 														<h5>4s</h5>
 														<h5>6s</h5>
-														<h5>SR</h5>
+														<h5>RS</h5>
 													</div>
 												</div>
 												{live?.batsmen?.length ? (
@@ -238,6 +253,7 @@ function index() {
 													</div>
 												</div>
 											</div>
+
 											<div className='comman_card'>
 												<div className='batter_heading'>
 													<div className='batter_div'>
@@ -269,9 +285,11 @@ function index() {
 													);
 												})}
 											</div>
+
 											<div className='ads_banner mb-4'>
 
 											</div>
+
 											<div className='comman_card'>
 												<div className='batter_heading'>
 													<div className='batter_div'>
@@ -578,6 +596,7 @@ function index() {
 										</div>
 									</div>
 								</Tab.Pane>
+
 								{(matchStore.match.list.status === 2 ||
 									matchStore.match.list.status === 3) && (
 										<Tab.Pane eventKey='scorecard' title='Scorecard'>
@@ -586,6 +605,7 @@ function index() {
 													{scorecard?.innings?.length ? (
 														scorecard?.innings?.map((inning: any, index) => {
 															return (
+
 																<Accordion.Item eventKey={`${index}`}>
 																	<Accordion.Header>
 																		<div className='team_main'>
@@ -605,13 +625,43 @@ function index() {
 																			<h6>{inning?.scores_full}</h6>
 																		</div>
 																	</Accordion.Header>
+
 																	<Accordion.Body>
+																		<div className="score-body">
+																			<div className="scorecard">
+
+																				<CricketScorbord />
+
+																				<div className="cricket-better-score">
+
+																					<div className="score-table">
+
+																						<Batter batter={inning.batsmen} />
+																						<Extra extra={inning.extra_runs} />
+																						<Bowler bowler={inning.bowlers} />
+																						<Wickets wicket={inning.fows} />
+																						<Partnerships partnership={inning} />
+
+																					</div>
+
+
+																				</div>
+																				<CricketScorbord />
+																			</div>
+
+
+																		</div>
+
+
 																		<div className='scorecard_cards_count'>
+
+
 																			<Table>
 																				<thead>
 																					<tr>
 																						<th style={{ width: "72%" }}>
 																							Batter
+
 																						</th>
 																						<th>R</th>
 																						<th>B</th>
@@ -621,9 +671,14 @@ function index() {
 																					</tr>
 																				</thead>
 																				<tbody>
+
+
+
+
 																					{inning?.batsmen?.length ? (
 																						inning?.batsmen?.map(
 																							(batsmen: any) => {
+
 																								return (
 																									<tr>
 																										<td>
@@ -663,6 +718,7 @@ function index() {
 																					</tr>
 																				</tbody>
 																			</Table>
+
 																			<Table>
 																				<thead>
 																					<tr>
@@ -713,6 +769,7 @@ function index() {
 																					</tr>
 																				</tbody>
 																			</Table>
+
 																			<Table>
 																				<thead>
 																					<tr>
@@ -1125,6 +1182,7 @@ export default index;
 	</Accordion>
 </div> */
 }
+
 {
 	/* </div>										<h5 className='comman_run single_run'>2</h5>
 																	<h5 className='comman_run six_run'>6</h5>

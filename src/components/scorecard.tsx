@@ -1,318 +1,40 @@
+import Tabs from "react-bootstrap/Tabs";
+
+interface IPROPS {
+    batter: string; // or whatever the expected type is (e.g., string, object)
+}
+
 const ScoreCard = () => {
     return (
         <>
+
+
+
             <div className="score-body">
                 <div className="scorecard">
-                    <div className="cricket-scorboard">
-                        <div className="team">
-                            <img src="/ind.jpg" alt="Pakistan Team Logo" />
-                            <p>IND-W</p>
-                        </div>
-                        <div className="score">
-                            <p>184.8(20.0)</p>
 
-                        </div>
-                    </div>
+                    <CricketScorbord />
 
                     <div className="cricket-better-score">
 
                         <div className="score-table">
 
-                            <table>
-                                <thead>
-                                    <tr className="header-row">
-                                        <th>BATTER</th>
-                                        <th>R</th>
-                                        <th>B</th>
-                                        <th>4s</th>
-                                        <th>6s</th>
-                                        <th>SR</th>
-                                    </tr>
-                                </thead>
+                            {/* <Batter /> */}
+                            {/* <Extra />
+                            <Bowler />
+                            <Wickets />
+                            <Partnerships /> */}
 
-                                <tbody>
-                                    <tr>
-                                        <td className="name">Assif Sheikh <br />
-                                            <span className="extra-info">c Pargat Singh b Harsh Thaker</span>
-                                        </td>
-
-                                        <td>47</td>
-                                        <td>37</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>127.03</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="name">
-                                            Assif Sheikh<br />
-                                            <span className="extra-info">c Pargat Singh b Harsh Thaker</span>
-                                        </td>
-                                        <td>47</td>
-                                        <td>37</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>127.03</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td className="name">
-                                            Assif Sheikh<br />
-                                            <span className="extra-info">c Pargat Singh b Harsh Thaker</span>
-                                        </td>
-                                        <td>47</td>
-                                        <td>37</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>127.03</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td className="name">
-                                            Assif Sheikh<br />
-                                            <span className="extra-info">c Pargat Singh b Harsh Thaker</span>
-                                        </td>
-                                        <td>47</td>
-                                        <td>37</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>127.03</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td className="name">
-                                            Assif Sheikh<br />
-                                            <span className="extra-info">c Pargat Singh b Harsh Thaker</span>
-                                        </td>
-                                        <td>47</td>
-                                        <td>37</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>127.03</td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
-
-
-
-                            <div className="extra " >
-                                <div className="row-first">
-                                    <div className="extras"><p> Extras:</p></div>
-                                    <div className="extra-details"><p> 9(b: 0, lb: 3, nb: 0, wd: 6) </p></div>
-                                </div>
-                                <div className="row-second">
-                                    <p>Total:100</p>
-                                    <p className="over">Overs:34.2</p>
-                                    <p className="rr">RR:2.91</p>
-                                </div>
-                            </div>
-
-
-                            <div className="score-table-bowlers">
-                                <table>
-                                    <thead>
-                                        <tr className="header-row">
-                                            <th>Bowler</th>
-                                            <th>O</th>
-                                            <th>M</th>
-                                            <th>R</th>
-                                            <th>W</th>
-                                            <th>ER</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td className="name">Ammar Khalid</td>
-                                            <td>9.0</td>
-                                            <td>1</td>
-                                            <td>33</td>
-                                            <td>2</td>
-                                            <td>3.67</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="name">Ammar Khalid</td>
-                                            <td>9.0</td>
-                                            <td>1</td>
-                                            <td>33</td>
-                                            <td>2</td>
-                                            <td>3.67</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td className="name">Ammar Khalid</td>
-                                            <td>9.0</td>
-                                            <td>1</td>
-                                            <td>33</td>
-                                            <td>2</td>
-                                            <td>3.67</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="name">Ammar Khalid</td>
-                                            <td>9.0</td>
-                                            <td>1</td>
-                                            <td>33</td>
-                                            <td>2</td>
-                                            <td>3.67</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="name">Ammar Khalid</td>
-                                            <td>9.0</td>
-                                            <td>1</td>
-                                            <td>33</td>
-                                            <td>2</td>
-                                            <td>3.67</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div className="FALL-OF-WICKETS">
-
-                                <table>
-                                    <thead>
-                                        <tr className="header-row">
-                                            <th>Fall of Wickets</th>
-                                            <th>Score</th>
-                                            <th>Over</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td className="name">Ammar Khalid</td>
-                                            <td>61/1</td>
-                                            <td>12.3</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="name">Ammar Khalid</td>
-                                            <td>61/1</td>
-                                            <td>12.3</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td className="name">Ammar Khalid</td>
-                                            <td>61/1</td>
-                                            <td>12.3</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="name">Ammar Khalid</td>
-                                            <td>61/1</td>
-                                            <td>12.3</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="name">Ammar Khalid</td>
-                                            <td>61/1</td>
-                                            <td>12.3</td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div className="Partnerships-Stats">
-
-                                <h5>Partnerships Stats</h5>
-                                <div className="all-state">
-                                    <div className="stats1">
-
-                                        <div className="name">Assif Sheikh <br />
-                                            <span className="extra-info">1(7)</span>
-
-                                        </div>
-
-                                        <div className="center">
-                                            <span>69(113)</span>
-                                        </div>
-
-                                        <div className="name">S Mandhana <br />
-                                            <span>8(10)</span>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="stats1">
-
-                                        <div className="name">Assif Sheikh <br />
-                                            <span className="extra-info">1(7)</span>
-
-                                        </div>
-
-                                        <div className="center">
-                                            <span>69(113)</span>
-                                        </div>
-
-                                        <div className="name">S Mandhana <br />
-                                            <span>8(10)</span>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="stats1">
-
-                                        <div className="name">Assif Sheikh <br />
-                                            <span className="extra-info">1(7)</span>
-
-                                        </div>
-
-                                        <div className="center">
-                                            <span>69(113)</span>
-                                        </div>
-
-                                        <div className="name">S Mandhana <br />
-                                            <span>8(10)</span>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="stats1">
-
-                                        <div className="name">Assif Sheikh <br />
-                                            <span className="extra-info">1(7)</span>
-
-                                        </div>
-
-                                        <div className="center">
-                                            <span>69(113)</span>
-                                        </div>
-
-                                        <div className="name">S Mandhana <br />
-                                            <span>8(10)</span>
-                                        </div>
-
-                                    </div>
-
-                                    <div className="stats1">
-
-                                        <div className="name">Assif Sheikh <br />
-                                            <span className="extra-info">1(7)</span>
-
-                                        </div>
-
-                                        <div className="center">
-                                            <span>69(113)</span>
-                                        </div>
-
-                                        <div className="name">S Mandhana <br />
-                                            <span>8(10)</span>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
 
                         </div>
+
+
                     </div>
 
-                    <div className="cricket-scorboard">
-                        <div className="team">
-                            <img src="/ind.jpg" alt="India Team Logo" />
-                            <p>India</p>
-                        </div>
-                        <div className="score">
-                            <p>184.8(20.0)</p>
 
-                        </div>
-                    </div>
+
+                    < CricketScorbord />
+
                 </div>
             </div>
 
@@ -321,3 +43,288 @@ const ScoreCard = () => {
 };
 
 export default ScoreCard;
+
+
+const CricketScorbord = () => {
+    return (
+        <>
+            <div className="cricket-scorboard">
+                <div className="team">
+                    <img src="/ind.jpg" alt="Pakistan Team Logo" />
+                    <p>IND-W</p>
+                </div>
+                <div className="score">
+                    <p>184.8(20.0)</p>
+
+                </div>
+            </div>
+        </>
+    );
+};
+
+export { CricketScorbord }
+
+const Batter = ({ batter }: any) => {
+
+    return (
+        <>
+            <table>
+                <thead>
+                    <tr className="header-row">
+                        <th className="betsman">BATTER</th>
+                        <th className="players-run">R</th>
+                        <th className="players-ball">B</th>
+                        <th className="players-four">4s</th>
+                        <th className="players-six">6s</th>
+                        <th className="players-sr">SR</th>
+                        {/* <th ></th>
+                                        <th ></th> */}
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {
+                        batter?.map(
+                            (batsmen: any) => {
+                                return (
+                                    <>
+
+                                        <tr>
+                                            <td
+                                                className="name">{batsmen?.name}<br />
+                                                <span className="extra-info">{batsmen?.how_out}</span>
+                                            </td>
+
+                                            <td>{batsmen?.runs}</td>
+                                            <td>{batsmen?.balls_faced}</td>
+                                            <td>{batsmen?.fours}</td>
+                                            <td>{batsmen?.sixes}</td>
+                                            <td>{batsmen?.strike_rate}</td>
+                                        </tr>
+                                    </>
+                                )
+
+                            }
+                        )
+                    }
+
+
+                </tbody>
+
+            </table>
+        </>
+    );
+};
+export { Batter }
+
+
+const Extra = ({ extra }: any) => {
+
+    return (
+        <>
+
+
+            <div className="extra " >
+                <div className="row-first">
+                    <div className="extras"><p> Extras:</p></div>
+                    <div className="extra-details"><p> 9(b: {extra.byes
+                    }, lb: {extra.legbyes}, nb: {extra.noballs}, wd: {extra.wides}) </p></div>
+                </div>
+                <div className="row-second">
+                    <p>Total:100</p>
+                    <p className="over">Overs:34.2</p>
+                    <p className="rr">RR:2.91</p>
+                </div>
+            </div>
+        </>
+
+    );
+};
+export { Extra }
+
+
+
+const Bowler = ({ bowler }: any) => {
+
+    return (
+        <>
+            <div className="score-table-bowlers">
+                <table>
+                    <thead>
+                        <tr className="header-row">
+                            <th className="">Bowler</th>
+                            <th className="players-over">O</th>
+                            <th className="players-match">M</th>
+                            <th className="players-run">R</th>
+                            <th className="players-wicket">W</th>
+                            <th className="players-er">ER</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            bowler?.map((bowler: any) => {
+                                return (
+                                    <tr>
+                                        <td className="name">{bowler?.name}</td>
+                                        <td>{bowler?.overs}</td>
+                                        <td>{bowler?.maidens}</td>
+                                        <td>{bowler?.runs_conceded}</td>
+                                        <td>{bowler?.wickets}</td>
+                                        <td>{bowler?.econ}</td>
+                                    </tr>
+                                )
+                            })
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </>
+    );
+};
+export { Bowler }
+
+
+const Wickets = ({ wicket }: any) => {
+    return (
+        <>
+            <div className="FALL-OF-WICKETS">
+
+                <table>
+                    <thead>
+                        <tr className="header-row">
+                            <th>Fall of Wickets</th>
+                            <th>Score</th>
+                            <th>Over</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {
+                            wicket?.map(
+                                (fows: any) => {
+                                    return (
+                                        <tr>
+                                            <td className="name">{fows?.name}</td>
+                                            <td>{fows?.score_at_dismissal}</td>
+                                            <td>{fows?.overs_at_dismissal}</td>
+                                        </tr>
+                                    );
+                                }
+                            )
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </>
+    );
+};
+export { Wickets }
+
+
+const Partnerships = ({ partnership }: any) => {
+    console.log(partnership)
+    return (
+        <>
+            <div className="Partnerships-Stats">
+
+                <h5>Partnerships Stats</h5>
+                <div className="all-state">
+                    <div className="stats1">
+
+                        <div className="name">Assif Sheikh <br />
+                            <span className="extra-info">1(7)</span>
+
+                        </div>
+
+                        <div className="center">
+                            <span>69(113)</span>
+                        </div>
+
+                        <div className="name">S Mandhana <br />
+                            <span>8(10)</span>
+                        </div>
+
+                    </div>
+
+                    <div className="stats1">
+
+                        <div className="name">Assif Sheikh <br />
+                            <span className="extra-info">1(7)</span>
+
+                        </div>
+
+                        <div className="center">
+                            <span>69(113)</span>
+                        </div>
+
+                        <div className="name">S Mandhana <br />
+                            <span>8(10)</span>
+                        </div>
+
+                    </div>
+
+                    <div className="stats1">
+
+                        <div className="name">Assif Sheikh <br />
+                            <span className="extra-info">1(7)</span>
+
+                        </div>
+
+                        <div className="center">
+                            <span>69(113)</span>
+                        </div>
+
+                        <div className="name">S Mandhana <br />
+                            <span>8(10)</span>
+                        </div>
+
+                    </div>
+
+                    <div className="stats1">
+
+                        <div className="name">Assif Sheikh <br />
+                            <span className="extra-info">1(7)</span>
+
+                        </div>
+
+                        <div className="center">
+                            <span>69(113)</span>
+                        </div>
+
+                        <div className="name">S Mandhana <br />
+                            <span>8(10)</span>
+                        </div>
+
+                    </div>
+
+                    <div className="stats1">
+
+                        <div className="name">Assif Sheikh <br />
+                            <span className="extra-info">1(7)</span>
+
+                        </div>
+
+                        <div className="center">
+                            <span>69(113)</span>
+                        </div>
+
+                        <div className="name">S Mandhana <br />
+                            <span>8(10)</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </>
+    );
+};
+export { Partnerships }
+
+
+
