@@ -1,4 +1,4 @@
-import Nodata from '@/components/no-data/NoData';
+import Nodata, { Loading } from '@/components/no-data/NoData';
 import ScheduleCardWrapper from '@/components/schedule/ScheduleWrapper';
 import SchTabs, { FormatTabs } from '@/components/schedule/SchTab';
 import HomeWrapper from '@/components/wrapper/HomeWrapper';
@@ -31,52 +31,52 @@ const index = () => {
                     {/* <CricketMatchesTabs /> */}
 
 
-                    <Grid container sx={{ mt: 6, }}>
+                    <div className='row mt-6' >
                         <SchTabs
                             selected={2}
                         />
-                    </Grid>
+                    </div>
 
 
 
-                    <Grid container>
+                    <div className='row '>
                         {
                             store.schedule?.list?.length > 0 ? store.schedule?.list?.map((sch: any) => {
 
                                 return (
                                     <>
 
-                                        <Grid item xs={12} key={sch?.competiton_id} >
+                                        <div className='col-12' key={sch?.competiton_id} >
 
                                             <div className="schedule-title" >
                                                 <h3 onClick={() => {
                                                     router.push(`/series/${sch?.competiton_id}/${titleToSlug(sch?.name)}/fixture`)
                                                 }}>{sch?.name}</h3>
                                             </div>
-                                        </Grid>
-                                        <Grid item xs={12} >
+                                        </div>
+                                        <div className='col-12'  >
 
                                             <ScheduleCardWrapper sch={sch} />
 
-                                        </Grid>
+                                        </div>
                                     </>
                                 )
                             })
                                 :
                                 <>
                                     <div style={{ height: '40px', width: '100%' }}></div>
-                                    <Nodata />
+                                    <Loading />
                                 </>
                         }
-                    </Grid>
+                    </div>
                     {
                         pageSize < store.schedule?.total ?
-                            <Button className='btn-primary hm-load-btn' variant='outlined' onClick={() => {
+                            <button className='btn btn-main-outline mt-4' onClick={() => {
                                 setPageSize(pageSize + 10)
                                 store.get.paginate({ status: 'today', format: type, size: pageSize + 10 } as any)
                             }}
-                                sx={{ border: 'solid 1px var(--primary) !important' }}
-                            > More Matches</Button>
+
+                            > More Matches</button>
                             : <div style={{ height: '30px' }}></div>
                     }
 

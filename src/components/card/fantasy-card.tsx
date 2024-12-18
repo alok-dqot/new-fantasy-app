@@ -47,12 +47,12 @@ const FantasyComp = () => {
             </Grid>
             <Grid item xs={12}>
                 {size < store.fantasy.total && <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px' }}>
-                    <Button className="bn-primary" type="button" variant='outlined' style={{ padding: '7px 34px' }} onClick={() => {
+                    <button className="btn btn-main " type="button" style={{ padding: '7px 34px' }} onClick={() => {
                         store.get.list(size + 5, 1)
                         setSize(size + 5)
                     }}>
                         Load More
-                    </Button>
+                    </button>
                 </Box>
                 }
             </Grid>
@@ -79,7 +79,10 @@ const FantasyCardMatchCard = (props: any) => {
         <>
             <h2 className='fantasy-card-title'>{props?.match?.name}</h2>
             <div className="fantasy-match-card-outer">
-                <Link href={`/fantasy-tips/${props?.match?.id}/${titleToSlug(props?.match?.name)}/${props?.match?.analysis_id}`} className='fantasy-card-link'>
+                <Link
+                    href={'#'}
+                    // href={`/fantasy-tips/${props?.match?.id}/${titleToSlug(props?.match?.name)}/${props?.match?.analysis_id}`}
+                    className='fantasy-card-link'>
                     <Grid container>
                         <Grid item xs={12}>
 
