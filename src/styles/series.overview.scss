@@ -10,6 +10,8 @@
     border-radius: 10px;
     padding: 10px;
 
+    height: 150px;
+
 
     img {
         width: 130px;
@@ -23,7 +25,8 @@
         cursor: pointer;
 
         h3 {
-            font-size: 1.3rem;
+            font-size: 1.26rem;
+            font-weight: 550;
         }
 
         h4 {
@@ -500,7 +503,7 @@
 
     cursor: pointer;
 
-    background-color: var(--card-background);
+    background-color: var(--bg-card);
 
     border-radius: var(--normal-brdr-radius);
     border: solid 1px rgba(203, 203, 203, 0.09);

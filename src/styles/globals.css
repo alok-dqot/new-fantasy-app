@@ -65,3 +65,27 @@ body {
   background: var(--primary) !important;
   color: white !important;
 }
+
+.btn-main-outline {
+  border: solid 1px var(--primary) !important;
+  color: var(--primary) !important;
+  font-weight: 600 !important;
+  display: block !important;
+  margin: auto;
+}
+
+
+/* carousel style here */
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  gap: 20px;
+}
+
+.embla__slide {
+  min-width: 300px;
+}

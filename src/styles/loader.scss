@@ -1,0 +1,51 @@
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    height: 60vh;
+
+    margin: auto;
+}
+
+.loader {
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite;
+
+}
+
+.path {
+    stroke: var(--primary);
+    stroke-linecap: round;
+    stroke-dasharray: 126;
+    stroke-dashoffset: 126;
+    animation: draw 1.5s linear infinite;
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 126;
+
+    }
+
+    50% {
+        stroke-dashoffset: 63;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

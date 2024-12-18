@@ -29,16 +29,16 @@ const SchTabs = ({ selected = 1 }: { selected?: number }) => {
 
     return (
         <>
-            <Grid item xs={12} md={9} sx={{ maxWidth: '600px' }}>
-                <Box sx={{ width: '100%', bgcolor: 'background.paper', borderRadius: '5px' }}>
-                    <Tabs value={tab} onChange={handleUpdateTabs} className='home-tabs' variant="scrollable" >
+            <div className="col-12 mt-4" style={{ maxWidth: '600px', margin: 'auto' }}>
+                <Box sx={{ width: '100%', bgcolor: 'background.paper', borderRadius: '5px', }}>
+                    <Tabs value={tab} onChange={handleUpdateTabs} variant="scrollable" centered={true} >
                         <Tab label="Live" className='schedule-rank-btn' />
                         <Tab label={"Recent"} className='schedule-rank-btn' />
                         <Tab label="Upcoming" className='schedule-rank-btn' />
                     </Tabs>
 
                 </Box>
-            </Grid>
+            </div>
         </>
     )
 }

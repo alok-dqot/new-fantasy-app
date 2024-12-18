@@ -27,21 +27,25 @@ const Index = () => {
 
             <HomeWrapper>
                 <Container sx={{ mt: 3 }}>
-                    <div className="fnt-tip-list-o">
-
-                        <Grid container spacing={2}>
-                            <Grid item xs={12} md={7.8} className="fnt-tip-list-c">
-                                <h1>Fantasy Cricket Tips</h1>
-
-                                <hr />
-                            </Grid>
-                            {/* <SeriesInfo /> */}
+                    <div className="fnt-tip-list-o row">
 
 
+                        <div className="fnt-tip-list-c col-12 col-md-7">
+                            <h1>Fantasy Cricket Tips</h1>
+
+                            <hr />
                             <FantasyComp />
+                        </div>
+
+                        <div className="col-md-5">
+                            <div className="team_add_image mt-5">
+                                <img src="/team_privew_exam.png" alt="#" className='img-fluid' />
+                            </div>
+
+                        </div>
 
 
-                        </Grid>
+
                     </div>
 
                 </Container>
