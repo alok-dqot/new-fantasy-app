@@ -1,0 +1,80 @@
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 35px 25px;
+
+  .header {
+    padding: 20px 0;
+  }
+  .details {
+    padding: 20px 0;
+    p {
+      padding: 0;
+    }
+    .row {
+      padding: 15px 0;
+    }
+  }
+  .venue {
+    margin-bottom: 20px;
+    padding: 20px 0;
+    p {
+      span {
+        margin: 0 5px;
+      }
+    }
+  }
+
+  h5 {
+    color: #333333;
+    margin-bottom: 10px;
+    font-size: 16px;
+
+    span {
+      border-bottom: 2px solid #5f92ac;
+      border-bottom: 2px solid var(--primary);
+      padding: 10px 0px;
+    }
+  }
+
+  p {
+    font-size: 13px;
+    color: #333333;
+    padding: 10px 0;
+    margin: 0;
+  }
+
+  span {
+    font-weight: bold;
+  }
+
+  .probable-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #d43e28;
+    }
+  }
+
+  .venue p {
+    display: flex;
+    align-items: center;
+  }
+
+  .location-icon {
+    width: 20px;
+    height: 20px;
+    // background: url("/score_bg.png") no-repeat center center;
+    background-size: contain;
+    margin-right: 8px;
+  }
+}
