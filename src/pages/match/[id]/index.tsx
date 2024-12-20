@@ -13,6 +13,7 @@ import { Bowler } from "@/components/scorecard";
 import { Wickets } from "@/components/scorecard";
 import { Partnerships } from "@/components/scorecard";
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
+import { InfoCrad } from "@/components/infocard";
 
 function index() {
 	const router = useRouter();
@@ -122,6 +123,7 @@ function index() {
 								className='mb-3'>
 								{matchStore.match.list.status === 3 && (
 									<Tab.Pane eventKey='live' title='Live'>
+
 										<div className='live_match_content'>
 											<div className='comman_card'>
 												<div className='content pt-0'>
@@ -138,10 +140,10 @@ function index() {
 												<div className='content p-0 border-0 align-items-center'>
 													<h5>Winning Probability:</h5>
 													<div className='buttons'>
-														<button className='btn btn-primary btn_red'>
+														<button className='btn '>
 															42
 														</button>
-														<button className='btn btn-primary btn_green'>
+														<button className='btn '>
 															44
 														</button>
 													</div>
@@ -155,7 +157,7 @@ function index() {
 												</div>
 											</div>
 
-											<div className='ads_banner mb-4'>
+											<div className='ads_banner '>
 
 											</div>
 
@@ -164,10 +166,10 @@ function index() {
 													<div className='d-flex align-items-center'>
 														<h5>45 Over Runs:</h5>
 														<div className='buttons ms-4'>
-															<button className='btn btn-primary btn_red'>
+															<button className='btn '>
 																165
 															</button>
-															<button className='btn btn-primary btn_green'>
+															<button className='btn '>
 																166
 															</button>
 														</div>
@@ -175,10 +177,10 @@ function index() {
 													<div className='d-flex align-items-center'>
 														<h5>R X D:</h5>
 														<div className='buttons ms-4'>
-															<button className='btn btn-primary btn_red'>
+															<button className='btn '>
 																14
 															</button>
-															<button className='btn btn-primary btn_green'>
+															<button className='btn '>
 																24
 															</button>
 														</div>
@@ -189,10 +191,10 @@ function index() {
 														<h5>1st Inning’s Total Runs:</h5>
 													</div>
 													<div className='buttons'>
-														<button className='btn btn-primary btn_red'>
+														<button className='btn '>
 															342
 														</button>
-														<button className='btn btn-primary btn_green'>
+														<button className='btn'>
 															345
 														</button>
 													</div>
@@ -288,7 +290,7 @@ function index() {
 												})}
 											</div>
 
-											<div className='ads_banner mb-4'>
+											<div className='ads_banner '>
 
 											</div>
 
@@ -401,8 +403,19 @@ function index() {
 												</div>
 											</div>
 										</div>
+
+
+
+
+
+
+
+
+
+
 									</Tab.Pane>
 								)}
+
 								<Tab.Pane eventKey='info' title='Info'>
 									<div className='info_tab_content'>
 										<div className='comman_card'>
@@ -415,7 +428,7 @@ function index() {
 													/>
 												</div>
 												<div className='content'>
-													<p>Run Needed: 0</p>
+													<p>Run Needed: </p>
 													<h5>{detail?.title} </h5>
 													<h6>{detail?.competition?.title}</h6>
 												</div>
@@ -597,7 +610,15 @@ function index() {
 											</div>
 										</div>
 									</div>
+
+									<InfoCrad
+										details={detail}
+									/>
+
 								</Tab.Pane>
+
+
+
 
 								{(matchStore.match.list.status === 2 ||
 									matchStore.match.list.status === 3) && (
@@ -639,10 +660,15 @@ function index() {
 																					<div className="score-table">
 
 																						<Batter batter={inning.batsmen} />
-																						<Extra extra={inning.extra_runs} />
+																						<Extra
+																							extra={inning.extra_runs}
+																							equations={inning.equations}
+
+
+																						/>
 																						<Bowler bowler={inning.bowlers} />
 																						<Wickets wicket={inning.fows} />
-																						<Partnerships partnership={inning} />
+																						<Partnerships partnership={inning.current_partnership} />
 
 																					</div>
 
@@ -1045,3 +1071,118 @@ export default index;
 																	<h5 className='comman_run six_wicket'>w</h5> 
 																	*/
 }
+
+
+// const Live = () => {
+// 	return (
+// 		<>
+//        <div className='live_match_content'>
+//   <div className='comman_card'>
+//     <div className='content pt-0'>
+//       <h5>Run Needed: {live?.live_score?.target}</h5>
+//       <h5>Balls Rem: {live?.live_score?.overs}</h5>
+//     </div>
+//     <div className='content border-0 pb-0'>
+//       <h5>CRR: {live?.live_score?.runrate}</h5>
+//       <h5>Target: {live?.live_score?.target}</h5>
+//     </div>
+//   </div>
+
+//   <div className='comman_card'>
+//     <div className='content p-0 border-0 align-items-center'>
+//       <h5>Winning Probability:</h5>
+//       <div className='buttons'>
+//         <button className='btn btn-danger btn_red'>42</button>
+//         <button className='btn btn-success btn_green'>44</button>
+//       </div>
+//     </div>
+//   </div>
+
+//   <div className='comman_card'>
+//     <div className='content p-0 border-0 align-items-center'>
+//       <h5>Run Rate: {live?.live_score?.runrate}</h5>
+//       <h5>Balls Rem: {live?.live_score?.overs}</h5>
+//     </div>
+//   </div>
+
+//   <div className='ads_banner mb-4'></div>
+
+//   <div className='comman_card'>
+//     <div className='content pt-0 align-items-center'>
+//       <div className='d-flex align-items-center'>
+//         <h5>45 Over Runs:</h5>
+//         <div className='buttons ms-4'>
+//           <button className='btn btn-danger btn_red'>165</button>
+//           <button className='btn btn-success btn_green'>166</button>
+//         </div>
+//       </div>
+//       <div className='d-flex align-items-center'>
+//         <h5>R X D:</h5>
+//         <div className='buttons ms-4'>
+//           <button className='btn btn-danger btn_red'>14</button>
+//           <button className='btn btn-success btn_green'>24</button>
+//         </div>
+//       </div>
+//     </div>
+//     <div className='content pb-0 align-items-center border-0'>
+//       <div>
+//         <h5>1st Inning’s Total Runs:</h5>
+//       </div>
+//       <div className='buttons'>
+//         <button className='btn btn-danger btn_red'>342</button>
+//         <button className='btn btn-success btn_green'>345</button>
+//       </div>
+//     </div>
+//   </div>
+
+//   {/* Batters & Partnership section */}
+//   <div className='comman_card'>
+//     <div className='batter_heading'>
+//       <div className='batter_div'>
+//         <h5>Batter</h5>
+//       </div>
+//       <div className='batter_div r_boll'>
+//         <h5>R</h5>
+//         <h5>B</h5>
+//         <h5>4s</h5>
+//         <h5>6s</h5>
+//         <h5>RS</h5>
+//       </div>
+//     </div>
+//     {live?.batsmen?.map((item) => (
+//       <div className='batter_heading batsman_runs pt-3'>
+//         <div className='batter_div'>
+//           <h5>{item?.name}</h5>
+//         </div>
+//         <div className='batter_div r_boll'>
+//           <h5>{item?.runs}</h5>
+//           <h5>{item?.balls_faced}</h5>
+//           <h5>{item?.fours}</h5>
+//           <h5>{item?.sixes}</h5>
+//           <h5>{item?.strike_rate}</h5>
+//         </div>
+//       </div>
+//     ))}
+//     <div className='batter_heading batsman_runs result_border pt-3'>
+//       <div className='batter_div'>
+//         <h5>
+//           P’ship {live?.live_inning?.current_partnership?.runs}(
+//           {live?.live_inning?.current_partnership?.balls})
+//         </h5>
+//       </div>
+//       <div className='batter_div r_boll'>
+//         <h5>
+//           L ‘ Wkt:{live?.live_inning?.last_wicket?.name}{" "}
+//           {live?.live_inning?.last_wicket?.runs}(
+//           {live?.live_inning?.last_wicket?.balls})
+//         </h5>
+//       </div>
+//     </div>
+//   </div>
+
+//   {/* Similar code for Bowler section and others */}
+// </div>
+
+// 		</>
+// 	);
+// }

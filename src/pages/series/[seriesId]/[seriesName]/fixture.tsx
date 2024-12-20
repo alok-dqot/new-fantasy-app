@@ -1,4 +1,4 @@
-import { Autocomplete, Box, Button, Container, TextField } from "@mui/material";
+import { Autocomplete, Box, Button, Container, Grid, TextField } from "@mui/material";
 import { SeriesCard } from "./overview"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"

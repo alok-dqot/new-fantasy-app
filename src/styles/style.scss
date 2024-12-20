@@ -173,7 +173,6 @@ a {
 }
 
 .team_score_tabs_sec {
-
   // .tab-content {
   //     background: rgba(244, 242, 242, 0.71);
   // }
@@ -206,9 +205,9 @@ a {
     .comman_card {
       background: #ffffff;
       box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.06);
-      border-radius: 5px;
+
       padding: 20px;
-      margin-bottom: 20px;
+      // margin-bottom: 20px;
 
       .content {
         display: flex;
@@ -218,30 +217,10 @@ a {
         padding-top: 10px;
 
         h5 {
-          font-size: 18px;
+          font-size: 15px;
           color: #000;
           margin: 0;
           font-weight: 600;
-        }
-
-        .buttons {
-          .btn_red {
-            font-size: 18px;
-            background: #d00000;
-            border: 1px solid #d00000;
-            color: #fff;
-            border-radius: 5px;
-            margin-right: 15px;
-          }
-
-          .btn_green {
-            font-size: 17px;
-            background: #00a12d;
-            border: 1px solid #00a12d;
-            color: #fff;
-            border-radius: 5px;
-            margin-right: 15px;
-          }
         }
       }
 
@@ -254,7 +233,7 @@ a {
 
         .batter_div {
           h5 {
-            font-size: 17px;
+            font-size: 15px;
             color: #23006d;
             margin: 0;
             font-weight: 600;
@@ -330,6 +309,116 @@ a {
       }
     }
   }
+
+  // .live_match_content {
+  //   .comman_card {
+  //     background: #ffffff;
+  //     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  //     border-radius: 8px;
+  //     padding: 20px;
+  //     margin-bottom: 25px;
+
+  //     .content {
+  //       display: flex;
+  //       justify-content: space-between;
+  //       padding: 15px 0;
+
+  //       h5 {
+  //         font-size: 18px;
+  //         color: #333;
+  //         margin: 0;
+  //         font-weight: 600;
+  //       }
+
+  //       .buttons {
+  //         display: flex;
+
+  //         .btn_red {
+  //           font-size: 18px;
+  //           background: #d32f2f;
+  //           color: white;
+  //           border-radius: 8px;
+  //           margin-right: 10px;
+  //           padding: 5px 10px;
+  //         }
+
+  //         .btn_green {
+  //           font-size: 18px;
+  //           background: #388e3c;
+  //           color: white;
+  //           border-radius: 8px;
+  //           padding: 5px 10px;
+  //         }
+  //       }
+  //     }
+
+  //     .batter_heading {
+  //       display: flex;
+  //       justify-content: space-between;
+  //       border-bottom: 1px solid #ccc;
+  //       padding: 10px 0;
+
+  //       h5 {
+  //         font-size: 17px;
+  //         font-weight: 500;
+  //         color: #444;
+  //       }
+  //     }
+
+  //     .batter_div {
+  //       h5 {
+  //         font-size: 17px;
+  //         color: #555;
+  //       }
+  //     }
+  //   }
+
+  //   .over_list {
+  //     display: flex;
+  //     align-items: center;
+  //     padding-right: 20px;
+
+  //     .comman_run {
+  //       width: 32px;
+  //       height: 32px;
+  //       border-radius: 50%;
+  //       display: flex;
+  //       justify-content: center;
+  //       align-items: center;
+  //       margin-left: 10px;
+  //     }
+
+  //     .single_run {
+  //       background: #bdbdbd;
+  //       color: black;
+  //     }
+
+  //     .six_run {
+  //       background: #2e7d32;
+  //       color: white;
+  //     }
+
+  //     .six_four {
+  //       background: #fb8c00;
+  //       color: white;
+  //     }
+
+  //     .six_wicket {
+  //       background: #d32f2f;
+  //       color: white;
+  //     }
+
+  //     .run_count {
+  //       margin-left: 20px;
+  //     }
+  //   }
+
+  //   .batter_heading {
+  //     h5 {
+  //       font-size: 14px;
+  //     }
+  //   }
+  // }
 }
 
 .info_tab_content {
@@ -1151,7 +1240,8 @@ a {
   .team_preview_main {
     position: relative;
 
-    .team_preview_img {}
+    .team_preview_img {
+    }
 
     .wick_heading_common {
       h4 {
@@ -1374,7 +1464,15 @@ a {
     }
   }
 
-  .scorecars_tabs_main .accordion .accordion-body .scorecard_cards_count table tbody tr td p {
+  .scorecars_tabs_main
+    .accordion
+    .accordion-body
+    .scorecard_cards_count
+    table
+    tbody
+    tr
+    td
+    p {
     width: 200px;
   }
 

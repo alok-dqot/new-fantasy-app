@@ -16,7 +16,12 @@ import '../styles/news.scss';
 import '../styles/ranking.scss';
 import '../styles/footer.scss';
 import '../styles/loader.scss';
+<<<<<<< HEAD
 import '../styles/anycss.scss';
+=======
+import '../styles/infocard.scss';
+
+>>>>>>> 2ea5879d695835941ebe14dd4fe1a55d50dd8745
 
 
 

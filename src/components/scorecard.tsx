@@ -117,7 +117,8 @@ const Batter = ({ batter }: any) => {
 export { Batter }
 
 
-const Extra = ({ extra }: any) => {
+const Extra = ({ extra, equations }: any) => {
+    console.log(extra)
 
     return (
         <>
@@ -131,8 +132,8 @@ const Extra = ({ extra }: any) => {
                 </div>
                 <div className="row-second">
                     <p>Total:100</p>
-                    <p className="over">Overs:34.2</p>
-                    <p className="rr">RR:2.91</p>
+                    <p className="over">Overs:{equations.overs}</p>
+                    <p className="rr">RR:{equations.runrate}</p>
                 </div>
             </div>
         </>
@@ -232,90 +233,25 @@ const Partnerships = ({ partnership }: any) => {
 
                 <h5>Partnerships Stats</h5>
                 <div className="all-state">
+
+
                     <div className="stats1">
 
-                        <div className="name">Assif Sheikh <br />
-                            <span className="extra-info">1(7)</span>
+                        <div className="name">{partnership?.batsmen[0].name} <br />
+                            <span className="extra-info">{partnership?.batsmen[0].runs}({partnership?.batsmen[0].balls})</span>
 
                         </div>
 
                         <div className="center">
-                            <span>69(113)</span>
+                            <span>{partnership?.runs}({partnership?.balls})</span>
                         </div>
 
-                        <div className="name">S Mandhana <br />
-                            <span>8(10)</span>
-                        </div>
-
-                    </div>
-
-                    <div className="stats1">
-
-                        <div className="name">Assif Sheikh <br />
-                            <span className="extra-info">1(7)</span>
-
-                        </div>
-
-                        <div className="center">
-                            <span>69(113)</span>
-                        </div>
-
-                        <div className="name">S Mandhana <br />
-                            <span>8(10)</span>
+                        <div className="name">{partnership?.batsmen[1].name}<br />
+                            <span>{partnership?.batsmen[1].runs}({partnership?.batsmen[1].balls})</span>
                         </div>
 
                     </div>
 
-                    <div className="stats1">
-
-                        <div className="name">Assif Sheikh <br />
-                            <span className="extra-info">1(7)</span>
-
-                        </div>
-
-                        <div className="center">
-                            <span>69(113)</span>
-                        </div>
-
-                        <div className="name">S Mandhana <br />
-                            <span>8(10)</span>
-                        </div>
-
-                    </div>
-
-                    <div className="stats1">
-
-                        <div className="name">Assif Sheikh <br />
-                            <span className="extra-info">1(7)</span>
-
-                        </div>
-
-                        <div className="center">
-                            <span>69(113)</span>
-                        </div>
-
-                        <div className="name">S Mandhana <br />
-                            <span>8(10)</span>
-                        </div>
-
-                    </div>
-
-                    <div className="stats1">
-
-                        <div className="name">Assif Sheikh <br />
-                            <span className="extra-info">1(7)</span>
-
-                        </div>
-
-                        <div className="center">
-                            <span>69(113)</span>
-                        </div>
-
-                        <div className="name">S Mandhana <br />
-                            <span>8(10)</span>
-                        </div>
-
-                    </div>
 
                 </div>
             </div>
