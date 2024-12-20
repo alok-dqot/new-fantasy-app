@@ -36,27 +36,17 @@ const Index = () => {
 
             <HomeWrapper>
                 <Container sx={{ mb: 10 }}>
-                    <Grid container>
 
+                    <div className="row">
+                        <SeriesCard />
+                        <SeriesTabs
+                            selectIndex={0}
+                        />
 
-                        <Grid item xs={12} md={8} sx={{ my: 6, }}>
-                            <SeriesCard />
-                        </Grid>
-
-                    </Grid>
-
-
-
-                    <Grid container spacing={3}>
-                        <Grid item xs={12} md={8} spacing={3}>
-
-                            <SeriesTabs
-                                selectIndex={0}
-
-                            />
+                        <div className="col-md-8">
                             <div className="series-title" >
                                 <h4 >Featured Matches</h4>
-                                <Link className="series-card-btn" href={`/series/${seriesId}/${titleToSlug(store.series?.list?.details?.name)}/fixture`}>All Matches <ArrowLeft /></Link>
+                                <Link className="" href={`/series/${seriesId}/${titleToSlug(store.series?.list?.details?.name)}/fixture`}>All Matches <ArrowLeft /></Link>
 
                             </div>
 
@@ -77,27 +67,14 @@ const Index = () => {
                                 detail={store.series?.list?.details}
                             />
 
-                            {/* <SeriesTeams /> */}
+                        </div>
 
+                    </div>
 
-
-
-                            {/* <div className="se-o">
-
-                            <TopTags title={'Season 2022'} />
-                            <TopTags title={'Season 2023'} />
-                            <TopTags title={'Season 2024'} />
-                            <Link href='#' className="series-tag " style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>All Seasons <ArrowLeftIcon /> </Link>
-
-                        </div> */}
-
-
-                        </Grid>
+                    <Grid container spacing={3}>
 
 
                         <Grid item xs={12} md={4} sx={{ mt: 5 }}>
-
-                            {/* <SeriesRankTable /> */}
 
                             <Grid container spacing={3}>
 
@@ -166,7 +143,7 @@ export const SeriesCard = () => {
             <Head>
                 <title>{detail?.name}  </title>
             </Head>
-            <Grid item xs={12} md={10}>
+            <div className='col-md-10' style={{ height: '240px', display: 'flex', alignItems: 'center' }}>
 
                 <div className={`sr-main-cd cd`}>
                     <CustomImg
@@ -187,8 +164,10 @@ export const SeriesCard = () => {
 
 
 
-            </Grid>
+            </div>
+            <div className="back-color-carousel">
 
+            </div>
         </>
     )
 }
@@ -203,7 +182,7 @@ export const SeriersOverViewCard = (props: any) => {
     return (
 
         <>
-            <Grid container spacing={0} className='fixture-list'
+            <div className=' row fixture-list mt-3'
                 onClick={() => {
                     if (props?.match?.status?.toLowerCase() === 'live') {
                         router.push('/live-score/' + titleToSlug(props?.competition?.name) + '-' + titleToSlug(props?.match?.sub_title) + '/' + props.match?.id + '/scorecard')
@@ -220,18 +199,17 @@ export const SeriersOverViewCard = (props: any) => {
 
                 }}
             >
-                <Grid item xs={4.5} className='se'>
+                <div className='col-4 se'>
                     <CustomImg
                         src={getImgUrl(props?.match?.teama?.image_url)}
                         alt={props.match?.teama?.code}
                     />
 
-                    <div>
-                        <h4>{props.match?.teama?.name}</h4>
-                        {/* <p>({props.match?.teama?.code})</p> */}
-                    </div>
-                </Grid>
-                <Grid item xs={3} className='fixture-list-team' style={{ flexDirection: 'column' }}>
+
+                    <h4>{props.match?.teama?.name}</h4>
+
+                </div>
+                <div className='col-4 fix-status mt-2' >
 
 
                     {props?.match?.status?.toLowerCase() === 'live' ?
@@ -245,26 +223,22 @@ export const SeriersOverViewCard = (props: any) => {
                             :
                             <>
                                 <h4 >{moment(props.match?.starting_at).format('Do MMM , h:mm A')}</h4>
-                                {/* <p >{props.match?.format} {props.match?.name}</p> */}
                             </>
 
                     }
 
 
-                    {/* <p>{competition?.name}</p> */}
-                </Grid>
-                <Grid item xs={4.5} className='fixture-list-teamb'>
+                </div>
+                <div className='col-4 se'>
                     <CustomImg
                         src={getImgUrl(props?.match?.teamb?.image_url)}
                         alt={props.match?.teamb?.code}
                     />
-                    {/* <img src={props.match?.teamb?.image_url} alt={props.match?.teamb?.code} /> */}
-                    <div>
-                        <h4 style={{ textAlign: 'right' }}>{props.match?.teamb?.name}</h4>
-                        {/* <p style={{ textAlign: 'right' }}>({props.match?.teamb?.code})</p> */}
-                    </div>
-                </Grid>
-            </Grid>
+
+                    <h4 style={{ textAlign: 'right' }}>{props.match?.teamb?.name}</h4>
+
+                </div>
+            </div>
         </>
 
     )
@@ -291,16 +265,11 @@ export const SeriesInfoFull = (props?: any) => {
 
     return (
         <>
-            <div className="player-about-wrapper cd" style={{ marginTop: '20px' }}>
-                <div className="player-about-header">
-                    <div className="recent-form-header">
-                        <h2>Series Details</h2>
+            <div className="sr-info-outer bg-card mt-3" >
+                <h2>Series Details</h2>
 
-                    </div>
 
-                </div>
-
-                <div className="player-about-body">
+                <div className="sr-info-body">
                     <AboutHead
                         title='Title'
                         value={detail?.name}
@@ -362,17 +331,16 @@ const PlayerAritcleCard = (props: any) => {
 
 export const AboutHead = (about: any) => {
     return (
-        <Grid className="recent-form-header about-head">
-            <Grid item xs={3} sm={6}>
+        <div className="row info-txt mt-2">
+            <div className='col-4'>
                 <h4>{about.title}</h4>
-            </Grid>
-            <Grid item xs={9} sm={6}>
-                <div className="recent-form">
-                    <h3>{about.value}</h3>
+            </div>
+            <div className='col-8'>
 
-                </div>
-            </Grid>
-        </Grid>
+                <h3>{about.value}</h3>
+
+            </div>
+        </div>
     )
 }
 

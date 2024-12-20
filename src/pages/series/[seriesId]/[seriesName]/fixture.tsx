@@ -1,4 +1,4 @@
-import { Autocomplete, Box, Button, Container, Grid, TextField } from "@mui/material"
+import { Autocomplete, Box, Button, Container, TextField } from "@mui/material";
 import { SeriesCard } from "./overview"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
@@ -6,9 +6,10 @@ import moment from "moment"
 import useSeriesFixtureStore from "@/features/series/fixture.service"
 import HomeWrapper from "@/components/wrapper/HomeWrapper"
 import { SeriesTabs } from "@/components/series/tabs"
-import { titleToSlug } from "@/helpers/slugConverter"
+// import { titleToSlug } from "@/helpers/slugConverter"
 import { CustomImg } from "@/helper/image.helper"
 import { getImgUrl } from "@/helper/common"
+import { AdsBanner } from "@/components/ads/Ads"
 
 
 
@@ -49,23 +50,21 @@ const Matches = () => {
 
             <HomeWrapper>
                 <Container sx={{ mb: 10 }}>
-                    <Grid container>
+
+                    <div className="row">
+                        <SeriesCard />
+
+                        <SeriesTabs
+                            selectIndex={1}
+                        />
+
+                    </div>
 
 
-                        <Grid item xs={12} md={8} sx={{ my: 6 }}>
-                            <SeriesCard />
-                        </Grid>
+                    <div className="row">
 
-                    </Grid>
+                        <div className="col-md-8" >
 
-
-
-                    <Grid container >
-
-                        <Grid item xs={12} md={7.8} >
-                            <SeriesTabs
-                                selectIndex={1}
-                            />
                             <div className="sr-title">
 
                                 <h4>Schedule</h4>
@@ -90,7 +89,7 @@ const Matches = () => {
                                                 store.get.paginate({ teamId: 0 } as any)
                                             }
                                         }}
-                                        sx={{ maxWidth: 300, width: '100%', background: 'var(--text-white)', borderRadius: '25px' }}
+                                        sx={{ maxWidth: 300, width: '100%', background: 'var(--text-white)' }}
                                         renderInput={(params) => <TextField {...params} label="Team" size="small" />}
                                     />
                                     <Autocomplete
@@ -113,8 +112,8 @@ const Matches = () => {
                                                 store.get.paginate({ venueId: 0 } as any)
                                             }
                                         }}
-                                        sx={{ maxWidth: 300, width: '100%', background: 'var(--text-white)', borderRadius: '25px' }}
-                                        renderInput={(params) => <TextField {...params} label="Venue" size="small" sx={{ borderRadius: '25px' }} />}
+                                        sx={{ maxWidth: 300, width: '100%', background: 'var(--text-white)' }}
+                                        renderInput={(params) => <TextField {...params} label="Stadium" size="small" sx={{ borderRadius: '25px' }} />}
                                     />
                                     <Button className="series-tag" onClick={() => {
                                         store.get.paginate({ teamId: 0, venueId: 0 })
@@ -144,14 +143,14 @@ const Matches = () => {
                             </Box>}
 
 
-                        </Grid>
-                        <Grid item xs={4} sx={{ mt: 5 }}>
+                        </div>
 
-                        </Grid>
+                        <div className="col-md-4 mt-5">
+                            <AdsBanner />
+                        </div>
 
 
-
-                    </Grid>
+                    </div>
                 </Container >
 
 
@@ -184,19 +183,19 @@ export const SeriesMatchCard = (props: any) => {
     return (
         <Grid container spacing={0} className='fixture-list series-overview'
             onClick={() => {
-                if (props?.data?.status?.toLowerCase() === 'live') {
-                    router.push('/live-score/' + titleToSlug(props?.data?.competition?.name) + '-' + titleToSlug(props?.data?.sub_title) + '/' + props.data?.id + '/scorecard')
-                }
-                else if (props?.data?.status?.toLowerCase() === 'completed') {
-                    router.push('/live-score/' + titleToSlug(props?.data?.competition?.name) + '-' + titleToSlug(props?.data?.sub_title) + '/' + props.data?.id + '/scorecard')
-                }
-                else if (props?.data?.status?.toLowerCase() === 'upcoming') {
-                    router.push('/live-score/' + titleToSlug(props?.data?.competition?.name) + '-' + titleToSlug(props?.data?.sub_title) + '/' + props.data?.id + '/info')
-                }
-                else {
-                    router.push('/live-score/' + titleToSlug(props?.data?.competition?.name) + '-' + titleToSlug(props?.data?.sub_title) + '/' + props.data?.id + '/info')
-                }
-
+                // if (props?.data?.status?.toLowerCase() === 'live') {
+                //     router.push('/live-score/' + titleToSlug(props?.data?.competition?.name) + '-' + titleToSlug(props?.data?.sub_title) + '/' + props.data?.id + '/scorecard')
+                // }
+                // else if (props?.data?.status?.toLowerCase() === 'completed') {
+                //     router.push('/live-score/' + titleToSlug(props?.data?.competition?.name) + '-' + titleToSlug(props?.data?.sub_title) + '/' + props.data?.id + '/scorecard')
+                // }
+                // else if (props?.data?.status?.toLowerCase() === 'upcoming') {
+                //     router.push('/live-score/' + titleToSlug(props?.data?.competition?.name) + '-' + titleToSlug(props?.data?.sub_title) + '/' + props.data?.id + '/info')
+                // }
+                // else {
+                //     router.push('/live-score/' + titleToSlug(props?.data?.competition?.name) + '-' + titleToSlug(props?.data?.sub_title) + '/' + props.data?.id + '/info')
+                // }
+                router.push('/match/' + props.data?.id)
             }}
 
         >

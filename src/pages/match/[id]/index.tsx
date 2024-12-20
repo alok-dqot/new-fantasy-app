@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../../components/Header";
 import Image from "next/image";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
@@ -7,10 +6,8 @@ import Accordion from "react-bootstrap/Accordion";
 import { Table } from "react-bootstrap";
 import { useRouter } from "next/router";
 import useMatchStore from "@/services/match/match.service";
-import ScoreCard from "@/components/scorecard"
-import Footer from "@/components/footer/Footer";
+
 import { Batter } from "@/components/scorecard";
-import { CricketScorbord } from "@/components/scorecard";
 import { Extra } from "@/components/scorecard";
 import { Bowler } from "@/components/scorecard";
 import { Wickets } from "@/components/scorecard";
@@ -104,6 +101,11 @@ function index() {
 						</div>
 					</div>
 				</section>
+				<div style={{ height: '260px' }}>
+
+				</div>
+
+
 
 				<section className='team_score_tabs_sec'>
 					{matchStore.match.list.status && (
@@ -128,7 +130,6 @@ function index() {
 												</div>
 												<div className='content border-0 pb-0'>
 													<h5>CRR: {live?.live_score?.runrate}</h5>
-													{/* <h5>RRR: {live?.live_score?.required_runrate}</h5> */}
 													<h5>Target: {live?.live_score?.target}</h5>
 												</div>
 											</div>

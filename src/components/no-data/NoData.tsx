@@ -1,4 +1,5 @@
-import { CustomImg } from "@/helper/image.helper"
+import { CustomImg } from "@/helper/image.helper";
+import { useEffect } from "react";
 
 const Nodata = () => {
     return (
@@ -28,6 +29,14 @@ export const NoDataImg = () => {
 
 
 export const Loading = () => {
+
+    useEffect(() => {
+        setTimeout(() => {
+
+        }, 30000);
+    }, [])
+
+
     return (
         <div className="loader-container col-8">
             <svg className="loader" viewBox="0 0 50 50">

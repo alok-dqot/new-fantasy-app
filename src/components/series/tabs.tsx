@@ -14,9 +14,9 @@ export const SeriesTabs = ({ selectIndex }: { selectIndex: any }) => {
 
 
     return (
-        <>
+        <div className="col-md-9 p-2">
             <div className="tab-role-outer">
-                <Tabs value={selectIndex} onChange={() => { }} className='home-tabs' variant="scrollable"  >
+                <Tabs value={selectIndex} onChange={() => { }} className='home-tabs bg-card' variant="scrollable"  >
                     <Tab label={"Home"} onClick={() => handleUpdateTab('overview')} />
                     <Tab label={"Schedule & Results"} onClick={() => handleUpdateTab('fixture')} />
                     <Tab label={"squads"} onClick={() => handleUpdateTab('squads')} />
@@ -29,6 +29,6 @@ export const SeriesTabs = ({ selectIndex }: { selectIndex: any }) => {
                 </Tabs>
             </div>
 
-        </>
+        </div>
     )
 }

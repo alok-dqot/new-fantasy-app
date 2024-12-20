@@ -93,6 +93,8 @@
         margin-top: 10px;
         color: #8B8B8B;
 
+        font-size: 1.2rem;
+
     }
 
 
@@ -240,6 +242,9 @@
 
     padding: 15px;
 
+    background: var(--bg-card);
+    border-radius: 10px;
+
     img {
         width: 118px;
         height: 104px;
@@ -295,5 +300,41 @@
             line-height: normal;
         }
 
+    }
+}
+
+
+
+
+
+
+
+
+
+.sr-info-outer {
+    padding: 10px;
+    border-radius: 10px;
+
+    .sr-info-body {
+        margin-top: 25px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-left: 10px;
+
+        margin-top: 10px;
+    }
+
+    .info-txt {
+        h4 {
+            font-size: 18px;
+        }
+
+        h3 {
+            font-size: 1rem;
+            color: rgb(108 130 141);
+            font-weight: 500;
+        }
     }
 }

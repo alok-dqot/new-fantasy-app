@@ -23,7 +23,7 @@ const pages = [
 	{ title: 'Fantasy', url: '/fantasy-matches', icon: <EmojiEventsIcon /> },
 	{ title: 'Series', url: '/series', icon: <EventIcon /> },
 	{ title: 'News', url: '/news?type=news', icon: <ArticleIcon /> },
-	{ title: 'Stats Hub', url: '/stats-hub', icon: <BarChartIcon /> },
+	{ title: 'Stats Hub', url: '/series/128683/south-africa-tour-of-west-indies/stats?filter=mostrun', icon: <BarChartIcon /> },
 ];
 
 

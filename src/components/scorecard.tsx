@@ -225,7 +225,7 @@ export { Wickets }
 
 
 const Partnerships = ({ partnership }: any) => {
-    console.log(partnership)
+    // console.log(partnership)
     return (
         <>
             <div className="Partnerships-Stats">

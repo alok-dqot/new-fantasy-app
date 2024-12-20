@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import { SeriesTabs } from '@/components/series/tabs';
 import { SeriesCard } from './overview';
 import useSeriesFixtureStore from '@/features/series/fixture.service';
+import HomeWrapper from '@/components/wrapper/HomeWrapper';
+import { AdsBanner } from '@/components/ads/Ads';
 
 
 
@@ -27,44 +29,37 @@ const Index = () => {
 
 
     return (
-        <div>
+        <HomeWrapper>
 
             <>
                 <Container sx={{ mb: 10 }}>
-                    <Grid container>
 
 
-                        <Grid item xs={12} md={8} sx={{ my: 6, }}>
-                            <SeriesCard />
-                        </Grid>
+                    <div className="row">
 
-                    </Grid>
+                        <SeriesCard />
+                        <SeriesTabs
+                            selectIndex={6}
 
+                        />
 
-
-                    <Grid container spacing={3}>
-                        <Grid item xs={12} md={8} spacing={3}>
-
-                            <SeriesTabs
-                                selectIndex={6}
-
-                            />
-                            <br />
-
+                        <div className="col-md-8">
 
                             <VenueCards venues={store.fixture.venues} />
+                        </div>
+
+                        <div className="col-md-4 mt-5">
+                            <AdsBanner />
+                        </div>
+
+                    </div>
 
 
-
-                        </Grid>
-
-
-                    </Grid>
                 </Container>
 
             </>
 
-        </div >
+        </HomeWrapper >
     )
 }
 
@@ -80,7 +75,7 @@ const VenueCards = (props: any) => {
                 props?.venues?.length > 0 && props?.venues?.map((venue: any) => {
                     return (
                         <>
-                            <div className='venue-card-outer'>
+                            <div className='venue-card-outer mt-4'>
                                 <img src='/icons/stadium.png' alt='img-fluid' />
                                 <div className="venue-txt">
                                     <h3>{venue?.name}</h3>

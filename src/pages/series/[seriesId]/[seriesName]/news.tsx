@@ -10,6 +10,7 @@ import { titleToSlug } from '@/helpers/slugConverter'
 import HomeWrapper from '@/components/wrapper/HomeWrapper'
 import useSeriesNStore from '@/features/series/series.news.service'
 import { SeriesTabs } from '@/components/series/tabs'
+import { AdsBanner } from '@/components/ads/Ads'
 
 
 
@@ -22,7 +23,7 @@ const SeriesNews = () => {
     useEffect(() => {
         if (!router.isReady) return
 
-        store.get.paginate({ series_id: seriesId + '' })
+        store.get.paginate({ series_id: seriesId } as any)
 
 
     }, [router.isReady, seriesId])
@@ -33,29 +34,15 @@ const SeriesNews = () => {
         <div>
             <HomeWrapper>
                 <Container sx={{ mb: 10 }}>
-                    <Grid container sx={{ position: 'relative' }}>
 
+                    <div className="row">
 
-                        <Grid item xs={12} md={8} sx={{ my: 6, }}>
-                            <SeriesCard />
-                        </Grid>
-                        {/* <div style={{ position: 'absolute', right: '0px', top: '240px' }}>
-                        <SeriesRankTable
-                            size={5}
+                        <SeriesCard />
+                        <SeriesTabs
+                            selectIndex={4}
                         />
-                    </div> */}
-                    </Grid>
 
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} md={8} sx={{ mb: 1 }}>
-                            <SeriesTabs
-                                selectIndex={4}
-                            />
-                        </Grid>
-
-
-                    </Grid>
-
+                    </div>
 
                     <div className="player-news-container">
 
@@ -73,47 +60,34 @@ const SeriesNews = () => {
                                     />
 
 
-                                    <Grid container sx={{ mt: '20px' }} >
-                                        <Grid item xs={12} >
-
+                                    <div className='row'>
+                                        <div className="col-12 col-md-6">
                                             {
-                                                store?.series?.latest?.grid2?.length > 0 &&
-                                                <NormalCarousel>
-                                                    {store?.series?.latest?.grid2?.map((carosel: any) => {
-
-                                                        return (
-                                                            <>
-                                                                <div className="blog-card-outer"
-                                                                    style={{ cursor: 'pointer' }}
-                                                                    onClick={() => {
-                                                                        router.push(`/sports-news/${carosel?.id}/${titleToSlug(carosel?.title)}`)
-                                                                    }}>
-
-                                                                    <div className="blog-card-img">
-                                                                        <CustomImg
-                                                                            src={carosel?.image_url}
-                                                                            alt={carosel?.img_alt_text}
-
-                                                                        />
+                                                store.series?.latest?.grid2?.length > 0 && store.series?.latest?.grid2?.map((b: any) => {
+                                                    return (
+                                                        <div className="hm-article-card mt-4" key={b?.id}>
+                                                            <Link href={`/blogdetail/${b?.id}`}>
+                                                                <div className="row">
+                                                                    <div className="col-md-3">
+                                                                        <img src={b?.image_url} alt="" />
                                                                     </div>
-                                                                    <h2 className="headline limit-1">{carosel?.title}</h2>
-                                                                    <div className='excerpt limit-3' dangerouslySetInnerHTML={{ __html: carosel?.content }}></div>
+                                                                    <div className="col-md-9">
 
-                                                                    <MetaTimeAndDate
-                                                                        date={carosel?.created_at}
-                                                                        size={11}
-                                                                    />
+                                                                        <h3 className="limit-2">{b?.title}</h3>
+                                                                        <p className='limit-2 mt-2'>{b?.meta_description}</p>
+                                                                        {/* <p className="cd-time"><CalendarMonthIcon />{moment(b?.created_at).startOf('hour').fromNow()}</p> */}
 
+                                                                    </div>
                                                                 </div>
-                                                            </>
-                                                        )
-                                                    })
-                                                    }
-
-                                                </NormalCarousel>
+                                                            </Link>
+                                                        </div>
+                                                    )
+                                                })
                                             }
-                                        </Grid>
-                                    </Grid>
+
+
+                                        </div>
+                                    </div>
                                 </>
 
                                 :
@@ -239,10 +213,11 @@ const ArticleContainer = (props: any) => {
 
     return (
         <>
-            <h2 style={{ marginBottom: '30px', fontSize: '20px', marginTop: '40px' }}>{props?.title}</h2>
-            <Grid container gap={2} >
 
-                <Grid item xs={12} md={props?.isRanking ? 7.8 : 12}>
+
+            <div className='row'>
+                <div className="col-12 col-md-8">
+                    <h2 style={{ marginBottom: '30px', fontSize: '20px', marginTop: '40px' }}>{props?.title}</h2>
                     <Link className='match-info-card' style={{ cursor: 'pointer' }}
                         href={`/sports-news/${props?.data?.id}/${titleToSlug(props?.data?.title)}`}
 
@@ -269,45 +244,39 @@ const ArticleContainer = (props: any) => {
                         </div>
 
                     </Link>
-
-
-                </Grid>
-
-                <Grid container sx={{ mt: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} gap={2}>
                     {
-                        props?.news?.length > 0 && props?.news?.map((n: any) => {
+                        props?.news?.length > 0 && props?.news?.map((b: any) => {
                             return (
-                                <>
+                                <div className="hm-article-card mt-4" key={b?.id}>
+                                    <Link href={`/blogdetail/${b?.id}`}>
+                                        <div className="row">
+                                            <div className="col-md-3">
+                                                <CustomImg src={b?.image_url} alt="" />
+                                            </div>
+                                            <div className="col-md-9">
 
-                                    <Grid xs={12} md={3.8} onClick={() => router.push(`/sports-news/${n?.id}/${titleToSlug(n?.title)}`)} style={{ cursor: 'pointer' }}>
-                                        <Grid container className="news-card" >
-                                            <Grid item xs={4.6} className="news-image">
-                                                <CustomImg
-                                                    src={n?.image_url}
-                                                    alt={n?.img_alt_text}
-                                                />
-                                            </Grid>
-                                            <Grid item xs={7} className="news-content">
-                                                <h5 className="news-title limit-2">{n?.title}</h5>
-                                                <div className='excerpt limit-2' dangerouslySetInnerHTML={{ __html: n?.content }}></div>
-                                                <MetaTimeAndDate
-                                                    date={n?.created_at}
-                                                    size={11}
-                                                />
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
+                                                <h3 className="limit-2">{b?.title}</h3>
+                                                <p className='limit-2 mt-2'>{b?.meta_description}</p>
+                                                {/* <p className="cd-time"><CalendarMonthIcon />{moment(b?.created_at).startOf('hour').fromNow()}</p> */}
 
-                                </>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
                             )
                         })
                     }
 
 
-                </Grid>
+                </div>
 
 
-            </Grid >
+                <div className="col-md-4 mt-5">
+                    <AdsBanner />
+                </div>
+            </div>
+
+
         </>
     )
 }

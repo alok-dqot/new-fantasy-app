@@ -96,18 +96,13 @@
 
     a {
         color: var(--primary);
-
-        font-family: Montserrat;
         font-weight: 600;
         font-size: 17px;
-
-        color: #FF3131;
 
     }
 
     h2 {
         color: var(--black, #000);
-        font-family: Montserrat;
         font-size: 17px;
         font-style: normal;
         font-weight: 600;
@@ -530,6 +525,32 @@
 
     }
 
+    .fix-status {
+
+        h4 {
+
+            font-size: 1rem;
+            margin: 0;
+        }
+    }
+
+    .se {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        img {
+            width: 40px;
+            height: 40px;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+    }
+
+
     .fixture-list-txt {
 
         display: flex;
@@ -571,6 +592,8 @@
 
         h4 {
             margin: 0px;
+
+            font-size: 18px;
         }
 
         p {
@@ -658,4 +681,10 @@
         margin-bottom: 2px;
         border-radius: 50%;
     }
+}
+
+
+
+.home-tabs {
+    border-radius: var(--normal-brdr-radius);
 }

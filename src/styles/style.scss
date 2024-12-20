@@ -2,206 +2,9 @@ a {
   text-decoration: none;
 }
 
-main {
-  max-width: 1146px;
-  margin: 0 auto;
-}
 
-header {
-  .top_menu {
-    background: #0a1649;
-    padding: 18px;
 
-    h2 {
-      color: #fff;
-      font-weight: 600;
-      font-size: 25px;
-      margin: 0;
-      text-align: center;
-    }
-  }
 
-  nav {
-    background: #3652ad;
-    padding: 14px;
-
-    .genrate_btn {
-      background: #00972a;
-      border: 1px solid #00972a;
-      border-radius: 50px;
-
-      &:hover {
-        background: #fff;
-        border-color: #fff;
-        color: #00972a;
-      }
-    }
-  }
-}
-
-.swiper_score_card {
-  background: #fff;
-  padding: 20px;
-
-  .heading {
-    margin: 0px;
-
-    h2 {
-      font-weight: 600;
-      font-size: 24px;
-      color: #000000;
-    }
-  }
-
-  .swiper {
-    overflow: inherit;
-
-    .swiper-wrapper {
-      padding: 10px 0px;
-    }
-  }
-
-  .score_card {
-    margin-top: 20px;
-    box-shadow: 0 0 40px 0 rgb(187 187 187 / 76%);
-    border-radius: 26px;
-
-    .vs_img {
-      position: absolute;
-      z-index: 1;
-      left: 48%;
-      top: 22%;
-      transform: translate(-100%, -50%);
-    }
-
-    .team_flag_main {
-      display: flex;
-      align-items: center;
-      position: relative;
-
-      .team_flag {
-        padding: 30px 55px;
-        width: 100%;
-      }
-
-      .grey_bg {
-        background: #000376;
-        border-radius: 20px 0 0 0;
-      }
-
-      .blue_bg {
-        background: #420072;
-        border-radius: 0px 20px 0 0;
-      }
-
-      img {
-        border-radius: 50%;
-        background: #dcdcdc;
-        border: 2px solid #ffffff;
-        padding: 3px;
-      }
-    }
-
-    .card_bg {
-      background: #fff;
-      border-top: 0;
-      border: 1px solid #e0e0e0;
-      border-radius: 0 0 20px 20px;
-
-      .match_name {
-        border-top: 1px solid #e0e0e0;
-        text-align: center;
-
-        h5 {
-          font-size: 13px;
-          font-weight: 600;
-          padding: 11px;
-          color: #000;
-          margin: 0;
-        }
-      }
-
-      .win_text {
-        font-size: 15px;
-        color: #00b533;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        font-weight: 600;
-        margin: 10px 0 10px 0px;
-
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        line-clamp: 2;
-        -webkit-box-orient: vertical;
-        padding: 5px;
-        padding-inline: 10px;
-
-        svg {
-          margin-right: 10px;
-        }
-      }
-
-      .padding_div {
-        padding: 16px 16px 0 16px;
-      }
-
-      .team_flag_one {
-        display: flex;
-        align-items: center;
-
-        .name {
-          margin-left: 15px;
-
-          h4 {
-            font-size: 16px;
-            margin: 0;
-            color: #000;
-          }
-        }
-      }
-
-      .scroe_titles {
-        h5 {
-          color: #000;
-          font-size: 17px;
-          font-weight: 600;
-          margin: 0;
-        }
-      }
-    }
-  }
-
-  .swiper-button-next {
-    width: 46px;
-    height: 46px;
-    background: #002291;
-    border-radius: 50%;
-    right: -73px;
-
-    &::after {
-      content: url("data:image/svg+xml,%3Csvg width='11' height='18' viewBox='0 0 11 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.928432 1.15339C1.07062 1.01601 1.23951 0.907013 1.42544 0.832647C1.61137 0.75828 1.81069 0.720001 2.01198 0.720001C2.21327 0.720001 2.41259 0.75828 2.59852 0.832647C2.78445 0.907013 2.95334 1.01601 3.09553 1.15339L10.1501 7.95554C10.2926 8.09264 10.4057 8.25549 10.4828 8.43477C10.5599 8.61404 10.5996 8.80623 10.5996 9.00031C10.5996 9.1944 10.5599 9.38659 10.4828 9.56586C10.4057 9.74514 10.2926 9.90799 10.1501 10.0451L3.09553 16.8472C2.95324 16.9844 2.78431 17.0933 2.59839 17.1675C2.41248 17.2418 2.21322 17.28 2.01198 17.28C1.81075 17.28 1.61148 17.2418 1.42557 17.1675C1.23965 17.0933 1.07073 16.9844 0.928432 16.8472C0.786138 16.71 0.673264 16.5472 0.596255 16.3679C0.519246 16.1886 0.479609 15.9965 0.479609 15.8025C0.479609 15.6084 0.519246 15.4163 0.596255 15.237C0.673264 15.0578 0.786138 14.8949 0.928432 14.7577L6.8918 8.9929L0.928432 3.24294C0.329021 2.66498 0.34439 1.71653 0.928432 1.15339Z' fill='white'/%3E%3C/svg%3E%0A");
-      position: absolute;
-      top: -5px;
-    }
-  }
-
-  .swiper-button-prev {
-    width: 46px;
-    height: 46px;
-    background: #002291;
-    border-radius: 50%;
-    left: -73px;
-
-    &::after {
-      content: url("data:image/svg+xml,%3Csvg width='11' height='18' viewBox='0 0 11 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.0716 1.15339C9.92938 1.01601 9.76049 0.907013 9.57456 0.832647C9.38863 0.75828 9.18931 0.720001 8.98802 0.720001C8.78673 0.720001 8.58741 0.75828 8.40148 0.832647C8.21555 0.907013 8.04666 1.01601 7.90447 1.15339L0.849863 7.95554C0.707382 8.09264 0.594343 8.25549 0.517217 8.43477C0.44009 8.61404 0.400391 8.80623 0.400391 9.00031C0.400391 9.1944 0.44009 9.38659 0.517217 9.56586C0.594343 9.74514 0.707382 9.90799 0.849863 10.0451L7.90447 16.8472C8.04676 16.9844 8.21569 17.0933 8.40161 17.1675C8.58752 17.2418 8.78678 17.28 8.98802 17.28C9.18925 17.28 9.38852 17.2418 9.57443 17.1675C9.76035 17.0933 9.92927 16.9844 10.0716 16.8472C10.2139 16.71 10.3267 16.5472 10.4037 16.3679C10.4808 16.1886 10.5204 15.9965 10.5204 15.8025C10.5204 15.6084 10.4808 15.4163 10.4037 15.237C10.3267 15.0578 10.2139 14.8949 10.0716 14.7577L4.1082 8.9929L10.0716 3.24294C10.671 2.66498 10.6556 1.71653 10.0716 1.15339Z' fill='white'/%3E%3C/svg%3E%0A");
-      position: absolute;
-      top: -5px;
-    }
-  }
-}
 
 .cricket_match_blog_sec {
   .heading {
@@ -303,52 +106,6 @@ header {
   }
 }
 
-footer {
-  background: #3652ad;
-  padding: 50px 50px 30px 50px;
-  margin-top: 50px;
-
-  .heading_footer {
-    h4 {
-      font-weight: 600;
-      font-size: 20px;
-      color: #ffffff;
-      margin-bottom: 20px;
-    }
-  }
-
-  p {
-    font-weight: 400;
-    font-size: 15px;
-    text-align: justify;
-    color: #ffffff;
-    margin: 0;
-  }
-
-  .links {
-    ul {
-      padding: 0;
-
-      li {
-        list-style: none;
-        margin-bottom: 15px;
-
-        a {
-          display: flex;
-          align-items: center;
-          color: #fff;
-          text-decoration: none;
-          font-size: 17px;
-
-          svg {
-            margin-right: 15px;
-          }
-        }
-      }
-    }
-  }
-}
-
 .score_main_sec {
   background-image: url(../../public/score_bg.png);
   background-size: cover;
@@ -368,6 +125,7 @@ footer {
   .score_content {
     display: flex;
     align-items: center;
+    gap: 20px;
 
     .team_img {
       width: 80px;
@@ -1547,11 +1305,7 @@ footer {
         }
       }
 
-      .blog_img {
-        img {
-          height: 279px;
-        }
-      }
+
     }
 
     .pridicate_img {

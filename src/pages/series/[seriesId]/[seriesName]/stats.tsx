@@ -1,14 +1,15 @@
 import Container from "@mui/material/Container";
-import { Grid, Table, TableBody, TableContainer, TableHead, TableRow } from "@mui/material";
+import { Autocomplete, Grid, Table, TableBody, TableContainer, TableHead, TableRow, TextField } from "@mui/material";
 import { SeriesCard } from "./overview";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Nodata from "@/components/no-data/NoData";
 import { SeriesTabs } from "@/components/series/tabs";
 import useSeriesOStore from "@/features/series/series.detail.overview";
 import { StyledTableCell, StyledTableRow } from "./squads";
 import useSeriesStatsStore from "@/features/series/stats.service";
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
+import { AdsBanner } from "@/components/ads/Ads";
 
 
 
@@ -38,40 +39,42 @@ const Index = () => {
         <div>
             <HomeWrapper>
                 <Container sx={{ mb: 10 }}>
-                    <Grid container>
-                        <Grid item xs={12} md={8} sx={{ my: 6 }}>
-                            <SeriesCard />
-                        </Grid>
-                    </Grid>
+
+                    <div className="row">
+                        <SeriesCard />
+                        <SeriesTabs
+                            selectIndex={7}
+
+                        />
 
 
-
-                    <Grid container spacing={3}>
-                        <Grid item xs={12} md={8.3} spacing={3}>
-                            <SeriesTabs
-                                selectIndex={7}
-
-                            />
-
-                            <br />
-
-                            <InningsTable />
-
-                        </Grid>
-                        <Grid item xs={3.2} sx={{ mt: 5 }}>
+                        <div className="col-12 stat-filter mt-4">
                             {seriesStats.stats.filterList.map((cate: any) => {
                                 return (
-                                    <>
-                                        <FilterBattingList cate={cate} />
-                                        <br />
 
-                                    </>
+                                    <FilterBattingList cate={cate} />
+
                                 )
                             })
 
                             }
-                        </Grid>
-                    </Grid>
+                            <br />
+
+                        </div>
+                        <div className="col-md-9 mt-5">
+
+                            <InningsTable />
+                        </div>
+
+                        <div className="col-3">
+                            <AdsBanner />
+                        </div>
+
+
+                    </div>
+
+
+
                 </Container>
 
             </HomeWrapper>
@@ -148,7 +151,7 @@ const MatchScore = () => {
                         <StyledTableRow
                             key={td[0]}
 
-                            className='score-card-table-row'
+                            className=''
                         >
                             <StyledTableCell align="left">{index + 1}</StyledTableCell>
                             <StyledTableCell component="th" scope="row">
@@ -180,36 +183,40 @@ const FilterBattingList = ({ cate }: { cate: any }) => {
     const router = useRouter()
 
     const { filter } = router?.query;
+
+    const selectedFilter = cate.types.find((type: any) => type.key === filter) || null;
+
+
     return (
-        <>
-            <Grid item xs={12} md={12} >
-
-                <div className="stat-filter">
-                    <h3> {cate?.lable}</h3>
-                    <ul>
 
 
-                        {cate.types.length > 0 && cate.types.map((fil: any) => {
-                            return (
-                                <li
-                                    key={fil?.key}
-                                    className={filter === fil.key ? "stat-selected" : ''}
-                                    onClick={() => {
-                                        const currentPath = router.asPath.split('?')[0];
-                                        router.push({
-                                            pathname: currentPath,
-                                            query: { filter: fil.key },
-                                        }, undefined, { shallow: true });
-                                    }}
-                                >
-                                    {fil.lable}
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </div>
-            </Grid>
-        </>
+
+        <div className="col-5 mt-2" key={cate?.lable}>
+            <Autocomplete
+                disablePortal
+                id="combo-box-demo"
+                options={cate.types}
+                getOptionLabel={(option: any) => {
+                    return option.lable || '';
+                }}
+                value={selectedFilter}
+                onChange={(e, value: any) => {
+                    // console.log(value)
+
+                    const currentPath = router.asPath.split('?')[0];
+                    router.push({
+                        pathname: currentPath,
+                        query: { filter: value?.key },
+                    }, undefined, { shallow: true });
+                }}
+                sx={{ maxWidth: 300, width: '100%', background: 'var(--text-white)', }}
+                renderInput={(params) => <TextField {...params} label={cate?.lable} size="small" />}
+            />
+
+
+        </div>
+
+
     )
 }
 

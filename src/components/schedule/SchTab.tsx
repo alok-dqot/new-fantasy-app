@@ -31,7 +31,7 @@ const SchTabs = ({ selected = 1 }: { selected?: number }) => {
         <>
             <div className="col-12 mt-4" style={{ maxWidth: '600px', margin: 'auto' }}>
                 <Box sx={{ width: '100%', bgcolor: 'background.paper', borderRadius: '5px', }}>
-                    <Tabs value={tab} onChange={handleUpdateTabs} variant="scrollable" centered={true} >
+                    <Tabs value={tab} onChange={handleUpdateTabs} centered={true} >
                         <Tab label="Live" className='schedule-rank-btn' />
                         <Tab label={"Recent"} className='schedule-rank-btn' />
                         <Tab label="Upcoming" className='schedule-rank-btn' />

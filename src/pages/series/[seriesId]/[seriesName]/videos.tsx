@@ -39,29 +39,16 @@ const SeriesVideos = () => {
         <div>
             <HomeWrapper>
                 <Container sx={{ mb: 10 }}>
-                    <Grid container sx={{ position: 'relative' }}>
 
+                    <div className="row">
 
-                        <Grid item xs={12} md={8} sx={{ my: 6, }}>
-                            <SeriesCard />
-                        </Grid>
-                        {/* <div style={{ position: 'absolute', right: '0px', top: '240px' }}>
-                        <SeriesRankTable
-                            size={5}
+                        <SeriesCard />
+                        <SeriesTabs
+                            selectIndex={5}
+
                         />
-                    </div> */}
-                    </Grid>
+                    </div>
 
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} md={8} sx={{ mb: 1 }}>
-                            <SeriesTabs
-                                selectIndex={5}
-
-                            />
-                        </Grid>
-
-
-                    </Grid>
 
 
                     <Container className="dt-video">

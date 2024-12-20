@@ -8,6 +8,7 @@ import HomeWrapper from "@/components/wrapper/HomeWrapper";
 import { SeriesTabs } from "@/components/series/tabs";
 import useSquadStore from "@/features/series/squad.service";
 import { Paper, styled, tableCellClasses } from "@mui/material";
+import { AdsBanner } from "@/components/ads/Ads";
 
 
 const Squad = () => {
@@ -42,27 +43,23 @@ const Squad = () => {
 
             <HomeWrapper>
                 <Container sx={{ mb: 10 }}>
-                    <Grid container>
 
+                    <div className="row">
 
-                        <Grid item xs={12} md={8} sx={{ my: 6, }}>
-                            <SeriesCard />
-                        </Grid>
+                        <SeriesCard />
 
-                    </Grid>
+                        <SeriesTabs
+                            selectIndex={2} />
 
-                    <Grid container spacing={3}>
-                        <Grid item xs={12} md={7.8}>
+                        <div className="col-md-8 mt-4">
 
-                            <SeriesTabs
-                                selectIndex={2} />
                             {
                                 store.squad.list?.length > 0 && store.squad.list?.map((sq: any) => {
                                     return (
                                         <>
 
 
-                                            <div className='match-score-wrapper'>
+                                            <div className='match-score-wrapper mt-3'>
                                                 <Teams
                                                     squad={sq}
                                                 />
@@ -74,13 +71,15 @@ const Squad = () => {
                                 })
                             }
 
-                        </Grid>
+                        </div>
+
+                        <div className="col-md-4 mt-5">
+                            <AdsBanner />
+                        </div>
+
+                    </div>
 
 
-
-
-
-                    </Grid>
                 </Container>
 
 
@@ -180,13 +179,9 @@ const InningsTable = (data: any) => {
                         </React.Fragment>
 
                     ))}
-                    {/* :
-                    <Grid sx={{ maxWidth: '800px', width: '100%' }}>
-                        <Skeleton animation="wave" width={500} sx={{}} />
-                        <Skeleton animation="wave" width={200} sx={{}} />
-                        <Skeleton animation="wave" width={200} sx={{}} />
 
-                    </Grid> */}
+
+
 
                 </TableBody>
             </Table>

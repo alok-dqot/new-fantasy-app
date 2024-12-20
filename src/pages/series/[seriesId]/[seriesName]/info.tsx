@@ -24,13 +24,16 @@ const SeriesNews = () => {
                     </Grid>
 
 
+                    <div className="row">
 
+                        <SeriesTabs
+                            selectIndex={1}
+                        />
+
+                    </div>
                     <Grid container spacing={2}>
                         <Grid item xs={12} md={8} sx={{ mb: 3 }}>
-                            <SeriesTabs
-                                selectIndex={5}
 
-                            />
                             <SeriesInfoFull />
                         </Grid>
 

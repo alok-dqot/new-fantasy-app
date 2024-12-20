@@ -30,20 +30,20 @@ const Index = () => {
 		<div>
 			<HomeWrapper>
 				<Container sx={{ mb: 10 }}>
-					<Grid container>
-						<Grid item xs={12} md={8} sx={{ my: 6 }}>
-							<SeriesCard />
-						</Grid>
-					</Grid>
 
 
 
+					<div className="row">
+
+						<SeriesCard />
+						<SeriesTabs
+							selectIndex={3}
+
+						/>
+					</div>
 					<Grid container spacing={3}>
 						<Grid item xs={12} md={8} spacing={3}>
-							<SeriesTabs
-								selectIndex={3}
 
-							/>
 							<div className='series-title'>
 								<h4>{store.series?.list?.details?.name} Standing</h4>
 							</div>
@@ -68,7 +68,7 @@ const Index = () => {
 				</Container>
 
 			</HomeWrapper>
-		</div>
+		</div >
 	);
 };
 
