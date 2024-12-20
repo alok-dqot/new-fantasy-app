@@ -17,6 +17,7 @@ import '../styles/ranking.scss';
 import '../styles/footer.scss';
 import '../styles/loader.scss';
 import '../styles/anycss.scss';
+import '../styles/infocard.scss';
 
 
 

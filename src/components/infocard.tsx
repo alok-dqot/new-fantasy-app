@@ -6,8 +6,10 @@ const InfoCrad = ({ details }: any) => {
         <div className="card">
             <div className="header">
                 <h5><span>Tournament</span></h5>
-
-                <p>Big Bash League, 2024/25</p>
+                <Details
+                    right={details?.competition?.title}
+                    left={''}
+                />
             </div>
             <div className="details">
                 <h5><span>Match Details</span></h5>
@@ -15,29 +17,45 @@ const InfoCrad = ({ details }: any) => {
                 <div className="row">
 
                     <Details
-                        details={details}
+                        left="Date"
+                        right={details?.date_start_ist}
                     />
-                    {/* <Details
-                        details={details}
-                    /> */}
+
 
 
                 </div>
 
-                <button className="probable-btn">Check Probable 11</button>
+                {/* <button className="probable-btn">Check Probable 11</button> */}
             </div>
-            <div className="venue">
+            <div className="venue row">
                 <h5><span>Venue Details</span></h5>
-                <p> <LocationOnIcon /> <span> Stadium:</span>	{details?.venue?.name}</p>
-                <p> <LocationOnIcon /> <span>City:</span>	{details?.venue?.location}</p>
-                <p> <LocationOnIcon /> <span>Country:</span>	{details?.venue?.country}</p>
+                <Details
+                    left={<><LocationOnIcon /> <span> Stadium:</span></>}
+                    right={details?.venue?.name}
+                />
+                <Details
+                    left={<><LocationOnIcon /> <span> Country:</span></>}
+                    right={details?.venue?.country}
+                />
+                <Details
+                    left={<><LocationOnIcon /> <span> City:</span></>}
+                    right={details?.venue?.location}
+                />
+
 
             </div>
-            <div className="MatchOfficial">
+            <div className="MatchOfficial row">
                 <h5><span>Match Official</span></h5>
-                <p>Umpir:{ }</p>
-                <p> ThirdUmpir:</p>
-                <p>Match Refree:</p>
+
+                <Details
+                    left="Umpire"
+                    right={details?.umpires}
+                />
+                <Details
+                    left="Match Refree"
+                    right={details?.referee}
+                />
+
             </div>
         </div>
 
@@ -47,14 +65,14 @@ const InfoCrad = ({ details }: any) => {
 export { InfoCrad };
 
 
-const Details = ({ details }: any) => {
+const Details = ({ left, right }: any) => {
     return (
         <>
             <div className="col-md-3 mt-3">
-                <span>Date & Time:</span>
+                <span>{left}</span>
             </div>
             <div className="col-md-9 mt-3">
-                <p>{details?.date_start_ist}</p>
+                <p>{right}</p>
 
 
             </div>

@@ -14,7 +14,7 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import EventIcon from '@mui/icons-material/Event';
 import ArticleIcon from '@mui/icons-material/Article';
 import BarChartIcon from '@mui/icons-material/BarChart';
-import { CustomCarousel } from './HomeMatches';
+import { CustomCarousel, CustomCarousel2 } from './HomeMatches';
 
 // Updated pages array with title and URL
 const pages = [
@@ -137,7 +137,7 @@ const SeriesContainer = () => {
 
 			<div className="short-match-nav-outer">
 				<div className="sht-mtch-cont">
-					<CustomCarousel>
+					<CustomCarousel2>
 						<Button>Aus vs Ind</Button>
 						<Button>Aus vs Ind</Button>
 						<Button>Aus vs Ind</Button>
@@ -151,7 +151,7 @@ const SeriesContainer = () => {
 						<Button>Aus vs Ind</Button>
 						<Button>Aus vs Ind</Button>
 
-					</CustomCarousel>
+					</CustomCarousel2>
 
 				</div>
 			</div>
