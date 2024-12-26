@@ -14,6 +14,7 @@ import { Wickets } from "@/components/scorecard";
 import { Partnerships } from "@/components/scorecard";
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
 import { InfoCrad } from "@/components/infocard";
+import { CustomCarousel } from "@/components/HomeMatches";
 
 function index() {
 	const router = useRouter();
@@ -266,31 +267,54 @@ export default index;
 const LiveData = () => {
 	return (
 		<>
-			<div className="row live-data  bg-card	">
-				<div className="col-6 col-md-4 live-data-card">
-					<img src="/batter.png" alt="" />
-					<div className="txt p-3">
-						<h4>BK-Mohammad <BatIcon /></h4>
-						<h4>23 (12)</h4>
+			<div className="row" style={{ backgroundColor: "#FFFFFF" }}>
+				<div className="col-md-8">
+					<div className="row live-data  bg-card	">
+						<div className="col-6 col-md-4 live-data-card">
+							<img src="/batter.png" alt="" />
+							<div className="txt p-3">
+								<h4>BK-Mohammad <BatIcon /></h4>
+								<h4>23 (12)</h4>
+							</div>
+
+						</div>
+						<div className="col-6 col-md-4 live-data-card">
+							<img src="/batter.png" alt="" />
+							<div className="txt p-3">
+								<h4>A Nawaz Shah </h4>
+								<h4>23 (12)</h4>
+							</div>
+						</div>
+						<div className="col-12 col-md-4 live-data-card">
+							<img src="/batter.png" alt="" />
+							<div className="txt p-3">
+								<h4>Nikin Jose <BallIcon /></h4>
+								<h4>23 (12)</h4>
+							</div>
+						</div>
+
 					</div>
 
-				</div>
-				<div className="col-6 col-md-4 live-data-card">
-					<img src="/batter.png" alt="" />
-					<div className="txt p-3">
-						<h4>A Nawaz Shah </h4>
-						<h4>23 (12)</h4>
-					</div>
-				</div>
-				<div className="col-12 col-md-4 live-data-card">
-					<img src="/batter.png" alt="" />
-					<div className="txt p-3">
-						<h4>Nikin Jose <BallIcon /></h4>
-						<h4>23 (12)</h4>
-					</div>
-				</div>
+					<div className="over-data">
 
+
+						<CustomCarousel>
+							<ThisOver />
+							<ThisOver />
+							<ThisOver />
+
+						</CustomCarousel>
+
+					</div>
+
+					<CommentaryCard />
+
+				</div>
+				<div className="col-md-4">
+					<Probability />
+				</div>
 			</div>
+
 		</>
 	)
 }
@@ -337,3 +361,94 @@ export const BallIcon = () => {
 
 	)
 }
+
+
+export const Probability = () => {
+	return (
+		<>
+			<div className="probability-container">
+				<div className="header">
+					<h2 className="title">Probability</h2>
+					<div className="toggle-buttons">
+						<button className="toggle-btn active">% View</button>
+						<button className="toggle-btn">Odds View</button>
+					</div>
+				</div>
+
+				<div className="session-info">
+					Day 1: Session 3
+				</div>
+
+				<div className="progress-container">
+					<div className="progress-bar">
+						<div className="progress-segment-ind"></div>
+						<div className="progress-segment-draw"></div>
+						<div className="progress-segment-aus"></div>
+					</div>
+
+					<div className="labels">
+						<div className="label">
+							<span className="team">IND </span>
+							<span className="percentage">25%</span>
+						</div>
+						<div className="label">
+							<span className="team">DRAW </span>
+							<span className="percentage">15%</span>
+						</div>
+						<div className="label">
+							<span className="team">AUS </span>
+							<span className="percentage">60%</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</>
+
+	)
+};
+
+export const ThisOver = () => {
+	return (
+		<>
+
+			<div className="this-over">
+				<h6 className="over-name">This Over:</h6>
+				<span className="over-run">0</span>
+				<span className="over-run">0</span>
+				<span className="over-run">0</span>
+				<span className="over-run">0</span>
+				<span className="over-run over-4th">4</span>
+				<span className="over-run">0</span>
+				<span className="over-run">0</span>
+				<span className="over-run">0</span>
+				<span className="over-run">0</span>
+				<p className="total-run">= 3</p>
+			</div>
+
+		</>
+	)
+};
+
+const CommentaryCard = () => {
+	return (
+		<>
+			<div className="commentary-card">
+				<div className="numbers">
+					<div className="over-number">85.5</div>
+					<div className="ball-number">2</div>
+				</div>
+
+
+				<div className="content-wrapper">
+
+					<div className="commentary-text">
+						<div className="players">J Bumrah to P Cummins</div>
+						<div className="description">
+							Bumrah goes for the yorker and nearly gets his man. 133.7 kmph. Cummins was up to the task and gets his bat down in time to flick it past forward short leg for a couple.
+						</div>
+					</div>
+				</div>
+			</div>
+		</>
+	)
+};
