@@ -234,24 +234,24 @@ const Partnerships = ({ partnership }: any) => {
                 <h5>Partnerships Stats</h5>
                 <div className="all-state">
 
+                    {partnership?.batsmen?.length > 0 &&
+                        <div className="stats1">
 
-                    <div className="stats1">
+                            <div className="name">{partnership?.batsmen[0].name} <br />
+                                <span className="extra-info">{partnership?.batsmen[0].runs}({partnership?.batsmen[0].balls})</span>
 
-                        <div className="name">{partnership?.batsmen[0].name} <br />
-                            <span className="extra-info">{partnership?.batsmen[0].runs}({partnership?.batsmen[0].balls})</span>
+                            </div>
+
+                            <div className="center">
+                                <span>{partnership?.runs}({partnership?.balls})</span>
+                            </div>
+
+                            <div className="name">{partnership?.batsmen[1].name}<br />
+                                <span>{partnership?.batsmen[1].runs}({partnership?.batsmen[1].balls})</span>
+                            </div>
 
                         </div>
-
-                        <div className="center">
-                            <span>{partnership?.runs}({partnership?.balls})</span>
-                        </div>
-
-                        <div className="name">{partnership?.batsmen[1].name}<br />
-                            <span>{partnership?.batsmen[1].runs}({partnership?.batsmen[1].balls})</span>
-                        </div>
-
-                    </div>
-
+                    }
 
                 </div>
             </div>

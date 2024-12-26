@@ -121,276 +121,10 @@ function index() {
 								}
 								id='uncontrolled-tab-example'
 								className='mb-3'>
-								{matchStore.match.list.status === 3 && (
+								{matchStore.match.list.status === 1 && (
 									<Tab.Pane eventKey='live' title='Live'>
 
-										<div className='live_match_content'>
-											<div className='comman_card'>
-												<div className='content pt-0'>
-													<h5>Run Needed:{live?.live_score?.target} </h5>
-													<h5>Balls Rem: {live?.live_score?.overs}</h5>
-												</div>
-												<div className='content border-0 pb-0'>
-													<h5>CRR: {live?.live_score?.runrate}</h5>
-													<h5>Target: {live?.live_score?.target}</h5>
-												</div>
-											</div>
-
-											<div className='comman_card'>
-												<div className='content p-0 border-0 align-items-center'>
-													<h5>Winning Probability:</h5>
-													<div className='buttons'>
-														<button className='btn '>
-															42
-														</button>
-														<button className='btn '>
-															44
-														</button>
-													</div>
-												</div>
-											</div>
-
-											<div className='comman_card'>
-												<div className='content p-0 border-0 align-items-center'>
-													<h5>Run Rate: {live?.live_score?.runrate} </h5>
-													<h5>Balls Rem: {live?.live_score?.overs}</h5>
-												</div>
-											</div>
-
-											<div className='ads_banner '>
-
-											</div>
-
-											<div className='comman_card'>
-												<div className='content pt-0 align-items-center'>
-													<div className='d-flex align-items-center'>
-														<h5>45 Over Runs:</h5>
-														<div className='buttons ms-4'>
-															<button className='btn '>
-																165
-															</button>
-															<button className='btn '>
-																166
-															</button>
-														</div>
-													</div>
-													<div className='d-flex align-items-center'>
-														<h5>R X D:</h5>
-														<div className='buttons ms-4'>
-															<button className='btn '>
-																14
-															</button>
-															<button className='btn '>
-																24
-															</button>
-														</div>
-													</div>
-												</div>
-												<div className='content pb-0 align-items-center border-0'>
-													<div>
-														<h5>1st Inning’s Total Runs:</h5>
-													</div>
-													<div className='buttons'>
-														<button className='btn '>
-															342
-														</button>
-														<button className='btn'>
-															345
-														</button>
-													</div>
-												</div>
-											</div>
-
-											<div className='comman_card'>
-												<div className='batter_heading'>
-													<div className='batter_div'>
-														<h5>Batter</h5>
-
-
-													</div>
-													<div className='batter_div r_boll'>
-														<h5>R</h5>
-														<h5>B</h5>
-														<h5>4s</h5>
-														<h5>6s</h5>
-														<h5>RS</h5>
-													</div>
-												</div>
-												{live?.batsmen?.length ? (
-													live?.batsmen?.map((item) => {
-														return (
-															<div className='batter_heading batsman_runs pt-3'>
-																<div className='batter_div'>
-																	<h5>
-																		{item?.name}
-																		{/* 🏏 */}
-																	</h5>
-																</div>
-																<div className='batter_div r_boll'>
-																	<h5>{item?.runs}</h5>
-																	<h5>{item?.balls_faced}</h5>
-																	<h5>{item?.fours}</h5>
-																	<h5>{item?.sixes}</h5>
-																	<h5>{item?.strike_rate}</h5>
-																</div>
-															</div>
-														);
-													})
-												) : (
-													<></>
-												)}
-
-												<div className='batter_heading batsman_runs result_border pt-3'>
-													<div className='batter_div'>
-														<h5>
-															P’ship{" "}
-															{live?.live_inning?.current_partnership?.runs}(
-															{live?.live_inning?.current_partnership?.balls})
-														</h5>
-													</div>
-													<div className='batter_div r_boll'>
-														<h5>
-															L ‘ Wkt:{live?.live_inning?.last_wicket?.name}{" "}
-															{live?.live_inning?.last_wicket?.runs}(
-															{live?.live_inning?.last_wicket?.balls})
-														</h5>
-													</div>
-												</div>
-											</div>
-
-											<div className='comman_card'>
-												<div className='batter_heading'>
-													<div className='batter_div'>
-														<h5>Bowler</h5>
-													</div>
-													<div className='batter_div r_boll'>
-														<h5>O</h5>
-														<h5>R</h5>
-														<h5>Wkt</h5>
-														<h5>Eco</h5>
-													</div>
-												</div>
-												{live?.bowlers?.map((item) => {
-													return (
-														<div className='batter_heading batsman_runs pt-3'>
-															<div className='batter_div'>
-																<h5>
-																	{item?.name}
-																	{/* 🔴 */}
-																</h5>
-															</div>
-															<div className='batter_div r_boll'>
-																<h5>{item?.overs}</h5>
-																<h5>{item?.runs_conceded}</h5>
-																<h5>{item?.wickets}</h5>
-																<h5>{item?.econ}</h5>
-															</div>
-														</div>
-													);
-												})}
-											</div>
-
-											<div className='ads_banner '>
-
-											</div>
-
-											<div className='comman_card'>
-												<div className='batter_heading'>
-													<div className='batter_div'>
-														<h5>Did not bat</h5>
-													</div>
-												</div>
-												<div className='batter_heading batsman_runs pt-3'>
-													<div className='batter_div'>
-														<h5>
-															{live?.live_inning?.did_not_bat?.length ? (
-																live?.live_inning?.did_not_bat?.map(
-																	(item) => item?.name,
-																)
-															) : (
-																<></>
-															)}
-														</h5>
-													</div>
-												</div>
-											</div>
-											<div className='comman_card score_main_sli'>
-												<div className='batter_heading'>
-													<div className='batter_div'>
-														<h5>Last 24 Balls</h5>
-													</div>
-												</div>
-												<div
-													className='batter_heading score_balls border-0 pt-3'
-													style={{ overflowX: "scroll" }}>
-													{/* {live?.live_inning?.recent_scores} */}
-													<div className='batter_div'>
-														<div className='over_list'>
-
-
-															{live?.commentaries?.length > 0 &&
-																live?.commentaries?.map((recent: any) => {
-																	return (
-																		<>
-																			{recent?.event == "ball" ? (
-																				recent?.six ? (
-																					<h5 className='comman_run six_run'>
-																						6
-																					</h5>
-																				) : recent?.four ? (
-																					<h5 className='comman_run six_four'>
-																						4
-																					</h5>
-																				) : (
-																					<h5 className='comman_run single_run'>
-																						{recent?.run}
-																					</h5>
-																				)
-																			) : (
-																				recent?.event == "overend" && (
-																					<h5
-																						className='run_count'
-																						style={{
-																							display: "flex",
-																							gap: "10px",
-																						}}>
-																						{" "}
-																						<span>=</span> {recent?.runs}
-																					</h5>
-																				)
-																			)}
-																		</>
-																	);
-																})}
-														</div>
-													</div>
-												</div>
-											</div>
-											<div className='comman_card'>
-												<div className='batter_heading'>
-													<div className='batter_div'>
-														<h5>Run Rate</h5>
-													</div>
-													<div className='batter_div r_boll'>
-														<h5>8.45*</h5>
-														<h5>9</h5>
-														<h5>10</h5>
-														<h5>11</h5>
-													</div>
-												</div>
-												<div className='batter_heading batsman_runs pt-3'>
-													<div className='batter_div'>
-														<h5>Projected Score</h5>
-													</div>
-													<div className='batter_div r_boll'>
-														<h5>164</h5>
-														<h5>171</h5>
-														<h5>179</h5>
-														<h5>15.34</h5>
-													</div>
-												</div>
-											</div>
-										</div>
+										<LiveData />
 
 
 
@@ -526,482 +260,80 @@ function index() {
 
 export default index;
 
-{
-	/* <div className='recent_matchs_main'>
-	<div className='heading'><div className='comman_card'>
-		<h5>
-			Recent Performance <span>(Last 5 Matches)</span>
-		</h5>
-	</div>
-	<Accordion defaultActiveKey='0'>
-		<Accordion.Item eventKey='0'>
-			<Accordion.Header>
-				<div className='d-flex justify-content-between align-items-center w-100'>
-					<div className='team_name'>
-						<h4>Karachi Kings </h4>
-					</div>
-					<div className='runs_balls'>
-						<h5 className='star_run'>*</h5>
-						<h5 className='star_run'>*</h5>
-						<h5 className='star_l'>L</h5>
-						<h5 className='star_l'>L</h5>
-						<h5 className='star_w'>w</h5>
-						<h5 className='star_w'>w</h5>
-					</div>
-				</div>
-			</Accordion.Header>
-			<Accordion.Body>
-				<div className='recent_match_card'>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-							<div className='content'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-						</div>
-						<h4>Karachi</h4>
-					</div>
-					<div className='won_text text-center'>
-						<svg
-							width='24'
-							height='40'
-							viewBox='0 0 24 40'
-							fill='none'>
-							<path
-								d='M15 18L12.9 15.825L18.225 10.5H0V7.5H18.225L12.9 2.175L15 0L24 9L15 18Z'
-								fill='black'
-							/>
-							<path
-								d='M9 40L11.1 37.825L5.775 32.5H24V29.5H5.775L11.1 24.175L9 22L0 31L9 40Z'
-								fill='black'
-							/>
-						</svg>
-						<p>Multan Sultans won by 20 runs</p>
-					</div>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='content me-3 text-end'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-						</div>
-						<h4 className='text-end'>Multan</h4>
-					</div>
-				</div>
-				<div className='recent_match_card'>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-							<div className='content'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-						</div>
-						<h4>Karachi</h4>
-					</div>
-					<div className='won_text text-center'>
-						<svg
-							width='24'
-							height='40'
-							viewBox='0 0 24 40'
-							fill='none'>
-							<path
-								d='M15 18L12.9 15.825L18.225 10.5H0V7.5H18.225L12.9 2.175L15 0L24 9L15 18Z'
-								fill='black'
-							/>
-							<path
-								d='M9 40L11.1 37.825L5.775 32.5H24V29.5H5.775L11.1 24.175L9 22L0 31L9 40Z'
-								fill='black'
-							/>
-						</svg>
-						<p>Multan Sultans won by 20 runs</p>
-					</div>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='content me-3 text-end'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-						</div>
-						<h4 className='text-end'>Multan</h4>
-					</div>
-				</div>
-				<div className='recent_match_card'>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-							<div className='content'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-						</div>
-						<h4>Karachi</h4>
-					</div>
-					<div className='won_text text-center'>
-						<svg
-							width='24'
-							height='40'
-							viewBox='0 0 24 40'
-							fill='none'>
-							<path
-								d='M15 18L12.9 15.825L18.225 10.5H0V7.5H18.225L12.9 2.175L15 0L24 9L15 18Z'
-								fill='black'
-							/>
-							<path
-								d='M9 40L11.1 37.825L5.775 32.5H24V29.5H5.775L11.1 24.175L9 22L0 31L9 40Z'
-								fill='black'
-							/>
-						</svg>
-						<p>Multan Sultans won by 20 runs</p>
-					</div>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='content me-3 text-end'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-						</div>
-						<h4 className='text-end'>Multan</h4>
-					</div>
-				</div>
-			</Accordion.Body>
-		</Accordion.Item>
-		<Accordion.Item eventKey='1'>
-			<Accordion.Header>
-				<div className='d-flex justify-content-between align-items-center w-100'>
-					<div className='team_name'>
-						<h4>Karachi Kings </h4>
-					</div>
-					<div className='runs_balls'>
-						<h5 className='star_run'>*</h5>
-						<h5 className='star_run'>*</h5>
-						<h5 className='star_l'>L</h5>
-						<h5 className='star_l'>L</h5>
-						<h5 className='star_w'>w</h5>
-						<h5 className='star_w'>w</h5>
-					</div>
-				</div>
-			</Accordion.Header>
-			<Accordion.Body>
-				<div className='recent_match_card'>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-							<div className='content'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-						</div>
-						<h4>Karachi</h4>
-					</div>
-					<div className='won_text text-center'>
-						<svg
-							width='24'
-							height='40'
-							viewBox='0 0 24 40'
-							fill='none'>
-							<path
-								d='M15 18L12.9 15.825L18.225 10.5H0V7.5H18.225L12.9 2.175L15 0L24 9L15 18Z'
-								fill='black'
-							/>
-							<path
-								d='M9 40L11.1 37.825L5.775 32.5H24V29.5H5.775L11.1 24.175L9 22L0 31L9 40Z'
-								fill='black'
-							/>
-						</svg>
-						<p>Multan Sultans won by 20 runs</p>
-					</div>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='content me-3 text-end'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-						</div>
-						<h4 className='text-end'>Multan</h4>
-					</div>
-				</div>
-				<div className='recent_match_card'>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-							<div className='content'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-						</div>
-						<h4>Karachi</h4>
-					</div>
-					<div className='won_text text-center'>
-						<svg
-							width='24'
-							height='40'
-							viewBox='0 0 24 40'
-							fill='none'>
-							<path
-								d='M15 18L12.9 15.825L18.225 10.5H0V7.5H18.225L12.9 2.175L15 0L24 9L15 18Z'
-								fill='black'
-							/>
-							<path
-								d='M9 40L11.1 37.825L5.775 32.5H24V29.5H5.775L11.1 24.175L9 22L0 31L9 40Z'
-								fill='black'
-							/>
-						</svg>
-						<p>Multan Sultans won by 20 runs</p>
-					</div>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='content me-3 text-end'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-						</div>
-						<h4 className='text-end'>Multan</h4>
-					</div>
-				</div>
-				<div className='recent_match_card'>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-							<div className='content'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-						</div>
-						<h4>Karachi</h4>
-					</div>
-					<div className='won_text text-center'>
-						<svg
-							width='24'
-							height='40'
-							viewBox='0 0 24 40'
-							fill='none'>
-							<path
-								d='M15 18L12.9 15.825L18.225 10.5H0V7.5H18.225L12.9 2.175L15 0L24 9L15 18Z'
-								fill='black'
-							/>
-							<path
-								d='M9 40L11.1 37.825L5.775 32.5H24V29.5H5.775L11.1 24.175L9 22L0 31L9 40Z'
-								fill='black'
-							/>
-						</svg>
-						<p>Multan Sultans won by 20 runs</p>
-					</div>
-					<div className='team_match_'>
-						<div className='img_con'>
-							<div className='content me-3 text-end'>
-								<h5>169-7</h5>
-								<p>20.0 Over</p>
-							</div>
-							<div className='image'>
-								<img
-									src='/teaam_mini_dp.png'
-									alt='#'
-									className='img-fluid'
-								/>
-							</div>
-						</div>
-						<h4 className='text-end'>Multan</h4>
-					</div>
-				</div>
-			</Accordion.Body>
-		</Accordion.Item>
-	</Accordion>
-</div> */
-}
 
-{
-	/* </div>										<h5 className='comman_run single_run'>2</h5>
-																	<h5 className='comman_run six_run'>6</h5>
-																	<h5 className='comman_run six_run'>6</h5>
-																	<h5 className='comman_run six_four'>4</h5>
-																	<h5 className='comman_run six_wicket'>w</h5> 
-																	*/
+
+
+const LiveData = () => {
+	return (
+		<>
+			<div className="row live-data  bg-card	">
+				<div className="col-6 col-md-4 live-data-card">
+					<img src="/batter.png" alt="" />
+					<div className="txt p-3">
+						<h4>BK-Mohammad <BatIcon /></h4>
+						<h4>23 (12)</h4>
+					</div>
+
+				</div>
+				<div className="col-6 col-md-4 live-data-card">
+					<img src="/batter.png" alt="" />
+					<div className="txt p-3">
+						<h4>A Nawaz Shah </h4>
+						<h4>23 (12)</h4>
+					</div>
+				</div>
+				<div className="col-12 col-md-4 live-data-card">
+					<img src="/batter.png" alt="" />
+					<div className="txt p-3">
+						<h4>Nikin Jose <BallIcon /></h4>
+						<h4>23 (12)</h4>
+					</div>
+				</div>
+
+			</div>
+		</>
+	)
 }
 
 
-// const Live = () => {
-// 	return (
-// 		<>
-//        <div className='live_match_content'>
-//   <div className='comman_card'>
-//     <div className='content pt-0'>
-//       <h5>Run Needed: {live?.live_score?.target}</h5>
-//       <h5>Balls Rem: {live?.live_score?.overs}</h5>
-//     </div>
-//     <div className='content border-0 pb-0'>
-//       <h5>CRR: {live?.live_score?.runrate}</h5>
-//       <h5>Target: {live?.live_score?.target}</h5>
-//     </div>
-//   </div>
 
-//   <div className='comman_card'>
-//     <div className='content p-0 border-0 align-items-center'>
-//       <h5>Winning Probability:</h5>
-//       <div className='buttons'>
-//         <button className='btn btn-danger btn_red'>42</button>
-//         <button className='btn btn-success btn_green'>44</button>
-//       </div>
-//     </div>
-//   </div>
 
-//   <div className='comman_card'>
-//     <div className='content p-0 border-0 align-items-center'>
-//       <h5>Run Rate: {live?.live_score?.runrate}</h5>
-//       <h5>Balls Rem: {live?.live_score?.overs}</h5>
-//     </div>
-//   </div>
 
-//   <div className='ads_banner mb-4'></div>
 
-//   <div className='comman_card'>
-//     <div className='content pt-0 align-items-center'>
-//       <div className='d-flex align-items-center'>
-//         <h5>45 Over Runs:</h5>
-//         <div className='buttons ms-4'>
-//           <button className='btn btn-danger btn_red'>165</button>
-//           <button className='btn btn-success btn_green'>166</button>
-//         </div>
-//       </div>
-//       <div className='d-flex align-items-center'>
-//         <h5>R X D:</h5>
-//         <div className='buttons ms-4'>
-//           <button className='btn btn-danger btn_red'>14</button>
-//           <button className='btn btn-success btn_green'>24</button>
-//         </div>
-//       </div>
-//     </div>
-//     <div className='content pb-0 align-items-center border-0'>
-//       <div>
-//         <h5>1st Inning’s Total Runs:</h5>
-//       </div>
-//       <div className='buttons'>
-//         <button className='btn btn-danger btn_red'>342</button>
-//         <button className='btn btn-success btn_green'>345</button>
-//       </div>
-//     </div>
-//   </div>
 
-//   {/* Batters & Partnership section */}
-//   <div className='comman_card'>
-//     <div className='batter_heading'>
-//       <div className='batter_div'>
-//         <h5>Batter</h5>
-//       </div>
-//       <div className='batter_div r_boll'>
-//         <h5>R</h5>
-//         <h5>B</h5>
-//         <h5>4s</h5>
-//         <h5>6s</h5>
-//         <h5>RS</h5>
-//       </div>
-//     </div>
-//     {live?.batsmen?.map((item) => (
-//       <div className='batter_heading batsman_runs pt-3'>
-//         <div className='batter_div'>
-//           <h5>{item?.name}</h5>
-//         </div>
-//         <div className='batter_div r_boll'>
-//           <h5>{item?.runs}</h5>
-//           <h5>{item?.balls_faced}</h5>
-//           <h5>{item?.fours}</h5>
-//           <h5>{item?.sixes}</h5>
-//           <h5>{item?.strike_rate}</h5>
-//         </div>
-//       </div>
-//     ))}
-//     <div className='batter_heading batsman_runs result_border pt-3'>
-//       <div className='batter_div'>
-//         <h5>
-//           P’ship {live?.live_inning?.current_partnership?.runs}(
-//           {live?.live_inning?.current_partnership?.balls})
-//         </h5>
-//       </div>
-//       <div className='batter_div r_boll'>
-//         <h5>
-//           L ‘ Wkt:{live?.live_inning?.last_wicket?.name}{" "}
-//           {live?.live_inning?.last_wicket?.runs}(
-//           {live?.live_inning?.last_wicket?.balls})
-//         </h5>
-//       </div>
-//     </div>
-//   </div>
 
-//   {/* Similar code for Bowler section and others */}
-// </div>
 
-// 		</>
-// 	);
-// }
+export const BatIcon = () => {
+	return (
+		<svg width="18" style={{ marginLeft: '5px' }} height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fillRule="evenodd" clipRule="evenodd" d="M12.4726 3.54467L10.144 7.5347C9.87733 8.0093 9.58063 8.4687 9.22463 9.0173C9.58063
+			 8.7507 10.0546 8.4687 10.604 8.098L14.6226 5.48867L12.4726 3.54467ZM12.1906 2.982C12.0126 2.982 11.82 2.982 11.7313 2.982C11.078 2.982 10.5146 3.26334 10.144 3.634L0.37067 13.6747C0.19267 13.7633 0 14.0453 0 14.5053C0 14.7867
+			  0.0886701 15.0693 0.28134 15.4393C0.652 16.0027 1.112 16.552 1.49734 16.8333C1.95734 17.2933 2.98067 18.1387 3.91467 18.0493C4.286 18.0493 4.56734 17.9453 4.746 17.664L14.6226 7.7273C15.0826 7.164 15.2753 6.422 15.172 5.76934L12.1906
+			   2.982ZM17.96 1.128C17.96 0.846 17.8713 0.564 17.5893 0.28267C17.4113 0.104 17.04 0 16.7586 0C16.388 0 16.106 0.104 15.824 0.386L13.036 3.26334L14.8013 4.93867L17.6926 2.04667C17.8713 1.78 18.064 1.49867 17.96 1.128Z" fill="var(--primary)" />
+		</svg>
+
+	)
+}
+
+
+
+
+
+export const BallIcon = () => {
+	return (
+		<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fillRule="evenodd" clipRule="evenodd" d="M15.2281 4.58073C15.3111 4.75379 15.3935 4.92561 
+			15.4902 5.09866C15.8346 6.0508 16 7.0029 16 8.0375C16 12.4533 12.4584 16 8.0483 16C5.62304 16 
+			3.55583 14.9648 2.08084 13.3154C1.99845 13.233 1.90181 13.1436 1.8188 13.0605C3.63822 11.0663 
+			5.71906 9.342 8.0483 7.8651C10.2116 6.4856 12.6374 5.44354 15.2281 4.58073ZM14.3602 3.1938C14.5393
+			 3.37368 14.6223 3.54611 14.7047 3.71855C14.7871 3.80167 14.8837 3.9741 14.9667 4.06342C12.3754 
+			 4.92561 9.9501 6.0508 7.7863 7.4371C5.45764 8.8172 3.37618 10.639 1.47437 12.6257C1.39198 12.4533
+			  1.21295 12.2808 1.12994 12.1084C1.04755 12.0185 1.04755 11.9291 0.95091 11.846C2.86635 9.6868 5.01657
+			   7.8651 7.4418 6.3957C9.5227 5.09866 11.8519 3.9741 14.3602 3.1938ZM13.0643 1.81431C13.2439 1.98674
+			    13.4093 2.15918 13.6707 2.33161C13.7538 2.42155 13.9328 2.59399 14.0158 2.76643C11.5075 3.54611 
+				9.2613 4.58073 7.1798 5.96767C4.76816 7.4371 2.59068 9.1689 0.68886 11.3287C0.60647 11.0663 0.52346 
+				10.7215 0.44107 10.4591C0.35868 10.3766 0.35868 10.2041 0.26204 10.1142C2.08084 8.0375 4.16168 6.3125 6.4909 4.92561C8.4894 3.62923 10.722 2.67711 13.0643 1.81431ZM8.0483 0C9.6881 0 11.2455 0.51731 12.5408 1.46943C10.2946 2.24229 8.1307 3.28436 6.1465 4.49141C3.98265 5.87835 1.90181 7.5202 0.17903 9.4245C0.0966399 8.9896 0 8.4723 0 8.0375C0 3.62923 3.63822 0 8.0483 0Z" fill="var(--primary)" />
+		</svg>
+
+	)
+}

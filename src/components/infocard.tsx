@@ -79,4 +79,4 @@ const Details = ({ left, right }: any) => {
         </>
     )
 }
-export { Details }
+export { Details };

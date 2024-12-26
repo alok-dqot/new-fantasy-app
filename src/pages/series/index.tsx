@@ -31,7 +31,7 @@ function Index() {
                     {
                         seriesStore.s.list.length > 0 && seriesStore.s.list?.map((ser: any) => {
 
-                            console.log(ser)
+                            // console.log(ser)
                             return (
 
                                 <div className="col-12 col-md-6" key={ser.id} >
@@ -39,11 +39,11 @@ function Index() {
                                         img={ser.image_url}
                                         id={ser.id}
                                         title={ser.name}
-                                        start_date={ser.datestart}
-                                        end_date={ser.dateend}
+                                        start_date={ser.start_date}
+                                        end_date={ser.end_date}
                                         totalMatches={ser?.total_matches}
                                         totalTeams={ser?.total_teams}
-                                        format={ser?.game_format}
+                                        format={ser?.format}
                                     />
                                 </div>
 
@@ -107,13 +107,13 @@ const SerierUpCard: React.FC<SeriesListProps> = ({ id, img, title, start_date, e
             <CustomImg src={img + ''} alt={title || ''} />
 
             <div className="ser-match-card" onClick={() => {
-                // router.push('series/' + id + '/' + titleToSlug(title) + '/overview')
-                console.log('fired')
+                router.push('series/' + id + '/' + titleToSlug(title) + '/overview')
             }}>
-                <h3>{title}  (<span>{moment(start_date).format('DD MMM')} - {moment(end_date).format('DD MMM')})</span></h3>
+                <h3>{title}  </h3>
 
                 <p className='ser-spn'>Total Matches : {totalMatches} , Total Teams : {totalTeams}</p>
                 <p className='ser-spn'>Format : {format}</p>
+                <p className='ser-spn'>({moment(start_date).format('DD MMM')} - {moment(end_date).format('DD MMM')})</p>
 
 
                 <h4 onClick={() => {
@@ -122,7 +122,7 @@ const SerierUpCard: React.FC<SeriesListProps> = ({ id, img, title, start_date, e
 
             </div>
 
-        </div>
+        </div >
     </>;
 }
 
