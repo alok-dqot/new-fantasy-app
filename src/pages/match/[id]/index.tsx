@@ -414,13 +414,15 @@ export const ThisOver = () => {
 			<div className="this-over">
 				<h6 className="over-name">This Over:</h6>
 				<span className="over-run">0</span>
+
+				<Run6th run={6} />
 				<span className="over-run">0</span>
 				<span className="over-run">0</span>
+
+				<Run4th run={4} />
 				<span className="over-run">0</span>
-				<span className="over-run over-4th">4</span>
 				<span className="over-run">0</span>
-				<span className="over-run">0</span>
-				<span className="over-run">0</span>
+				<span className="over-run">w</span>
 				<span className="over-run">0</span>
 				<p className="total-run">= 3</p>
 			</div>
@@ -452,3 +454,19 @@ const CommentaryCard = () => {
 		</>
 	)
 };
+
+const Run4th = ({ run }: any) => {
+	return (
+		<>
+			<span className="over-run over-4th">{run}</span>
+		</>
+	)
+}
+
+const Run6th = ({ run }: any) => {
+	return (
+		<>
+			<span className="over-run over-4th">{run}</span>
+		</>
+	)
+}
