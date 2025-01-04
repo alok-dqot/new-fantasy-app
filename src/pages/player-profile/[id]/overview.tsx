@@ -10,6 +10,66 @@ import { CustomImg } from "@/helper/image.helper";
 
 
 const Overview = () => {
+
+    const newsVideosData = [
+        {
+            id: 1,
+            title: "[Watch] Scott Boland Packs Yashasvi Jaiswal Out Of Sydney Ground With An Absolute Jaffa",
+            author: "SOUMYAJIT DUTTA",
+            timeAgo: "5 HRS AGO",
+            imageUrl: "/news-3.webp",
+            img: "/news-3.webp",
+            category: "Cricket",
+            type: "Match Highlight",
+            isVideo: true
+        },
+        {
+            id: 2,
+            title: "[Watch] Yashasvi Jaiswal Hurts Mitchell Starc's Pride With Rampant Thrashing In Sydney",
+            author: "RAJGEETA",
+            timeAgo: "6 HRS AGO",
+            imageUrl: "/news-3.webp",
+            img: "/news-3.webp",
+            category: "Cricket",
+            type: "Match Highlight",
+            isVideo: true
+        },
+        {
+            id: 3,
+            title: "'Oye, Shot Nahi Lag Rahe Ab?': Yashasvi Jaiswal Gives Konstas A Taste Of His Own Medicine",
+            author: "SOUMYAJIT DUTTA",
+            timeAgo: "8 HRS AGO",
+            imageUrl: "/news-3.webp",
+            img: "/news-3.webp",
+            category: "Cricket",
+            type: "Match Highlight",
+            isVideo: true
+        },
+        {
+            id: 4,
+            title: "[Watch] Siraj Takes Bumrah's Revenge As Jaiswal Jumps In Air To Enjoy Konstas' Wicket",
+            author: "AKSHITA PATEL",
+            timeAgo: "10 HRS AGO",
+            imageUrl: "/news-3.webp",
+            img: "/news-3.webp",
+            category: "Cricket",
+            type: "Match Highlight",
+            isVideo: true
+        },
+        {
+            id: 5,
+            title: "[Watch] Yashasvi Jaiswal Gets Teased By Scott Boland With A Clap On The Face After Wicket",
+            author: "PROBUDHA BHATTACHARJEE",
+            timeAgo: "1 JAN 2025",
+            imageUrl: "/news-3.webp",
+            img: "/news-3.webp",
+            category: "Cricket",
+            type: "Match Highlight",
+            isVideo: true
+        }
+    ];
+
+
     return (
         <>
             <Navbar />
@@ -30,26 +90,19 @@ const Overview = () => {
                             <div className="latest-update">
                                 <h2>Latest Update</h2>
                                 <div className="row">
-                                    <div className="col-md-12">
-
-                                        <ArticleCard />
-                                    </div>
 
                                     <div className="col-md-12">
-                                        <ArticleCard />
+                                        {
+                                            newsVideosData?.map((newsvideodata: any) => {
+                                                return (
+                                                    <ArticleCard newsvideodata={newsvideodata} />
+                                                )
+                                            })
+                                        }
+
                                     </div>
 
-                                    <div className="col-md-12">
-                                        <ArticleCard />
-                                    </div>
 
-                                    <div className="col-md-12">
-                                        <ArticleCard />
-                                    </div>
-
-                                    <div className="col-md-12">
-                                        <ArticleCard />
-                                    </div>
 
 
 
@@ -272,7 +325,7 @@ const PlayerCareerStats = () => {
     )
 };
 
-const ArticleCard = () => {
+const ArticleCard = ({ newsvideodata }: any) => {
     return (
         <>
 
@@ -292,11 +345,11 @@ const ArticleCard = () => {
                 <div className="article-content">
                     <div className="article-meta">
                         <small className="author">
-                            SAKSHI SHARMA <span>22 HRS AGO</span>
+                            {newsvideodata?.author} <span>{newsvideodata?.timeAgo}</span>
                         </small>
                     </div>
                     <p className="article-title">
-                        SA vs PAK 1st Test Match Prediction: Who Will Win Today's 1st Test Match Between South Africa and Pakistan?
+                        {newsvideodata?.title}
                     </p>
                 </div>
             </Link>

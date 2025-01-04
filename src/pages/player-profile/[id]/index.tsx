@@ -30,12 +30,12 @@ export const PlayerProfileCard = () => {
         <>
             <div className=" playerProfileCard">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 p-3">
                         <div className="player-image">
                             <img src="/batter.png" alt="Temba Bavuma" className="img-fluid" />
                         </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-6 p-3">
                         <div className="player-info">
                             <h1 className="player-name"><span className="first-name">Temba</span> <br /> BAVUMA</h1>
 

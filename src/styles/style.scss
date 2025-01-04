@@ -1847,22 +1847,7 @@ a {
     margin: -15px;
   }
 
-  .col-md-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-    padding: 15px;
-  }
-
-  @media (max-width: 768px) {
-    .col-md-6 {
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
-  }
-
   .player-image {
-    // background: linear-gradient(45deg, #1a472a, #2a573a);
-    // border-radius: 10px;
     padding: 20px;
     text-align: center;
   }
@@ -1940,6 +1925,107 @@ a {
     color: white;
     border-bottom: 2px solid white;
   }
+
+  @media (max-width: 1200px) {
+    .player-name {
+      font-size: 2.5rem;
+
+      .first-name {
+        font-size: 2.5rem;
+      }
+    }
+
+    .navigation {
+      padding-left: 150px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .player-name {
+      font-size: 2rem;
+
+      .first-name {
+        font-size: 2rem;
+      }
+    }
+
+    .navigation {
+      padding-left: 100px;
+    }
+
+    .player-image img {
+      max-width: 35%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .col-md-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .player-image {
+      padding: 10px;
+
+      img {
+        max-width: 40%;
+      }
+    }
+
+    .navigation {
+      padding-left: 20px;
+      gap: 15px;
+    }
+
+    .player-details {
+      gap: 15px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .player-name {
+      font-size: 1.75rem;
+      text-align: center;
+
+      .first-name {
+        font-size: 1.75rem;
+      }
+    }
+
+    .player-image img {
+      max-width: 50%;
+    }
+
+    .player-details {
+      justify-content: center;
+      text-align: center;
+      gap: 10px;
+
+      span {
+        font-size: 0.9rem;
+      }
+    }
+
+    .stats-badges {
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+    }
+
+    .navigation {
+      padding: 10px;
+      justify-content: start;
+      gap: 10px;
+    }
+
+    .nav-item {
+      font-size: 0.9rem;
+    }
+  }
 }
 
 .news-container {
@@ -1954,18 +2040,6 @@ a {
     flex-wrap: wrap;
     margin: -15px;
   }
-
-  // .col-md-6 {
-  //   flex: 0 0 50%;
-  //   max-width: 50%;
-  //   padding: 15px;
-  // }
-
-  // .col-12 {
-  //   flex: 0 0 100%;
-  //   max-width: 100%;
-  //   padding: 15px;
-  // }
 
   @media (max-width: 768px) {
     .col-md-6 {
@@ -2059,11 +2133,40 @@ a {
     font-size: 14px;
   }
 
+  @media (max-width: 1200px) {
+    .featured-title {
+      font-size: 18px;
+    }
+
+    .article-meta {
+      font-size: 12px !important;
+      .author {
+        font-size: 12px !important;
+      }
+    }
+    .article-title {
+      font-size: 13px;
+    }
+  }
+
   @media (max-width: 992px) {
     .featured-image {
       width: 300px;
       min-width: 300px;
       height: 250px;
+    }
+    .featured-title {
+      font-size: 16px;
+    }
+
+    .article-meta {
+      font-size: 12px !important;
+      .author {
+        font-size: 12px !important;
+      }
+    }
+    .article-title {
+      font-size: 13px;
     }
   }
 
@@ -2079,6 +2182,35 @@ a {
       width: 150px;
       min-width: 150px;
       height: 120px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .featured-article {
+      flex-direction: column;
+    }
+    .featured-image {
+      width: 100%;
+      height: 150px;
+    }
+    .featured-title {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .article-description {
+      font-size: 10px;
+      margin-bottom: 10px;
+    }
+    .article-image {
+      width: 150px;
+      min-width: 130px;
+      height: 120px;
+    }
+    .article-meta {
+      font-size: 10px;
+    }
+    .article-title {
+      font-size: 12px;
     }
   }
 }
@@ -2407,6 +2539,66 @@ a {
       }
     }
   }
+
+  @media (max-width: 1200px) {
+    .article-title {
+      font-size: 12px !important;
+    }
+    .player-recent-form__card {
+      min-width: 180px;
+      padding: 18px 23px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .article-title {
+      font-size: 10px;
+    }
+    .player-recent-form__card {
+      min-width: 170px;
+      padding: 16px 20px;
+    }
+
+    .played-for {
+      ul {
+        li {
+          font-size: 10px !important;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .section-header {
+      .section-title {
+        font-size: 20px;
+
+        margin-bottom: 0px;
+      }
+
+      .tab {
+        padding: 0px 8px;
+        border-radius: 6px;
+        font-size: 8px;
+      }
+    }
+
+    .article-title {
+      font-size: 10px;
+    }
+    .player-recent-form__card {
+      min-width: 150px;
+      padding: 14px 18px;
+    }
+
+    .played-for {
+      ul {
+        li {
+          font-size: 7px !important;
+        }
+      }
+    }
+  }
 }
 
 .matches-container {
@@ -2414,6 +2606,7 @@ a {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
     rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+
   .section-header {
     padding: 20px 0;
 
@@ -2423,12 +2616,13 @@ a {
     .section-title {
       font-size: 22px;
       font-weight: 500;
-      margin-bottom: 16px;
+
       color: #111827;
     }
 
     .tab-group {
       display: flex;
+      gap: 5px;
       // gap: 12px;
     }
 
@@ -2503,6 +2697,7 @@ a {
       gap: 10px;
       padding: 5px 10px;
       border-radius: 5px;
+
       input {
         border-style: none;
         background-color: #f8f8f8;
@@ -2512,12 +2707,14 @@ a {
       overflow-y: scroll;
       height: 400px;
       margin-top: 10px;
+      padding: 10px;
       .match-card {
+        width: 100%;
         margin-top: 5px;
         display: flex;
         align-items: flex-start;
         gap: 10px;
-        padding: 15px;
+
         background-color: #ffffff;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -2691,6 +2888,65 @@ a {
 
     .view-link:hover {
       text-decoration: underline;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .format-tabs {
+      gap: 5px !important;
+      .tab-button {
+        padding: 5px 10px !important;
+        font-size: 12px !important;
+      }
+    }
+  }
+
+  @media (max-width: 968px) {
+    .input-group {
+      input {
+        font-size: 10px;
+      }
+    }
+    .match-card {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .section-header {
+      padding: 20px 12px;
+
+      display: flex;
+      gap: 135px;
+
+      .section-title {
+        font-size: 20px;
+
+        margin-bottom: 0px;
+      }
+
+      .tab-group {
+        display: flex;
+        gap: 5px;
+      }
+
+      .tab {
+        padding: 0px 8px;
+        border-radius: 6px;
+        font-size: 8px;
+      }
+    }
+
+    .summary-stats {
+      padding: 10px;
+    }
+
+    .stat-value {
+      font-size: 12px !important;
+    }
+
+    .stat-label {
+      font-size: 10px !important;
     }
   }
 }

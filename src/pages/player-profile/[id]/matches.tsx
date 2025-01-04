@@ -18,7 +18,7 @@ const Matches = () => {
 
 
                     <div className="row">
-                        <div className="col-md-4 all-matches-section">
+                        <div className="col-md-12 col-lg-4 all-matches-section">
 
 
                             <FormatTabs />
@@ -29,7 +29,7 @@ const Matches = () => {
 
                         </div>
 
-                        <div className="col-md-8 match-data-section">
+                        <div className="col-md-12 col-lg-8 match-data-section">
                             <div className="stats-header">
 
                                 <LogoSection />
