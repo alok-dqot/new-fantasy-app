@@ -3,7 +3,6 @@ import Image from "next/image";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
-import { Table } from "react-bootstrap";
 import { useRouter } from "next/router";
 import useMatchStore from "@/services/match/match.service";
 
@@ -21,7 +20,7 @@ function index() {
 
 	const matchStore = useMatchStore();
 	const {
-		match: { detail, live, scorecard },
+		match: { detail, scorecard },
 	} = matchStore;
 
 	const [activeTab, setActiveTab] = useState("inf");
@@ -126,14 +125,6 @@ function index() {
 									<Tab.Pane eventKey='live' title='Live'>
 
 										<LiveData />
-
-
-
-
-
-
-
-
 
 
 									</Tab.Pane>
@@ -415,9 +406,9 @@ export const ThisOver = () => {
 				<h6 className="over-name">This Over:</h6>
 				<span className="over-run">0</span>
 				<span className="over-run">0</span>
+				<Run4 run='4' />
 				<span className="over-run">0</span>
 				<span className="over-run">0</span>
-				<span className="over-run over-4th">4</span>
 				<span className="over-run">0</span>
 				<span className="over-run">0</span>
 				<span className="over-run">0</span>
@@ -452,3 +443,10 @@ const CommentaryCard = () => {
 		</>
 	)
 };
+
+
+const Run4 = ({ run }: any) => {
+	return (
+		<span className="over-run over-4th">{run}</span>
+	)
+}

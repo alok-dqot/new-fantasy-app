@@ -275,19 +275,24 @@
   padding: 20px 0;
   border-top: 1px solid #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
+
   .embla {
     height: auto;
   }
+
   .this-over {
     display: flex;
     gap: 10px;
     align-items: center;
+    user-select: none;
+
     .over-name {
       margin: 0;
       font-size: 17px;
       color: #555555;
       width: 100px;
     }
+
     .over-run {
       border: 1px solid #e1e1e1;
       width: 28px;
@@ -298,14 +303,16 @@
       align-items: center;
       justify-content: center;
     }
+
     .total-run {
       margin: 0;
       font-size: 16px;
       color: black;
       width: 30px;
     }
+
     .over-4th {
-      background-color: #9e6105;
+      background-color: var(--primary);
       color: white;
     }
   }
