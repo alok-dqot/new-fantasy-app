@@ -6,6 +6,7 @@ import Footer from "@/components/footer/Footer";
 import Link from "next/link";
 import Image from 'next/image';
 import { CustomImg } from "@/helper/image.helper";
+import { useState } from "react";
 
 
 
@@ -69,6 +70,11 @@ const Overview = () => {
         }
     ];
 
+    const [isClicked, setIsClicked] = useState(0)
+
+
+
+
 
     return (
         <>
@@ -77,10 +83,11 @@ const Overview = () => {
 
                 <div className="overview-container container">
                     <div className="row">
+
                         <div className="col-md-9 career-section">
-                            <SectionHeader />
-                            <PlayerRecentForm />
-                            < PlayerCareerStats />
+                            <SectionHeader setIsClicked={setIsClicked} isClicked={isClicked} />
+                            {isClicked === 0 ? <BattingSection /> : <BowllingSection />}
+
 
 
 
@@ -123,19 +130,23 @@ const Overview = () => {
 export default Overview;
 
 
-export const SectionHeader = () => {
+export const SectionHeader = ({ setIsClicked, isClicked }: any) => {
     return (
         <>
             <div className="section-header">
                 <h2 className="section-title">Career & Stats</h2>
                 <div className="tab-group">
-                    <button className="tab active">
+                    <button className={`${isClicked == 0 ? 'tab active' : 'tab'}`} onClick={() => {
+                        setIsClicked(0)
+                    }}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
                         Batting
                     </button>
-                    <button className="tab">
+                    <button className={`${isClicked == 1 ? 'tab active' : 'tab'}`} onClick={() => {
+                        setIsClicked(1)
+                    }}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                         </svg>
@@ -146,6 +157,26 @@ export const SectionHeader = () => {
         </>
     )
 }
+
+const BattingSection = () => {
+    return (
+        <>
+            <PlayerRecentForm />
+            < PlayerCareerStatsBatting />
+        </>
+    );
+};
+
+const BowllingSection = () => {
+    return (
+        <>
+
+            <PlayerRecentForm />
+            < PlayerCareerStatsBowlling />
+
+        </>
+    )
+};
 
 const PlayerRecentForm = () => {
     return (
@@ -258,13 +289,15 @@ const PlayerRecentForm = () => {
     )
 };
 
-const PlayerCareerStats = () => {
+const PlayerCareerStatsBatting = () => {
     return (
         <>
             <div className="player-career-stats">
                 <h6 className="player-name">Yashasvi Jaiswal Career Stats</h6>
                 <p className="section-title">Batting</p>
                 <BasicTable />
+
+
 
                 <div className="played-for">
                     <h6 className="player-name">Teams played for</h6>
@@ -320,6 +353,114 @@ const PlayerCareerStats = () => {
                         <a href="#" className="continue-reading">continue reading</a>
                     </p>
                 </div>
+            </div>
+        </>
+    )
+};
+
+const PlayerCareerStatsBowlling = () => {
+    return (
+        <>
+            <div className="player-career-stats">
+                <h6 className="player-name">Yashasvi Jaiswal Career Stats</h6>
+                <p className="section-title">Batting</p>
+                <BasicTable />
+
+                <div className="Debut-Information">
+                    <h6 className="player-name">Career Debut Information</h6>
+                    <div className="Debut-Information__content">
+                        <table className="debut-table">
+                            <tbody>
+                                <tr>
+                                    <td className="debut-type">Test Debut</td>
+                                    <td className="debut-match">
+                                        <a href="#" className="match-link">South Africa v India SuperSport Park, Centurion, 26-12-2023</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="debut-type">First class Debut</td>
+                                    <td className="debut-match">
+                                        <a href="#" className="match-link">W Province vs Easterns at Cape Town- March 14 - 16, 2013</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="debut-type">LIST A Debut</td>
+                                    <td className="debut-match">
+                                        <a href="#" className="match-link">W Province vs Namibia at Cape Town- December 07, 2013</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="debut-type">100B Debut</td>
+                                    <td className="debut-match">
+                                        <a href="#" className="match-link">Birmingham Phoenix v Southern Brave Lord's, London, 21-8-2021</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="debut-type">T20-Blast Debut</td>
+                                    <td className="debut-match">
+                                        <a href="#" className="match-link">Durham v Worcestershire Riverside Ground, Chester-le-Street, 1-6-2022</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div className="played-for">
+                    <h6 className="player-name">Teams played for</h6>
+                    <ul>
+                        <li>India U19</li>
+                        <li>Mumbai</li>
+                        <li>India U19 A</li>
+                        <li>North Mumbai Panthers</li>
+                        <li>India B</li>
+                        <li> Rajasthan Royals</li>
+
+
+                    </ul>
+                </div>
+
+                <div className="about-player">
+                    <div className="header-section">
+                        <h2 className="header-title">About Yashasvi Jaiswal</h2>
+                        <a href="#" className="player-info-link">Player Info </a>
+                    </div>
+
+                    <table className="info-table">
+                        <tbody>
+                            <tr>
+                                <td className="info-label">Name</td>
+                                <td className="info-value">Yashasvi Jaiswal</td>
+                            </tr>
+                            <tr>
+                                <td className="info-label">Gender</td>
+                                <td className="info-value">Male</td>
+                            </tr>
+                            <tr>
+                                <td className="info-label">Birth</td>
+                                <td className="info-value">28 Dec 2001</td>
+                            </tr>
+                            <tr>
+                                <td className="info-label">Birth Place</td>
+                                <td className="info-value">Suriyawan, Bhadohi, Uttar Pradesh</td>
+                            </tr>
+                            <tr>
+                                <td className="info-label">Height</td>
+                                <td className="info-value">6 Ft 0 In</td>
+                            </tr>
+                            <tr>
+                                <td className="info-label">Nationality</td>
+                                <td className="info-value">Indian</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p className="player-description">
+                        Yashasvi Jaiswal became a prominent name in Indian cricket after a stellar Under-19 World Cup held in 2020 where he was awarded the man of the tournament. He piled on more than 400 runs in the tournament and the fact that he has to struggle a lot to reach that level made his success even sweeter for him. Yashasvi has had to deal with severe hardships during his junior days of playing cricket when he was not selected for the Indian U-19 side...
+                        <a href="#" className="continue-reading">continue reading</a>
+                    </p>
+                </div>
+
             </div>
         </>
     )

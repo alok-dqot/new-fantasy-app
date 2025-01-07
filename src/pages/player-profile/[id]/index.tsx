@@ -1,5 +1,7 @@
 import Navbar from "@/components/Header";
 import Footer from "@/components/footer/Footer";
+import { useState, useEffect } from "react";
+import Link from 'next/link';
 
 import { CustomCarousel } from "@/components/HomeMatches";
 import BasicTable from "@/components/table/table";
@@ -24,7 +26,21 @@ export default Index;
 export const PlayerProfileCard = () => {
     const router = useRouter()
 
+    const [activeTab, setActiveTab] = useState("overview");
 
+
+    useEffect(() => {
+        const path = router.asPath;
+        if (path.includes("overview")) {
+            setActiveTab("overview");
+        } else if (path.includes("matches")) {
+            setActiveTab("matches");
+        } else if (path.includes("news")) {
+            setActiveTab("news");
+        } else if (path.includes("playerinfo")) {
+            setActiveTab("playerinfo");
+        }
+    }, [router.isReady]);
 
     return (
         <>
@@ -57,21 +73,63 @@ export const PlayerProfileCard = () => {
                 </div>
 
                 <div className="navigation">
-                    <a href="#overview" className="nav-item " onClick={() => {
-                        router.push("/player-profile/3/overview")
-                    }}>Overview</a>
-                    <a href="#matches" className="nav-item" onClick={() => {
-                        router.push("/player-profile/3/matches")
-                    }}>Matches</a>
-                    <a href="#news" className="nav-item" onClick={() => {
-                        router.push("/player-profile/2/matchnews")
-                    }}>News</a>
-                    <a href="#player-info" className="nav-item" onClick={() => {
-                        router.push("/player-profile/2/playerinfo")
-                    }}>Player Info</a>
+
+                    {/* <a href="#overview" className={Tab != 'overview' ? "nav-item " : '.nav-item.active'}
+                        onClick={() => {
+                            router.push("/player-profile/3/overview")
+                        }}>Overview</a> */}
+
+
+
+                    <Link
+                        href="/player-profile/3/overview"
+                        className={`nav-item ${activeTab === 'overview' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('overview')}
+                    >
+                        Overview
+                    </Link>
+
+                    <Link
+                        href="/player-profile/3/matches"
+                        className={`nav-item ${activeTab === 'matches' ? 'active' : ''}`}
+                        onClick={() => {
+
+                            setActiveTab('matches');
+
+                        }}
+                    >
+                        Matches
+                    </Link>
+
+                    <Link
+                        href="/player-profile/2/matchnews"
+                        className={`nav-item ${activeTab === 'news' ? 'active' : ""}`}
+                        onClick={() => {
+                            setActiveTab("news");
+
+
+                        }}>
+                        News
+                    </Link>
+
+                    <Link
+                        href="/player-profile/2/playerinfo"
+                        className={`nav-item ${activeTab === 'playerinfo' ? 'active' : ''}`}
+                        onClick={() => {
+
+                            setActiveTab('playerinfo');
+
+                        }}
+                    >
+                        Player Info
+                    </Link>
+
                 </div>
-            </div>
+            </div >
         </>
     )
 };
+
+
+
 
