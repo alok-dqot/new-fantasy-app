@@ -3,6 +3,7 @@ import moment from "moment";
 
 const HomePageCard = ({ m }: { m: any }) => {
 
+
     return (
 
         <div className="match-card">
@@ -22,7 +23,7 @@ const HomePageCard = ({ m }: { m: any }) => {
                 </div>
                 <div className="team">
                     <div className="team-flag">
-                        <img src={m?.teamb?.logo_url} alt="Afghanistan flag" />
+                        <img src={m?.teamb?.image_url} alt="Afghanistan flag" />
                     </div>
                     <span className="team-name">{m?.teamb?.short_name}</span>
                     <span className="team-score">{m?.teamb?.scores_full}</span>

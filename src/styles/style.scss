@@ -2939,11 +2939,11 @@ a {
       text-decoration: underline;
     }
   }
+  .matche-card-autocomplete {
+    display: none;
+  }
 
   @media (max-width: 1400px) {
-    .matche-card-autocomplete {
-      display: none;
-    }
   }
 
   @media (max-width: 1200px) {
@@ -2956,7 +2956,7 @@ a {
     }
   }
 
-  @media (max-width: 968px) {
+  @media (max-width: 992px) {
     .input-group {
       input {
         font-size: 10px;
@@ -2967,7 +2967,7 @@ a {
     }
   }
 
-  @media (max-width: 968px) {
+  @media (max-width: 768px) {
     .matche-card-autocomplete {
       display: block;
       .MuiAutocomplete-root {

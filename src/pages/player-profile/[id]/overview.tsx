@@ -6,11 +6,31 @@ import Footer from "@/components/footer/Footer";
 import Link from "next/link";
 import Image from 'next/image';
 import { CustomImg } from "@/helper/image.helper";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 
 const Overview = () => {
+    const [isClicked, setIsClicked] = useState(0)
+
+
+    const [apiData, setApiData] = useState(null);
+
+
+    const API = "https://api.sportswiz.live/score/players/143859";
+
+
+    useEffect(() => {
+        fetch(API)
+            .then((res) => res.json())
+            .then((data) => {
+                setApiData(data)
+            })
+            .catch((error) => console.log(error))
+    }, []);
+
+    // console.log(apiData);
+
 
     const newsVideosData = [
         {
@@ -70,12 +90,6 @@ const Overview = () => {
         }
     ];
 
-    const [isClicked, setIsClicked] = useState(0)
-
-
-
-
-
     return (
         <>
             <Navbar />
@@ -86,7 +100,7 @@ const Overview = () => {
 
                         <div className="col-md-9 career-section">
                             <SectionHeader setIsClicked={setIsClicked} isClicked={isClicked} />
-                            {isClicked === 0 ? <BattingSection /> : <BowllingSection />}
+                            {isClicked === 0 ? <BattingSection playerdata={apiData} /> : <BowllingSection />}
 
 
 
@@ -158,11 +172,11 @@ export const SectionHeader = ({ setIsClicked, isClicked }: any) => {
     )
 }
 
-const BattingSection = () => {
+const BattingSection = ({ playerdata }: any) => {
     return (
         <>
-            <PlayerRecentForm />
-            < PlayerCareerStatsBatting />
+            <PlayerRecentForm playerdata={playerdata} />
+            < PlayerCareerStatsBatting playerdata={playerdata} />
         </>
     );
 };
@@ -178,107 +192,42 @@ const BowllingSection = () => {
     )
 };
 
-const PlayerRecentForm = () => {
+const PlayerRecentForm = ({ playerdata }: any) => {
+    const [recentForm, setRecentForm] = useState([])
+    const API = "https://api.sportswiz.live/score/player/143859/last-five-matches?type=all";
+    useEffect(() => {
+        fetch(API)
+            .then((res) => res.json())
+            .then((data) => {
+                setRecentForm(data)
+            })
+            .catch((error) => console.log(error))
+
+    }, [])
+    console.log(recentForm)
+
     return (
         <>
             <div className="player-recent-form">
-                <h6 className="player-name">Yashasvi Jaiswal Recent Form</h6>
+                <h6 className="player-name">{playerdata?.data?.name} Recent Form</h6>
                 <p className="section-title">Batting</p>
                 <CustomCarousel>
 
+                    {
+                        recentForm?.map((recentdata: any) => {
+                            return (
+                                <div className="card player-recent-form__card">
 
-                    <div className="card player-recent-form__card">
+                                    <a href="#"><h5>4(2)</h5></a>
+                                    <small>{recentdata.sub_title},{recentdata?.format} </small>
+                                    <big>{recentdata?.score}</big>
 
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
+                                </div>
+                            )
+                        })
 
+                    }
 
-                    </div>
-
-                    <div className="card player-recent-form__card">
-
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
-
-
-                    </div>
-
-                    <div className="card player-recent-form__card">
-
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
-
-
-                    </div>
-
-                    <div className="card player-recent-form__card">
-
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
-
-
-                    </div>
-
-                    <div className="card player-recent-form__card">
-
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
-
-
-                    </div>
-
-                    <div className="card player-recent-form__card">
-
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
-
-
-                    </div>
-
-                    <div className="card player-recent-form__card">
-
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
-
-
-                    </div>
-
-                    <div className="card player-recent-form__card">
-
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
-
-
-                    </div>
-
-                    <div className="card player-recent-form__card">
-
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
-
-
-                    </div>
-                    <div className="card player-recent-form__card">
-
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
-
-
-                    </div>
-                    <div className="card player-recent-form__card">
-
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
-
-
-                    </div>
-                    <div className="card player-recent-form__card">
-
-                        <a href="#"><h5>4(2)</h5></a>
-                        <small>IND vs AUS, Test</small>
-
-
-                    </div>
 
 
 
@@ -289,11 +238,11 @@ const PlayerRecentForm = () => {
     )
 };
 
-const PlayerCareerStatsBatting = () => {
+const PlayerCareerStatsBatting = ({ playerdata }: any) => {
     return (
         <>
             <div className="player-career-stats">
-                <h6 className="player-name">Yashasvi Jaiswal Career Stats</h6>
+                <h6 className="player-name">{playerdata?.data?.name} Career Stats</h6>
                 <p className="section-title">Batting</p>
                 <BasicTable />
 
@@ -315,7 +264,7 @@ const PlayerCareerStatsBatting = () => {
 
                 <div className="about-player">
                     <div className="header-section">
-                        <h2 className="header-title">About Yashasvi Jaiswal</h2>
+                        <h2 className="header-title">About {playerdata?.data?.name}</h2>
                         <a href="#" className="player-info-link">Player Info </a>
                     </div>
 
@@ -323,15 +272,15 @@ const PlayerCareerStatsBatting = () => {
                         <tbody>
                             <tr>
                                 <td className="info-label">Name</td>
-                                <td className="info-value">Yashasvi Jaiswal</td>
+                                <td className="info-value"> {playerdata?.data?.name}</td>
                             </tr>
                             <tr>
                                 <td className="info-label">Gender</td>
-                                <td className="info-value">Male</td>
+                                <td className="info-value"> {playerdata?.data?.gender}</td>
                             </tr>
                             <tr>
                                 <td className="info-label">Birth</td>
-                                <td className="info-value">28 Dec 2001</td>
+                                <td className="info-value">{playerdata?.data?.date_of_birth}</td>
                             </tr>
                             <tr>
                                 <td className="info-label">Birth Place</td>
@@ -343,7 +292,7 @@ const PlayerCareerStatsBatting = () => {
                             </tr>
                             <tr>
                                 <td className="info-label">Nationality</td>
-                                <td className="info-value">Indian</td>
+                                <td className="info-value">{playerdata?.data?.nationality}</td>
                             </tr>
                         </tbody>
                     </table>
