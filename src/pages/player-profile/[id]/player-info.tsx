@@ -1,8 +1,6 @@
-import { Layout } from "@/CustomHook/layout";
+import PlayerContainer, { PlayerProfileTabs } from "@/CustomHook/layout";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import Navbar from "@/components/Header";
-import Footer from "@/components/footer/Footer";
 
 
 const PlayerInfo = () => {
@@ -66,8 +64,9 @@ const PlayerInfo = () => {
                     </div>
                 </div>
             </div> */}
-            <Navbar />
-            <Layout>
+            <PlayerContainer>
+                <PlayerProfileTabs selectIndex={0} />
+
                 <div className="container info-container">
                     <div className="row">
                         <div className="col-md-6">
@@ -148,8 +147,7 @@ const PlayerInfo = () => {
                         </div>
                     </div>
                 </div>
-            </Layout>
-            <Footer />
+            </PlayerContainer>
 
         </>
     )

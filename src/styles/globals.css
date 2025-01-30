@@ -23,6 +23,10 @@ body {
   font-family: "Montserrat", sans-serif !important;
 }
 
+li {
+  list-style: none;
+}
+
 .main-wrapper {
   max-width: 1200px;
   width: 100%;

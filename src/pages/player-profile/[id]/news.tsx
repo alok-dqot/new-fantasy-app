@@ -1,6 +1,4 @@
-import { Layout } from "@/CustomHook/layout";
-import Navbar from "@/components/Header";
-import Footer from "@/components/footer/Footer";
+import PlayerContainer, { PlayerProfileTabs } from "@/CustomHook/layout";
 
 const MatchNews = () => {
 
@@ -111,8 +109,9 @@ const MatchNews = () => {
 
     return (
         <>
-            <Navbar />
-            <Layout>
+            <PlayerContainer>
+                <PlayerProfileTabs selectIndex={0} />
+
                 <div className="container news-container">
                     <div className="row g-3">
                         {
@@ -162,8 +161,7 @@ const MatchNews = () => {
 
                     </div>
                 </div>
-            </Layout>
-            <Footer />
+            </PlayerContainer>
 
         </>
     )

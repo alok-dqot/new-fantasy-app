@@ -1,8 +1,7 @@
-import { Layout } from "@/CustomHook/layout";
+import PlayerContainer, { PlayerProfileTabs } from "@/CustomHook/layout";
 import { CustomCarousel } from "@/components/HomeMatches";
 import BasicTable from "@/components/table/table";
-import Navbar from "@/components/Header";
-import Footer from "@/components/footer/Footer";
+
 import Link from "next/link";
 import Image from 'next/image';
 import { CustomImg } from "@/helper/image.helper";
@@ -72,15 +71,15 @@ const Overview = () => {
 
     return (
         <>
-            <Navbar />
-            <Layout>
+            <PlayerContainer>
+                <PlayerProfileTabs selectIndex={0} />
 
                 <div className="overview-container container">
                     <div className="row">
                         <div className="col-md-9 career-section">
                             <SectionHeader />
                             <PlayerRecentForm />
-                            < PlayerCareerStats />
+                            <PlayerCareerStats />
 
 
 
@@ -114,9 +113,7 @@ const Overview = () => {
                     </div>
                 </div>
 
-            </Layout>
-            <Footer />
-
+            </PlayerContainer>
         </>
     );
 };
@@ -328,9 +325,6 @@ const PlayerCareerStats = () => {
 const ArticleCard = ({ newsvideodata }: any) => {
     return (
         <>
-
-
-
 
             <Link href="/news/sa-vs-pak-prediction" className="article-card">
                 <div className="article-image">

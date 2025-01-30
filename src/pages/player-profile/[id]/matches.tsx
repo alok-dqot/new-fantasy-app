@@ -1,6 +1,4 @@
-import { Layout } from "@/CustomHook/layout";
-import Navbar from "@/components/Header";
-import Footer from "@/components/footer/Footer";
+import PlayerContainer, { PlayerProfileTabs } from "@/CustomHook/layout";
 import SearchIcon from '@mui/icons-material/Search';
 
 
@@ -8,8 +6,10 @@ import SearchIcon from '@mui/icons-material/Search';
 const Matches = () => {
     return (
         <>
-            <Navbar />
-            <Layout>
+
+            <PlayerContainer>
+                <PlayerProfileTabs selectIndex={0} />
+
                 <div className="matches-container container">
 
 
@@ -44,8 +44,8 @@ const Matches = () => {
                         </div>
                     </div>
                 </div>
-            </Layout>
-            <Footer />
+            </PlayerContainer>
+
 
         </>
     )
