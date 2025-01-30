@@ -1,4 +1,5 @@
-import InfoCard from '@/components/infocard';
+
+import InfoCard from '@/components/match-detail/infocard';
 import TopMatchSection from '@/components/match-detail/TopMatchSection';
 import HomeWrapper from '@/components/wrapper/HomeWrapper';
 import useMatchStore from '@/services/match/match.service';
