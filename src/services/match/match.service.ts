@@ -370,7 +370,9 @@ export interface Player {
 
 let timeOut: any;
 
-const path = "/matches";
+//  const path = "/matches";
+ const path = "https://api.sportswiz.live/score";
+ 
 
 const useMatchStore = create(
   combine(
@@ -394,52 +396,59 @@ const useMatchStore = create(
         // timeOut: null as any
       },
     },
+
     (set, get) => ({
       get: {
+        
         featuredMatches: async () => {
+          
           toast.promise(
-            Api.get(path + "/featured-matches", {
+            Api.get(`${path}/home/featured/matches`, {
               query: {},
             }),
             {
               loading: "fetching...",
-              success: (res) => {
-                if (res?.status) {
+              success: (res:any) => {
+               
+                if (res) {
                   set((prev) => ({
                     match: {
                       ...prev.match,
-                      featured_list: res?.data,
+                      featured_list: res?.allMatches,
                     },
                   }));
                 }
                 return res?.message || "fetched";
               },
-              error: (err) => {
+              error: (err:any) => {
                 return err;
               },
             }
           );
         },
 
+
         detail: async (id: string) => {
           toast.promise(
-            Api.get(`${path}/${id}`, {
+            Api.get(`https://api.sportswiz.live/score/matches/${id}/info`, {
               query: {},
             }),
             {
               loading: "fetching...",
-              success: (res) => {
-                if (res?.status) {
+              success: (res:any) => {
+               
+                if (res) {
+
                   set((prev) => ({
                     match: {
                       ...prev.match,
-                      detail: res?.data,
+                      detail: res,
                     },
                   }));
                 }
                 return res?.message || "fetched";
               },
-              error: (err) => {
+              error: (err:any) => {
                 return err;
               },
             }
@@ -453,7 +462,7 @@ const useMatchStore = create(
             }),
             {
               loading: "fetching...",
-              success: (res) => {
+              success: (res:any) => {
                 if (res?.status) {
                   set((prev) => ({
                     match: {
@@ -464,7 +473,7 @@ const useMatchStore = create(
                 }
                 return res?.message || "fetched";
               },
-              error: (err) => {
+              error: (err:any) => {
                 return err;
               },
             }
@@ -478,7 +487,7 @@ const useMatchStore = create(
             }),
             {
               loading: "fetching...",
-              success: (res) => {
+              success: (res:any) => {
                 if (res?.status) {
                   set((prev) => ({
                     match: {
@@ -489,7 +498,7 @@ const useMatchStore = create(
                 }
                 return res?.message || "fetched";
               },
-              error: (err) => {
+              error: (err:any) => {
                 return err;
               },
             }
@@ -503,7 +512,7 @@ const useMatchStore = create(
             }),
             {
               loading: "fetching...",
-              success: (res) => {
+              success: (res:any) => {
                 // console.log("🚀 ~ generateTeam: ~ res:", res);
                 if (res?.status) {
                   set((prev) => ({
@@ -516,12 +525,13 @@ const useMatchStore = create(
                 }
                 return res?.message || "fetched";
               },
-              error: (err) => {
+              error: (err:any) => {
                 return err;
               },
             }
           );
         },
+
         // generateRedisData: async (match_id: string, redis_id: string) => {
         // 	toast.promise(
 
@@ -563,7 +573,7 @@ const useMatchStore = create(
             }),
             {
               loading: "fetching...",
-              success: (res) => {
+              success: (res:any) => {
                 set((prev) => ({
                   match: {
                     ...prev.match,
@@ -573,12 +583,13 @@ const useMatchStore = create(
                 }));
                 return res?.message || "fetched";
               },
-              error: (err) => {
+              error: (err:any) => {
                 return err;
               },
             }
           );
         },
+
         paginate: ({
           page,
           size,
@@ -620,6 +631,7 @@ const useMatchStore = create(
           init();
         },
       },
+
       select: (id: any) =>
         set((prev) => ({ match: { ...prev.match, id: id } })),
       add: async (bodyData: any) => {
@@ -629,16 +641,17 @@ const useMatchStore = create(
           id ? Api.put(`${path}/${id}`, bodyData) : Api.post(path, bodyData),
           {
             loading: id ? "Updating" : "Adding",
-            success: (res) => {
+            success: (res:any) => {
               useMatchStore.getState().get.paginate({});
               return res?.message;
             },
-            error: (err) => {
+            error: (err:any) => {
               return err;
             },
           }
         );
       },
+
       delete: async () => {
         let id = get().match.id;
 
@@ -646,11 +659,11 @@ const useMatchStore = create(
 
         toast.promise(Api.del(`${path}/${id}`), {
           loading: "deleting",
-          success: (res) => {
+          success: (res:any) => {
             useMatchStore.getState().get.paginate({});
             return res?.message;
           },
-          error: (err) => {
+          error: (err:any) => {
             return err;
           },
         });

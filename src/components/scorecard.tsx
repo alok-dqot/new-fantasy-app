@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Tabs from "react-bootstrap/Tabs";
 
 
@@ -64,6 +65,8 @@ export { CricketScorbord }
 
 const Batter = ({ batter }: any) => {
 
+    const router = useRouter()
+
     return (
         <>
             <table>
@@ -90,7 +93,9 @@ const Batter = ({ batter }: any) => {
 
                                         <tr>
                                             <td
-                                                className="name">{batsmen?.name}<br />
+                                                className="name"
+                                                onClick={() => router.push(`/player-profile/${batsmen?.id}/matches`)}
+                                            >{batsmen?.name}<br />
                                                 <span className="extra-info">{batsmen?.how_out}</span>
                                             </td>
 

@@ -1,9 +1,14 @@
 import PlayerContainer, { PlayerProfileTabs } from "@/CustomHook/layout";
 import SearchIcon from '@mui/icons-material/Search';
+import * as React from 'react';
+import ComboBox from "@/components/mui-Autocomplete/autocomplete";
+import { useState } from "react";
+
 
 
 
 const Matches = () => {
+
     return (
         <>
 
@@ -18,6 +23,7 @@ const Matches = () => {
 
 
                     <div className="row">
+
                         <div className="col-md-12 col-lg-4 all-matches-section">
 
 
@@ -26,6 +32,8 @@ const Matches = () => {
                             <InputGroup />
 
                             <MatchCards />
+
+
 
                         </div>
 
@@ -41,6 +49,7 @@ const Matches = () => {
                             <MatchTable />
 
 
+
                         </div>
                     </div>
                 </div>
@@ -53,7 +62,7 @@ const Matches = () => {
 export default Matches;
 
 
-const MatchCard = () => {
+export const MatchCard = () => {
     return (
         <>
             <div className="match-card ">
@@ -73,18 +82,27 @@ const MatchCard = () => {
 }
 
 const SectionHeader = () => {
+    const [isClicked, setIsClicked] = useState(0)
     return (
         <>
             <div className="section-header">
                 <h2 className="section-title">Maches</h2>
                 <div className="tab-group">
-                    <button className="tab active">
+                    <button className={`${isClicked == 0 ? 'tab active' : 'tab'}`}
+                        onClick={() => {
+                            setIsClicked(0)
+                        }}
+                    >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
                         Batting
                     </button>
-                    <button className="tab">
+                    <button className={`${isClicked == 1 ? 'tab active' : 'tab'}`}
+                        onClick={() => {
+                            setIsClicked(1)
+                        }}
+                    >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                         </svg>
@@ -123,6 +141,41 @@ const InputGroup = () => {
 };
 
 const MatchCards = () => {
+    const AutocompleteCard = [
+
+        {
+            label: 'BGT 2024-25',
+            year: '2024',
+            date: 'Nov 22 - Jan 7',
+            team: 'IND',
+            image: '/matchs.webp',
+            altText: 'BGT Logo'
+        },
+        {
+            label: 'BGT 2024-25',
+            year: '2024',
+            date: 'Nov 22 - Jan 7',
+            team: 'IND',
+            image: '/matchs.webp',
+            altText: 'BGT Logo'
+        }, {
+            label: 'BGT 2024-25',
+            year: '2024',
+            date: 'Nov 22 - Jan 7',
+            team: 'IND',
+            image: '/matchs.webp',
+            altText: 'BGT Logo'
+        },
+        {
+            label: 'BGT 2024-25',
+            year: '2024',
+            date: 'Nov 22 - Jan 7',
+            team: 'IND',
+            image: '/matchs.webp',
+            altText: 'BGT Logo'
+        },
+    ];
+
     return (
         <>
             <div className="matches-cards">
@@ -142,7 +195,13 @@ const MatchCards = () => {
 
 
 
+
+
             </div>
+            <div className="matche-card-autocomplete">
+                <ComboBox AllMatches={AutocompleteCard} />
+            </div>
+
         </>
     )
 };

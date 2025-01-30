@@ -23,9 +23,13 @@ function Index() {
 	useEffect(() => {
 		matchStore.get.featuredMatches();
 
+		console.log('working')
+
 		seriesStore.get.paginate({ size: 9 })
 	}, []);
 
+
+	console.log(matchStore.match)
 
 	const blogStore = useNewsStore();
 
@@ -47,9 +51,9 @@ function Index() {
 			<CustomCarousel>
 
 				{matchStore.match?.featured_list?.length ? (
-					matchStore.match?.featured_list?.map((m) => {
+					matchStore.match?.featured_list?.map((m: any) => {
 						return (
-							<Link href={`/match/${m.match_id}`}>
+							<Link href={`/match/${m.id}`}>
 								<HomePageCard m={m} />
 							</Link>
 

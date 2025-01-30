@@ -31,11 +31,12 @@ function index() {
 		if (!router.isReady) return;
 
 		matchStore.get.detail(`${router.query.id}`);
-		matchStore.get.live(`${router.query.id}`);
-		matchStore.get.scoreCard(`${router.query.id}`);
+		// matchStore.get.live(`${router.query.id}`);
+		// matchStore.get.scoreCard(`${router.query.id}`);
 
-		matchStore.get.paginate({ id: router.query.id as any });
+		// matchStore.get.paginate({ id: router.query.id as any });
 	}, [router.isReady]);
+	console.log(detail)
 
 	return (
 		<>
@@ -60,7 +61,7 @@ function index() {
 								<div className='score_content '>
 									<div className='team_img'>
 										<Image
-											src={detail?.teama?.logo_url}
+											src={detail?.teama?.image_url}
 											alt='#'
 											width={60}
 											height={60}
@@ -91,7 +92,7 @@ function index() {
 									</div>
 									<div className='team_img ms-4'>
 										<Image
-											src={detail?.teamb?.logo_url}
+											src={detail?.teamb?.image_url}
 											alt='#'
 											width={60}
 											height={60}
@@ -102,6 +103,7 @@ function index() {
 						</div>
 					</div>
 				</section>
+
 				<div style={{ height: '260px' }}>
 
 				</div>
@@ -110,6 +112,7 @@ function index() {
 
 				<section className='team_score_tabs_sec'>
 					{matchStore.match.list.status && (
+
 						<div className='container'>
 							<Tabs
 								defaultActiveKey={
@@ -245,7 +248,7 @@ function index() {
 				{/* < ScoreCard /> */}
 
 
-			</HomeWrapper>
+			</HomeWrapper >
 		</>
 	);
 }
