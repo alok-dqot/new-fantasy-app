@@ -1,8 +1,8 @@
 .appbar-outer {
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   max-width: 1200px;
   margin: auto;
 }
@@ -30,15 +30,12 @@
   }
 
   100% {
-    right: -40px
+    right: -40px;
   }
 }
 
-
-
-
 .navbar-btn {
-  display: flex !important;
+  // display: flex !important;
   align-items: center !important;
   flex-direction: column !important;
 
@@ -58,7 +55,6 @@
 .short-match-nav-outer {
   display: flex;
 
-
   width: 100%;
   height: 50px;
 
@@ -66,9 +62,8 @@
   background-color: var(--primary2);
 
   button {
-
     color: black !important;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
   }
 }
 
@@ -99,16 +94,12 @@
     color: white !important;
     border-radius: 25px;
     font-size: 11px;
-
   }
 
   // border: solid 1px white;
 }
 
-
-
 .back-color-carousel {
-
   position: absolute;
   top: 100px;
   left: 0px;
@@ -116,6 +107,4 @@
   background-color: var(--primary);
   height: 290px;
   width: 100%;
-
-
 }

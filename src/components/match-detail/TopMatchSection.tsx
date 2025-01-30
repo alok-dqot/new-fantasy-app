@@ -79,11 +79,65 @@ const TopMatchSection = () => {
             </section>
 
             <div style={{ height: '60px' }}>
-
+                <PlayerProfileTabs />
             </div>
 
         </>
     )
 }
 
+
+
+
+
 export default TopMatchSection
+
+
+const tabItem = [
+    "info",
+    "scorcard",
+    "squads",
+    "overs",
+    "News"
+]
+
+
+import { Button } from "@mui/material";
+
+export const PlayerProfileTabs = ({ selectIndex }: any) => {
+
+
+    const route = useRouter()
+
+    const { id, player } = route.query
+
+    function handleRouter(link: any) {
+        const formated = link.replace(/ /g, "-");
+
+        route.push('/player-profile/' + id + '/' + formated)
+    }
+    return (
+
+        <div className="player-tab-wrapper">
+            <div className="player-tab-wrapper-container container">
+                <div className="tab-role-outer">
+
+                    {
+                        tabItem.map((item: any, index: number) => (
+                            <Button
+                                key={index}
+                                className={`player-tab-link ${selectIndex === index ? 'player-tab-active' : ''}`}
+                                onClick={() => handleRouter(item)}
+                            >
+                                {item}
+                            </Button>
+                        ))
+                    }
+                </div>
+            </div>
+
+        </div>
+
+
+    )
+}

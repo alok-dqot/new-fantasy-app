@@ -14,17 +14,28 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import EventIcon from '@mui/icons-material/Event';
 import ArticleIcon from '@mui/icons-material/Article';
 import BarChartIcon from '@mui/icons-material/BarChart';
-import { CustomCarousel, CustomCarousel2 } from './HomeMatches';
+import { CustomCarousel, CustomCarousel2 } from './HomeMatches'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 // Updated pages array with title and URL
+// const pages = [
+// 	{ title: 'Schedule', url: '/schedule/upcoming/all', icon: <LibraryBooksIcon /> },
+// 	{ title: 'Latest Matches', url: '/schedule/result', icon: <EventIcon /> },
+// 	{ title: 'Fantasy', url: '/fantasy-matches', icon: <EmojiEventsIcon /> },
+// 	{ title: 'Series', url: '/series', icon: <EventIcon /> },
+// 	{ title: 'News', url: '/news?type=news', icon: <ArticleIcon /> },
+// 	{ title: 'Stats Hub', url: '/series/128683/south-africa-tour-of-west-indies/stats?filter=mostrun', icon: <BarChartIcon /> },
+// ];
+
 const pages = [
-	{ title: 'Schedule', url: '/schedule/upcoming/all', icon: <LibraryBooksIcon /> },
-	{ title: 'Latest Matches', url: '/schedule/result', icon: <EventIcon /> },
-	{ title: 'Fantasy', url: '/fantasy-matches', icon: <EmojiEventsIcon /> },
-	{ title: 'Series', url: '/series', icon: <EventIcon /> },
-	{ title: 'News', url: '/news?type=news', icon: <ArticleIcon /> },
-	{ title: 'Stats Hub', url: '/series/128683/south-africa-tour-of-west-indies/stats?filter=mostrun', icon: <BarChartIcon /> },
+	{ title: 'Schedule', url: '/schedule/upcoming/all', icon: <KeyboardArrowDownIcon /> },
+	{ title: 'Latest Matches', url: '/schedule/result', icon: <KeyboardArrowDownIcon /> },
+	{ title: 'Fantasy', url: '/fantasy-matches', icon: <KeyboardArrowDownIcon /> },
+	{ title: 'Series', url: '/series', icon: <KeyboardArrowDownIcon /> },
+	{ title: 'News', url: '/news?type=news', icon: <KeyboardArrowDownIcon /> },
+	{ title: 'Stats Hub', url: '/series/128683/south-africa-tour-of-west-indies/stats?filter=mostrun', icon: <KeyboardArrowDownIcon /> },
 ];
+
 
 
 function Navbar() {
@@ -67,6 +78,7 @@ function Navbar() {
 							<MenuIcon />
 						</IconButton>
 
+
 						{isNav && <MobileNav onClose={handleCloseNavMenu} />}
 					</Box>
 
@@ -79,8 +91,9 @@ function Navbar() {
 									sx={{ my: 2, color: 'white', display: 'block' }}
 									className='navbar-btn'
 								>
-									{page?.icon}
+
 									{page.title}
+									{page?.icon}
 								</Button>
 							</Link>
 						))}
