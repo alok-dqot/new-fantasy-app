@@ -100,7 +100,7 @@ const Overview = () => {
                         <div className="col-md-9 career-section">
                             <SectionHeader />
                             <PlayerRecentForm />
-                            <PlayerCareerStats />
+                            {/* <PlayerCareerStats /> */}
 
 
 
@@ -173,7 +173,7 @@ const BattingSection = ({ playerdata }: any) => {
     return (
         <>
             <PlayerRecentForm playerdata={playerdata} />
-            < PlayerCareerStatsBatting playerdata={playerdata} />
+            <PlayerCareerStatsBatting playerdata={playerdata} />
         </>
     );
 };
@@ -183,7 +183,7 @@ const BowllingSection = () => {
         <>
 
             <PlayerRecentForm />
-            < PlayerCareerStatsBowlling />
+            <PlayerCareerStatsBowlling />
 
         </>
     )

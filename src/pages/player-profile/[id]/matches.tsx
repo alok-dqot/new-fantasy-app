@@ -1,8 +1,9 @@
 import PlayerContainer, { PlayerProfileTabs } from "@/CustomHook/layout";
 import SearchIcon from '@mui/icons-material/Search';
 import * as React from 'react';
-import ComboBox from "@/components/mui-Autocomplete/autocomplete";
 import { useState } from "react";
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
 
 
 
@@ -199,7 +200,12 @@ const MatchCards = () => {
 
             </div>
             <div className="matche-card-autocomplete">
-                <ComboBox AllMatches={AutocompleteCard} />
+                <Autocomplete
+                    disablePortal
+                    options={AutocompleteCard}
+                    sx={{ width: 300 }}
+                    renderInput={(params) => <TextField {...params} label="{ AllMatches}" />}
+                />
             </div>
 
         </>

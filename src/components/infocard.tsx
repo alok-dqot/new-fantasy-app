@@ -1,51 +1,51 @@
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import moment from 'moment';
 
-const InfoCrad = ({ details }: any) => {
+const InfoCard = ({ details }: any) => {
     return (
 
-        <div className="card">
-            <div className="header">
-                <h5><span>Tournament</span></h5>
+        <div className="cric-card-outer info-card-outer">
+            <h5>Tournament</h5>
+
+            <span>{details?.competition?.name}</span>
+
+            <h5>Match Details</h5>
+            <div className="row">
+
                 <Details
-                    right={details?.competition?.title}
-                    left={''}
+                    left="Date & Time :"
+                    right={moment(details?.starting_at).format('MMMM Do YYYY, h:mm a')}
                 />
-            </div>
-            <div className="details">
-                <h5><span>Match Details</span></h5>
-
-                <div className="row">
-
-                    <Details
-                        left="Date"
-                        right={details?.date_start_ist}
-                    />
+                <Details
+                    left="Match Number :"
+                    right={`Match ${details.number}`}
+                />
 
 
 
-                </div>
+
 
                 {/* <button className="probable-btn">Check Probable 11</button> */}
             </div>
-            <div className="venue row">
-                <h5><span>Venue Details</span></h5>
+            <h5>Venue Details</h5>
+            <div className="row">
                 <Details
                     left={<><LocationOnIcon /> <span> Stadium:</span></>}
                     right={details?.venue?.name}
                 />
-                <Details
+                {/* <Details
                     left={<><LocationOnIcon /> <span> Country:</span></>}
                     right={details?.venue?.country}
-                />
+                /> */}
                 <Details
                     left={<><LocationOnIcon /> <span> City:</span></>}
-                    right={details?.venue?.location}
+                    right={details?.venue?.city}
                 />
 
 
             </div>
-            <div className="MatchOfficial row">
-                <h5><span>Match Official</span></h5>
+            <h5>Match Official</h5>
+            <div className="row">
 
                 <Details
                     left="Umpire"
@@ -62,16 +62,16 @@ const InfoCrad = ({ details }: any) => {
     );
 };
 
-export { InfoCrad };
+export default InfoCard;
 
 
-const Details = ({ left, right }: any) => {
+export const Details = ({ left, right }: any) => {
     return (
         <>
-            <div className="col-md-3 mt-3">
+            <div className="col-md-3 mt-2">
                 <span>{left}</span>
             </div>
-            <div className="col-md-9 mt-3">
+            <div className="col-md-9 mt-2">
                 <p>{right}</p>
 
 
@@ -79,4 +79,7 @@ const Details = ({ left, right }: any) => {
         </>
     )
 }
-export { Details };
+
+
+
+

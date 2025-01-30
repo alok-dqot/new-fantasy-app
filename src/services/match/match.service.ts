@@ -5,6 +5,8 @@ import Api from "@/api/Api";
 import { MatchScoreCard } from "@/types/MatchScoreCard";
 
 export interface Match {
+  teama_full_score: string;
+  teamb_full_score: string;
   match_id: number;
   title: string;
   short_title: string;
@@ -70,21 +72,21 @@ export interface Competition {
 }
 
 export interface Teama {
+  image_url: string;
   team_id: number;
   name: string;
   short_name: string;
-  logo_url: string;
-  scores_full: string;
+  teama_full_score: string;
   scores: string;
   overs: string;
 }
 
 export interface Teamb {
+  image_url: string;
   team_id: number;
   name: string;
   short_name: string;
-  logo_url: string;
-  scores_full: string;
+  teama_full_score: string;
   scores: string;
   overs: string;
 }
@@ -131,7 +133,7 @@ export interface MatchLive {
   team_batting: string;
   team_bowling: string;
   live_inning_number: number;
-  live_score: LiveScore;
+  live_score: any;
   commentary: number;
   wagon: number;
   batsmen: Batsmen[];
@@ -142,15 +144,6 @@ export interface MatchLive {
   live_inning: LiveInning;
   teams: Team[];
   players: Player[];
-}
-
-export interface LiveScore {
-  runs: number;
-  overs: number;
-  wickets: number;
-  target: number;
-  runrate: number;
-  required_runrate: number;
 }
 
 export interface Batsmen {
@@ -371,8 +364,7 @@ export interface Player {
 let timeOut: any;
 
 //  const path = "/matches";
- const path = "https://api.sportswiz.live/score";
- 
+const path = "https://api.sportswiz.live/score";
 
 const useMatchStore = create(
   combine(
@@ -399,17 +391,14 @@ const useMatchStore = create(
 
     (set, get) => ({
       get: {
-        
         featuredMatches: async () => {
-          
           toast.promise(
             Api.get(`${path}/home/featured/matches`, {
               query: {},
             }),
             {
               loading: "fetching...",
-              success: (res:any) => {
-               
+              success: (res: any) => {
                 if (res) {
                   set((prev) => ({
                     match: {
@@ -420,13 +409,12 @@ const useMatchStore = create(
                 }
                 return res?.message || "fetched";
               },
-              error: (err:any) => {
+              error: (err: any) => {
                 return err;
               },
             }
           );
         },
-
 
         detail: async (id: string) => {
           toast.promise(
@@ -435,10 +423,8 @@ const useMatchStore = create(
             }),
             {
               loading: "fetching...",
-              success: (res:any) => {
-               
+              success: (res: any) => {
                 if (res) {
-
                   set((prev) => ({
                     match: {
                       ...prev.match,
@@ -448,7 +434,7 @@ const useMatchStore = create(
                 }
                 return res?.message || "fetched";
               },
-              error: (err:any) => {
+              error: (err: any) => {
                 return err;
               },
             }
@@ -462,7 +448,7 @@ const useMatchStore = create(
             }),
             {
               loading: "fetching...",
-              success: (res:any) => {
+              success: (res: any) => {
                 if (res?.status) {
                   set((prev) => ({
                     match: {
@@ -473,7 +459,7 @@ const useMatchStore = create(
                 }
                 return res?.message || "fetched";
               },
-              error: (err:any) => {
+              error: (err: any) => {
                 return err;
               },
             }
@@ -487,7 +473,7 @@ const useMatchStore = create(
             }),
             {
               loading: "fetching...",
-              success: (res:any) => {
+              success: (res: any) => {
                 if (res?.status) {
                   set((prev) => ({
                     match: {
@@ -498,7 +484,7 @@ const useMatchStore = create(
                 }
                 return res?.message || "fetched";
               },
-              error: (err:any) => {
+              error: (err: any) => {
                 return err;
               },
             }
@@ -512,7 +498,7 @@ const useMatchStore = create(
             }),
             {
               loading: "fetching...",
-              success: (res:any) => {
+              success: (res: any) => {
                 // console.log("🚀 ~ generateTeam: ~ res:", res);
                 if (res?.status) {
                   set((prev) => ({
@@ -525,7 +511,7 @@ const useMatchStore = create(
                 }
                 return res?.message || "fetched";
               },
-              error: (err:any) => {
+              error: (err: any) => {
                 return err;
               },
             }
@@ -561,112 +547,6 @@ const useMatchStore = create(
         // 		},
         // 	);
         // },
-
-        list: async () => {
-          const {
-            match: { page, size, search, paginate, id },
-          } = get();
-
-          toast.promise(
-            Api.get(path + "/" + id, {
-              query: { paginate: paginate ? "YES" : "NO" },
-            }),
-            {
-              loading: "fetching...",
-              success: (res:any) => {
-                set((prev) => ({
-                  match: {
-                    ...prev.match,
-                    list: paginate ? res?.data : res,
-                    total: res?.meta?.total,
-                  },
-                }));
-                return res?.message || "fetched";
-              },
-              error: (err:any) => {
-                return err;
-              },
-            }
-          );
-        },
-
-        paginate: ({
-          page,
-          size,
-          search,
-          paginate,
-          id,
-        }: {
-          page?: number;
-          size?: number;
-          search?: string;
-          paginate?: boolean;
-          id?: string;
-        }) => {
-          set((prev) => ({ match: { ...prev.match, search: search || "" } }));
-
-          clearTimeout(timeOut);
-
-          const init = () => {
-            set((prev) => ({
-              match: {
-                ...prev.match,
-                page: page || prev.match.page,
-                size: size || prev.match.size,
-                search: search || prev.match.search,
-                id: id || prev.match.id,
-                paginate: paginate ?? true,
-              },
-            }));
-            useMatchStore.getState().get.list();
-          };
-
-          if (search) {
-            timeOut = setTimeout(() => {
-              init();
-            }, 1000);
-            set((prev) => ({ match: { ...prev.match, search: search } }));
-            return;
-          }
-          init();
-        },
-      },
-
-      select: (id: any) =>
-        set((prev) => ({ match: { ...prev.match, id: id } })),
-      add: async (bodyData: any) => {
-        let id = get().match.id;
-
-        toast.promise(
-          id ? Api.put(`${path}/${id}`, bodyData) : Api.post(path, bodyData),
-          {
-            loading: id ? "Updating" : "Adding",
-            success: (res:any) => {
-              useMatchStore.getState().get.paginate({});
-              return res?.message;
-            },
-            error: (err:any) => {
-              return err;
-            },
-          }
-        );
-      },
-
-      delete: async () => {
-        let id = get().match.id;
-
-        if (!id) return toast.error("No plan to delete");
-
-        toast.promise(Api.del(`${path}/${id}`), {
-          loading: "deleting",
-          success: (res:any) => {
-            useMatchStore.getState().get.paginate({});
-            return res?.message;
-          },
-          error: (err:any) => {
-            return err;
-          },
-        });
       },
     })
   )

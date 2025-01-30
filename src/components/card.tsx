@@ -8,13 +8,13 @@ const HomePageCard = ({ m }: { m: any }) => {
 
         <div className="match-card">
             <div className="match-header">
-                <span className="live-indicator">Live</span>
-                <span className="match-time limit-1">{moment(m?.date_start).format('LT, DD MMM')}, {m?.competition?.title}</span>
+                <MatchStatus match={m} />
+                {/* <span className="match-time limit-1">{moment(m?.date_start).format('LT, DD MMM')}, {m?.competition?.title}</span> */}
             </div>
             <div className="teams">
                 <div className="team">
                     <div className="team-flag">
-                        <img src={m?.teama?.logo_url} alt="Bangladesh flag" />
+                        <img src={m?.teama?.image_url} alt={m?.teama?.short_name} />
                     </div>
                     <span className="team-name">{m?.teama?.short_name}</span>
                     <span className="team-score">{m?.teama?.scores_full}</span>
@@ -23,7 +23,7 @@ const HomePageCard = ({ m }: { m: any }) => {
                 </div>
                 <div className="team">
                     <div className="team-flag">
-                        <img src={m?.teamb?.image_url} alt="Afghanistan flag" />
+                        <img src={m?.teamb?.image_url} alt={m?.teamb?.short_name} />
                     </div>
                     <span className="team-name">{m?.teamb?.short_name}</span>
                     <span className="team-score">{m?.teamb?.scores_full}</span>
@@ -47,3 +47,35 @@ const HomePageCard = ({ m }: { m: any }) => {
 }
 
 export default HomePageCard;
+
+
+
+
+
+
+const MatchStatus = ({ match }: any) => {
+    // console.log(match)
+    const { status, starting_at, toss_won_team_id, teama, teamb, elected, status_note } = match;
+    const isLiveOrCompleted = status?.toLowerCase() === 'live' || status?.toLowerCase() === 'completed';
+
+    if (isLiveOrCompleted) {
+        const tossWinner = toss_won_team_id === teama.id ? teama.name : teamb.name;
+        return (
+            <div className="match-time limit-1">
+                <span>
+                    {status_note && ` ${status_note}`}
+                </span>
+            </div>
+        );
+    }
+
+    const startTime = moment(starting_at);
+    const isToday = startTime.isSame(moment(), 'day');
+    const timeFormat = isToday ? 'h:mm a' : 'MMM Do YY, h:mm a';
+
+    return (
+        <div className="match-time limit-1">
+            <span>{isToday ? `Today at ${startTime.format(timeFormat)}` : `Starts at ${startTime.format(timeFormat)}`}</span>
+        </div>
+    );
+};

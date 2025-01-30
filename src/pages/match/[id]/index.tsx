@@ -5,14 +5,12 @@ import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
 import { useRouter } from "next/router";
 import useMatchStore from "@/services/match/match.service";
-
 import { Batter } from "@/components/scorecard";
 import { Extra } from "@/components/scorecard";
 import { Bowler } from "@/components/scorecard";
 import { Wickets } from "@/components/scorecard";
 import { Partnerships } from "@/components/scorecard";
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
-import { InfoCrad } from "@/components/infocard";
 import { CustomCarousel } from "@/components/HomeMatches";
 
 function index() {
@@ -23,28 +21,22 @@ function index() {
 		match: { detail, scorecard },
 	} = matchStore;
 
-	const [activeTab, setActiveTab] = useState("inf");
+	// const [activeTab, setActiveTab] = useState("inf");
 
-	const { id } = router.query;
+	// const { id } = router.query;
 
 	useEffect(() => {
 		if (!router.isReady) return;
 
 		matchStore.get.detail(`${router.query.id}`);
-		// matchStore.get.live(`${router.query.id}`);
-		// matchStore.get.scoreCard(`${router.query.id}`);
 
-		// matchStore.get.paginate({ id: router.query.id as any });
 	}, [router.isReady]);
-	console.log(detail)
+	// console.log(detail)
 
 	return (
 		<>
 			<HomeWrapper>
-				{/* <Header
-				// series_id={matchStore?.match?.detail?.competition?.cid || "10"}
-				// match_id={id}
-				/> */}
+
 
 				<section className='score_main_sec'>
 					<div className='container'>
@@ -133,37 +125,7 @@ function index() {
 									</Tab.Pane>
 								)}
 
-								<Tab.Pane eventKey='info' title='Info'>
-									<div className='info_tab_content'>
-										<div className='comman_card'>
-											<div className='team_run_ned'>
-												<div className='image'>
-													<img
-														src='/comp.png'
-														alt='#'
-														className='img-fluid'
-													/>
-												</div>
-												<div className='content'>
-													{/* <p>Run Needed: </p> */}
-													<h5>{detail?.title} </h5>
-													<h6>{detail?.competition?.title}</h6>
-												</div>
-											</div>
-										</div>
-										{/* 
 
-										<div className='common_card'></div>
-										<h5 className='comman_run six_wicket'>w</h5> */}
-
-
-									</div>
-
-									<InfoCrad
-										details={detail}
-									/>
-
-								</Tab.Pane>
 
 
 
@@ -182,12 +144,7 @@ function index() {
 																		<div className='team_main'>
 																			<div className='team_img'>
 																				<img
-																					src={
-																						inning?.batting_team_id ===
-																							detail?.teama?.team_id
-																							? detail?.teama?.logo_url
-																							: detail?.teamb?.logo_url
-																					}
+																					src={'#'}
 																					alt='#'
 																					className='img-fluid'
 																				/>
@@ -245,7 +202,6 @@ function index() {
 					)}
 				</section>
 
-				{/* < ScoreCard /> */}
 
 
 			</HomeWrapper >
