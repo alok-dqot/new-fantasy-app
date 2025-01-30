@@ -110,7 +110,7 @@ const MatchNews = () => {
     return (
         <>
             <PlayerContainer>
-                <PlayerProfileTabs selectIndex={0} />
+                <PlayerProfileTabs selectIndex={2} />
 
                 <div className="container news-container">
                     <div className="row g-3">

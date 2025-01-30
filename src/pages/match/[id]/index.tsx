@@ -103,20 +103,20 @@ function index() {
 
 
 				<section className='team_score_tabs_sec'>
-					{matchStore.match.list.status && (
+					{detail?.status && (
 
 						<div className='container'>
 							<Tabs
 								defaultActiveKey={
-									matchStore.match.list?.status === 2
+									detail?.status === 2
 										? "scorecard"
-										: matchStore.match.list.status === 1
+										: detail.status === 1
 											? "info"
 											: "live"
 								}
 								id='uncontrolled-tab-example'
 								className='mb-3'>
-								{matchStore.match.list.status === 1 && (
+								{detail.status === 1 && (
 									<Tab.Pane eventKey='live' title='Live'>
 
 										<LiveData />

@@ -101,6 +101,7 @@ const Overview = () => {
                             <SectionHeader />
                             <PlayerRecentForm />
                             {/* <PlayerCareerStats /> */}
+                            <PlayerCareerStatsBatting />
 
 
 
