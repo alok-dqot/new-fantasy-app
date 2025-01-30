@@ -132,7 +132,7 @@ const Extra = ({ extra, equations }: any) => {
             <div className="extra " >
                 <div className="row-first">
                     <div className="extras"><p> Extras:</p></div>
-                    <div className="extra-details"><p> 9(b: {extra.byes
+                    <div className="extra-details"><p> 9(b: {extra?.byes
                     }, lb: {extra.legbyes}, nb: {extra.noballs}, wd: {extra.wides}) </p></div>
                 </div>
                 <div className="row-second">

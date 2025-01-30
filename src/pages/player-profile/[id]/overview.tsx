@@ -3,32 +3,11 @@ import { CustomCarousel } from "@/components/HomeMatches";
 import BasicTable from "@/components/table/table";
 
 import Link from "next/link";
-import Image from 'next/image';
-import { CustomImg } from "@/helper/image.helper";
 import { useState, useEffect } from "react";
 
 
 
 const Overview = () => {
-    const [isClicked, setIsClicked] = useState(0)
-
-
-    const [apiData, setApiData] = useState(null);
-
-
-    const API = "https://api.sportswiz.live/score/players/143859";
-
-
-    useEffect(() => {
-        fetch(API)
-            .then((res) => res.json())
-            .then((data) => {
-                setApiData(data)
-            })
-            .catch((error) => console.log(error))
-    }, []);
-
-    // console.log(apiData);
 
 
     const newsVideosData = [

@@ -38,69 +38,6 @@ function index() {
 			<HomeWrapper>
 
 
-				<section className='score_main_sec'>
-					<div className='container'>
-						<div className='row'>
-							<div className='col-md-12'>
-								<div className='match_title'>
-									<h3>{detail?.title}</h3>
-
-								</div>
-							</div>
-						</div>
-						<div className='row align-items-center score_row'>
-							<div className='col-md-4 col-4 d-flex justify-content-center'>
-								<div className='score_content '>
-									<div className='team_img'>
-										<Image
-											src={detail?.teama?.image_url}
-											alt='#'
-											width={60}
-											height={60}
-										/>
-									</div>
-									<div className='score ms-4'>
-										<h3>{detail?.teama?.short_name}</h3>
-										<h4>
-											{detail?.teama?.scores}{" "}
-											<span>{detail?.teama?.overs}</span>
-										</h4>
-									</div>
-								</div>
-							</div>
-							<div className='col-md-4 col-4'>
-								<div className='result_content'>
-									<h4>{detail?.status_note}</h4>
-								</div>
-							</div>
-							<div className='col-md-4 col-4 d-flex justify-content-center'>
-								<div className='score_content'>
-									<div className='score text-end'>
-										<h3>{detail?.teamb?.short_name}</h3>
-										<h4>
-											{detail?.teamb?.scores}{" "}
-											<span>{detail?.teamb?.overs}</span>
-										</h4>
-									</div>
-									<div className='team_img ms-4'>
-										<Image
-											src={detail?.teamb?.image_url}
-											alt='#'
-											width={60}
-											height={60}
-										/>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-				<div style={{ height: '260px' }}>
-
-				</div>
-
-
 
 				<section className='team_score_tabs_sec'>
 					{detail?.status && (
@@ -116,14 +53,6 @@ function index() {
 								}
 								id='uncontrolled-tab-example'
 								className='mb-3'>
-								{detail.status === 1 && (
-									<Tab.Pane eventKey='live' title='Live'>
-
-										<LiveData />
-
-
-									</Tab.Pane>
-								)}
 
 
 
@@ -210,64 +139,6 @@ function index() {
 }
 
 export default index;
-
-
-
-
-const LiveData = () => {
-	return (
-		<>
-			<div className="row" style={{ backgroundColor: "#FFFFFF" }}>
-				<div className="col-md-8">
-					<div className="row live-data  bg-card	">
-						<div className="col-6 col-md-4 live-data-card">
-							<img src="/batter.png" alt="" />
-							<div className="txt p-3">
-								<h4>BK-Mohammad <BatIcon /></h4>
-								<h4>23 (12)</h4>
-							</div>
-
-						</div>
-						<div className="col-6 col-md-4 live-data-card">
-							<img src="/batter.png" alt="" />
-							<div className="txt p-3">
-								<h4>A Nawaz Shah </h4>
-								<h4>23 (12)</h4>
-							</div>
-						</div>
-						<div className="col-12 col-md-4 live-data-card">
-							<img src="/batter.png" alt="" />
-							<div className="txt p-3">
-								<h4>Nikin Jose <BallIcon /></h4>
-								<h4>23 (12)</h4>
-							</div>
-						</div>
-
-					</div>
-
-					<div className="over-data">
-
-
-						<CustomCarousel>
-							<ThisOver />
-							<ThisOver />
-							<ThisOver />
-
-						</CustomCarousel>
-
-					</div>
-
-					<CommentaryCard />
-
-				</div>
-				<div className="col-md-4">
-					<Probability />
-				</div>
-			</div>
-
-		</>
-	)
-}
 
 
 
@@ -382,29 +253,7 @@ export const ThisOver = () => {
 	)
 };
 
-const CommentaryCard = () => {
-	return (
-		<>
-			<div className="commentary-card">
-				<div className="numbers">
-					<div className="over-number">85.5</div>
-					<div className="ball-number">2</div>
-				</div>
 
-
-				<div className="content-wrapper">
-
-					<div className="commentary-text">
-						<div className="players">J Bumrah to P Cummins</div>
-						<div className="description">
-							Bumrah goes for the yorker and nearly gets his man. 133.7 kmph. Cummins was up to the task and gets his bat down in time to flick it past forward short leg for a couple.
-						</div>
-					</div>
-				</div>
-			</div>
-		</>
-	)
-};
 
 const Run4th = ({ run }: any) => {
 	return (

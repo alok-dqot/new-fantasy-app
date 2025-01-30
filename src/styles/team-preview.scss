@@ -217,3 +217,39 @@ header {
 .accordion-button {
     padding: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:500px) {
+
+    .score_main_sec {
+
+        .l-scr-cnt,
+        .r-scr-cnt {
+            gap: 10px;
+        }
+
+        .l-scr-cnt {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .r-scr-cnt {
+            flex-wrap: wrap-reverse;
+            justify-content: flex-end;
+        }
+    }
+}

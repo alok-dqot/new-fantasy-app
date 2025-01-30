@@ -32,7 +32,7 @@ const TopMatchSection = () => {
 
                     <div className='row align-items-center score_row '>
                         <div className='col-md-4 col-4 d-flex justify-content-center'>
-                            <div className='score_content '>
+                            <div className='score_content l-scr-cnt'>
                                 <div className='team_img'>
                                     <Image
                                         src={detail?.teama?.image_url}
@@ -56,7 +56,7 @@ const TopMatchSection = () => {
                             </div>
                         </div>
                         <div className='col-md-4 col-4 d-flex justify-content-center'>
-                            <div className='score_content'>
+                            <div className='score_content r-scr-cnt '>
                                 <div className='score text-end'>
                                     <h3>{detail?.teamb?.short_name}</h3>
                                     <h4>
@@ -78,9 +78,9 @@ const TopMatchSection = () => {
                 </div>
             </section>
 
-            <div style={{ height: '60px' }}>
-                <PlayerProfileTabs />
-            </div>
+            {/* <div style={{ height: '60px' }}>
+                    <PlayerProfileTabs />
+                </div> */}
 
         </>
     )
