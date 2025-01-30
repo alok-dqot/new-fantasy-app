@@ -65,7 +65,7 @@ const PlayerInfo = () => {
                 </div>
             </div> */}
             <PlayerContainer>
-                <PlayerProfileTabs selectIndex={0} />
+                <PlayerProfileTabs selectIndex={3} />
 
                 <div className="container info-container">
                     <div className="row">

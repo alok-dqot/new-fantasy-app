@@ -1839,7 +1839,8 @@ a {
     rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   margin: 0 auto;
 
-  background-color: #20301e;
+  // background-color: #20301e;
+  background-color: #1a2a43;
 
   .row {
     display: flex;
@@ -1904,26 +1905,6 @@ a {
     padding: 8px 15px;
     border-radius: 5px;
     font-size: 0.9rem;
-  }
-
-  .navigation {
-    display: flex;
-    gap: 20px;
-    padding: 10px 10px 10px 200px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin: 0;
-    background-color: #20301e;
-  }
-
-  .nav-item {
-    color: #a0a0a0;
-    text-decoration: none;
-    padding: 10px 0;
-  }
-
-  .nav-item.active {
-    color: white;
-    border-bottom: 2px solid white;
   }
 
   @media (max-width: 1200px) {
@@ -2024,6 +2005,33 @@ a {
 
     .nav-item {
       font-size: 0.9rem;
+    }
+  }
+}
+
+//PlayerProfileTabs
+
+.player-tab-wrapper {
+  background-color: #1a2a43;
+  padding-bottom: 10px;
+  .tab-role-outer {
+    display: flex;
+    gap: 20px;
+    // padding: 0px 0px 0px 135px;
+    // border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+  }
+
+  .player-tab-link {
+    color: #888c97;
+
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 10px 0;
+
+    &.player-tab-active {
+      color: white;
     }
   }
 }

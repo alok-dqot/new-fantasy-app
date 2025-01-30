@@ -54,21 +54,8 @@ const PlayerProfileCard = () => {
                     </div>
                 </div>
 
-                <div className="navigation">
-                    {/* <PlayerProfileTabs selectIndex={undefined} tabItem={undefined} /> */}
-                    {/* <a href="#overview" className="nav-item " onClick={() => {
-                        router.push("/player-profile/3/overview")
-                    }}>Overview</a>
-                    <a href="#matches" className="nav-item" onClick={() => {
-                        router.push("/player-profile/3/matches")
-                    }}>Matches</a>
-                    <a href="#news" className="nav-item" onClick={() => {
-                        router.push("/player-profile/2/matchnews")
-                    }}>News</a>
-                    <a href="#player-info" className="nav-item" onClick={() => {
-                        router.push("/player-profile/2/playerinfo")
-                    }}>Player Info</a> */}
-                </div>
+
+
             </div>
         </>
     )
@@ -104,22 +91,28 @@ export const PlayerProfileTabs = ({ selectIndex }: any) => {
         route.push('/player-profile/' + id + '/' + formated)
     }
     return (
-        <div className="player-tab-wrapper">
-            <div className="tab-role-outer">
 
-                {
-                    tabItem.map((item: any, index: number) => (
-                        <Button
-                            key={index}
-                            className={`btn-primary btn-role-tab ${selectIndex === index && 'btn-role-selected'}`}
-                            onClick={() => handleRouter(item)}
-                        >
-                            {item}
-                        </Button>
-                    ))
-                }
+        <div className="player-tab-wrapper">
+            <div className="player-tab-wrapper-container container">
+                <div className="tab-role-outer">
+
+                    {
+                        tabItem.map((item: any, index: number) => (
+                            <Button
+                                key={index}
+                                className={`player-tab-link ${selectIndex === index ? 'player-tab-active' : ''}`}
+                                onClick={() => handleRouter(item)}
+                            >
+                                {item}
+                            </Button>
+                        ))
+                    }
+                </div>
             </div>
+
         </div>
+
+
     )
 }
 

@@ -3,8 +3,10 @@ import Footer from "@/components/footer/Footer";
 import { useState, useEffect } from "react";
 import Link from 'next/link';
 
+
 import { CustomCarousel } from "@/components/HomeMatches";
 import { PlayerProfileTabs } from "@/CustomHook/layout";
+import { useRouter } from "next/router";
 const Index = () => {
 
     const router = useRouter()

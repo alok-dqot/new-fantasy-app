@@ -13,7 +13,7 @@ const Matches = () => {
         <>
 
             <PlayerContainer>
-                <PlayerProfileTabs selectIndex={0} />
+                <PlayerProfileTabs selectIndex={1} />
 
                 <div className="matches-container container">
 

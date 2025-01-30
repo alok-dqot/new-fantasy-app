@@ -100,7 +100,8 @@ const Overview = () => {
                         <div className="col-md-9 career-section">
                             <SectionHeader />
                             <PlayerRecentForm />
-                            <PlayerCareerStats />
+                            {/* <PlayerCareerStats /> */}
+                            <PlayerCareerStatsBatting />
 
 
 
