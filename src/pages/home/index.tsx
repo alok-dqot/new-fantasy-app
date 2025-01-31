@@ -41,7 +41,7 @@ function Index() {
 		<HomeWrapper>
 
 			<br />
-			<br />
+			{/* <br /> */}
 
 			<CustomCarousel>
 
@@ -59,12 +59,12 @@ function Index() {
 				)}
 
 			</CustomCarousel>
-			<br />
+			{/* <br /> */}
 
 			<div className="back-color-carousel">
 
 			</div>
-			<div className="row mt-5">
+			<div className="row mt-2">
 				<div className="col-md-3">
 					<PopularSeries />
 					<DownloadAppComp />

@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  //background-color: white;
+}
+
+// .container {
+//   //   max-width: 1200px;
+//   margin: 0 auto;
+//   padding: 2rem;
+// }
+
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  padding: 10px;
+}
+
+.header h1 {
+  font-size: 15px;
+  color: #2c5282;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.Squads-Section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  border-radius: 5px;
+  padding: 10px 0;
+}
+
+.team-first {
+  border-style: none;
+  border-radius: 20px;
+
+  overflow: hidden;
+  width: 380px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+.team-second {
+  border-style: none;
+  border-radius: 20px;
+
+  overflow: hidden;
+  width: 380px;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+}
+
+.team-header {
+  background-color: white;
+
+  color: black;
+  padding: 10px 20px;
+  //   position: relative;
+  overflow: hidden;
+}
+
+// .team-header::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background: linear-gradient(
+//     135deg,
+//     rgba(255, 255, 255, 0.1) 0%,
+//     rgba(255, 255, 255, 0) 100%
+//   );
+// }
+
+.team-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.players-list {
+  padding: 1.5rem;
+}
+
+.player-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  transition: background-color 0.2s ease;
+}
+
+.player-item:hover {
+  background-color: rgba(247, 250, 252, 0.8);
+}
+
+.player-item:last-child {
+  border-bottom: none;
+}
+
+.player-number {
+  padding-right: 10px;
+}
+
+.player-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-name {
+  font-weight: 500;
+  color: #2d3748;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.player-role {
+  font-size: 0.875rem;
+  color: #718096;
+  font-weight: 400;
+}
+
+.player-captain {
+  color: #4299e1;
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-left: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(66, 153, 225, 0.1);
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .team-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .teams-container {
+    gap: 1.5rem;
+  }
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// .team-card {
+//   animation: fadeIn 0.5s ease-out forwards;
+// }
+
+// .player-item {
+//   animation: fadeIn 0.5s ease-out forwards;
+//   animation-delay: calc(var(--animation-order) * 0.1s);
+// }

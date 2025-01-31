@@ -103,10 +103,7 @@ a {
 }
 
 .score_main_sec {
-
   padding: 50px 0;
-
-
 
   .score_content {
     display: flex;
@@ -159,7 +156,6 @@ a {
 }
 
 .team_score_tabs_sec {
-
   // .tab-content {
   //     background: rgba(244, 242, 242, 0.71);
   // }
@@ -1206,7 +1202,15 @@ a {
     display: none;
   }
 
-  .scorecars_tabs_main .accordion .accordion-body .scorecard_cards_count table tbody tr td p {
+  .scorecars_tabs_main
+    .accordion
+    .accordion-body
+    .scorecard_cards_count
+    table
+    tbody
+    tr
+    td
+    p {
     width: 200px;
   }
 
@@ -2972,7 +2976,8 @@ a {
     display: none;
   }
 
-  @media (max-width: 1400px) {}
+  @media (max-width: 1400px) {
+  }
 
   @media (max-width: 1200px) {
     .format-tabs {
