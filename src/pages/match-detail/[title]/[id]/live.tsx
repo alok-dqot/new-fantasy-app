@@ -1,4 +1,4 @@
-import { CustomCarousel } from '@/components/HomeMatches';
+import { CustomCarousel } from '@/components/home/HomeMatches';
 import HomeWrapper from '@/components/wrapper/HomeWrapper';
 import TopMatchSection from '@/components/match-detail/TopMatchSection';
 import MatchDetailTabs from '@/components/match-detail/tabs';

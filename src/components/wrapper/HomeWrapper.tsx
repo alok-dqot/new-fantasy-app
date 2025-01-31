@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../Header'
+import Navbar from '../header/navbar'
 import Footer from '../footer/Footer';
 
 const HomeWrapper = ({ children }: any) => {

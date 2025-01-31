@@ -11,7 +11,7 @@ import { Bowler } from "@/components/scorecard";
 import { Wickets } from "@/components/scorecard";
 import { Partnerships } from "@/components/scorecard";
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
-import { CustomCarousel } from "@/components/HomeMatches";
+import { CustomCarousel } from "@/components/home/HomeMatches";
 
 function index() {
 	const router = useRouter();

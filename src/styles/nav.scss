@@ -5,6 +5,8 @@
 
   max-width: 1200px;
   margin: auto;
+
+  min-height: 40px !important;
 }
 
 .mb-nav-outer {
@@ -58,30 +60,29 @@
   .dropdown-menu {
     display: block;
     position: absolute;
-    top: 200%;
+    top: 100%;
     left: 0;
     min-width: 160px;
     background: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    padding: 8px 0;
+    // padding: 8px 0;
 
-    li {
-      list-style: none;
 
-      a {
-        display: block;
-        padding: 8px 16px;
-        color: #333;
-        text-decoration: none;
-        font-size: 12px;
-        font-weight: 600;
 
-        &:hover {
-          background: #f5f5f5;
-        }
+    a {
+      display: block;
+      padding: 8px 16px;
+      color: #333;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+
+      &:hover {
+        background: #f5f5f5;
       }
     }
+
   }
 }
 
@@ -89,14 +90,13 @@
   display: flex;
 
   width: 100%;
-  height: 50px;
+  height: 40px;
 
   // background-color: var(--primary);
   background-color: var(--primary2);
 
   button {
     color: black !important;
-    font-family: "Montserrat";
   }
 }
 
@@ -108,7 +108,7 @@
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   overflow: hidden;
   padding-block: 5px;
 
@@ -117,14 +117,14 @@
 
     min-width: 100px;
 
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 550;
     // background-color: var;
   }
 
   .selected {
     background: var(--primary);
-    color: white !important;
+    color: var(--text-white) !important;
     border-radius: 25px;
     font-size: 11px;
   }
@@ -134,7 +134,7 @@
 
 .back-color-carousel {
   position: absolute;
-  top: 100px;
+  top: 90px;
   left: 0px;
   z-index: -1;
   background-color: var(--primary);

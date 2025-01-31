@@ -1,5 +1,5 @@
 import Footer from "@/components/footer/Footer";
-import Navbar from "@/components/Header";
+import Navbar from "@/components/header/navbar";
 import { useRouter } from "next/router";
 
 const PlayerContainer = ({ children }: any) => {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/Header";
+import Header from "../../components/header/navbar";
 import moment from "moment";
 import { CustomImg } from "@/helper/image.helper";
 import { titleToSlug } from "@/helpers/slugConverter";

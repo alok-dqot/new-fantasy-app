@@ -1,5 +1,5 @@
 import PlayerContainer, { PlayerProfileTabs } from "@/CustomHook/layout";
-import { CustomCarousel } from "@/components/HomeMatches";
+import { CustomCarousel } from "@/components/home/HomeMatches";
 import BasicTable from "@/components/table/table";
 
 import Link from "next/link";

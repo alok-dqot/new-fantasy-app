@@ -1,10 +1,10 @@
-import Navbar from "@/components/Header";
+import Navbar from "@/components/header/navbar";
 import Footer from "@/components/footer/Footer";
 import { useState, useEffect } from "react";
 import Link from 'next/link';
 
 
-import { CustomCarousel } from "@/components/HomeMatches";
+import { CustomCarousel } from "@/components/home/HomeMatches";
 import { PlayerProfileTabs } from "@/CustomHook/layout";
 import { useRouter } from "next/router";
 const Index = () => {

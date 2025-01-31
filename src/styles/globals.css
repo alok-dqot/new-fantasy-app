@@ -24,6 +24,10 @@ body {
   font-family: "Montserrat", sans-serif !important;
 }
 
+button {
+  font-family: var(--fnt-family) !important;
+}
+
 li {
   list-style: none;
 }

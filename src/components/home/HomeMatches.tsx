@@ -1,6 +1,6 @@
 
 import React, { FC } from 'react'
-import EmblaCarousel, { EmblaCarousel2 } from './carousel/EmblaCarousel'
+import EmblaCarousel, { EmblaCarousel2 } from '../carousel/EmblaCarousel'
 
 interface NormalCarouselProps {
   children: React.ReactNode

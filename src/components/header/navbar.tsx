@@ -14,7 +14,7 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import EventIcon from '@mui/icons-material/Event';
 import ArticleIcon from '@mui/icons-material/Article';
 import BarChartIcon from '@mui/icons-material/BarChart';
-import { CustomCarousel, CustomCarousel2 } from './HomeMatches'
+import { CustomCarousel, CustomCarousel2 } from '../home/HomeMatches'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 // Updated pages array with title and URL
@@ -26,17 +26,52 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 // 	{ title: 'News', url: '/news?type=news', icon: <ArticleIcon /> },
 // 	{ title: 'Stats Hub', url: '/series/128683/south-africa-tour-of-west-indies/stats?filter=mostrun', icon: <BarChartIcon /> },
 // ];
-
 const pages = [
-	{ title: 'Schedule', url: '/schedule/upcoming/all', icon: <KeyboardArrowDownIcon />, },
-	{ title: 'Latest Matches', url: '/schedule/result', icon: <KeyboardArrowDownIcon /> },
-	{ title: 'Fantasy', url: '/fantasy-matches', icon: <KeyboardArrowDownIcon /> },
-	{ title: 'Series', url: '/series', icon: <KeyboardArrowDownIcon /> },
-	{ title: 'News', url: '/news?type=news', icon: <KeyboardArrowDownIcon /> },
-	{ title: 'Stats Hub', url: '/series/128683/south-africa-tour-of-west-indies/stats?filter=mostrun', icon: <KeyboardArrowDownIcon /> },
+	{ title: "Schedule", url: "/schedule/upcoming/all", icon: null, subNav: [] },
+	{
+		title: "Latest Matches",
+		url: "/schedule/result",
+		subNav: [
+			{ title: "Recent Results", url: "/schedule/results/recent" },
+			{ title: "Match Reports", url: "/schedule/results/reports" },
+			{ title: "Highlights", url: "/schedule/results/highlights" },
+		],
+	},
+	{
+		title: "Fantasy",
+		url: "/fantasy-matches",
+		subNav: [
+			{ title: "Fantasy Tips", url: "/fantasy/tips" },
+			{ title: "Dream XI Predictions", url: "/fantasy/dreamxi" },
+		],
+	},
+	{
+		title: "Series",
+		url: "/series",
+		subNav: [
+			{ title: "Ongoing Series", url: "/series/ongoing" },
+			{ title: "Upcoming Series", url: "/series/upcoming" },
+			{ title: "Past Series", url: "/series/past" },
+		],
+	},
+	{
+		title: "News",
+		url: "/news?type=news",
+		subNav: [
+			{ title: "Top Stories", url: "/news/top-stories" },
+			{ title: "Exclusive Interviews", url: "/news/interviews" },
+		],
+	},
+	{
+		title: "Stats Hub",
+		url: "/series/128683/south-africa-tour-of-west-indies/stats?filter=mostrun",
+		subNav: [
+			{ title: "Most Runs", url: "/stats/most-runs" },
+			{ title: "Most Wickets", url: "/stats/most-wickets" },
+			{ title: "Best Averages", url: "/stats/best-averages" },
+		],
+	},
 ];
-
-
 
 function Navbar() {
 	// const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -86,30 +121,12 @@ function Navbar() {
 					<Box sx={{ display: { xs: 'none', md: 'flex', gap: '26px', }, py: '10px' }}>
 						{pages.map((page) => (
 							<Link key={page.title} href={page.url} passHref>
-								<Button
-									onClick={handleCloseNavMenu}
-									sx={{ my: 2, color: 'white', display: 'block' }}
-									className='navbar-btn'
-								>
-									<DropDown items={[
-										'Action 1',
-										'Action 2',
-										'Action 3',
-										'Action 1',
-										'Action 2',
-										'Action 3',
-										'Action 1',
-										'Action 2',
-										'Action 3'
 
-									]}>
+								<DropDown items={page.subNav}>
 
-										{page.title}
-										{page?.icon}
-									</DropDown>
+									{page.title}
 
-
-								</Button>
+								</DropDown>
 							</Link>
 						))}
 					</Box>
@@ -159,6 +176,46 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
 
 
 
+
+
+const DropDown = ({ children, items }: any) => {
+	const [isOpen, setIsOpen] = useState(false);
+
+	return (
+		<div
+			className="custom-dropdown"
+			onMouseEnter={() => setIsOpen(true)}
+			onMouseLeave={() => setIsOpen(false)}
+		>
+			<Button className="dropdown-trigger navbar-btn">
+				{children}
+			</Button>
+
+			{items?.length > 0 && isOpen && (
+				<div className="dropdown-menu">
+					{items.map((item: any, index: number) => (
+						<Link className="dropdown-item" href={item?.url}>{item.title}</Link>
+
+					))}
+				</div>
+			)}
+		</div>
+	);
+};
+export { DropDown }
+
+
+
+
+
+
+
+
+
+
+
+
+
 const SeriesContainer = () => {
 	return (
 		<>
@@ -186,36 +243,3 @@ const SeriesContainer = () => {
 		</>
 	)
 }
-
-
-interface DropDownProps {
-	children: React.ReactNode;
-	items: string[];
-}
-
-const DropDown = ({ children, items }: DropDownProps) => {
-	const [isOpen, setIsOpen] = useState(false);
-
-	return (
-		<div
-			className="custom-dropdown"
-			onMouseEnter={() => setIsOpen(true)}
-			onMouseLeave={() => setIsOpen(false)}
-		>
-			<div className="dropdown-trigger">
-				{children}
-			</div>
-
-			{isOpen && (
-				<ul className="dropdown-menu">
-					{items.map((item, index) => (
-						<li key={index}>
-							<a className="dropdown-item" href="#">{item}</a>
-						</li>
-					))}
-				</ul>
-			)}
-		</div>
-	);
-};
-export { DropDown }

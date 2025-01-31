@@ -4,7 +4,7 @@ import useSeriesStore from "@/services/series/series.service";
 import moment from "moment";
 import { useRouter } from "next/router";
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
-import { CustomCarousel } from "@/components/HomeMatches";
+import { CustomCarousel } from "@/components/home/HomeMatches";
 import HomePageCard from "@/components/card/card";
 import Link from "next/link";
 import useNewsStore from "@/features/news/news.service";
@@ -42,6 +42,7 @@ function Index() {
 
 			<br />
 			{/* <br /> */}
+			{/* <div style={{ height: '40px', width: '100%' }}></div> */}
 
 			<CustomCarousel>
 
