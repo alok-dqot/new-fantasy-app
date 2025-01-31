@@ -4,16 +4,14 @@
   border-radius: 10px;
 
   .news-card {
-    //background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .news-card__image {
     width: 100%;
     height: auto;
-    //display: block;
+
     border-radius: 10px;
     object-fit: cover;
   }
@@ -37,8 +35,6 @@
     color: #666;
   }
 
-  .news-card__date,
-  .news-card__time,
   .news-card__author {
     display: inline-block;
   }

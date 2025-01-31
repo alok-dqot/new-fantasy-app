@@ -28,7 +28,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 // ];
 
 const pages = [
-	{ title: 'Schedule', url: '/schedule/upcoming/all', icon: <KeyboardArrowDownIcon /> },
+	{ title: 'Schedule', url: '/schedule/upcoming/all', icon: <KeyboardArrowDownIcon />, },
 	{ title: 'Latest Matches', url: '/schedule/result', icon: <KeyboardArrowDownIcon /> },
 	{ title: 'Fantasy', url: '/fantasy-matches', icon: <KeyboardArrowDownIcon /> },
 	{ title: 'Series', url: '/series', icon: <KeyboardArrowDownIcon /> },
