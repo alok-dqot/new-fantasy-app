@@ -91,9 +91,24 @@ function Navbar() {
 									sx={{ my: 2, color: 'white', display: 'block' }}
 									className='navbar-btn'
 								>
+									<DropDown items={[
+										'Action 1',
+										'Action 2',
+										'Action 3',
+										'Action 1',
+										'Action 2',
+										'Action 3',
+										'Action 1',
+										'Action 2',
+										'Action 3'
 
-									{page.title}
-									{page?.icon}
+									]}>
+
+										{page.title}
+										{page?.icon}
+									</DropDown>
+
+
 								</Button>
 							</Link>
 						))}
@@ -171,3 +186,36 @@ const SeriesContainer = () => {
 		</>
 	)
 }
+
+
+interface DropDownProps {
+	children: React.ReactNode;
+	items: string[];
+}
+
+const DropDown = ({ children, items }: DropDownProps) => {
+	const [isOpen, setIsOpen] = useState(false);
+
+	return (
+		<div
+			className="custom-dropdown"
+			onMouseEnter={() => setIsOpen(true)}
+			onMouseLeave={() => setIsOpen(false)}
+		>
+			<div className="dropdown-trigger">
+				{children}
+			</div>
+
+			{isOpen && (
+				<ul className="dropdown-menu">
+					{items.map((item, index) => (
+						<li key={index}>
+							<a className="dropdown-item" href="#">{item}</a>
+						</li>
+					))}
+				</ul>
+			)}
+		</div>
+	);
+};
+export { DropDown }

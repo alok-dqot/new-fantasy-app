@@ -1,5 +1,8 @@
 import { CustomCarousel } from '@/components/HomeMatches';
 import HomeWrapper from '@/components/wrapper/HomeWrapper';
+import TopMatchSection from '@/components/match-detail/TopMatchSection';
+import MatchDetailTabs from '@/components/match-detail/tabs';
+
 import { BallIcon, BatIcon, Probability, ThisOver } from '@/pages/match/[id]';
 import React from 'react'
 
@@ -7,6 +10,10 @@ const live = () => {
     return (
         <>
             <HomeWrapper>
+                <TopMatchSection />
+                <div className="m-detail-outer">
+                    <MatchDetailTabs selectIndex={1} />
+                </div>
                 <LiveData />
 
             </HomeWrapper>

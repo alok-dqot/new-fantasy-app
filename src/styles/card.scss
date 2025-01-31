@@ -1,12 +1,10 @@
 .match-card {
   background: var(--primary2);
   border-radius: 12px;
-  padding: 15px;
+  //padding: 15px;
+  padding: 5px 10px;
   width: 285px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-
-
 
   .teams {
     display: flex;
@@ -16,7 +14,6 @@
   }
 
   .on-card-player {
-
     margin-top: 10px;
     display: flex;
     align-content: center;
@@ -43,7 +40,6 @@
   .status_note {
     margin-bottom: 5px;
   }
-
 }
 
 .match-header {
@@ -142,7 +138,6 @@
   }
 }
 
-
 .pic-day-card {
   img {
     width: 100%;
@@ -154,9 +149,6 @@
     margin-top: 10px;
   }
 }
-
-
-
 
 .team-name,
 .team-score {
