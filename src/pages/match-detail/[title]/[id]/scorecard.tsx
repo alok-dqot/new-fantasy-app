@@ -1,11 +1,9 @@
-import { CustomCarousel } from '@/components/HomeMatches';
 import MatchDetailTabs from '@/components/match-detail/tabs';
 import TopMatchSection from '@/components/match-detail/TopMatchSection';
 import { Batter, Bowler, Extra, Partnerships, Wickets } from '@/components/scorecard';
 import HomeWrapper from '@/components/wrapper/HomeWrapper';
 import useScoreCardStore from '@/features/match-detail/scorecard';
 import { fullScore } from '@/helpers/full_score.helper';
-import { BallIcon, BatIcon, Probability, ThisOver } from '@/pages/match/[id]';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react'
 import { Accordion } from 'react-bootstrap';
