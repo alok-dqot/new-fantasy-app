@@ -5,7 +5,7 @@ import moment from "moment";
 import { useRouter } from "next/router";
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
 import { CustomCarousel } from "@/components/HomeMatches";
-import HomePageCard from "@/components/card";
+import HomePageCard from "@/components/card/card";
 import Link from "next/link";
 import useNewsStore from "@/features/news/news.service";
 import { DownloadAppComp, FollowUs, PicOfTheDay, PopularSeries, TopStories } from "@/components/home/cards";
@@ -22,14 +22,9 @@ function Index() {
 
 	useEffect(() => {
 		matchStore.get.featuredMatches();
-
-		console.log('working')
-
 		seriesStore.get.paginate({ size: 9 })
 	}, []);
 
-
-	console.log(matchStore.match)
 
 	const blogStore = useNewsStore();
 

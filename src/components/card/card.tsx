@@ -1,7 +1,8 @@
+import { Match } from "@/services/match/match.service";
 import moment from "moment";
 
 
-const HomePageCard = ({ m }: { m: any }) => {
+const HomePageCard = ({ m }: { m: Match }) => {
 
 
     return (
@@ -17,7 +18,7 @@ const HomePageCard = ({ m }: { m: any }) => {
                         <img src={m?.teama?.image_url} alt={m?.teama?.short_name} />
                     </div>
                     <span className="team-name">{m?.teama?.short_name}</span>
-                    <span className="team-score">{m?.teama?.scores_full}</span>
+                    <span className="team-score">{m?.teama_full_score}</span>
 
 
                 </div>
@@ -26,7 +27,7 @@ const HomePageCard = ({ m }: { m: any }) => {
                         <img src={m?.teamb?.image_url} alt={m?.teamb?.short_name} />
                     </div>
                     <span className="team-name">{m?.teamb?.short_name}</span>
-                    <span className="team-score">{m?.teamb?.scores_full}</span>
+                    <span className="team-score">{m?.teamb_full_score}</span>
                 </div>
             </div>
             {/* <div className="navigation">
