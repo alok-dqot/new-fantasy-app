@@ -233,12 +233,12 @@ const UpcomingMatches = () => {
 		store.get.list()
 	}, [])
 
-	useEffect(() => {
-		const intervalId = setInterval(async () => {
-			await store.get.refreshmatches()
-		}, 10000);
-		return () => clearInterval(intervalId);
-	}, []);
+	// useEffect(() => {
+	// 	const intervalId = setInterval(async () => {
+	// 		await store.get.refreshmatches()
+	// 	}, 10000);
+	// 	return () => clearInterval(intervalId);
+	// }, []);
 
 	const filteredMatches = [
 		...new Map(store.match?.totalList.map((item: any) => [item.id, item])).values() as any
@@ -248,7 +248,7 @@ const UpcomingMatches = () => {
 		<div className="hm-mt-slider-outer">
 
 			<div className="seris-btn-outer">
-				<FullPageCarousel isBtn={false}>
+				<FullPageCarousel isBtn={true}>
 					<Button className={store.match.selectedSeriesId ? "hm-seris-btn" : "hm-seris-btn-selected"} onClick={() => {
 						store.get.list()
 					}}> All Matches {store.match.total}</Button>

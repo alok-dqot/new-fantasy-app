@@ -182,12 +182,17 @@
 
 .seris-btn-outer {
 
+  position: relative;
+
   button {
     min-width: fit-content;
     color: var(--text-white);
 
-    font-size: 13px !important;
+    font-size: 11px !important;
     font-weight: 550 !important;
+
+    padding: 3px 9px !important;
+
   }
 
   margin-bottom: 10px;
