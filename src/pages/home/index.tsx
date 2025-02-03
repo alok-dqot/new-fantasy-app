@@ -1,27 +1,19 @@
 import React, { useEffect } from "react";
-import useMatchStore from "@/services/match/match.service";
 import useSeriesStore from "@/services/series/series.service";
 import moment from "moment";
-import { useRouter } from "next/router";
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
-import { CustomCarousel } from "@/components/home/HomeMatches";
-import HomePageCard from "@/components/card/card";
 import Link from "next/link";
 import useNewsStore from "@/features/news/news.service";
 import { DownloadAppComp, FollowUs, PicOfTheDay, PopularSeries, TopStories } from "@/components/home/cards";
 import HomeRankTable from "@/components/rank/RankTable";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import { titleToSlug } from "@/helpers/slugConverter";
 
 
 function Index() {
-	const matchStore = useMatchStore();
 
-	const route = useRouter()
 	const seriesStore = useSeriesStore()
 
 	useEffect(() => {
-		matchStore.get.featuredMatches();
 		seriesStore.get.paginate({ size: 9 })
 	}, []);
 
@@ -31,7 +23,7 @@ function Index() {
 
 	useEffect(() => {
 		; (async () => {
-			await blogStore.get.list({ size: 1, type: 'blog' });
+			await blogStore.get.allBlogs({ size: 10 });
 		})();
 	}, [])
 
@@ -40,31 +32,7 @@ function Index() {
 	return (
 		<HomeWrapper>
 
-			<br />
-			{/* <br /> */}
-			{/* <div style={{ height: '40px', width: '100%' }}></div> */}
 
-			<CustomCarousel>
-
-				{matchStore.match?.featured_list?.length ? (
-					matchStore.match?.featured_list?.map((m: any) => {
-						return (
-							<Link href={`/match-detail/${titleToSlug(m?.title)}/${m.id}/info`}>
-								<HomePageCard m={m} />
-							</Link>
-
-						);
-					})
-				) : (
-					<></>
-				)}
-
-			</CustomCarousel>
-			{/* <br /> */}
-
-			<div className="back-color-carousel">
-
-			</div>
 			<div className="row mt-2">
 				<div className="col-md-3">
 					<PopularSeries />
@@ -78,7 +46,7 @@ function Index() {
 				<div className="col-12 col-md-6">
 					<TopStories />
 					{
-						blogStore.blog.list?.grid?.length > 0 && blogStore.blog.list?.grid?.map((b: any) => {
+						blogStore.blog.allBlogList?.grid?.length > 0 && blogStore.blog.allBlogList?.grid?.map((b: any) => {
 							return (
 								<div className="hm-article-card mt-4" key={b?.id}>
 									<Link href={`/blogdetail/${b?.id}`}>

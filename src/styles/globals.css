@@ -32,6 +32,15 @@ li {
   list-style: none;
 }
 
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  font-family: var(--fnt-family) !important;
+}
+
 .main-wrapper {
   max-width: 1200px;
   width: 100%;
@@ -39,6 +48,10 @@ li {
   min-height: 70vh;
 
   margin: auto;
+}
+
+img {
+  object-fit: cover;
 }
 
 .limit-2,

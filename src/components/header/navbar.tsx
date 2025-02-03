@@ -1,5 +1,4 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -8,24 +7,12 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import EventIcon from '@mui/icons-material/Event';
-import ArticleIcon from '@mui/icons-material/Article';
-import BarChartIcon from '@mui/icons-material/BarChart';
 import { CustomCarousel, CustomCarousel2 } from '../home/HomeMatches'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import useMatchStore from '@/services/match/match.service';
+import HomePageCard from '../card/card';
+import { titleToSlug } from '@/helpers/slugConverter';
 
-// Updated pages array with title and URL
-// const pages = [
-// 	{ title: 'Schedule', url: '/schedule/upcoming/all', icon: <LibraryBooksIcon /> },
-// 	{ title: 'Latest Matches', url: '/schedule/result', icon: <EventIcon /> },
-// 	{ title: 'Fantasy', url: '/fantasy-matches', icon: <EmojiEventsIcon /> },
-// 	{ title: 'Series', url: '/series', icon: <EventIcon /> },
-// 	{ title: 'News', url: '/news?type=news', icon: <ArticleIcon /> },
-// 	{ title: 'Stats Hub', url: '/series/128683/south-africa-tour-of-west-indies/stats?filter=mostrun', icon: <BarChartIcon /> },
-// ];
+
 const pages = [
 	{ title: "Schedule", url: "/schedule/upcoming/all", icon: null, subNav: [] },
 	{
@@ -82,7 +69,12 @@ function Navbar() {
 		document.body.style.position = 'relative';
 	};
 
+	const matchStore = useMatchStore();
+
+
 	useEffect(() => {
+		matchStore.get.featuredMatches();
+
 		if (isNav) {
 			document.body.style.position = 'fixed';
 		} else {
@@ -94,46 +86,78 @@ function Navbar() {
 	}, [isNav]);
 
 	return (
-		<AppBar position="sticky" sx={{ background: "var(--primary)	", boxShadow: 'none' }}>
-			<Container maxWidth="xl">
-				<Toolbar disableGutters className="appbar-outer">
-					<Link href="/home">
-						<img src="/icons/logo.png" alt="Logo" />
-					</Link>
+		<>
+			<div className="bg-container">
+				<Container >
+					<SeriesContainer />
+					<CustomCarousel>
 
-					<Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-						<IconButton
-							size="large"
-							aria-label="menu"
-							aria-controls="menu-appbar"
-							aria-haspopup="true"
-							onClick={() => setIsNav(!isNav)}
-							color="inherit"
-						>
-							<MenuIcon />
-						</IconButton>
+						{matchStore.match?.featured_list?.length ? (
+							matchStore.match?.featured_list?.map((m: any) => {
+								return (
+									<Link href={`/match-detail/${titleToSlug(m?.title)}/${m.id}/info`}>
+										<HomePageCard m={m} />
+									</Link>
+
+								);
+							})
+						) : (
+							<></>
+						)}
+
+					</CustomCarousel>
+
+				</Container>
 
 
-						{isNav && <MobileNav onClose={handleCloseNavMenu} />}
-					</Box>
 
+				<div className="back-color-carousel">
 
-					<Box sx={{ display: { xs: 'none', md: 'flex', gap: '26px', }, py: '10px' }}>
-						{pages.map((page) => (
-							<Link key={page.title} href={page.url} passHref>
-
-								<DropDown items={page.subNav}>
-
-									{page.title}
-
-								</DropDown>
+				</div>
+				<div className='navbar-1'>
+					<Container >
+						<Toolbar disableGutters className="appbar-outer">
+							<Link href="/home">
+								<img src="/icons/logo.png" alt="Logo" />
 							</Link>
-						))}
-					</Box>
-				</Toolbar>
-			</Container>
-			<SeriesContainer />
-		</AppBar>
+
+							<Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+								<IconButton
+									size="large"
+									aria-label="menu"
+									aria-controls="menu-appbar"
+									aria-haspopup="true"
+									onClick={() => setIsNav(!isNav)}
+									color="inherit"
+								>
+									<MenuIcon />
+								</IconButton>
+
+
+								{isNav && <MobileNav onClose={handleCloseNavMenu} />}
+							</Box>
+
+
+							<Box sx={{ display: { xs: 'none', md: 'flex', gap: '26px', }, py: '10px' }}>
+								{pages.map((page) => (
+									<Link key={page.title} href={page.url} passHref>
+
+										<DropDown items={page.subNav}>
+
+											{page.title}
+
+										</DropDown>
+									</Link>
+								))}
+							</Box>
+						</Toolbar>
+					</Container>
+
+				</div>
+			</div>
+
+		</>
+
 	);
 }
 

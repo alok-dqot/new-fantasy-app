@@ -1,3 +1,5 @@
+import { Match } from "@/services/match/match.service";
+import { Competition } from "@/types/MatchScoreCard";
 import Api from "@/util/api";
 import { create } from "zustand";
 import { combine } from "zustand/middleware";
@@ -11,8 +13,8 @@ export interface Blog {
   seo_des: string;
   content: string;
   tag: string;
-  match: any;
-  series: any;
+  match: Match;
+  series: Competition;
   created_at: string;
   updated_at: string;
   data: any;
@@ -36,17 +38,21 @@ const useNewsStore = create(
         all: {} as any,
         allBlogList: {} as any,
         allBlogListTotal: 0,
+        latest: {} as any,
+
+        allSeriesBlogList: {} as any,
+        allSeriesBlogTotal: 0,
       },
     },
     (set, get) => ({
       get: {
-        list: async ({ size, type }: { size?: number; type?: string }) => {
+        list: async ({ size }: { size?: number }) => {
           try {
             const res = await Api.get(path, { query: { size } });
             await set((prev) => ({
               blog: {
                 ...prev.blog,
-                list: res[0],
+                list: res,
                 total: res?.meta?.total,
               },
             }));
@@ -84,6 +90,35 @@ const useNewsStore = create(
                 ...prev.blog,
                 allBlogList: res,
                 allBlogListTotal: res?.total,
+              },
+            }));
+          } catch (err) {
+            console.log(err);
+          }
+        },
+        latestNews: async ({ size }: { size?: number }) => {
+          try {
+            const res = await Api.get("/latest-news");
+            await set((prev) => ({
+              blog: {
+                ...prev.blog,
+                latest: res,
+              },
+            }));
+          } catch (err) {
+            console.log(err);
+          }
+        },
+        allseriesNews: async ({ size }: { size?: number }) => {
+          try {
+            const res = await Api.get("/series-latest-news", {
+              query: { size },
+            });
+            await set((prev) => ({
+              blog: {
+                ...prev.blog,
+                allSeriesBlogList: res,
+                allSeriesBlogTotal: res?.total,
               },
             }));
           } catch (err) {

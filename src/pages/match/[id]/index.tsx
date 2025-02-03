@@ -5,11 +5,7 @@ import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
 import { useRouter } from "next/router";
 import useMatchStore from "@/services/match/match.service";
-import { Batter } from "@/components/scorecard";
-import { Extra } from "@/components/scorecard";
-import { Bowler } from "@/components/scorecard";
-import { Wickets } from "@/components/scorecard";
-import { Partnerships } from "@/components/scorecard";
+
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
 import { CustomCarousel } from "@/components/home/HomeMatches";
 
@@ -92,7 +88,7 @@ function index() {
 																				<div className="cricket-better-score">
 
 																					<div className="score-table">
-
+																						{/* 
 																						<Batter batter={inning.batsmen} />
 																						<Extra
 																							extra={inning.extra_runs}
@@ -102,7 +98,7 @@ function index() {
 																						/>
 																						<Bowler bowler={inning.bowlers} />
 																						<Wickets wicket={inning.fows} />
-																						<Partnerships partnership={inning.current_partnership} />
+																						<Partnerships partnership={inning.current_partnership} /> */}
 
 																					</div>
 

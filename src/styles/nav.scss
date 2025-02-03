@@ -41,7 +41,7 @@
   align-items: center !important;
   flex-direction: column !important;
 
-  color: var(--text-white);
+  color: var(--text-white) !important;
 
   font-family: var(--fnt-family) !important;
 
@@ -93,11 +93,10 @@
   height: 40px;
 
   // background-color: var(--primary);
-  background-color: var(--primary2);
+  // background-color: #f6f9fd1c;
 
-  button {
-    color: black !important;
-  }
+  margin-bottom: 10px;
+
 }
 
 .sht-mtch-cont {
@@ -134,10 +133,27 @@
 
 .back-color-carousel {
   position: absolute;
-  top: 90px;
+  top: 0px;
   left: 0px;
   z-index: -1;
-  background-color: var(--primary);
+  // background-color: var(--primary);
   height: 215px;
   width: 100%;
+}
+
+.bg-container {
+  top: 0px;
+  left: 0px;
+  background-color: var(--primary);
+  overflow: visible;
+
+  .navbar-1 {
+    background-color: rgb(246 249 253 / 4%);
+    box-shadow: none;
+    margin-top: 10px;
+
+    position: sticky;
+    top: 1px;
+    z-index: 1000;
+  }
 }

@@ -60,11 +60,7 @@ export const TopStories = () => {
     const blogStore = useNewsStore();
 
 
-    useEffect(() => {
-        ; (async () => {
-            await blogStore.get.list({ size: 1, type: 'blog' });
-        })();
-    }, [])
+
 
 
     return (
@@ -73,10 +69,10 @@ export const TopStories = () => {
                 <h4>Top Stories</h4>
 
                 <div className="latest-card">
-                    <img src={blogStore.blog.list?.latest?.image_url} alt="" />
+                    <img src={blogStore.blog.allBlogList?.latest?.image_url} alt="" />
                     <div className="bigcard-content">
-                        <Link href={`/blogdetail/${blogStore.blog.list.latest?.id}`}><h5>{blogStore.blog.list?.latest?.title}</h5></Link>
-                        <small>{moment(blogStore.blog.list?.latest?.updated_at).endOf('day').fromNow()}</small>
+                        <Link href={`/blogdetail/${blogStore.blog.allBlogList.latest?.id}`}><h5>{blogStore.blog.allBlogList?.latest?.title}</h5></Link>
+                        <small>{moment(blogStore.blog.allBlogList?.latest?.updated_at).endOf('day').fromNow()}</small>
                     </div>
 
                 </div>
