@@ -466,6 +466,8 @@ const useMatchStore = create(
           );
         },
 
+        
+
         scoreCard: async (id: string) => {
           toast.promise(
             Api.get(`${path}/${id}/scorecard`, {
