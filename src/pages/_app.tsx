@@ -19,6 +19,7 @@ import '../styles/loader.scss';
 import '../styles/anycss.scss';
 import '../styles/infocard.scss';
 import '../styles/squads.scss';
+import '../styles/embla.scss';
 import '../styles/match-news.scss'
 
 

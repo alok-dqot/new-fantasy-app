@@ -7,6 +7,7 @@ import useNewsStore from "@/features/news/news.service";
 import { DownloadAppComp, FollowUs, PicOfTheDay, PopularSeries, TopStories } from "@/components/home/cards";
 import HomeRankTable from "@/components/rank/RankTable";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import { CustomImg } from "@/helper/image.helper";
 
 
 function Index() {
@@ -52,7 +53,7 @@ function Index() {
 									<Link href={`/blogdetail/${b?.id}`}>
 										<div className="row">
 											<div className="col-md-3">
-												<img src={b?.image_url} alt="" />
+												<CustomImg src={b?.image_url} alt="" />
 											</div>
 											<div className="col-md-9">
 

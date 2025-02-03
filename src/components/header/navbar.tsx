@@ -7,10 +7,11 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { CustomCarousel, CustomCarousel2 } from '../home/HomeMatches'
 import useMatchStore from '@/services/match/match.service';
 import HomePageCard from '../card/card';
 import { titleToSlug } from '@/helpers/slugConverter';
+import useUpcomingStore from '@/features/series/upcoming.service';
+import NormalCarousel, { FullPageCarousel } from '../carousel/NormalCarousel';
 
 
 const pages = [
@@ -61,7 +62,6 @@ const pages = [
 ];
 
 function Navbar() {
-	// const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 	const [isNav, setIsNav] = useState(false);
 
 	const handleCloseNavMenu = () => {
@@ -89,26 +89,9 @@ function Navbar() {
 		<>
 			<div className="bg-container">
 				<Container >
-					<SeriesContainer />
-					<CustomCarousel>
-
-						{matchStore.match?.featured_list?.length ? (
-							matchStore.match?.featured_list?.map((m: any) => {
-								return (
-									<Link href={`/match-detail/${titleToSlug(m?.title)}/${m.id}/info`}>
-										<HomePageCard m={m} />
-									</Link>
-
-								);
-							})
-						) : (
-							<></>
-						)}
-
-					</CustomCarousel>
+					<UpcomingMatches />
 
 				</Container>
-
 
 
 				<div className="back-color-carousel">
@@ -240,30 +223,59 @@ export { DropDown }
 
 
 
-const SeriesContainer = () => {
+
+const UpcomingMatches = () => {
+
+
+	const store = useUpcomingStore();
+
+	useEffect(() => {
+		store.get.list()
+	}, [])
+
+	useEffect(() => {
+		const intervalId = setInterval(async () => {
+			await store.get.refreshmatches()
+		}, 10000);
+		return () => clearInterval(intervalId);
+	}, []);
+
+	const filteredMatches = [
+		...new Map(store.match?.totalList.map((item: any) => [item.id, item])).values() as any
+	];
+
 	return (
-		<>
+		<div className="hm-mt-slider-outer">
 
-			<div className="short-match-nav-outer">
-				<div className="sht-mtch-cont">
-					<CustomCarousel2>
-						<Button>Aus vs Ind</Button>
-						<Button>Aus vs Ind</Button>
-						<Button>Aus vs Ind</Button>
-						<Button>Aus vs Ind</Button>
-						<Button>Aus vs Ind</Button>
-						<Button>Aus vs Ind</Button>
-						<Button>Aus vs Ind</Button>
-						<Button>Aus vs Ind</Button>
-						<Button>Aus vs Ind</Button>
-						<Button>Aus vs Ind</Button>
-						<Button>Aus vs Ind</Button>
-						<Button>Aus vs Ind</Button>
+			<div className="seris-btn-outer">
+				<FullPageCarousel isBtn={false}>
+					<Button className={store.match.selectedSeriesId ? "hm-seris-btn" : "hm-seris-btn-selected"} onClick={() => {
+						store.get.list()
+					}}> All Matches {store.match.total}</Button>
 
-					</CustomCarousel2>
-
-				</div>
+					{
+						store.match.seriesList?.map((series: any) => {
+							return (
+								<Button className={store.match.selectedSeriesId == series?.id ? "hm-seris-btn-selected" : "hm-seris-btn"} onClick={() => {
+									store.get.seriesMatches(series.id)
+								}} >{series?.code}</Button>
+							)
+						})
+					}
+				</FullPageCarousel>
 			</div>
-		</>
-	)
-}
+
+			<NormalCarousel>
+				{filteredMatches?.length > 0 ? (
+					filteredMatches.map((m: any) => (
+						<Link href={`/match-detail/${titleToSlug(m?.title)}/${m.id}/info`}>
+							<HomePageCard m={m} />
+						</Link>
+					))
+				) : (
+					<></>
+				)}
+			</NormalCarousel>
+		</div>
+	);
+};

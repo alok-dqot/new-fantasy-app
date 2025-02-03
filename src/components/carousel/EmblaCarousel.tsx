@@ -86,3 +86,39 @@ export const EmblaCarousel2: React.FC<PropType> = (props) => {
     )
 }
 
+
+
+
+
+export const EmblaCarouselForHomePage: React.FC<PropType> = (props) => {
+    const { slides, options, isBtnHide } = props
+    const [emblaRef, emblaApi] = useEmblaCarousel(options)
+
+    const {
+        prevBtnDisabled,
+        nextBtnDisabled,
+        onPrevButtonClick,
+        onNextButtonClick
+    } = usePrevNextButtons(emblaApi)
+
+
+    return (
+        <section className="embla">
+            <div className="embla__viewport_1" ref={emblaRef}>
+                <div className="embla__container-1">
+                    {slides}
+                </div>
+                {
+                    !isBtnHide &&
+                    <div className="embla__buttons">
+                        <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} name='previous-btn' aria-label='prev-btn' />
+                        <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} name='next-btn' aria-label='next-btn' />
+                    </div>
+                }
+
+            </div>
+
+        </section>
+    )
+}
+

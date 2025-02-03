@@ -173,3 +173,28 @@
   }
 
 }
+
+
+
+
+
+
+
+.seris-btn-outer {
+
+  button {
+    min-width: fit-content;
+    color: var(--text-white);
+
+    font-size: 13px !important;
+    font-weight: 550 !important;
+  }
+
+  margin-bottom: 10px;
+  padding-top: 10px;
+
+  .hm-seris-btn-selected {
+    border: solid 1px var(--primary2) !important;
+    // color: var(--text-dark);
+  }
+}
