@@ -1,7 +1,7 @@
 import { combine } from "zustand/middleware";
 import { create } from "zustand";
 import { Player } from "@/types/MatchScoreCard";
-import { Team } from "@/services/match/match.service";
+import { Team } from "@/features/match/match.service";
 import Api from "@/util/api";
 
 interface TeamSquad {

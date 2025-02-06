@@ -7,11 +7,11 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import useMatchStore from '@/services/match/match.service';
 import HomePageCard from '../card/card';
 import { titleToSlug } from '@/helpers/slugConverter';
 import useUpcomingStore from '@/features/series/upcoming.service';
 import NormalCarousel, { FullPageCarousel } from '../carousel/NormalCarousel';
+import useMatchStore from '@/features/match/match.service';
 
 
 const pages = [

@@ -25,7 +25,7 @@ function createData(
 
 
 export default function BasicTable() {
-    const [tableData, setTableData] = useState()
+    const [tableData, setTableData] = useState() as any
     const API = "https://api.sportswiz.live/score/players/state?player_id=143859";
     useEffect(() => {
         fetch(API)
@@ -35,18 +35,6 @@ export default function BasicTable() {
             }).catch((error) => console.log(error))
     }, [])
 
-    console.log(tableData)
-
-    const rows = [
-        createData('TEST', 159, 6.0, 24, 4.0, 50.2, 16396, 30, 31),
-        createData('ODI', 237, 9.0, 37, 4.3, 50.2, 16396, 50, 72),
-        createData('T20I', 262, 16.0, 24, 6.0, 50.2, 16396, 60, 50),
-        createData('T20', 305, 3.7, 67, 4.3, 50.2, 16396, 10, 10),
-        createData('LISTA', 356, 16.0, 49, 3.9, 50.2, 16396, 20, 20),
-        createData('FIRSTCLASS', 305, 3.7, 67, 4.3, 50.2, 16396, 30, 30),
-        createData('T10', 356, 16.0, 49, 3.9, 50.2, 16396, 10, 20),
-
-    ];
 
 
     return (

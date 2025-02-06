@@ -3,7 +3,7 @@ import InfoCard from '@/components/match-detail/infocard';
 import MatchDetailTabs from '@/components/match-detail/tabs';
 import TopMatchSection from '@/components/match-detail/TopMatchSection';
 import HomeWrapper from '@/components/wrapper/HomeWrapper';
-import useMatchStore from '@/services/match/match.service';
+import useMatchStore from '@/features/match/match.service';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react'
 

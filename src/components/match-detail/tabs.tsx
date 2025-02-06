@@ -1,5 +1,5 @@
 
-import useMatchStore from "@/services/match/match.service";
+import useMatchStore from "@/features/match/match.service";
 import { Tab, Tabs } from "@mui/material";
 import { useRouter } from "next/router";
 

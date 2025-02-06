@@ -1,8 +1,7 @@
 import { CustomImg } from "@/helper/image.helper";
-import { Match } from "@/services/match/match.service";
 import moment from "moment";
 
-const HomePageCard = ({ m }: { m: Match }) => {
+const HomePageCard = ({ m }: { m: any }) => {
 
     return (
 

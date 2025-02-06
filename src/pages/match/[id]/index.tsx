@@ -4,7 +4,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Accordion from "react-bootstrap/Accordion";
 import { useRouter } from "next/router";
-import useMatchStore from "@/services/match/match.service";
+import useMatchStore from "@/features/match/match.service";
 
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
 import { CustomCarousel } from "@/components/home/HomeMatches";
