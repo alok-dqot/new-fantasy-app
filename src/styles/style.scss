@@ -150,12 +150,10 @@ a {
     }
   }
 
-  .score_row {
-    margin-bottom: 30px;
-  }
 }
 
 .team_score_tabs_sec {
+
   // .tab-content {
   //     background: rgba(244, 242, 242, 0.71);
   // }
@@ -658,8 +656,8 @@ a {
         margin: 20px 0;
 
         img {
-          width: 60px;
-          height: 60px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
         }
       }
@@ -1202,15 +1200,7 @@ a {
     display: none;
   }
 
-  .scorecars_tabs_main
-    .accordion
-    .accordion-body
-    .scorecard_cards_count
-    table
-    tbody
-    tr
-    td
-    p {
+  .scorecars_tabs_main .accordion .accordion-body .scorecard_cards_count table tbody tr td p {
     width: 200px;
   }
 
@@ -1766,10 +1756,6 @@ a {
   .score_main_sec {
     padding: 20px 0;
 
-    .score_row {
-      margin-bottom: 40px;
-    }
-
     .result_content {
       h4 {
         font-size: 13px;
@@ -2003,6 +1989,7 @@ a {
 .player-tab-wrapper {
   background-color: #1a2a43;
   padding-bottom: 10px;
+
   .tab-role-outer {
     display: flex;
     gap: 20px;
@@ -2976,8 +2963,7 @@ a {
     display: none;
   }
 
-  @media (max-width: 1400px) {
-  }
+  @media (max-width: 1400px) {}
 
   @media (max-width: 1200px) {
     .format-tabs {

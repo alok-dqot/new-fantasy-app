@@ -24,7 +24,7 @@ const Info = () => {
 
         matchStore.get.detail(`${id}`);
 
-    }, [router.isReady]);
+    }, [router.isReady, id]);
     return (
         <>
             <HomeWrapper>

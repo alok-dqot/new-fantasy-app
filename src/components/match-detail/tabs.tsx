@@ -1,9 +1,15 @@
 
+import useMatchStore from "@/services/match/match.service";
 import { Tab, Tabs } from "@mui/material";
 import { useRouter } from "next/router";
 
 
 const MatchDetailTabs = ({ selectIndex }: { selectIndex: any }) => {
+
+    const matchStore = useMatchStore();
+    const {
+        match: { detail },
+    } = matchStore;
 
     const tabItem = [
         "Info",
@@ -26,11 +32,19 @@ const MatchDetailTabs = ({ selectIndex }: { selectIndex: any }) => {
         <div className="col-md-9 p-2">
             <div className="tab-role-outer">
                 <Tabs value={selectIndex} onChange={() => { }} className='home-tabs bg-card' variant="scrollable"  >
+
                     {
-                        tabItem.map((t: string) => (
-                            <Tab label={t} onClick={() => handleUpdateTab(t)} />
-                        )
-                        )
+                        detail.status && tabItem.map((t: string) => {
+                            if ((t == 'Live' || t == 'Scorecard') && detail.status.toLowerCase() != 'live') {
+                                return (
+                                    <></>
+                                )
+                            }
+                            return (
+
+                                <Tab label={t} onClick={() => handleUpdateTab(t)} />
+                            )
+                        })
                     }
 
                 </Tabs>

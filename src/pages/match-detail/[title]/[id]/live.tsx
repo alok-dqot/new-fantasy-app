@@ -24,7 +24,7 @@ const live = () => {
 
     }, [route.isReady, id])
 
-    console.log("live", info)
+    // console.log("live", info)
 
     return (
         <>
@@ -148,7 +148,7 @@ const CommentaryCard = () => {
 
 
 export const ThisOver = ({ over }: any) => {
-    console.log("info", over)
+    // console.log("info", over)
 
     return (
         <>
@@ -196,7 +196,7 @@ export const ThisOver = ({ over }: any) => {
 
 
 export const Lastover = ({ lastover }: any) => {
-    console.log("info", lastover)
+    // console.log("info", lastover)
 
     return (
         <>

@@ -37,12 +37,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 }
 
             </div>
-
-            <div className="embla__controls">
-
-
-
-            </div>
         </section>
     )
 }
@@ -77,11 +71,7 @@ export const EmblaCarousel2: React.FC<PropType> = (props) => {
 
             </div>
 
-            <div className="embla__controls">
 
-
-
-            </div>
         </section>
     )
 }

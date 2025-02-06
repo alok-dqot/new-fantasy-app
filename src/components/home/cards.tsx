@@ -1,5 +1,6 @@
 import useNewsStore from "@/features/news/news.service";
 import useSeriesStore from "@/features/series/series.service";
+import { titleToSlug } from "@/helpers/slugConverter";
 import moment from "moment";
 import Link from "next/link"
 import { useEffect } from "react"
@@ -108,11 +109,11 @@ export const PopularSeries = () => {
                 <h4>Popular Series</h4>
                 {store.s.list.length > 0 && store.s?.list?.slice(0, 8).map((series: any) => {
                     return (
-                        <Link href={`#`} key={series?.id} className="ser-name" >{series?.name}</Link>
+                        <Link href={`/series/${series?.id}/${titleToSlug(series.name)}/overview`} key={series?.id} className="ser-name" >{series?.name}</Link>
                     )
                 })}
 
-                <Link href="#" className='btn btn-main more'>See More</Link>
+                <Link href="/series" className='btn btn-main more'>See More</Link>
 
             </div>
 

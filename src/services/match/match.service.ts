@@ -14,7 +14,7 @@ export interface Match {
   match_number: string;
   format: number;
   format_str: string;
-  status: number;
+  status: string;
   status_str: string;
   status_note: string;
   verified: string;
@@ -315,6 +315,9 @@ export interface Batsmen2 {
 }
 
 export interface Team {
+  playingPlayers: Player[];
+  name: string;
+  code: string;
   tid: number;
   title: string;
   abbr: string;
@@ -330,33 +333,19 @@ export interface Team {
 }
 
 export interface Player {
+  name: string;
   pid: number;
   title: string;
   short_name: string;
-  first_name: string;
-  last_name: string;
-  middle_name: string;
-  birthdate: string;
-  birthplace: string;
   country: string;
   primary_team: any[];
   logo_url: string;
   playing_role: string;
   batting_style: string;
   bowling_style: string;
-  fielding_position: string;
-  recent_match: number;
-  recent_appearance: number;
-  fantasy_player_rating: number;
   alt_name: string;
-  facebook_profile: string;
-  twitter_profile: string;
-  instagram_profile: string;
-  debut_data: string;
   thumb_url: string;
-  nationality: string;
-  role: string;
-  role_str: string;
+  is_captain: boolean;
 }
 
 /** Match Score Card interface */
@@ -465,8 +454,6 @@ const useMatchStore = create(
             }
           );
         },
-
-        
 
         scoreCard: async (id: string) => {
           toast.promise(
