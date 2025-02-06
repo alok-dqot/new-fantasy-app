@@ -10,7 +10,6 @@ const squads = () => {
     return (
         <>
 
-
             <HomeWrapper>
                 <TopMatchSection />
                 <div className="m-detail-outer">
@@ -18,10 +17,6 @@ const squads = () => {
                 </div>
                 <SquadsData />
             </HomeWrapper>
-
-
-
-
 
 
         </>

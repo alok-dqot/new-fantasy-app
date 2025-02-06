@@ -692,6 +692,10 @@
 
 .home-tabs {
     border-radius: var(--normal-brdr-radius);
+
+    .selected {
+        border-bottom: solid 2px var(--primary);
+    }
 }
 
 

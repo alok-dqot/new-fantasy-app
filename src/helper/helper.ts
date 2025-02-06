@@ -126,5 +126,5 @@ export {
   matchSquad,
   matchesOdssAPI,
   cricketOddsApi,
-  seriesAPI,
+  // seriesAPI,
 };
