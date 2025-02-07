@@ -62,28 +62,29 @@ const pages = [
 ];
 
 function Navbar() {
-	const [isNav, setIsNav] = useState(false);
+	// const [isNav, setIsNav] = useState(false);
 
-	const handleCloseNavMenu = () => {
-		setIsNav(false);
-		document.body.style.position = 'relative';
-	};
+	// const handleCloseNavMenu = () => {
+	// 	setIsNav(false);
+	// 	// document.body.style.position = 'relative';
+	// 	document.body.style.overflow = 'auto';
+	// };
 
-	const matchStore = useMatchStore();
+	// const matchStore = useMatchStore();
 
 
-	useEffect(() => {
-		matchStore.get.featuredMatches();
+	// useEffect(() => {
+	// 	matchStore.get.featuredMatches();
 
-		if (isNav) {
-			document.body.style.position = 'fixed';
-		} else {
-			document.body.style.position = 'relative';
-		}
-		return () => {
-			document.body.style.position = 'relative';
-		};
-	}, [isNav]);
+	// 	if (isNav) {
+	// 		document.body.style.position = 'hidden';
+	// 	} else {
+	// 		document.body.style.position = 'auto';
+	// 	}
+	// 	return () => {
+	// 		document.body.style.position = 'auto';
+	// 	};
+	// }, [isNav]);
 
 	return (
 		<>
@@ -97,47 +98,14 @@ function Navbar() {
 				<div className="back-color-carousel">
 
 				</div>
-				<div className='navbar-1'>
-					<Container >
-						<Toolbar disableGutters className="appbar-outer">
-							<Link href="/home">
-								<img src="/icons/logo.png" alt="Logo" />
-							</Link>
-
-							<Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-								<IconButton
-									size="large"
-									aria-label="menu"
-									aria-controls="menu-appbar"
-									aria-haspopup="true"
-									onClick={() => setIsNav(!isNav)}
-									color="inherit"
-								>
-									<MenuIcon />
-								</IconButton>
 
 
-								{isNav && <MobileNav onClose={handleCloseNavMenu} />}
-							</Box>
 
 
-							<Box sx={{ display: { xs: 'none', md: 'flex', gap: '26px', }, py: '10px' }}>
-								{pages.map((page) => (
-									<Link key={page.title} href={page.url} passHref>
 
-										<DropDown items={page.subNav}>
-
-											{page.title}
-
-										</DropDown>
-									</Link>
-								))}
-							</Box>
-						</Toolbar>
-					</Container>
-
-				</div>
 			</div>
+			<NavFirst />
+			<br /><br />
 
 		</>
 
@@ -164,18 +132,73 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
 	}, [onClose]);
 
 	return (
-		<Box ref={navRef} className="mb-nav-outer">
-			{pages.map((page) => (
-				<Link key={page.title} href={page.url} passHref>
-					<Button
-						sx={{ justifyContent: 'left', my: 1 }}
-						onClick={onClose}
-					>
-						{page.title}
-					</Button>
-				</Link>
-			))}
-		</Box>
+		// <Box ref={navRef} className="mb-nav-outer">
+		// 	{pages.map((page) => (
+		// 		<Link key={page.title} href={page.url} passHref>
+		// 			<Button
+		// 				sx={{ justifyContent: 'left', my: 1 }}
+		// 				onClick={onClose}
+		// 			>
+		// 				{page.title}
+		// 			</Button>
+		// 		</Link>
+		// 	))}
+		// </Box>
+
+		<>
+			<div className="mobile-menu-overlay" onClick={onClose} />
+			<Box ref={navRef} className="mb-nav-outer">
+				{pages.map((page) => (
+					<div key={page.title} className="mobile-menu-item">
+						<Link href={page.url} passHref>
+							<Button
+								fullWidth
+								sx={{
+									justifyContent: 'space-between',
+									my: 1,
+									textAlign: 'left',
+									color: '#333',
+									padding: '10px 15px',
+									'&:hover': {
+										backgroundColor: '#f5f5f5'
+									}
+								}}
+								onClick={onClose}
+							>
+								{page.title}
+								{page.subNav && page.subNav.length > 0 && (
+									<span className="menu-arrow">›</span>
+								)}
+							</Button>
+						</Link>
+
+						{page.subNav && page.subNav.length > 0 && (
+							<div className="submenu">
+								{page.subNav.map((subItem) => (
+									<Link key={subItem.title} href={subItem.url} passHref>
+										<Button
+											fullWidth
+											sx={{
+												justifyContent: 'left',
+												pl: 4,
+												textAlign: 'left',
+												color: '#666',
+												'&:hover': {
+													backgroundColor: '#f5f5f5'
+												}
+											}}
+											onClick={onClose}
+										>
+											{subItem.title}
+										</Button>
+									</Link>
+								))}
+							</div>
+						)}
+					</div>
+				))}
+			</Box>
+		</>
 	);
 };
 
@@ -278,4 +301,82 @@ const UpcomingMatches = () => {
 			</NormalCarousel>
 		</div>
 	);
+};
+
+
+
+
+const NavFirst = () => {
+
+	const [isNav, setIsNav] = useState(false);
+
+	const handleCloseNavMenu = () => {
+		setIsNav(false);
+		//document.body.style.position = 'fixed';
+		document.body.style.overflow = 'auto';
+	};
+
+	const matchStore = useMatchStore();
+
+
+	useEffect(() => {
+		matchStore.get.featuredMatches();
+
+		if (isNav) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'auto';
+		}
+		return () => {
+			document.body.style.overflow = 'auto';
+		};
+	}, [isNav]);
+
+
+
+
+	return (
+		<>
+			<div className='navbar-1'>
+				<Container >
+					<Toolbar disableGutters className="appbar-outer">
+						<Link href="/home">
+							<img src="/icons/logo.png" alt="Logo" />
+						</Link>
+
+						<Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+							<IconButton
+								size="large"
+								aria-label="menu"
+								aria-controls="menu-appbar"
+								aria-haspopup="true"
+								onClick={() => setIsNav(!isNav)}
+								color="inherit"
+							>
+								<MenuIcon />
+							</IconButton>
+
+
+							{isNav && <MobileNav onClose={handleCloseNavMenu} />}
+						</Box>
+
+
+						<Box sx={{ display: { xs: 'none', md: 'flex', gap: '26px', }, py: '10px' }}>
+							{pages.map((page) => (
+								<Link key={page.title} href={page.url} passHref>
+
+									<DropDown items={page.subNav}>
+
+										{page.title}
+
+									</DropDown>
+								</Link>
+							))}
+						</Box>
+					</Toolbar>
+				</Container>
+
+			</div>
+		</>
+	)
 };

@@ -139,7 +139,7 @@ const HomeRankTable = React.memo((props: any) => {
                                         <StyledTableCell align='left'>{role == 0 ? "Team" : "Player"}</StyledTableCell>
 
                                         {/* <StyledTableCell align='right'></StyledTableCell> */}
-                                        <StyledTableCell align='right'></StyledTableCell>
+                                        {/* <StyledTableCell align='right'></StyledTableCell> */}
                                         {/* <StyledTableCell align='right'></StyledTableCell> */}
                                         {/* <StyledTableCell align="right">NRR</StyledTableCell> */}
                                         <StyledTableCell align='center'>Rating</StyledTableCell>
@@ -169,7 +169,7 @@ const HomeRankTable = React.memo((props: any) => {
                                                     className=''>
                                                     {row?.name}
                                                 </StyledTableCell>
-                                                <StyledTableCell align='right'></StyledTableCell>
+                                                {/* <StyledTableCell align='right'></StyledTableCell> */}
                                                 {/* <StyledTableCell align='right'></StyledTableCell> */}
 
                                                 <StyledTableCell
@@ -193,6 +193,7 @@ const HomeRankTable = React.memo((props: any) => {
                     </div>
                     {/* <OverviewTable /> */}
                 </div>
+
             </div>
         </Grid>
     );

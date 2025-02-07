@@ -149,6 +149,9 @@ const CommentaryCard = () => {
 
 export const ThisOver = ({ over }: any) => {
     // console.log("info", over)
+    const totalRuns = over?.reduce((total: number, ball: any) => {
+        return total + (ball.runs || 0);
+    }, 0) || 0;
 
     return (
         <>
@@ -187,7 +190,7 @@ export const ThisOver = ({ over }: any) => {
                 }
 
 
-                <p className="total-run">= 3</p>
+                <p className="total-run">= {totalRuns}</p>
             </div>
 
         </>
@@ -197,6 +200,11 @@ export const ThisOver = ({ over }: any) => {
 
 export const Lastover = ({ lastover }: any) => {
     // console.log("info", lastover)
+    const totalRuns = lastover?.reduce((total: number, ball: any) => {
+        return total + (ball.runs || 0);
+    }, 0) || 0;
+
+
 
     return (
         <>
@@ -235,7 +243,7 @@ export const Lastover = ({ lastover }: any) => {
                 }
 
 
-                <p className="total-run">= 3</p>
+                <p className="total-run">= {totalRuns}</p>
             </div>
 
         </>

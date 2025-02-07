@@ -35,7 +35,7 @@ function Index() {
 
 
 			<div className="row mt-2">
-				<div className="col-md-3">
+				<div className="col-md-3 col-sm-12">
 					<PopularSeries />
 					<DownloadAppComp />
 					<div className="team_add_image mt-5">
@@ -44,7 +44,7 @@ function Index() {
 
 				</div>
 
-				<div className="col-12 col-md-6">
+				<div className="col-12 col-md-6 col-sm-12">
 					<TopStories />
 					{
 						blogStore.blog.allBlogList?.grid?.length > 0 && blogStore.blog.allBlogList?.grid?.map((b: any) => {
@@ -52,7 +52,7 @@ function Index() {
 								<div className="hm-article-card mt-4" key={b?.id}>
 									<Link href={`/blogdetail/${b?.id}`}>
 										<div className="row">
-											<div className="col-md-3">
+											<div className="col-md-3 ">
 												<CustomImg src={b?.image_url} alt="" />
 											</div>
 											<div className="col-md-9">
@@ -69,7 +69,7 @@ function Index() {
 						})
 					}
 				</div>
-				<div className="col-12 col-md-3">
+				<div className="col-12 col-md-3 col-sm-12">
 					<HomeRankTable />
 					<FollowUs />
 					<PicOfTheDay />
@@ -79,9 +79,9 @@ function Index() {
 
 
 
-			<div className="row">
+			<div className="row see-more-btn">
 
-				<div className="col-6 col-md-2 m-auto mt-3">
+				<div className="col-6 col-md-2 m-auto mt-3 btn-coloum">
 
 					<Link href="/news?type=news" className='btn btn-main'>See More</Link>
 				</div>
