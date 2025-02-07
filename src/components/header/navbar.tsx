@@ -13,6 +13,9 @@ import useUpcomingStore from '@/features/series/upcoming.service';
 import NormalCarousel, { FullPageCarousel } from '../carousel/NormalCarousel';
 import useMatchStore from '@/features/match/match.service';
 
+import CloseIcon from '@mui/icons-material/Close';
+import { size } from 'lodash';
+
 
 const pages = [
 	{ title: "Schedule", url: "/schedule/upcoming/all", icon: null, subNav: [] },
@@ -114,10 +117,113 @@ function Navbar() {
 
 export default Navbar;
 
-const MobileNav = ({ onClose }: { onClose: () => void }) => {
-	const navRef = useRef<HTMLDivElement>(null);
 
-	// Close menu when clicking outside
+
+
+// const MobileNav = ({ onClose }: { onClose: () => void }) => {
+// 	const navRef = useRef<HTMLDivElement>(null);
+
+// 	// Close menu when clicking outside
+// 	useEffect(() => {
+// 		const handleClickOutside = (event: MouseEvent) => {
+// 			if (navRef.current && !navRef.current.contains(event.target as Node)) {
+// 				onClose();
+// 			}
+// 		};
+
+// 		document.addEventListener('mousedown', handleClickOutside);
+// 		return () => {
+// 			document.removeEventListener('mousedown', handleClickOutside);
+// 		};
+// 	}, [onClose]);
+
+// 	return (
+
+// 		<>
+// 			<div className="mobile-menu-overlay" onClick={onClose} />
+
+// 			<Box ref={navRef} className="mb-nav-outer">
+// 				{pages.map((page) => (
+// 					<div key={page.title} className="mobile-menu-item">
+// 						<Link href={page.url} passHref>
+// 							<Button
+// 								fullWidth
+// 								sx={{
+// 									justifyContent: 'space-between',
+// 									my: 1,
+// 									textAlign: 'left',
+// 									color: '#333',
+// 									padding: '10px 15px',
+// 									'&:hover': {
+// 										backgroundColor: '#f5f5f5'
+// 									}
+// 								}}
+// 								onClick={onClose}
+// 							>
+// 								{page.title}
+// 								{page.subNav && page.subNav.length > 0 && (
+// 									<span className="menu-arrow">›</span>
+// 								)}
+// 							</Button>
+// 						</Link>
+
+// 						{page.subNav && page.subNav.length > 0 && (
+// 							<div className="submenu">
+// 								{page.subNav.map((subItem) => (
+// 									<Link key={subItem.title} href={subItem.url} passHref>
+// 										<Button
+// 											fullWidth
+// 											sx={{
+// 												justifyContent: 'left',
+// 												pl: 4,
+// 												textAlign: 'left',
+// 												color: '#666',
+// 												'&:hover': {
+// 													backgroundColor: '#f5f5f5'
+// 												}
+// 											}}
+// 											onClick={onClose}
+// 										>
+// 											{subItem.title}
+// 										</Button>
+// 									</Link>
+// 								))}
+// 							</div>
+// 						)}
+// 					</div>
+// 				))}
+// 			</Box>
+// 		</>
+// 	);
+// };
+
+// Types definition
+interface SubNavItem {
+	title: string;
+	url: string;
+}
+
+interface PageItem {
+	title: string;
+	url: string;
+	subNav?: SubNavItem[];
+}
+
+interface MobileNavProps {
+	onClose: () => void;
+	pages: PageItem[];
+}
+
+interface ExpandedItems {
+	[key: string]: boolean;
+}
+
+
+
+const MobileNav: React.FC<MobileNavProps> = ({ onClose, pages }) => {
+	const navRef = useRef<HTMLDivElement>(null);
+	const [expandedItems, setExpandedItems] = useState<ExpandedItems>({});
+
 	useEffect(() => {
 		const handleClickOutside = (event: MouseEvent) => {
 			if (navRef.current && !navRef.current.contains(event.target as Node)) {
@@ -131,53 +237,75 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
 		};
 	}, [onClose]);
 
-	return (
-		// <Box ref={navRef} className="mb-nav-outer">
-		// 	{pages.map((page) => (
-		// 		<Link key={page.title} href={page.url} passHref>
-		// 			<Button
-		// 				sx={{ justifyContent: 'left', my: 1 }}
-		// 				onClick={onClose}
-		// 			>
-		// 				{page.title}
-		// 			</Button>
-		// 		</Link>
-		// 	))}
-		// </Box>
+	const toggleSubmenu = (pageTitle: string, event: React.MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+		setExpandedItems(prev => ({
+			...prev,
+			[pageTitle]: !prev[pageTitle]
+		}));
+	};
 
+	return (
 		<>
 			<div className="mobile-menu-overlay" onClick={onClose} />
+
 			<Box ref={navRef} className="mb-nav-outer">
+				<div className='close-section'>
+					<CloseIcon onClick={onClose} />
+				</div>
+
+
 				{pages.map((page) => (
 					<div key={page.title} className="mobile-menu-item">
-						<Link href={page.url} passHref>
-							<Button
-								fullWidth
-								sx={{
-									justifyContent: 'space-between',
-									my: 1,
-									textAlign: 'left',
-									color: '#333',
-									padding: '10px 15px',
-									'&:hover': {
-										backgroundColor: '#f5f5f5'
-									}
-								}}
-								onClick={onClose}
-							>
-								{page.title}
-								{page.subNav && page.subNav.length > 0 && (
-									<span className="menu-arrow">›</span>
-								)}
-							</Button>
-						</Link>
+
+						<Button
+
+							fullWidth
+							sx={{
+								justifyContent: 'space-between',
+								my: 1,
+								textAlign: 'left',
+
+								padding: '10px 20px',
+
+							}}
+							onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+								page.subNav?.length
+									? toggleSubmenu(page.title, e)
+									: onClose()
+							}
+						>
+							{page.title}
+							{page.subNav && page.subNav.length > 0 && (
+								<span
+									className={`menu-arrow ${expandedItems[page.title] ? 'rotated' : ''}`}
+									style={{
+										transform: expandedItems[page.title] ? 'rotate(90deg)' : 'none',
+										transition: 'transform 0.3s ease'
+									}}
+								>
+									›
+								</span>
+							)}
+						</Button>
+
+
 
 						{page.subNav && page.subNav.length > 0 && (
-							<div className="submenu">
+							<div
+								className="submenu"
+								style={{
+									maxHeight: expandedItems[page.title] ? '500px' : '0',
+									overflow: 'hidden',
+									transition: 'max-height 0.3s ease-in-out',
+
+								}}
+							>
 								{page.subNav.map((subItem) => (
 									<Link key={subItem.title} href={subItem.url} passHref>
 										<Button
 											fullWidth
+											component="a"
 											sx={{
 												justifyContent: 'left',
 												pl: 4,
@@ -198,9 +326,19 @@ const MobileNav = ({ onClose }: { onClose: () => void }) => {
 					</div>
 				))}
 			</Box>
+
 		</>
 	);
 };
+
+
+
+
+
+
+
+
+
 
 
 
@@ -357,7 +495,7 @@ const NavFirst = () => {
 							</IconButton>
 
 
-							{isNav && <MobileNav onClose={handleCloseNavMenu} />}
+							{isNav && <MobileNav onClose={handleCloseNavMenu} pages={pages} />}
 						</Box>
 
 

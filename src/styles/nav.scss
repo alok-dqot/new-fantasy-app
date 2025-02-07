@@ -50,15 +50,29 @@
     width: 280px;
     height: 100vh;
     background: white;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    // box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
     padding: 20px 0;
     z-index: 1000;
     overflow-y: auto;
     transition: transform 0.3s ease;
+    .close-section {
+      text-align: end;
+      padding-right: 10px;
+    }
   }
 
   .mobile-menu-item {
-    border-bottom: 1px solid #eee;
+    //border-bottom: 1px solid #eee;
+    button {
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+  .submenu {
+    a {
+      font-size: 12px;
+      font-weight: 500;
+    }
   }
 }
 
