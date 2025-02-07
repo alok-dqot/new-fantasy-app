@@ -1,5 +1,5 @@
 
-import useMatchStore from "@/services/match/match.service";
+import useMatchStore from "@/features/match/match.service";
 import { Tab, Tabs } from "@mui/material";
 import { useRouter } from "next/router";
 
@@ -20,12 +20,13 @@ const MatchDetailTabs = ({ selectIndex }: { selectIndex: any }) => {
     ]
 
     const router = useRouter()
-    const { title, id } = router.query;
+    const { title, id } = router.query as any;
 
     function handleUpdateTab(page: string) {
 
         router.push(`/match-detail/${title}/${id}/${page.toLowerCase()}`)
     }
+
 
 
     return (
@@ -34,15 +35,16 @@ const MatchDetailTabs = ({ selectIndex }: { selectIndex: any }) => {
                 <Tabs value={selectIndex} onChange={() => { }} className='home-tabs bg-card' variant="scrollable"  >
 
                     {
-                        detail.status && tabItem.map((t: string) => {
+                        detail.status && tabItem.map((t: string, index: number) => {
                             if ((t == 'Live' || t == 'Scorecard') && detail.status.toLowerCase() != 'live') {
                                 return (
                                     <></>
                                 )
                             }
+
                             return (
 
-                                <Tab label={t} onClick={() => handleUpdateTab(t)} />
+                                <Tab label={t} onClick={() => handleUpdateTab(t)} className={selectIndex == index ? "selected" : ''} />
                             )
                         })
                     }

@@ -3,7 +3,7 @@ import Header from "../../../../components/header/navbar";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import { useRouter } from "next/router";
-import useMatchStore from "@/services/match/match.service";
+import useMatchStore from "@/features/match/match.service";
 import Link from "next/link";
 import Footer from "@/components/footer/Footer";
 

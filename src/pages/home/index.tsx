@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import useSeriesStore from "@/services/series/series.service";
 import moment from "moment";
 import HomeWrapper from "@/components/wrapper/HomeWrapper";
 import Link from "next/link";
@@ -11,13 +10,6 @@ import { CustomImg } from "@/helper/image.helper";
 
 
 function Index() {
-
-	const seriesStore = useSeriesStore()
-
-	useEffect(() => {
-		seriesStore.get.paginate({ size: 9 })
-	}, []);
-
 
 	const blogStore = useNewsStore();
 

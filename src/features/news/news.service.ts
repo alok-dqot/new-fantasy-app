@@ -1,4 +1,4 @@
-import { Match } from "@/services/match/match.service";
+import { Match } from "@/features/match/match.service";
 import { Competition } from "@/types/MatchScoreCard";
 import Api from "@/util/api";
 import { create } from "zustand";

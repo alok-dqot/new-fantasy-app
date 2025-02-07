@@ -1,4 +1,4 @@
-import useMatchStore from '@/services/match/match.service';
+import useMatchStore from '@/features/match/match.service';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react'

@@ -53,7 +53,7 @@ const useNavFeatureStore = create(
 
           toast.promise(Api.get(path, { query: { size } }), {
             loading: "fetching...",
-            success: (res) => {
+            success: (res: any) => {
               set((prev) => ({
                 navFeature: {
                   ...prev.navFeature,
@@ -63,7 +63,7 @@ const useNavFeatureStore = create(
               }));
               return res?.message || "fetched";
             },
-            error: (err) => {
+            error: (err: any) => {
               return err;
             },
           });
