@@ -219,7 +219,7 @@ const PlayerCareerStatsBatting = ({ playerdata }: any) => {
     return (
         <>
             <div className="player-career-stats">
-                <h6 className="player-name">{playerdata?.data?.name} Career Stats</h6>
+                <h6 className="player-name">{playerdata?.data?.name} Career Stats </h6>
                 <p className="section-title">Batting</p>
                 <BasicTable />
 

@@ -30,6 +30,7 @@ const LiveData = () => {
         store.get.list(id as any);
 
     }, [route.isReady, id])
+    console.log("store", store)
 
 
 
@@ -152,9 +153,8 @@ const Batter = ({ batter }: any) => {
                                     <>
 
                                         <tr>
-                                            <td
-                                                className="name"
-                                                onClick={() => router.push(`/player-profile/${batsmen?.id}/matches`)}
+                                            <td className="name"
+                                                onClick={() => router.push(`/player-profile/${batsmen?.player_id}/matches`)}
                                             >{batsmen?.name}<br />
                                                 <span className="extra-info">{batsmen?.how_out}</span>
                                             </td>

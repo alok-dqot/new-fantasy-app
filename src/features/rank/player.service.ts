@@ -30,6 +30,22 @@ const usePlayerRankStore = create(
             }));
           } catch (err) {}
         },
+        
+        //  info:async ({ gender, size }: { gender: string; size: number }) => {
+        //   try {
+        //     const res = await Api.get("/player/rank/all", {
+        //       query: { size, gender },
+        //     });
+        //     await set((prev) => ({
+        //       player: {
+        //         ...prev.player,
+        //         list: res,
+        //         total: res?.meta?.total,
+        //       },
+        //     }));
+        //   } catch (err) {}
+        // },
+
       },
     })
   )

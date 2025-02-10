@@ -142,6 +142,7 @@ const InputGroup = () => {
 };
 
 const MatchCards = () => {
+
     const AutocompleteCard = [
 
         {
@@ -176,6 +177,7 @@ const MatchCards = () => {
             altText: 'BGT Logo'
         },
     ];
+
 
     return (
         <>

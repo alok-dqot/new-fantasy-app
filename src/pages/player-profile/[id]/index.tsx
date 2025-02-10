@@ -25,7 +25,7 @@ const Index = () => {
             .catch((error) => console.log(error))
     }, [router?.isReady]);
 
-    console.log(apiData)
+    console.log("apidata", apiData)
 
     return (
         <>
