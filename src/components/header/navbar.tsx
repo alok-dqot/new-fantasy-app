@@ -65,29 +65,6 @@ const pages = [
 ];
 
 function Navbar() {
-	// const [isNav, setIsNav] = useState(false);
-
-	// const handleCloseNavMenu = () => {
-	// 	setIsNav(false);
-	// 	// document.body.style.position = 'relative';
-	// 	document.body.style.overflow = 'auto';
-	// };
-
-	// const matchStore = useMatchStore();
-
-
-	// useEffect(() => {
-	// 	matchStore.get.featuredMatches();
-
-	// 	if (isNav) {
-	// 		document.body.style.position = 'hidden';
-	// 	} else {
-	// 		document.body.style.position = 'auto';
-	// 	}
-	// 	return () => {
-	// 		document.body.style.position = 'auto';
-	// 	};
-	// }, [isNav]);
 
 	return (
 		<>
@@ -118,84 +95,6 @@ function Navbar() {
 export default Navbar;
 
 
-
-
-// const MobileNav = ({ onClose }: { onClose: () => void }) => {
-// 	const navRef = useRef<HTMLDivElement>(null);
-
-// 	// Close menu when clicking outside
-// 	useEffect(() => {
-// 		const handleClickOutside = (event: MouseEvent) => {
-// 			if (navRef.current && !navRef.current.contains(event.target as Node)) {
-// 				onClose();
-// 			}
-// 		};
-
-// 		document.addEventListener('mousedown', handleClickOutside);
-// 		return () => {
-// 			document.removeEventListener('mousedown', handleClickOutside);
-// 		};
-// 	}, [onClose]);
-
-// 	return (
-
-// 		<>
-// 			<div className="mobile-menu-overlay" onClick={onClose} />
-
-// 			<Box ref={navRef} className="mb-nav-outer">
-// 				{pages.map((page) => (
-// 					<div key={page.title} className="mobile-menu-item">
-// 						<Link href={page.url} passHref>
-// 							<Button
-// 								fullWidth
-// 								sx={{
-// 									justifyContent: 'space-between',
-// 									my: 1,
-// 									textAlign: 'left',
-// 									color: '#333',
-// 									padding: '10px 15px',
-// 									'&:hover': {
-// 										backgroundColor: '#f5f5f5'
-// 									}
-// 								}}
-// 								onClick={onClose}
-// 							>
-// 								{page.title}
-// 								{page.subNav && page.subNav.length > 0 && (
-// 									<span className="menu-arrow">›</span>
-// 								)}
-// 							</Button>
-// 						</Link>
-
-// 						{page.subNav && page.subNav.length > 0 && (
-// 							<div className="submenu">
-// 								{page.subNav.map((subItem) => (
-// 									<Link key={subItem.title} href={subItem.url} passHref>
-// 										<Button
-// 											fullWidth
-// 											sx={{
-// 												justifyContent: 'left',
-// 												pl: 4,
-// 												textAlign: 'left',
-// 												color: '#666',
-// 												'&:hover': {
-// 													backgroundColor: '#f5f5f5'
-// 												}
-// 											}}
-// 											onClick={onClose}
-// 										>
-// 											{subItem.title}
-// 										</Button>
-// 									</Link>
-// 								))}
-// 							</div>
-// 						)}
-// 					</div>
-// 				))}
-// 			</Box>
-// 		</>
-// 	);
-// };
 
 // Types definition
 interface SubNavItem {
@@ -394,12 +293,6 @@ const UpcomingMatches = () => {
 		store.get.list()
 	}, [])
 
-	// useEffect(() => {
-	// 	const intervalId = setInterval(async () => {
-	// 		await store.get.refreshmatches()
-	// 	}, 10000);
-	// 	return () => clearInterval(intervalId);
-	// }, []);
 
 	const filteredMatches = [
 		...new Map(store.match?.totalList.map((item: any) => [item.id, item])).values() as any
@@ -482,7 +375,7 @@ const NavFirst = () => {
 							<img src="/icons/logo.png" alt="Logo" />
 						</Link>
 
-						<Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+						<Box sx={{ display: { xs: 'flex', md: 'none', color: 'var(--text-white)' } }}>
 							<IconButton
 								size="large"
 								aria-label="menu"

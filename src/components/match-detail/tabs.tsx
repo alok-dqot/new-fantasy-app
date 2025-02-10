@@ -36,7 +36,7 @@ const MatchDetailTabs = ({ selectIndex }: { selectIndex: any }) => {
 
                     {
                         detail.status && tabItem.map((t: string, index: number) => {
-                            if ((t == 'Live' || t == 'Scorecard') && detail.status.toLowerCase() != 'live') {
+                            if ((t == 'Live' || t == 'Scorecard') && detail.status.toLowerCase() == 'upcoming') {
                                 return (
                                     <></>
                                 )
