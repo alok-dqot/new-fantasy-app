@@ -37,7 +37,7 @@ const Index = () => {
             <HomeWrapper>
                 <Container sx={{ mb: 10 }}>
 
-                    <div className="row">
+                    <div className="row series__featured-match">
                         <SeriesCard />
                         <SeriesTabs
                             selectIndex={0}
@@ -54,6 +54,7 @@ const Index = () => {
                                 store.series.match?.length > 0 &&
                                 store.series.match?.map((match: any) => {
                                     return (
+
                                         <SeriersOverViewCard
                                             match={match}
                                             competition={store.series.list?.details}
@@ -177,7 +178,7 @@ export const SeriesCard = () => {
 
 export const SeriersOverViewCard = (props: any) => {
 
-
+    console.log("pp", props)
     const router = useRouter()
     return (
 
@@ -199,23 +200,13 @@ export const SeriersOverViewCard = (props: any) => {
 
                 }}
             >
-                <div className='col-4 se'>
-                    <CustomImg
-                        src={getImgUrl(props?.match?.teama?.image_url)}
-                        alt={props.match?.teama?.code}
-                    />
-
-
-                    <h4>{props.match?.teama?.name}</h4>
-
-                </div>
-                <div className='col-4 fix-status mt-2' >
+                <div className='col-12 col-md-4 optional fix-status mt-2' >
 
 
                     {props?.match?.status?.toLowerCase() === 'live' ?
                         <div className="match-update">
                             <span>{''}</span>
-                            <h2>LIVE</h2>
+                            <h2>LIVE </h2>
                         </div>
 
                         : props?.match?.status?.toLowerCase() == 'completed' ?
@@ -229,13 +220,67 @@ export const SeriersOverViewCard = (props: any) => {
 
 
                 </div>
-                <div className='col-4 se'>
+
+                <div className='col-12 col-md-4 first se mt-2'>
+                    <CustomImg
+                        src={getImgUrl(props?.match?.teama?.image_url)}
+                        alt={props.match?.teama?.code}
+                    />
+
+
+                    <h4>{props.match?.teama?.name}</h4>
+
+                </div>
+
+                <div className='col-12 col-md-4 second fix-status mt-2' >
+
+
+                    {props?.match?.status?.toLowerCase() === 'live' ?
+                        <div className="match-update">
+                            <span>{''}</span>
+                            <h2>LIVE </h2>
+                        </div>
+
+                        : props?.match?.status?.toLowerCase() == 'completed' ?
+                            <h4 style={{ color: 'green' }}>Match Completed</h4>
+                            :
+                            <>
+                                <h4 >{moment(props.match?.starting_at).format('Do MMM , h:mm A')}</h4>
+                            </>
+
+                    }
+
+
+                </div>
+
+                <div className='col-12 col-md-4 third se mt-2'>
                     <CustomImg
                         src={getImgUrl(props?.match?.teamb?.image_url)}
                         alt={props.match?.teamb?.code}
                     />
 
                     <h4 style={{ textAlign: 'right' }}>{props.match?.teamb?.name}</h4>
+
+                </div>
+
+                <div className='col-12 col-md-4 optional-2 fix-status mt-3' >
+
+
+                    {props?.match?.status_note?.toLowerCase() === 'status_note' ?
+                        <div className="match-update">
+                            <span>{''}</span>
+                            <h2>status-note </h2>
+                        </div>
+
+                        : props?.match?.status?.toLowerCase() == 'completed' ?
+                            <h4 style={{ color: 'green' }}></h4>
+                            :
+                            <>
+                                <h4 >{moment(props.match?.starting_at).format('Do MMM , h:mm A')}</h4>
+                            </>
+
+                    }
+
 
                 </div>
             </div>

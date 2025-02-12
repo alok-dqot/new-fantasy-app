@@ -31,7 +31,7 @@ const MatchDetailTabs = ({ selectIndex }: { selectIndex: any }) => {
 
     return (
         <div className="col-md-9 p-2">
-            <div className="tab-role-outer">
+            <div className="">
                 <Tabs value={selectIndex} onChange={() => { }} className='home-tabs bg-card' variant="scrollable"  >
 
                     {

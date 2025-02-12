@@ -1,0 +1,149 @@
+@media screen and (max-width: 1400px) {
+  //home
+
+  .fixture-list {
+    .optional {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  //overview
+  //home
+  .fixture-list {
+    .first {
+      padding: 0;
+      gap: 8px;
+      h4 {
+        font-size: 13px;
+      }
+    }
+    .second {
+      h4 {
+        font-size: 13px;
+        text-align: center;
+      }
+      h2 {
+        font-size: 13px;
+        text-align: center;
+        // margin-top: 10px;
+      }
+    }
+    .third {
+      padding: 0;
+      gap: 8px;
+      h4 {
+        font-size: 13px;
+      }
+    }
+    .optional-2 {
+      padding: 0;
+      h4 {
+        text-align: left;
+        font-size: 13px;
+      }
+    }
+  }
+  .sr-info-outer {
+    h2 {
+      font-size: 18px !important;
+    }
+    .sr-info-body {
+      h4 {
+        font-size: 14px;
+      }
+      h3 {
+        font-size: 14px !important;
+      }
+    }
+  }
+
+  //schedule
+  .fixture-list {
+    .series-status {
+      //background-color: red;
+      h4 {
+        font-size: 15px !important;
+      }
+    }
+  }
+
+  //squads
+  .match-score-wrapper {
+    p {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .innings-table {
+      table {
+        thead {
+          th {
+            font-size: 12px;
+          }
+          td {
+            font-size: 12px;
+          }
+        }
+        tbody {
+          th {
+            font-size: 12px;
+          }
+          td {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  //home
+
+  .fixture-list {
+    padding: 10px 20px;
+    gap: 6px;
+    .optional {
+      display: block;
+      padding: 0;
+      h2 {
+        text-align: left;
+      }
+    }
+    .second {
+      display: none;
+    }
+  }
+  //series-detail-section
+  .sr-info-outer {
+    h2 {
+      font-size: 16px !important;
+    }
+    .sr-info-body {
+      h4 {
+        font-size: 12px;
+      }
+      h3 {
+        font-size: 12px !important;
+      }
+    }
+  }
+
+  .series__featured-match {
+    .series-title {
+      h4 {
+        margin: 0;
+      }
+    }
+  }
+  //schedule
+  .fixture-list {
+    .series-status {
+      //background-color: red;
+      h4 {
+        font-size: 13px !important;
+      }
+    }
+  }
+}

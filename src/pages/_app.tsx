@@ -21,7 +21,8 @@ import '../styles/infocard.scss';
 import '../styles/squads.scss';
 import '../styles/embla.scss';
 import '../styles/match-news.scss';
-import '../styles/@media.home.scss'
+import '../styles/@media.home.scss';
+import '../styles/@media.series.scss'
 
 
 

@@ -245,12 +245,14 @@ export const SeriesMatchCard = (props: any) => {
                     </div>
                 </div>
             </Grid>
+
             <Grid item xs={5} className='fixture-list-team-1' >
                 <div className="series-status">
                     <p>{props?.data?.format} on </p>
                     <h4 style={{ marginTop: '5px' }} >{props?.data?.venue?.name}</h4>
                 </div>
             </Grid>
+
             <Grid item xs={6} className='fixture-list-teamb'>
 
             </Grid>
