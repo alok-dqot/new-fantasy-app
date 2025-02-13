@@ -77,7 +77,7 @@ export default Index;
 
 
 
-const InningsTable = (data: any, color: string) => {
+const InningsTable = () => {
 
 
 	return (

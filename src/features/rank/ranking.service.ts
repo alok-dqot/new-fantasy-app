@@ -80,7 +80,7 @@ const useMensRankStore = create(
               }));
               return res?.message || "fetched";
             },
-            error: (err) => {
+            error: (err: any) => {
               return err;
             },
           });
