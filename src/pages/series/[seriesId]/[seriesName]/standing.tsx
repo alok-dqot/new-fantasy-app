@@ -85,11 +85,13 @@ const InningsTable = () => {
 
 		<div className='scr-standing-ho'>
 			<Grid container>
+
 				<Grid item xs={3} className="stnd-scr-1">
 					<li className="stnd-team-head-li">No</li>
 					<li className="stnd-team-head-li name-head">Team</li>
 
 				</Grid>
+
 				<Grid item xs={5.6} className="stnd-scr-2" style={{ paddingLeft: '2px' }}>
 					<li className="stnd-team-head-li">M</li>
 					<li className="stnd-team-head-li">W</li>
@@ -100,10 +102,11 @@ const InningsTable = () => {
 					<li className="stnd-team-head-li">PTS</li>
 					<li className="stnd-team-head-li nr">Net RR.</li>
 				</Grid>
-				<Grid item xs={3.1} className="stnd-scr-3">
+
+				{/* <Grid item xs={3.1} className="stnd-scr-3">
 					<li className="stnd-team-head-li">Form</li>
 
-				</Grid>
+				</Grid> */}
 
 			</Grid>
 		</div>
@@ -155,7 +158,8 @@ const MatchScore = (props: any) => {
 								<li className="stnd-team-head-li">{props?.value?.points}</li>
 								<li className="stnd-team-head-li">{props?.value?.nrr}</li>
 							</Grid>
-							<Grid item xs={3.1} className="stnd-scr-3">
+
+							{/* <Grid item xs={3.1} className="stnd-scr-3">
 								<li className="stnd-team-head-li form">
 									{props?.value?.teamForm?.length > 0 && props?.value?.teamForm?.map((t: any) => {
 										if (t == 'L') {
@@ -178,11 +182,13 @@ const MatchScore = (props: any) => {
 
 								</li>
 
-							</Grid>
+							</Grid> */}
 
 						</Grid>
 					</div>
 				</AccordionSummary>
+
+
 				<AccordionDetails className='scr-card-cnt-1'>
 
 					<div className="stnd-cnt-mr">
@@ -228,6 +234,11 @@ const MatchScore = (props: any) => {
 		</div>
 	);
 }
+
+
+
+
+
 
 interface BallProps {
 	run: string;

@@ -266,10 +266,10 @@ export const SeriersOverViewCard = (props: any) => {
                 <div className='col-12 col-md-4 optional-2 fix-status mt-3' >
 
 
-                    {props?.match?.status_note?.toLowerCase() === 'status_note' ?
+                    {props?.match?.status_note ?
                         <div className="match-update">
                             <span>{''}</span>
-                            <h2>status-note </h2>
+                            <h2>{props?.match?.status_note} </h2>
                         </div>
 
                         : props?.match?.status?.toLowerCase() == 'completed' ?

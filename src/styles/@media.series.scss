@@ -9,8 +9,26 @@
 }
 
 @media screen and (max-width: 768px) {
+  .all-tabs-colum {
+    .tab-role-outer {
+      button {
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .series__featured-match {
+    .series-title {
+      h4 {
+        margin: 0;
+      }
+    }
+  }
   //overview
+
   //home
+
   .fixture-list {
     .first {
       padding: 0;
@@ -96,9 +114,87 @@
       }
     }
   }
+
+  //table
+  .scr-standing-bo {
+    padding: 5px 0px;
+
+    .stnd-scr-1,
+    .stnd-scr-2,
+    .stnd-scr-3 {
+      justify-content: flex-start;
+      gap: 12px;
+    }
+
+    .stnd-scr-2 {
+      padding-left: 0 !important;
+      gap: 30px;
+      // padding-left: 20px;
+      //margin-left: -5px;
+    }
+  }
+
+  .stnd-team-head-li {
+    font-size: 12px;
+    padding: 0px;
+    min-width: 24px;
+    text-align: center;
+
+    &.name {
+      margin-left: 0 !important;
+      min-width: auto;
+      max-width: 80px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &.no {
+      padding-left: 0 !important;
+    }
+  }
+
+  // Adjust accordion details for mobile
+  .scr-card-cnt-1 {
+    .stnd-cnt-mr {
+      .cnt-head {
+        h3 {
+          font-size: 14px;
+        }
+        h4 {
+          font-size: 12px;
+        }
+
+        .detail-cnt {
+          padding: 8px 0;
+
+          h3 {
+            font-size: 13px;
+
+            &.status_note {
+              font-size: 11px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Adjust grid layout for mobile
+  .MuiGrid-item {
+    &.stnd-scr-1 {
+      flex: 0 0 45% !important;
+      max-width: 45% !important;
+    }
+
+    &.stnd-scr-2 {
+      flex: 0 0 55% !important;
+      max-width: 55% !important;
+    }
+  }
 }
 
 @media screen and (max-width: 576px) {
+  //overview
   //home
 
   .fixture-list {
@@ -132,8 +228,14 @@
 
   .series__featured-match {
     .series-title {
+      a {
+        font-size: 17px;
+      }
+
       h4 {
+        font-size: 17px;
         margin: 0;
+        font-weight: 600;
       }
     }
   }
@@ -144,6 +246,27 @@
       h4 {
         font-size: 13px !important;
       }
+    }
+  }
+}
+
+// Additional breakpoint for very small screens
+@media screen and (max-width: 375px) {
+  .stnd-team-head-li {
+    font-size: 11px;
+    min-width: 20px;
+
+    &.name {
+      max-width: 60px;
+    }
+  }
+
+  .scr-standing-bo {
+    padding: 6px 8px;
+
+    .stnd-scr-1,
+    .stnd-scr-2 {
+      gap: 8px;
     }
   }
 }

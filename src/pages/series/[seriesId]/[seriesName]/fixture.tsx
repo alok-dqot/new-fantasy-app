@@ -63,7 +63,7 @@ const Matches = () => {
 
                     <div className="row">
 
-                        <div className="col-md-8" >
+                        <div className="col-12 col-md-8 " >
 
                             <div className="sr-title">
 
