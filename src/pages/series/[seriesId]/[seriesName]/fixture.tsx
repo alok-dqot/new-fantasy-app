@@ -63,7 +63,7 @@ const Matches = () => {
 
                     <div className="row">
 
-                        <div className="col-12 col-md-8 " >
+                        <div className="col-12 col-md-8 ">
 
                             <div className="sr-title">
 
@@ -203,16 +203,16 @@ export const SeriesMatchCard = (props: any) => {
                 <span>{moment(props?.data?.starting_at).format('DD MMM YYYY, ddd, h:mm A z')}</span>
 
                 {status === 'completed' && (
-                    <span className="result"><Dot /> Result | {props?.data?.status_note}</span>
+                    <span className="result"> Result | {props?.data?.status_note}</span>
                 )}
                 {status === 'upcoming' && (
-                    <span className="live"><Dot /> Upcoming scheduled</span>
+                    <span className="live"> Upcoming scheduled</span>
                 )}
                 {status === 'live' && (
                     <span className="live"><Dot /> Live </span>
                 )}
                 {status === 'abandoned' && (
-                    <span className="live"><Dot /> {props?.data.status_note}</span>
+                    <span className="live">{props?.data.status_note}</span>
                 )}
 
 
@@ -246,7 +246,7 @@ export const SeriesMatchCard = (props: any) => {
                 </div>
             </Grid>
 
-            <Grid item xs={5} className='fixture-list-team-1' >
+            <Grid item xs={12} md={5} className='fixture-list-team-1 ' >
                 <div className="series-status">
                     <p>{props?.data?.format} on </p>
                     <h4 style={{ marginTop: '5px' }} >{props?.data?.venue?.name}</h4>

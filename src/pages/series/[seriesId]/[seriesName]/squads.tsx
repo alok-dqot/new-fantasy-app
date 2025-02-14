@@ -42,6 +42,7 @@ const Squad = () => {
         <div>
 
             <HomeWrapper>
+
                 <Container sx={{ mb: 10 }}>
 
                     <div className="row">
@@ -155,10 +156,10 @@ const InningsTable = (data: any) => {
                 <TableHead className='innings-table-head'>
                     <TableRow className='innings-table-row'>
                         <StyledTableCell>Player</StyledTableCell>
-                        <StyledTableCell></StyledTableCell>
-                        <StyledTableCell align='left'></StyledTableCell>
-                        <StyledTableCell align="right"></StyledTableCell>
-                        <StyledTableCell align="right"></StyledTableCell>
+                        <StyledTableCell ></StyledTableCell>
+                        <StyledTableCell align='left' className="tb-mobile"></StyledTableCell>
+                        <StyledTableCell align="right" className="tb-mobile"></StyledTableCell>
+                        <StyledTableCell align="right" className="tb-mobile"></StyledTableCell>
                         <StyledTableCell align="right">Role</StyledTableCell>
                         <StyledTableCell align="right">Credit</StyledTableCell>
                         {/* <StyledTableCell align="right">SR</StyledTableCell> */}
@@ -212,10 +213,10 @@ const ScoreCardRow = (data: any) => {
 
                 </StyledTableCell>
 
-                <StyledTableCell align="left"></StyledTableCell>
-                <StyledTableCell align="right"></StyledTableCell>
-                <StyledTableCell align="right"></StyledTableCell>
-                <StyledTableCell align="right"></StyledTableCell>
+                <StyledTableCell align="left" className="tb-mobile"></StyledTableCell>
+                <StyledTableCell align="right" className="tb-mobile"></StyledTableCell>
+                <StyledTableCell align="right" className="tb-mobile"></StyledTableCell>
+                <StyledTableCell align="right" ></StyledTableCell>
                 <StyledTableCell align="right">{data.role}</StyledTableCell>
                 <StyledTableCell align="right">{data.credit}</StyledTableCell>
             </StyledTableRow>

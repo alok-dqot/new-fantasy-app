@@ -78,9 +78,19 @@
   }
 
   //schedule
+  .fixture-list-teama {
+    h4 {
+      font-size: 15px !important;
+      font-weight: 600;
+    }
+  }
   .fixture-list {
     .series-status {
-      //background-color: red;
+      text-align: justify;
+      margin-top: 10px;
+      p {
+        display: none;
+      }
       h4 {
         font-size: 15px !important;
       }
@@ -123,14 +133,12 @@
     .stnd-scr-2,
     .stnd-scr-3 {
       justify-content: flex-start;
-      gap: 12px;
     }
 
     .stnd-scr-2 {
       padding-left: 0 !important;
-      gap: 30px;
-      // padding-left: 20px;
-      //margin-left: -5px;
+
+      justify-content: space-around;
     }
   }
 
@@ -245,6 +253,15 @@
       //background-color: red;
       h4 {
         font-size: 13px !important;
+      }
+    }
+  }
+
+  //squads
+  .match-score-wrapper {
+    .innings-table {
+      .tb-mobile {
+        display: none;
       }
     }
   }
